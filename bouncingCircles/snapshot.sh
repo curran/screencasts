@@ -49,10 +49,9 @@ do
   cp $f snapshots/$NEXT_SNAP_NAME
 done
 
-echo "Created snapshots/"$NEXT_SNAP_NAME
-
-echo "Uploading to github.com/curran/screencasts/"${PWD##*/}
-
 git add ./
 git commit -m "added $NEXT_SNAP_NAME" -a
 git push
+
+echo "Created snapshots/"$NEXT_SNAP_NAME
+echo "Uploaded to github.com/curran/screencasts/"${PWD##*/}

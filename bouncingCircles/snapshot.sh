@@ -53,5 +53,6 @@ git add ./
 git commit -m "added $NEXT_SNAP_NAME" -a
 git push
 
+echo ""
 echo "Created snapshots/"$NEXT_SNAP_NAME
 echo "Uploaded to github.com/curran/screencasts/"${PWD##*/}

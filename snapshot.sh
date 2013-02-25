@@ -49,9 +49,12 @@ do
   cp $f snapshots/$NEXT_SNAP_NAME
 done
 
+# Push to GitHub in the background
+{
 git add ./
 git commit -m "added $NEXT_SNAP_NAME" -a
-git push > /dev/null &
+git push &
+} > /dev/null 2>&1
 
 echo ""
 echo "Created snapshots/"$NEXT_SNAP_NAME

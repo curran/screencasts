@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Bouncing Circles</title>
+    <script>
+
+// shim layer with setTimeout fallback
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          window.oRequestAnimationFrame      ||
+          window.msRequestAnimationFrame     ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+    </script>
+  </head>
+  <body style="margin: 0px">
+    <canvas id="myCanvas"></canvas>
+    <script src="script.js"></script>
+  </body>
+</html>

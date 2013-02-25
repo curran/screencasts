@@ -51,7 +51,7 @@ done
 
 echo "Created snapshots/"$NEXT_SNAP_NAME
 
-echo "Adding to git..."${PWD##*/}
+echo "Uploading to github.com/curran/screencasts/"${PWD##*/}
 
 git add ./
 git commit -m "added $NEXT_SNAP_NAME" -a

@@ -50,3 +50,9 @@ do
 done
 
 echo "Created snapshots/"$NEXT_SNAP_NAME
+
+echo "Adding to git..."${PWD##*/}
+
+git add ./
+git commit -m "added $NEXT_SNAP_NAME" -a
+git push

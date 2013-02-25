@@ -51,7 +51,7 @@ done
 
 git add ./
 git commit -m "added $NEXT_SNAP_NAME" -a
-git push &
+git push > /dev/null &
 
 echo ""
 echo "Created snapshots/"$NEXT_SNAP_NAME

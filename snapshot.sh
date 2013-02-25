@@ -57,6 +57,6 @@ git push &
 } > /dev/null 2>&1
 
 echo ""
-echo "Created snapshots/"$NEXT_SNAP_NAME". Uploaded to GitHub:"
-echo "  github.com/curran/screencasts/tree/gh-pages/"${PWD##*/}
+echo "Created "$NEXT_SNAP_NAME" and uploaded to GitHub:"
+echo "http://github.com/curran/screencasts/tree/gh-pages/"${PWD##*/}
 echo ""

@@ -1,4 +1,4 @@
-A screencast that covers the following topics:
+A [screencast](http://www.youtube.com/watch?v=yF0T7lviBnY&feature=youtu.be) that covers the following topics:
 
  * HTML, HEAD, and BODY tags
  * The SCRIPT tag

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Hello Canvas!</title>
+  </head>
+  <body style="margin: 0px;">
+    <canvas width="500" height="500" 
+            id="myCanvas"></canvas>
+    <script>
+        var theCanvas = document.getElementById("myCanvas"),
+          c = theCanvas.getContext("2d"),
+          time = 0;
+
+
+        var render = function(){
+          c.clearRect(0, 0, theCanvas.width, 
+                            theCanvas.height);
+          var i, x, y, sin, cos,
+              width = 10, height = 10,
+              numRectangles = 100;
+
+          for(i = 0; i < numRectangles; i++){
+            sin = Math.sin(i / 20 + time) / 2 + 0.5;
+            x = sin * (theCanvas.width - width);
+            cos = Math.cos(i / 20 + time) / 2 + 0.5;
+            y = cos * (theCanvas.width - width);
+            c.fillRect(x, y, width, height);
+          }
+          time += 0.01;
+        }
+        (function animLoop(){
+          requestAnimationFrame(animLoop);
+          render();
+        })();
+
+    </script>
+  </body>
+</html>

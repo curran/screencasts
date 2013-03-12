@@ -1,6 +1,6 @@
 A [screencast](http://www.youtube.com/watch?v=yF0T7lviBnY&feature=youtu.be) in which a simulation of bouncing and colliding balls is programmed from scratch using JavaScript and HTML5 Canvas.
 
-Check out the final product! [run it](http://curran.github.com/screencasts/bouncingCircles/snapshots/snapshot17/index.html), [view source](https://github.com/curran/screencasts/blob/gh-pages/bouncingCircles/snapshots/snapshot17/script.js), [play with the code](http://jsbin.com/obodip/2/edit)
+Check out the final product! [run it](http://curran.github.com/screencasts/bouncingCircles/snapshots/snapshot17/index.html), [view source](https://github.com/curran/screencasts/blob/gh-pages/bouncingCircles/snapshots/snapshot17/script.js), [play with the code](http://jsbin.com/obodip/2/edit) (try setting `gravity = 0` for billiard balls).
 
 The screencast covers the following topics:
 

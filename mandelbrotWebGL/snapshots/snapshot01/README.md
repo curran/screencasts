@@ -1,0 +1,1 @@
+This snapshot contains starter code from [WebGL Lesson 1 – A triangle and a square](http://learningwebgl.com/blog/?p=28), modified to use the [gl-matrix librari](https://github.com/toji/gl-matrix) and cleaned up slightly.

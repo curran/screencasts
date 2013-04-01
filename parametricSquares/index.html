@@ -9,8 +9,7 @@
         var theCanvas = document.getElementById("myCanvas"),
           c = theCanvas.getContext("2d"),
           time = 0;
-
-
+  
         var render = function(){
           c.clearRect(0, 0, theCanvas.width, 
                             theCanvas.height);
@@ -27,10 +26,7 @@
           }
           time += 0.01;
         }
-        (function animLoop(){
-          requestAnimationFrame(animLoop);
-          render();
-        })();
+        setInterval(render, 16);
 
     </script>
   </body>

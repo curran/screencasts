@@ -46,7 +46,7 @@ mkdir snapshots/$NEXT_SNAP_NAME
 for f in `ls | grep -v snapshot`
 do
   # copy it into the next snapshot directory.
-  cp $f snapshots/$NEXT_SNAP_NAME
+  cp -r $f snapshots/$NEXT_SNAP_NAME
 done
 
 # Push to GitHub in the background

@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script data-main="js/app.js" src="js/lib/require.js"></script>
+    <script>
+      require.config({
+        urlArgs: "bust=" +  (new Date()).getTime()
+      });
+    </script>
+  </head>
+  <body style="margin:0">
+    <canvas width="500" height="500" id="canvas"></canvas>
+  </body>
+</html>

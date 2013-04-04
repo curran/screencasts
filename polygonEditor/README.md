@@ -1,4 +1,12 @@
-This code is from a screencast recorded at an HTML5 tutorial at UMass Lowell given by Curran Kelleher on 4/1/2013. In the tutorial we use [Underscore.js](http://underscorejs.org/), [Backbone.js](http://backbonejs.org/), [Require.js](http://requirejs.org/), the [Model View Controller paradigm](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), and [HTML5 Canvas](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) to build from scratch a graphical polygon editor. Check out the [screencast on YouTube](http://www.youtube.com/watch?v=lNfKn0wbxYI&feature=youtu.be).
+This code is from a screencast recorded at an HTML5 tutorial at UMass Lowell given by Curran Kelleher on 4/1/2013. In the tutorial we use [Underscore.js](http://underscorejs.org/), [Backbone.js](http://backbonejs.org/), [Require.js](http://requirejs.org/), the [Model View Controller paradigm](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), and [HTML5 Canvas](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) to build from scratch a graphical polygon editor. Check out the .
+
+## Material
+
+ * [screencast on YouTube](http://www.youtube.com/watch?v=lNfKn0wbxYI&feature=youtu.be)
+ * Final Product: [run it](http://curran.github.com/screencasts/polygonEditor/snapshots/snapshot06/), [view source](https://github.com/curran/screencasts/tree/gh-pages/polygonEditor/snapshots/snapshot06)
+ * [snapshots of incremental progress](https://github.com/curran/screencasts/tree/gh-pages/polygonEditor/snapshots)
+
+## Topics List
 
  * Underscore.js
    * each

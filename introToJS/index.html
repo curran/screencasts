@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>My First Program</title>
+</head>
+<body>
+  <canvas id="myCanvas" width="300" height="300"></canvas>
+  <script>
+    // The number of squares
+    var n = 100;
+
+    // The size of squares
+    var width = 10;
+    var height = 10;
+
+    // Time, increasing every frame
+    var time = 0;
+
+    var c = myCanvas.getContext('2d');
+    
+    var redraw = function(){
+      var i;
+      c.clearRect(0, 0, myCanvas.width, myCanvas.height);
+      for(i = 0; i < n; i = i + 1){
+        x = myCanvas.width / 2 + Math.sin(time * i) * 100;
+        y = i/n * myCanvas.width;
+        c.fillRect(x, y, width, height);
+      }
+      time = time + 0.001;
+    }
+    setInterval(redraw, 16);
+  </script>
+</body>
+</html>

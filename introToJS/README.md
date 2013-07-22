@@ -7,8 +7,10 @@ Content of the tutorial:
  * Opening the Chrome JavaScript Console
  * Hello World
 
-    console.log("Hello World");
-    Hello World
+```javascript
+console.log("Hello World");
+Hello World
+```
 
  * Variables
 

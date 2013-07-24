@@ -2,10 +2,10 @@ The code from an ["Introduction to Coding" tutorial](http://www.youtube.com/watc
 
 In this tutorial we wrote the following code:
 
- * JavaScript Console Log
+ * [JavaScript Console Log](https://github.com/curran/screencasts/blob/gh-pages/introToJS/console.js)
  * [Virtual Pendulums](https://github.com/curran/screencasts/blob/gh-pages/introToJS/index.html) (modeling the pendulums seen in the video [Pendulum Waves starring Alan](http://www.youtube.com/watch?v=yVkdfJ9PkRQ))
 
-[Edit the code](http://jsbin.com/uhaziw/3/edit)!
+[Play with the code in JSBin](http://jsbin.com/uhaziw/3/edit)!
 
 Content of the tutorial:
 

@@ -1,6 +1,7 @@
 The code from an ["Mathematical Patterns" tutorial](http://todo-add-youtube-link) given at MIT on July 28, 2013. Part of the [HSSP 2013](http://curransoft.com/interactivegraphics/?p=485) course [Computer Programming and Interactive Graphics](http://curransoft.com/interactivegraphics/?p=485).
 
-[Play with the code in JSBin](http://jsbin.com/todo-add-link)!
+<img src="circularPatterns/mathPatterns.png"></img>
+[Play with the code in JSBin](http://jsbin.com/urecex/31/edit)!
 
 Here's the [starter code](http://jsbin.com/edifap/4/edit) you can use to follow along (also [in GitHub](starter)).
 

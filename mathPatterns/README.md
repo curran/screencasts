@@ -1,13 +1,16 @@
 The code from an ["Mathematical Patterns" tutorial](http://www.youtube.com/watch?v=P8SaZtTctKQ&feature=youtu.be) given at MIT on July 28, 2013. Part of the [MIT HSSP 2013 Program](https://esp.mit.edu/learn/HSSP/index.html) course [Computer Programming and Interactive Graphics](http://curransoft.com/interactivegraphics/?p=485).
 
-<img src="circularPatterns/mathPatterns.png"></img>
-[Play with the code in JSBin](http://jsbin.com/urecex/31/edit)!
 
 Here's the code written in the tutorial:
 
  * <img src="starter/starter.png"/>Starter Code ([in JSBin](http://jsbin.com/edifap/4/edit), [in GitHub](starter)) you can start here to follow along.
  * <img src="gridOfCircles/gridOfCircles.png"/>Grid of Circles ([in JSBin](http://jsbin.com/edifap/30/edit), [in GitHub](gridOfCircles)) you can start here to follow along.
  * <img src="changingColors/changingColors.png"/>Changing Colors with Waves ([in JSBin](http://jsbin.com/edifap/54/edit), [in GitHub](changingColors))
+
+Here's a more elaborate example demonstrating where you can take these concepts:
+
+<img src="circularPatterns/mathPatterns.png"></img>
+([run full screen](http://jsbin.com/urecex/36), [edit in JSBin](http://jsbin.com/urecex/31/edit), [in GitHub](circularPatterns))
 
 Content of the tutorial:
 

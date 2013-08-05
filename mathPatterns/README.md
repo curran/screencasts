@@ -5,7 +5,7 @@ The code from an ["Mathematical Patterns" tutorial](http://http://www.youtube.co
 
 Here's the code:
 
- * Starter Code ([in JSBin](http://jsbin.com/edifap/4/edit), [in GitHub](starter)) you can start here to follow along.
+ * <img src="starter/starter.png"/>Starter Code ([in JSBin](http://jsbin.com/edifap/4/edit), [in GitHub](starter)) you can start here to follow along.
  * <img src="gridOfCircles/gridOfCircles.png"/>Grid of Circles ([in JSBin](http://jsbin.com/edifap/30/edit), [in GitHub](gridOfCircles)) you can start here to follow along.
  * <img src="changingColors/changingColors.png"/>Changing Colors with Waves ([in JSBin](http://jsbin.com/edifap/54/edit), [in GitHub](changingColors)
 

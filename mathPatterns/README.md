@@ -1,4 +1,4 @@
-The code from an ["Mathematical Patterns" tutorial](http://www.youtube.com/watch?v=P8SaZtTctKQ&feature=youtu.be) given at MIT on July 28, 2013. Part of the [HSSP 2013](http://curransoft.com/interactivegraphics/?p=485) course [Computer Programming and Interactive Graphics](http://curransoft.com/interactivegraphics/?p=485).
+The code from an ["Mathematical Patterns" tutorial](http://www.youtube.com/watch?v=P8SaZtTctKQ&feature=youtu.be) given at MIT on July 28, 2013. Part of the [MIT HSSP 2013 Program](https://esp.mit.edu/learn/HSSP/index.html) course [Computer Programming and Interactive Graphics](http://curransoft.com/interactivegraphics/?p=485).
 
 <img src="circularPatterns/mathPatterns.png"></img>
 [Play with the code in JSBin](http://jsbin.com/urecex/31/edit)!

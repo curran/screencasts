@@ -3,7 +3,11 @@ The code from an ["Mathematical Patterns" tutorial](http://http://www.youtube.co
 <img src="circularPatterns/mathPatterns.png"></img>
 [Play with the code in JSBin](http://jsbin.com/urecex/31/edit)!
 
-Here's the [starter code](http://jsbin.com/edifap/4/edit) you can use to follow along (also [in GitHub](starter)).
+Here's the code:
+
+ * Starter Code ([in JSBin](http://jsbin.com/edifap/4/edit), [in GitHub](starter)) you can start here to follow along.
+ * <img src="gridOfCircles/gridOfCircles.png"/>Grid of Circles ([in JSBin](http://jsbin.com/edifap/30/edit), [in GitHub](gridOfCircles)) you can start here to follow along.
+ * <img src="changingColors/changingColors.png"/>Changing Colors with Waves ([in JSBin](http://jsbin.com/edifap/54/edit), [in GitHub](changingColors)
 
 Content of the tutorial:
 

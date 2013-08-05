@@ -1,7 +1,7 @@
 The code from an ["Mathematical Patterns" tutorial](http://www.youtube.com/watch?v=P8SaZtTctKQ&feature=youtu.be) given at MIT on July 28, 2013. Part of the [MIT HSSP 2013 Program](https://esp.mit.edu/learn/HSSP/index.html) course [Computer Programming and Interactive Graphics](http://curransoft.com/interactivegraphics/?p=485).
 
 
-Here's the code written in the tutorial:
+Here's the code from the tutorial:
 
  * <img src="starter/starter.png"/>Starter Code ([in JSBin](http://jsbin.com/edifap/4/edit), [in GitHub](starter)) you can start here to follow along.
  * <img src="gridOfCircles/gridOfCircles.png"/>Grid of Circles ([in JSBin](http://jsbin.com/edifap/30/edit), [in GitHub](gridOfCircles)) you can start here to follow along.
@@ -9,7 +9,7 @@ Here's the code written in the tutorial:
 
 Here's a more elaborate example demonstrating where you can take these concepts:
 
-<img src="circularPatterns/mathPatterns.png"></img>
+ * <img src="circularPatterns/mathPatterns.png"></img>
 ([run full screen](http://jsbin.com/urecex/36), [edit in JSBin](http://jsbin.com/urecex/31/edit), [in GitHub](circularPatterns))
 
 Content of the tutorial:

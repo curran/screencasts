@@ -31,3 +31,7 @@ Content of the tutorial:
  * Using JSBin to publish your programs in comments
  * Using stroke to draw outlines
  * Setting the color to be a function of size
+
+Check out the work done by students based on the tutorial:
+
+ * <img src="studentWork/bk1music/bk1music.png"/> DNA-like thing by YouTube user BK1Music ([run full screen](http://curran.github.io/screencasts/mathPatterns/studentWork/bk1music/index.html), [in JSFiddle](http://jsfiddle.net/B1KMusic/3wt3U/show/), [in GitHub](studentWork/bk1music))

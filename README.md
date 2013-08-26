@@ -7,6 +7,6 @@ Here's a suggested sequence progressing in complexity:
  * Bouncing Circles - [screencast](http://www.youtube.com/watch?v=yF0T7lviBnY&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/bouncingCircles)
  * Polygon Editor - [screencast](http://www.youtube.com/watch?v=lNfKn0wbxYI) - [code](https://github.com/curran/screencasts/tree/gh-pages/polygonEditor)
 
-All content released under the (MIT License)[http://opensource.org/licenses/MIT]. Feel free to use and modify!
+All content released under the [MIT License](http://opensource.org/licenses/MIT). Feel free to use and modify!
 
 Curran Kelleher

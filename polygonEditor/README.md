@@ -1,5 +1,4 @@
-This code is from a screencast recorded at an HTML5 tutorial at UMass Lowell given by [Curran Kelleher](https://github.com/curran/portfolio) on 4/1/2013. In the tutorial we use [Underscore.js](http://underscorejs.org/), [Backbone.js](http://backbonejs.org/), [Require.js](http://requirejs.org/), the [Model View Controller paradigm](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), and [HTML5 Canvas](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) to build from scratch a graphical polygon editor. Check out the .
-
+This code is from a screencast recorded at an HTML5 tutorial at UMass Lowell given by [Curran Kelleher](https://github.com/curran/portfolio) on 4/1/2013. In the tutorial we use [Underscore.js](http://underscorejs.org/), [Backbone.js](http://backbonejs.org/), [Require.js](http://requirejs.org/), the [Model View Controller paradigm](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), and [HTML5 Canvas](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) to build from scratch a graphical polygon editor.
 ## Material
 
  * [screencast on YouTube](http://www.youtube.com/watch?v=lNfKn0wbxYI&feature=youtu.be)

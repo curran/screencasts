@@ -11,21 +11,23 @@
       http://www.w3schools.com/html/html_forms.asp
       http://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text
     -->
-    <title>Forms Example</title>
+    <title>Text Field Example</title>
   </head>
   <body>
     <form>
       <input id="inputField">
     </form>
     <script>
-      // Set the initial value programmatically.
+
+      // Set the initial value programmatically using jQuery.
       $('#inputField').val('some text');
       
-      // Listen for changes.
-      $('#inputField').keyup(function(event) {
+      // Listen for changes using jQuery.
+      $('#inputField').keyup(function (event) {
         var input = $(event.target).val();
         console.log(input);
       });
+
     </script>
   </body>
 </html>

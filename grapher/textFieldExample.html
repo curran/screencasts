@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <meta charset=utf-8 />
+    <!--
+      An example that reads text from a form when it changes.
+      by Curran Kelleher 10/28/2013
+      
+      Draws from:
+      http://www.w3schools.com/html/html_forms.asp
+      http://stackoverflow.com/questions/574941/best-way-to-track-onchange-as-you-type-in-input-type-text
+    -->
+    <title>Forms Example</title>
+  </head>
+  <body>
+    <form>
+      <input id="inputField">
+    </form>
+    <script>
+      // Set the initial value programmatically.
+      $('#inputField').val('some text');
+      
+      // Listen for changes.
+      $('#inputField').keyup(function(event) {
+        var input = $(event.target).val();
+        console.log(input);
+      });
+    </script>
+  </body>
+</html>

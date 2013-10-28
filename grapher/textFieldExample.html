@@ -20,16 +20,19 @@
       <input id="inputField">
     </form>
     <script>
+    (function (){
+      // Make a jQuery selection to access the input DOM element.
+      var input = $('#inputField');
 
-      // Set the initial value programmatically using jQuery.
-      $('#inputField').val('some text');
+      // Set the initial text value programmatically using jQuery.
+      input.val('some text');
       
       // Listen for changes using jQuery.
-      $('#inputField').keyup(function (event) {
-        var input = $(event.target).val();
-        console.log(input);
+      input.keyup(function (event) {
+        var text = input.val();
+        console.log(text);
       });
-
+    }());
     </script>
   </body>
 </html>

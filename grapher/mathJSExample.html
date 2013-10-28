@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      An example that uses math.js
+      See also http://mathjs.org/
+      by Curran Kelleher 10/28/2013
+      
+      Draws from this example:
+      https://github.com/josdejong/mathjs/blob/master/examples/expressions.js
+    -->
+    <title>Math.js Example</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.15.0/math.min.js"></script>
+    <script>
+      (function (){
+        var math = mathjs(),
+            expr = 'a * b',
+            scope = {
+              a: 3,
+              b: 4
+            },
+            result = math.eval(expr, scope);
+        console.log(result);
+      }());
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

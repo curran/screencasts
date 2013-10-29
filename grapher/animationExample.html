@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      An example that introduces animation using HTML5 Canvas and requestAnimationFrame.
+
+      by Curran Kelleher 10/29/2013
+      
+      Draws from:
+      http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+    -->
+    <title>Animation Example</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="200" height="200"></canvas>
+    <script>
+      (function () {
+        
+        // Extract the Canvas context and initialize time.
+        var canvas = document.getElementById('myCanvas'),
+            c = canvas.getContext('2d'),
+            time = 0;
+
+        // Clears the cancas and draws a line that moves in a circle.
+        // This function is called about 60 times each second, which is
+        // the standard display refresh rate.
+        function render(){
+
+          // Compute the line end point based on time.
+          var x = Math.sin(time) * 100 + 100,
+              y = Math.cos(time) * 100 + 100;
+          
+          // Clear the background.
+          c.clearRect(0, 0, canvas.width, canvas.height);
+          
+          // Draw the line.
+          c.beginPath();
+          c.moveTo(100, 100);
+          c.lineTo(x, y);
+          c.lineWidth = 5;
+          c.stroke();
+          
+          // Increment time.
+          time += 0.01;
+        }
+        
+        // Using setInterval generally works for providing animation at
+        // around 60 frames per second, but the timing is not synchronized
+        // with the display refresh rate, so the animation appears choppy.
+        
+        //setInterval(render, 1000 / 60);
+        
+        // Using requestAnimationFrame is preferable to setInterval, because
+        // this API accounts for synchronization with the display refresh rate,
+        // so animation using this method is smooth.
+        (function animloop(){
+          requestAnimationFrame(animloop);
+          render();
+        })();
+      }());
+    </script>
+  </body>
+</html>

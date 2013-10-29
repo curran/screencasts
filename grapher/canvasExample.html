@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      An example that introduces the HTML5 Canvas API.
+
+      by Curran Kelleher 10/29/2013
+      
+      Draws from:
+      http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html
+      http://www.html5canvastutorials.com/tutorials/html5-canvas-circles/
+      http://www.html5canvastutorials.com/tutorials/html5-canvas-lines/
+      http://www.html5canvastutorials.com/tutorials/html5-canvas-text-color/
+    -->
+    <title>Canvas Example</title>
+  </head>
+  <body>
+    <canvas width="200" height="200" id="myCanvas"></canvas>
+    <script>
+      (function () {
+        var canvas = document.getElementById('myCanvas'),
+            c = canvas.getContext('2d');
+        
+        // Draw a gray background.
+        c.fillStyle = 'lightgray';
+        c.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw a red square.
+        c.fillStyle = 'red';
+        c.fillRect(20, 20, 60, 60);
+        
+        // Define a circle path.
+        c.beginPath();
+        c.arc(145, 145, 40, 0, Math.PI * 2);
+        
+        // Fill the circle path green.
+        c.fillStyle = 'rgb(0, 255, 100)';
+        c.fill();
+        
+        // Add some text on top of the circle.
+        c.font = '20pt Calibri';
+        c.fillStyle = 'maroon';
+        c.textAlign = 'center';
+        c.textBaseline = 'middle';
+        c.fillText('Hello', 145, 145);
+        
+        // Draw a black outline around the circle.
+        c.strokeStyle = 'black';
+        c.lineWidth = 5;
+        c.stroke();
+        
+        // Draw a blue line.
+        c.beginPath();
+        c.moveTo(20, 180);
+        c.lineTo(180, 20);
+        c.strokeStyle = 'blue';
+        c.lineWidth = 10;
+        c.stroke();
+      }());
+    </script>
+  </body>
+</html>

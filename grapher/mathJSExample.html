@@ -8,7 +8,7 @@
       
       Draws from:
       http://mathjs.org/
-      https://github.com/josdejong/mathjs/blob/master/examples/expressions.js
+      https://github.com/josdejong/mathjs/blob/master/docs/expressions.md#parse
     -->
     <title>Math.js Example</title>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.15.0/math.min.js"></script>
@@ -20,8 +20,10 @@
               a: 3,
               b: 4
             },
-            result = math.eval(expr, scope);
-        console.log(result); // Prints 12
+            tree = math.parse(expr, scope);
+        console.log(tree.eval()); // Prints 12
+        scope.a = 5;
+        console.log(tree.eval()); // Prints 20
       }());
     </script>
   </head>

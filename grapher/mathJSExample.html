@@ -14,6 +14,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.15.0/math.min.js"></script>
     <script>
       (function (){
+        // Here's how to evaluate math expressions using Math.js:
         var math = mathjs(),
             expr = 'a * b',
             scope = {
@@ -21,9 +22,19 @@
               b: 4
             },
             tree = math.parse(expr, scope);
+
         console.log(tree.eval()); // Prints 12
+
+        // You can change variables and re-evaluate the tree.
         scope.a = 5;
         console.log(tree.eval()); // Prints 20
+
+        // Here's how to detect errors.
+        try {
+          math.parse('5&*! this is an invalid expression');
+        } catch (exception) {
+          console.log(exception.message);
+        }
       }());
     </script>
   </head>

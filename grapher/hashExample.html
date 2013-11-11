@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      An example illustrating how to get and set fragment identifiers,
+      the URL portion after the # that is ignored by the server,
+      using jQuery.
+      
+      By Curran Kelleher 11/11/2013
+      
+      Draws from:
+      http://en.wikipedia.org/wiki/Fragment_identifier
+      http://stackoverflow.com/questions/680785/on-window-location-hash-change
+    -->
+    <title>Fragment Identifier Example</title>
+  </head>
+  <body>
+    <script>
+      
+      // Gets the fragment identifier value.
+      function getHashValue(){
+        return location.hash.substr(1);
+      }
+      
+      // Sets the fragment identifier value.
+      function setHashValue(value){
+        return location.hash = value;
+      }
+      
+      // Get the initial hash value when the page loads.
+      console.log(getHashValue());
+      
+      // Listen for fragment value changes.
+      window.addEventListener('hashchange', function (){
+        console.log('new hash value: ' + getHashValue());
+      });
+      
+      // Set the fragment value to a random number
+      // every 3 seconds.
+      setInterval(function (){
+        setHashValue(Math.random());
+      }, 3000);
+    </script>
+  </body>
+</html>

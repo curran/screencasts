@@ -19,3 +19,5 @@
  * Using the URL hash fragment to store and share plots
 
 ## [Assignment](http://curran.github.io/screencasts/grapher/assignment.pdf)
+
+On Tuesday 11/12/2013, we wrote the [basic function plotter](http://jsbin.com/UriGaQo/2/edit).

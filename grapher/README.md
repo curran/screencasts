@@ -17,3 +17,5 @@
  * Plotting a Math.js expression
  * Using a TextField to drive the math expression
  * Using the URL hash fragment to store and share plots
+
+## [Assignment](http://curran.github.io/screencasts/grapher/assignment.pdf)

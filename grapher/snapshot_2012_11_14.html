@@ -10,76 +10,51 @@
     <input id="inputField">
     <canvas width="200" height="200" id="myCanvas"></canvas>
     <script>
-
-// Get the 'canvas' DOM element based on its id.
 var canvas = document.getElementById('myCanvas'),
-
-    // Get the canvas context, which is a namespace for the Canvas API 
-    // functions for drawing graphics.
     c = canvas.getContext('2d'),
     
-    // 'n' is the number of line segments used to approximate the math curve.
+    // 'n' is the number of line segments.
     n = 100,
     
-    // Define the math "window", which is the visible region in
-    // "math coordinates" that gets projected onto the Canvas.
+    // define the math "window".
     xMin = -10,
     xMax = 10,
     yMin = -10,
     yMax = 10,
     
-    // Initialize the Math.js library
-    // see http://mathjs.org/
     math = mathjs(),
-
-    // 'expr' contains the mathematical expression as a string.
     expr = '',
-    defaultExpr = 'sin(x+t)*x';
-
-    // 'scope' defines variables available inside the math expression.
     scope = {
       x: 0,
       t: 0
     },
-
-    // 'tree' contains the parsed math expression.
-    // see http://en.wikipedia.org/wiki/Abstract_syntax_tree
     tree,
-
-    // Define a time value that gets incremented every frame.
-    // This is assigned to 't' available inside the math expression.
     time = 0,
     timeIncrement = 0.1;
 
-// These are the main steps of the program.
-setExprFromHash();
+// This is the main program.
+initExprFromHash();
 drawCurve();
 initTextField();
 startAnimation();
 
-// Update from use of back and forward buttons.
-window.addEventListener('hashchange', setExprFromHash);
+// Update from use of back and forward buttons
+window.addEventListener('hashchange', initExprFromHash);
 
-// Sets the expression from the URL hash.
-// Uses a default expression if there is no URL hash.
-function setExprFromHash(){
+function setExpr(newExpr){
+  expr = newExpr;
+  tree = math.parse(expr, scope);
+}
 
+function initExprFromHash(){
   var hash = getHashValue();
   if(hash){
     setExpr(hash);
   } else {
-    setExpr(defaultExpr);
+    setExpr('sin(x+t)*x');
     setHashFromExpr();
   }
-
-  // Update the text input to contain the expression.
   $('#inputField').val(expr);
-}
-
-// Sets the value of 'expr' and re-parses the expression into 'tree'.
-function setExpr(newExpr){
-  expr = newExpr;
-  tree = math.parse(expr, scope);
 }
 
 function setHashFromExpr(){
@@ -122,28 +97,16 @@ function drawCurve(){
   c.stroke();
 }
 
-// Evaluates the current math expression based on the given 
-// values for 'mathX' and 'time' ('time' is global).
-// Returns a Y coordinate in math space.
 function evaluateMathExpr(mathX){
-
-  // Set values on the scope visible inside the math expression.
   scope.x = mathX;
   scope.t = time;
-
-  // Evaluate the previously parsed math expression with the
-  // new values for 'x' and 't' and return it.
   return tree.eval();
 }
 
-// Initializes the text field value to contain the expression.
-// Also sets up an event listener to track changes to the text.
 function initTextField(){
-
-  // Get a jQuery selection for the input field.
   var input = $('#inputField');
 
-  // Set the initial text value from the math expression.
+  // Set the initial text value programmatically using jQuery.
   input.val(expr);
   
   // Listen for changes using jQuery.
@@ -153,17 +116,13 @@ function initTextField(){
   });
 }
 
-// Kick off an animation loop that re-renders the plot
-// 60 times each second using requestAnimationFrame.
-// See http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
 function startAnimation(){
   (function animloop(){
     requestAnimationFrame(animloop);
     render();
   }());
 }
-
-// This function is called each animation frame.
+// sin(x*t + t)*sin(x/3)*10
 function render(){
   // increment time
   time += timeIncrement;

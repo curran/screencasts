@@ -18,6 +18,17 @@
  * Using a TextField to drive the math expression
  * Using the URL hash fragment to store and share plots
 
-## [Assignment](http://curran.github.io/screencasts/grapher/assignment.pdf)
 
 On Tuesday 11/12/2013, we wrote the [basic function plotter](http://jsbin.com/UriGaQo/4/edit).
+
+On Thursday 11/14/2013, we completed the core functionality of the graphing 
+calculator.
+
+ * Here's the [Code in JSBin](http://jsbin.com/UriGaQo/80/edit)
+ * Here's a cleaned up and thoroughly documented version of the code:
+   * [run it](http://curran.github.io/screencasts/grapher/grapher.html)
+   * [grapher.html source code](grapher.html)
+   * [grapher.js source code](js.html)
+
+Please use the `grapher.html` and `grapher.js` as the starting point for the 
+[assignment](http://curran.github.io/screencasts/grapher/assignment.pdf).

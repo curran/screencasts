@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      HTML5 Canvas Graphing Calculator
+      By Curran Kelleher 11/14/2013
+
+      Draws from examples found in
+      https://github.com/curran/screencasts/tree/gh-pages/grapher
+    -->
+    <title>Graphing Calculator</title>
+
+    <!-- Load dependencies -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/0.15.0/math.min.js"></script>
+
+    <!-- This contains the main graphing calculator program. -->
+    <script src="grapher.js"> </script>
+  </head>
+  <body>
+    <!-- This text field will contain the math expression to plot -->
+    <input id="inputField">
+
+    <!-- The math expression will be plotted on this Canvas. -->
+    <canvas width="200" height="200" id="myCanvas"></canvas>
+  </body>
+</html>

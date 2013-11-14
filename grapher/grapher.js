@@ -74,7 +74,7 @@ $(function (){
       setExpr(hash);
     } else {
       setExpr(defaultExpr);
-      setHashFromExpr();
+      setHashValue(expr);
     }
 
     // Update the text input to contain the updated expression.
@@ -85,10 +85,6 @@ $(function (){
   function setExpr(newExpr){
     expr = newExpr;
     tree = math.parse(expr, scope);
-  }
-
-  function setHashFromExpr(){
-    setHashValue(expr);
   }
 
   // Initializes the text field value to contain the expression.
@@ -104,7 +100,7 @@ $(function (){
     // Listen for changes using jQuery.
     input.keyup(function (event) {
       setExpr(input.val());
-      setHashFromExpr();
+      setHashValue(expr);
     });
   }
 

@@ -28,7 +28,56 @@ calculator.
  * Here's a cleaned up and thoroughly documented version of the code:
    * [run it](http://curran.github.io/screencasts/grapher/grapher.html)
    * [grapher.html source code](grapher.html)
-   * [grapher.js source code](js.html)
+   * [grapher.js source code](grapher.js)
 
 Please use the `grapher.html` and `grapher.js` as the starting point for the 
 [assignment](http://curran.github.io/screencasts/grapher/assignment.pdf).
+
+## Tutorial Content
+
+ * Using JSBin
+   * `CTRL [` for indentation
+ * Using the Canvas Element
+   * Introduced by Apple in 2004
+   * Great browser coverage except old IE
+ * Inspecting the DOM using Chrome Dev Tools
+ * Using `console.log()` for debugging
+ * Better not to use jQuery until you really need it
+ * `document.getElementById()`
+ * `ctx` as a common convention for the Canvas contexts, I prefer `c`
+ * Filling a rectangle using the Canvas API
+ * Pixel coordinates vs. math coordinates (Y is flipped)
+ * Separating the JavaScript from the HTML in JSBin
+ * Canvas features: lines, colors, circles, text
+ * Approximating a continuous curve with discrete line segments
+ * Using the Canvas API documentation
+ * Default color is black, default line width is 1 pixel
+ * Using Canvas `lineTo()` to draw a polyline
+ * Documenting single-letter variable names is critical
+ * Combining multiple `var` declarations into a single statement
+ * Variables are scoped to function closures, not curly brace blocks
+ * Better to declare `i` and `j` loop indices at the top of the function
+ * Defining a path using the Canvas API and a for loop
+ * Projecting the `i` loop index to Canvas coordinates
+ * Using `canvas.width` and `canvas.height`
+ * Defining the width and height of the Canvas in HTML attributes
+ * Refactoring to encapsulate specific tasks as functions
+ * Which way should the code read?
+   * IMO more readable when functions are first used, then defined
+   * this coding style reads more like a story or a book
+ * Defining a mathematical window in terms of (xMin, xMax, yMin, yMax)
+ * Linear interpolation (projection and inverse projection between intervals)
+ * Using symbolic algebraic manipulation to invert linear interpolation
+ * Using Math.js to parse and evaluate math expression strings
+ * Using CDNjs
+ * Libraries typically introduce a single global variable
+ * The importance of naming variables well
+ * Putting a text field onto the page and listening for changes
+ * Updating the plot when the user changes the expression string
+ * Clearing the canvas using `clearRect()`
+ * Flipping the Y coordinate to match math convention
+ * Overview of JSLint
+ * Why eval is evil
+ * Animation with `requestAnimationFrame()`
+ * Why it is better than `setTimeout()`
+ * Introducing a 'time' variable in the math expression

@@ -1,13 +1,15 @@
 ## Building a Graphing Calculator with HTML5
 This repository contains code from tutorial given by Curran Kelleher at UMass 
 Lowell on 11/12/2013 and 11/14/2013 as part of the undergraduate course 
-"GUI Programming" taught by Professor Jesse Heines. The tutorial covers:
+"GUI Programming" taught by [Professor Jesse Heines](http://www.uml.edu/Sciences/computer-science/faculty/heines-jesse.aspx). 
+
+The tutorial covers:
 
  * Creating and using a Canvas element
  * Drawing a sine wave path consisting of many lines
  * Transforming between math coordinates and pixel coordinates
- * Animation with requestAnimationFrame
- * Using Math.js to evaluate mathematical expressions
+ * Animation with [requestAnimationFrame](http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/)
+ * Using [Math.js](http://mathjs.org/) to evaluate mathematical expressions
  * Plotting a Math.js expression
  * Using a TextField to drive the math expression
  * Using the URL hash fragment to store and share plots
@@ -37,7 +39,7 @@ Please use the `grapher.html` and `grapher.js` as the starting point for the
 
 ## Detailed Tutorial Content
 
- * Using JSBin
+ * Using [JSBin](http://jsbin.com/)
    * `CTRL [` for indentation
  * Using the Canvas Element
    * Introduced by Apple in 2004
@@ -70,22 +72,22 @@ Please use the `grapher.html` and `grapher.js` as the starting point for the
  * Defining a mathematical window in terms of (xMin, xMax, yMin, yMax)
  * Linear interpolation (projection and inverse projection between intervals)
  * Using symbolic algebraic manipulation to invert linear interpolation
- * Using Math.js to parse and evaluate math expression strings
- * Using CDNjs
+ * Using [Math.js](http://mathjs.org/) to parse and evaluate math expression strings
+ * Using [CDNjs](http://cdnjs.com/)
  * Libraries typically introduce a single global variable
  * The importance of naming variables well
  * Putting a text field onto the page and listening for changes
  * Updating the plot when the user changes the expression string
  * Clearing the canvas using `clearRect()`
  * Flipping the Y coordinate to match math convention
- * Overview of JSLint
+ * Overview of [JSLint](http://www.jslint.com/)
  * Why eval is evil
  * Animation with `requestAnimationFrame()`
  * Why it is better than `setTimeout()`
  * Introducing a 'time' variable in the math expression
  * Aside on 3D graphics for the Web
    * WebGL
-   * Three.js
+   * [Three.js](http://threejs.org/)
  * Using the URL hash
  * Empty string is falsy
  * It's a sign to rafactor if you copy and paste chunks of complex code

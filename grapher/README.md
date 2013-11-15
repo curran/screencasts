@@ -1,13 +1,7 @@
-## References and Starter examples:
-
- * [HTML5 Canvas Spec](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) Documentation for the HTML5 Canvas API.
- * `canvasExample` ([run it](http://curran.github.io/screencasts/grapher/canvasExample.html), [source code](canvasExample.html)) Demonstrates the HTML5 Canvas API by drawing a square, circle, line and text.
- * `animationExample` ([run it](http://curran.github.io/screencasts/grapher/animationExample.html), [source code](animationExample.html)) Demonstrates animation using HTML5 Canvas and `requestAnimationFrame`.
- * `mathJSExample` ([run it](http://curran.github.io/screencasts/grapher/mathJSExample.html), [source code](mathJSExample.html)) Parses and evaluates a math expression with variables using [Math.js](http://mathjs.org/).
- * `textFieldExample` ([run it](http://curran.github.io/screencasts/grapher/textFieldExample.html), [source code](textFieldExample.html)) Initializes and reads text from an HTML form `input` field as it changes.
- * `hashExample` ([run it](http://curran.github.io/screencasts/grapher/hashExample.html), [source code](hashExample.html)) Demonstrates how to work with fragment identifiers.
-
-## Tutorial Steps:
+## Building a Graphing Calculator with HTML5
+This repository contains code from tutorial given by Curran Kelleher at UMass 
+Lowell on 11/12/2013 and 11/14/2013 as part of the undergraduate course 
+"GUI Programming" taught by Professor Jesse Heines. The tutorial covers:
 
  * Creating and using a Canvas element
  * Drawing a sine wave path consisting of many lines
@@ -18,6 +12,14 @@
  * Using a TextField to drive the math expression
  * Using the URL hash fragment to store and share plots
 
+## References and Starter examples:
+
+ * [HTML5 Canvas Spec](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html) Documentation for the HTML5 Canvas API.
+ * `canvasExample` ([run it](http://curran.github.io/screencasts/grapher/canvasExample.html), [source code](canvasExample.html)) Demonstrates the HTML5 Canvas API by drawing a square, circle, line and text.
+ * `animationExample` ([run it](http://curran.github.io/screencasts/grapher/animationExample.html), [source code](animationExample.html)) Demonstrates animation using HTML5 Canvas and `requestAnimationFrame`.
+ * `mathJSExample` ([run it](http://curran.github.io/screencasts/grapher/mathJSExample.html), [source code](mathJSExample.html)) Parses and evaluates a math expression with variables using [Math.js](http://mathjs.org/).
+ * `textFieldExample` ([run it](http://curran.github.io/screencasts/grapher/textFieldExample.html), [source code](textFieldExample.html)) Initializes and reads text from an HTML form `input` field as it changes.
+ * `hashExample` ([run it](http://curran.github.io/screencasts/grapher/hashExample.html), [source code](hashExample.html)) Demonstrates how to work with fragment identifiers.
 
 On Tuesday 11/12/2013, we wrote the [basic function plotter](http://jsbin.com/UriGaQo/4/edit).
 
@@ -33,7 +35,7 @@ calculator.
 Please use the `grapher.html` and `grapher.js` as the starting point for the 
 [assignment](http://curran.github.io/screencasts/grapher/assignment.pdf).
 
-## Tutorial Content
+## Detailed Tutorial Content
 
  * Using JSBin
    * `CTRL [` for indentation
@@ -81,3 +83,10 @@ Please use the `grapher.html` and `grapher.js` as the starting point for the
  * Animation with `requestAnimationFrame()`
  * Why it is better than `setTimeout()`
  * Introducing a 'time' variable in the math expression
+ * Aside on 3D graphics for the Web
+   * WebGL
+   * Three.js
+ * Using the URL hash
+ * Empty string is falsy
+ * It's a sign to rafactor if you copy and paste chunks of complex code
+ * Using the `hashchange` event to get the back and forward buttons to work

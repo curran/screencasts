@@ -28,9 +28,9 @@ calculator.
 
  * Here's the [Code in JSBin](http://jsbin.com/UriGaQo/80/edit)
  * Here's a cleaned up and thoroughly documented version of the code:
-   * [run it](http://curran.github.io/screencasts/grapher/grapher.html)
-   * [grapher.html source code](grapher.html)
-   * [grapher.js source code](grapher.js)
+   * [run it](http://curran.github.io/screencasts/grapher/grapher/grapher.html)
+   * [grapher.html source code](grapher/grapher.html)
+   * [grapher.js source code](grapher/grapher.js)
 
 Please use the `grapher.html` and `grapher.js` as the starting point for the 
 [assignment](http://curran.github.io/screencasts/grapher/assignment.pdf).

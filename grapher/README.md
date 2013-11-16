@@ -1,4 +1,9 @@
 ## Building a Graphing Calculator with HTML5
+
+ * [Run the graphing calculator](http://curran.github.io/screencasts/grapher/grapher/grapher.html#sin(x*t+t)*sin(x/2+t)*x)
+ * Check out [the code](grapher)
+ * Check out the [Screencast on YouTube](http://www.youtube.com/watch?v=E-_Lc6FrDRw&feature=youtu.be&a)
+
 This repository contains code from tutorial given by Curran Kelleher at UMass 
 Lowell on 11/12/2013 and 11/14/2013 as part of the undergraduate course 
 "GUI Programming" taught by [Professor Jesse Heines](http://www.uml.edu/Sciences/computer-science/faculty/heines-jesse.aspx). 

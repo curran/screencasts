@@ -34,7 +34,7 @@ $(function (){
       // see http://mathjs.org/
       math = mathjs(),
 
-      // 'expr' contains the math expression as a string.
+      // 'expr' will contain the math expression as a string.
       expr = '',
 
       // 'defaultExpr' is assigned to 'expr' if there is no expression in the 
@@ -52,7 +52,7 @@ $(function (){
       // see http://en.wikipedia.org/wiki/Abstract_syntax_tree
       tree,
 
-      // Define a time value that gets incremented every frame.
+      // Define a 'time' value that gets incremented every frame.
       // This is assigned to the 't' variable in the math expression scope.
       time = 0,
       timeIncrement = 0.1;
@@ -62,10 +62,11 @@ $(function (){
   initTextField();
   startAnimation();
 
-  // Update from use of back and forward buttons.
+  // Update the math expression when the URL hash changes. This may occur from
+  // use of back and forward buttons or by manually changing the URL hash.
   window.addEventListener('hashchange', setExprFromHash);
 
-  // Sets the expression from the URL hash value.
+  // Sets the math expression from the URL hash value.
   // Uses the default expression if there is no URL hash value.
   function setExprFromHash(){
 

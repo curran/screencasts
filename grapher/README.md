@@ -1,6 +1,6 @@
 ## Building a Graphing Calculator with HTML5
 
- * <a href="http://curran.github.io/screencasts/grapher/grapher/grapher.html#1/(x^2+1)*10*sin(x*3+t)">Run the graphing calculator</a>
+ * <a href="http://curran.github.io/screencasts/grapher/grapher/grapher.html#1/(x*x+1)*10*sin(x*3+t)">Run the graphing calculator</a>
  * Check out [the code](grapher) ([zip](http://curran.github.io/screencasts/grapher/grapher.zip))
  * Check out the [Screencast on YouTube](http://www.youtube.com/watch?v=E-_Lc6FrDRw&feature=youtu.be&a)
 

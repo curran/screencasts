@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="works">
+  <head>
+    <meta charset=utf-8 />
+    <!--
+      An index of student work submitted as the class assignment derived from the graphing calculator tutorial.
+      By Curran Kelleher 11/26/2013
+
+      Draws from examples on the Angular.js home page http://angularjs.org/
+    -->
+    <title>Student Work</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js""></script>
+  </head>
+  <body>
+    <h2>Student Work:</h2>
+    <div ng-controller="MainCtrl">
+      <div ng-repeat="work in works">
+        <iframe width="100%" height="500" ng-src="{{trustSrc(work.url)}}"></iframe>
+        <a ng-href="{{work.url}}">{{work.url}}</a>
+      </div>
+  </body>
+  <script>
+    var app = angular.module('works', ['ngSanitize']);
+
+    app.controller('MainCtrl', function($scope, $sce) {
+
+      // This strange code is from the Angular community for dealing
+      // with dynamic "src" attributes on iFrames. See discussion at:
+      // https://groups.google.com/forum/#!topic/angular/E4UCjMkePao
+      $scope.trustSrc = function(src) {
+        return $sce.trustAsResourceUrl(src);
+      }
+      
+      $scope.works = [
+        { url:'http://weblab.cs.uml.edu/~apatel1/a7.html#sin(x+t)*x' },
+        { url:'http://www.cs.uml.edu/~alincoln/Assignments/GUI1/GUI1_Assignment7.html#sin(x+t)*x'},
+        { url:'http://weblab.cs.uml.edu/~bcao/projects/Assn7/grapher.html#sin(x+t)*x'}
+      ];
+    });
+  </script>
+</html>
+

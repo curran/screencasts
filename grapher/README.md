@@ -2,11 +2,11 @@
 
  * <a href="http://curran.github.io/screencasts/grapher/grapher/grapher.html#1/(x*x+1)*10*sin(x*3+t)">Run the graphing calculator</a>
  * Check out [the code](grapher) ([zip](http://curran.github.io/screencasts/grapher/grapher.zip))
- * Check out the [Screencast on YouTube](http://www.youtube.com/watch?v=E-_Lc6FrDRw&feature=youtu.be&a)
+ * Watch the [Screencast on YouTube](http://www.youtube.com/watch?v=E-_Lc6FrDRw&feature=youtu.be&a)
 
-This repository contains code from tutorial given by Curran Kelleher at UMass 
+This repository contains resources that go along with a tutorial given by Curran Kelleher at University of Massachusetts 
 Lowell on 11/12/2013 and 11/14/2013 as part of the undergraduate course 
-"GUI Programming" taught by [Professor Jesse Heines](http://www.uml.edu/Sciences/computer-science/faculty/heines-jesse.aspx). 
+"GUI Programming" with [Professor Jesse Heines](http://www.uml.edu/Sciences/computer-science/faculty/heines-jesse.aspx). 
 
 The tutorial covers:
 

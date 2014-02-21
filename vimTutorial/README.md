@@ -29,8 +29,8 @@ i - insert mode
 ESC - go back to normal mode
 v - visual mode
 V - visual line mode
-< - unindent
-> - indent
+\< - unindent
+\> - indent
 u - undo
 y - yank (copy)
 p - paste

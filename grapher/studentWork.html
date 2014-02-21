@@ -11,12 +11,23 @@
     <title>Student Work</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.min.js""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-sanitize.min.js""></script>
+    <style>
+      iframe {
+        width: 100%;
+        height: 500px;
+      }
+      #container {
+        margin-left:auto;
+        margin-right:auto;
+        width: 80%;
+      }
+    </style>
   </head>
   <body>
-    <h2>Student Work:</h2>
-    <div ng-controller="MainCtrl">
+    <div id="container" ng-controller="MainCtrl">
+      <h2>Student Work:</h2>
       <div ng-repeat="work in works">
-        <iframe width="100%" height="500" ng-src="{{trustSrc(work.url)}}"></iframe>
+        <iframe ng-src="{{trustSrc(work.url)}}"></iframe>
         <a ng-href="{{work.url}}">{{work.url}}</a>
       </div>
   </body>
@@ -35,15 +46,23 @@
       $scope.works = [
         { url:'http://weblab.cs.uml.edu/~apatel1/a7.html#sin(x+t)*x' },
         { url:'http://www.cs.uml.edu/~alincoln/Assignments/GUI1/GUI1_Assignment7.html#sin(x+t)*x'},
-        { url:'http://weblab.cs.uml.edu/~bcao/projects/Assn7/grapher.html#sin(x+t)*x'}
+        { url:'http://weblab.cs.uml.edu/~bcao/projects/Assn7/grapher.html#sin(x+t)*x'},
         { url:'http://weblab.cs.uml.edu/~bweiss/Assignment7/index.html'},
         { url:'http://weblab.cs.uml.edu/~bheng/HTML/index7.html#sin(t+x)*10'},
         { url:'http://weblab.cs.uml.edu/~cmorris/gui/grapher.html#sin(x+t)*x'},
-        { url:'http://weblab.cs.uml.edu/~cburbine/A7_GrphCalc_Canvas.html#sin(x)*x'},
+        { url:'http://weblab.cs.uml.edu/~cburbine/A7_GrphCalc_Canvas.html'},
         { url:'http://weblab.cs.uml.edu/~ccompton/grapher.html#sin(x+t)*x'},
         { url:'http://weblab.cs.uml.edu/~cprak/91.462-gui/assignments/a7/main.html#sin(x+t)*x'},
         { url:'http://weblab.cs.uml.edu/~cquintal/assignments/a7graph.html#sin(x+t)*x'},
-        { url:'http://weblab.cs.uml.edu/~dkolsoi/assignments/assignment7.html#sin(x+t)*x'}
+        { url:'http://weblab.cs.uml.edu/~dkolsoi/assignments/assignment7.html#sin(x+t)*x'},
+        { url:'http://weblab.cs.uml.edu/~djelley/GUI/A7_GCalc.html#sin(x+t)*x'},
+        { url:'http://weblab.cs.uml.edu/~cbaillie/graphing/graphing.html#sin(x+t)*x'},
+        { url:'http://weblab.cs.uml.edu/~ecalandr/assignment7/index.html#x+4+sin(x+t)-x*x/20'},
+        { url:''},
+        { url:''},
+        { url:''},
+        { url:''},
+        { url:''}
       ];
     });
   </script>

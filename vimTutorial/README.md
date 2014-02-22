@@ -59,8 +59,3 @@ Vim and Unix Commands:
  * @@ - play previous macro
  * 118G - go to line 118
 
-Content of the video:
-
- * Vim vs Vi vs Emacs
- * Basic linux/unix commands: ls, mkdir, cd, pwd ...
- * Tab complete in the linux terminal

@@ -73,5 +73,6 @@ Design and implementation of Angular:
  * [snapshot03](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03) - Extracting text from the text input as it changes.
  * [snapshot04](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot04) - Updating a span when input text changes using the DOM API.
  * [snapshot05](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot05) - Updating a span when input text changes using jQuery.
+ * [snapshot06](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06) - Updating a span when input text changes using Backbone.
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

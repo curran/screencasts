@@ -51,6 +51,12 @@ Introductory tutorials and guides:
    * Great diagrams
  * [Egghead.io](https://egghead.io/tags/AngularJS)
    * A collection of short screencasts (scroll to the bottom for intoduction content)
+ * [AngularJS Fundamentals In 60-ish Minutes](https://www.youtube.com/watch?v=i9MHigUZKEM)
+   * A talk on YouTube that covers fundamentals of Angular
+ * [Learn Angular.js in 30 Min](https://www.youtube.com/watch?v=QETUuZ27N0w)
+   * A screencast showing how to build an app using [UI-Router](https://github.com/angular-ui/ui-router)
+   * Does not cover basics, jumps to advanced usage
+   * Great example of how development flows in practice
 
 Design and implementation of Angular:
 

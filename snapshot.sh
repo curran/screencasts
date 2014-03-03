@@ -53,6 +53,7 @@ done
 # Add the README.md file if there was an argument.
 if [ ! -z "$1" ]
   then
+    echo $1 > snapshots/$NEXT_SNAP_NAME/message.txt
     echo $1 > snapshots/$NEXT_SNAP_NAME/README.md
 fi
 

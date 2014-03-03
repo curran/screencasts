@@ -70,5 +70,6 @@ Design and implementation of Angular:
 
  * [snapshot01](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01) - Starter HTML page with a text input
  * [snapshot02](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02) - Added keyup event listener on textInput.
+ * [snapshot03](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03) - Extracting text from the text input as it changes.
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

@@ -80,5 +80,6 @@ Design and implementation of Angular:
  * [snapshot10](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10) - Initializing the model using an Angular controller, defined with a global function.
  * [snapshot11](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11) - Initializing the model using an Angular controller, defined within an Angular module.
  * [snapshot12](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12) - Changing scope values asynchronously - updates don't propagate without .apply().
+ * [snapshot13](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13) - Changing scope values asynchronously - updates propagate .apply().
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

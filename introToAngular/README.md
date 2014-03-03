@@ -69,7 +69,5 @@ Design and implementation of Angular:
 ## Examples
 
  * [snapshot01](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01) - Hello Angular! Binding a text field to a simple template.
- * [snapshot02](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02)
- * [snapshot03](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03)
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

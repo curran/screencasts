@@ -56,6 +56,13 @@ if [ ! -z "$1" ]
     echo $1 > snapshots/$NEXT_SNAP_NAME/README.md
 fi
 
+# Recompile the README if possible
+if [ -f "../compileReadme.js" ]
+  then
+    cd ../
+    node compileReadme.js
+fi
+
 # Push to GitHub in the background
 {
 git add ./

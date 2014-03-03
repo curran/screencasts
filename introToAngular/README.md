@@ -76,5 +76,6 @@ Design and implementation of Angular:
  * [snapshot06](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06) - Updating a span when input text changes using Backbone.
  * [snapshot07](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot07) - Updating a template when input text changes using Angular.
  * [snapshot08](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot08) - Data binding with many text inputs.
+ * [snapshot09](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09) - First name and last name.
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

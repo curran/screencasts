@@ -68,7 +68,7 @@ Design and implementation of Angular:
 
 ## Examples
 
- * [snapshot01](./examples/snapshot01) - Hello Angular! Binding a text input to a template.
- * [snapshot02](./examples/snapshot02) - Added another input.
+ * [snapshot01](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01) - Hello Angular! Binding a text input to a template.
+ * [snapshot02](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02) - Added another input.
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

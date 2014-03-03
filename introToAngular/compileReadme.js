@@ -12,7 +12,9 @@ var _ = require('underscore'),
     outputFile = './README.md',
     entryDir = 'examples/',
     snapshotsPath = entryDir + 'snapshots/',
-    entryTemplate = _.template(' * [<%= name %>](./examples/<%= name %>)<%= message %>');
+    snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/',
+    snapshotRunURL = 'http://curran.github.io/screencasts/introToAngular/examples/snapshots/',
+    entryTemplate = _.template(' * [<%= name %>](<%= url %>) - [run it!](<%= runUrl %>)<%= message %>');
 
 // Read the template for README.md
 fs.readFile(inputFile, 'utf8', function (err, template) {
@@ -34,10 +36,14 @@ fs.readFile(inputFile, 'utf8', function (err, template) {
 });
 
 function generateTemplateModel(){
-  
   var files = fs.readdirSync(snapshotsPath),
       entries = files.map(function(file){
-        return { name: file, message: getMessage(file) };
+        return {
+          name: file,
+          message: getMessage(file),
+          url: snapshotURL + file,
+          runUrl: snapshotRunURL + file
+        };
       });
 
   return { examples: entries.map(entryTemplate).join('\n') };

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+[Angular directives](http://docs.angularjs.org/api/ng/directive)
+placed in HTML tags are processed by Angular
+and add behavior to HTML elements.
+
+The [`ng-app` directive](http://docs.angularjs.org/api/ng/directive/ngApp)
+placed in the `<html>` tag tells Angular
+to bootstrap the application inside the
+top-level DOM element.
+-->
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <title>Angular.js Example</title>
+  </head>
+  <body>
+<!--
+The [`ng-model` directive](http://docs.angularjs.org/api/ng/directive/ngModel)
+placed in this `<input>` tag tells Angular to
+make sure that the `name` property of the current [scope](http://docs.angularjs.org/guide/scope)
+stays synchronized with the content of the text input.
+
+When the property changes on the scope, the
+text input is updated. When the text input is
+changed, the property on the scope is updated.
+This is [two-way data binding](http://docs.angularjs.org/guide/databinding).
+-->
+    Name:<input ng-model="name" type="text"/>
+    
+    <br>
+<!--
+Angular uses the `{{}}` syntax (popularized by [Handlebars](http://handlebarsjs.com/)) for [templating](http://en.wikipedia.org/wiki/Template_processor).
+
+[Angular expressions](http://docs.angularjs.org/guide/expression) can be placed inside the `{{}}`, which will be evaluated with the context of the current [scope](http://docs.angularjs.org/guide/scope).
+-->
+    Hello {{name}}
+  </body>
+</html>

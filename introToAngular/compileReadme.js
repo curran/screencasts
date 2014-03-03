@@ -15,7 +15,7 @@ var _ = require('underscore'),
     snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/',
     snapshotRunURL = 'http://curran.github.io/screencasts/introToAngular/examples/snapshots/',
     messageFile = '/message.txt',
-    entryTemplate = _.template(' * [<%= name %>](<%= url %>) - [run it!](<%= runUrl %>)<%= message %>');
+    entryTemplate = _.template(' * [<%= name %>](<%= url %>) - [index.html source](<%= url %>/index.html) | [run it!](<%= runUrl %>)<%= message %>');
 
 // Read the template for README.md
 fs.readFile(inputFile, 'utf8', function (err, template) {

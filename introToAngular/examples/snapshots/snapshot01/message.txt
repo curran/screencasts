@@ -1,1 +1,0 @@
-Hello Angular! Binding a text input to a template.

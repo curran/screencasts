@@ -49,7 +49,7 @@ function generateTemplateModel(){
   return { examples: entries.map(entryTemplate).join('\n') };
 }
 function getMessage(file){
-  var msgFile = snapshotsPath + file + '/message.txt';
+  var msgFile = snapshotsPath + file + '/README.md';
   if(fs.existsSync(msgFile)){
     var msg = fs.readFileSync(msgFile, 'utf8');
     return ' - ' + msg.replace('\n','');

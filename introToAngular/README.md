@@ -78,5 +78,6 @@ Design and implementation of Angular:
  * [snapshot08](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot08) - Data binding with many text inputs.
  * [snapshot09](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09) - First name and last name.
  * [snapshot10](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10) - Initializing the model using an Angular controller, defined with a global function.
+ * [snapshot11](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11) - [run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11) - Initializing the model using an Angular controller, defined within an Angular module.
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

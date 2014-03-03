@@ -62,7 +62,6 @@ Design and implementation of Angular:
 
 ## Examples
 
- * [example01](./examples/example01) - Hello Angular - binding a text box to a template
- * [example02](./examples/example02) - synchronizing two text boxes
+<%= examples %>
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

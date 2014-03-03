@@ -6,7 +6,7 @@
 
  * Facilitate building [single page applications](http://en.wikipedia.org/wiki/Single-page_application)
    * Page never reloads
- * Based on the [Model View Controller](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) concept
+ * Based on [Model View Controller](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
  * Provide solutions for:
    * Routing - handling updates to the URL hash fragment
    * Templating - dynamically creating and updating HTML based on templates and models
@@ -32,9 +32,26 @@ The following libraries lay the foundation for many data binding frameworks:
 
 ## Angular Learning Resources
 
-Here are some useful birds-eye-view resources for learning Angular.js:
+Birds-eye-view:
 
  * [Learn Angularjs This Weekend](http://joelhooks.com/blog/2013/08/03/learn-angularjs-in-a-weekend/) - Advice on which resources to use for getting up to speed on Anguar.
  * [A Better Way to Learn AngularJS](http://www.thinkster.io/angularjs/GtaQ0oMGIl/a-better-way-to-learn-angularjs) - A great collection of links to resources for learning Angular.
  * [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) - A kithen sink of links to Angular learning resources.
 
+Introductory tutorials and guides:
+
+ * [Official Angular Tutorial](http://docs.angularjs.org/tutorial)
+   * Useful to read through
+   * Emphasizes testing
+   * Starts with complex boilerplate project
+   * Great diagrams
+ * [Egghead.io](https://egghead.io/tags/AngularJS)
+   * A collection of short screencasts (scroll to the bottom for intoduction content)
+
+Design and implementation of Angular:
+
+ * [Re-Imagining the Browser with AngularJS](https://www.youtube.com/watch?v=ersEb9vTX3Y)
+   * Talk by Miško Hevery, creator of Angular
+   * Discusses the high-level goals of Angular
+ * [Bringing Angular Apps to Life with Animation by Miško Hevery](https://www.youtube.com/watch?v=cF_JsA9KsDM)
+ * [Google I/O 2013 - Design Decisions in AngularJS](https://www.youtube.com/watch?v=HCR7i5F5L8c)

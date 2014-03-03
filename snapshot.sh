@@ -6,7 +6,8 @@
 # Note: Any files that contain the word "snapshot" 
 # will not be included in snapshots.
 #
-# Curran Kelleher 2/25/13
+# Curran Kelleher 2/25/2013
+# Updated 3/2/2014, added message.txt feature.
 
 # Create the snapshots directory if it does not exist
 if [ ! -d "snapshots" ]
@@ -48,6 +49,12 @@ do
   # copy it into the next snapshot directory.
   cp -r $f snapshots/$NEXT_SNAP_NAME
 done
+
+# Add the message.txt file if there was an argument.
+if [ ! -z "$1" ]
+  then
+    echo $1 > snapshots/$NEXT_SNAP_NAME/message.txt
+fi
 
 # Push to GitHub in the background
 {

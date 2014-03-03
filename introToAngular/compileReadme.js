@@ -8,6 +8,7 @@ var _ = require('underscore'),
     fs = require('fs'),
     inputFile = './README_template.md',
     outputFile = './README.md',
+    entryDir = 'examples/',
     entryTemplate = _.template(' * [<%= name %>](./examples/<%= name %>) - <%= message %>');
 
 // Read the template for README.md
@@ -30,14 +31,18 @@ fs.readFile(inputFile, 'utf8', function (err, template) {
 });
 
 function generateTemplateModel(){
-
-  var entries = [{
-    name: 'example01',
-    message: 'Hello Angular - binding a text box to a template'
-  }, {
-    name: 'example02',
-    message: 'synchronizing two text boxes'
-  }];
+  
+  var snapshotsPath = entryDir + 'snapshots/',
+      files = fs.readdirSync(snapshotsPath),
+      entries = files.map(function(file){
+        var msgFile = snapshotsPath + file + '/message.txt',
+            message = fs.readFileSync(msgFile, 'utf8');
+        message = message.replace('\n','');
+        return {
+          name: file,
+          message: message
+        };
+      });
 
   return {
     examples: entries.map(entryTemplate).join('\n')

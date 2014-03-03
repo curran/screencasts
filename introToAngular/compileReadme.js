@@ -4,12 +4,15 @@
 //  * compiling metadata about examples 
 //  * dynamically generating a markdown list of example entries
 //  * injecting the list into the template
+//
+//  Curran Kelleher 3/2/2014
 var _ = require('underscore'),
     fs = require('fs'),
     inputFile = './README_template.md',
     outputFile = './README.md',
     entryDir = 'examples/',
-    entryTemplate = _.template(' * [<%= name %>](./examples/<%= name %>) - <%= message %>');
+    snapshotsPath = entryDir + 'snapshots/',
+    entryTemplate = _.template(' * [<%= name %>](./examples/<%= name %>)<%= message %>');
 
 // Read the template for README.md
 fs.readFile(inputFile, 'utf8', function (err, template) {
@@ -32,19 +35,18 @@ fs.readFile(inputFile, 'utf8', function (err, template) {
 
 function generateTemplateModel(){
   
-  var snapshotsPath = entryDir + 'snapshots/',
-      files = fs.readdirSync(snapshotsPath),
+  var files = fs.readdirSync(snapshotsPath),
       entries = files.map(function(file){
-        var msgFile = snapshotsPath + file + '/message.txt',
-            message = fs.readFileSync(msgFile, 'utf8');
-        message = message.replace('\n','');
-        return {
-          name: file,
-          message: message
-        };
+        return { name: file, message: getMessage(file) };
       });
 
-  return {
-    examples: entries.map(entryTemplate).join('\n')
-  };
+  return { examples: entries.map(entryTemplate).join('\n') };
+}
+function getMessage(file){
+  var msgFile = snapshotsPath + file + '/message.txt';
+  if(fs.existsSync(msgFile)){
+    var msg = fs.readFileSync(msgFile, 'utf8');
+    return ' - ' + msg.replace('\n','');
+  }
+  return '';
 }

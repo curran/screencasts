@@ -1,0 +1,1 @@
+Using ng-src.

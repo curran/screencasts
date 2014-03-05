@@ -131,5 +131,6 @@ It is straightforward to teach yourself about Angular, as there are so many lear
    * Discusses the high-level goals of Angular
  * [Bringing Angular Apps to Life with Animation by Miško Hevery](https://www.youtube.com/watch?v=cF_JsA9KsDM)
  * [Google I/O 2013 - Design Decisions in AngularJS](https://www.youtube.com/watch?v=HCR7i5F5L8c)
+ * ["Writing Directives" talk by Misko Hevery](https://www.youtube.com/watch?v=WqmeI5fZcho&sns=em)
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

@@ -7,6 +7,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/htmlmixed/htmlmixed.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/xml/xml.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/javascript/javascript.min.js"></script> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.1/marked.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.css">
     <style>
       /* Autoresize code from http://codemirror.net/demo/resize.html */
@@ -27,13 +28,21 @@
     </style>
     <script>
       var exampleApp = angular.module('exampleApp', []);
-      exampleApp.controller('ExampleCtrl', function ($scope, $http){
+      exampleApp.controller('ExampleCtrl', function ($scope, $http, $sce){
         $http.get('../examples.json').success(function(data) {
           $scope.example = data[45];
-          $scope.runUrl = [
-            '../examples/snapshots',
-            $scope.example.name
-          ].join('/');
+
+          var runUrl = [
+                '../examples/snapshots',
+                $scope.example.name
+              ].join('/'),
+              readmeUrl = runUrl + '/README.md';
+
+          $scope.runUrl = runUrl;
+          $http.get(readmeUrl).success(function(data) {
+            var html = marked(data);
+            $scope.readme = $sce.trustAsHtml(html);
+          });
         });
       });
       exampleApp.directive('file', function(){
@@ -43,7 +52,6 @@
             example: '='
           },
           restrict: 'A',
-          template: '{{content}}',
           controller: function($scope, $http){
             var path = [
               '../examples/snapshots',
@@ -76,8 +84,10 @@
     </script>
   </head>
   <body ng-controller="ExampleCtrl">
-    <a href="{{runUrl}}">Run this example</a>
+    <div ng-bind-html="readme"></div>
+    <h3>Running example (<a href="{{runUrl}}" target="_blank" >run standalone</a>)</h3> 
     <iframe ng-src="{{runUrl}}"></iframe>
+    <h3>Source code</h3>
     <div ng-repeat="file in example.files">
       <h3>{{file}}</h3>
       <textarea file="file" example="example"></textarea>

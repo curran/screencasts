@@ -13,7 +13,7 @@
             templateUrl: 'country-list.html',
             controller: 'CountryListCtrl'
           }).
-          when('/:countryName', {
+          when('/:countryId', {
             templateUrl: 'country-detail.html',
             controller: 'CountryDetailCtrl'
           }).
@@ -31,10 +31,10 @@
               cache: true
             }).success(callback);
           },
-          find: function(name, callback){
+          find: function(id, callback){
             $http({
               method: 'GET',
-              url: encodeURI(name) + '.json',
+              url: 'country_' + id + '.json',
               cache: true
             }).success(callback);
           }
@@ -48,14 +48,11 @@
       });
 
       countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, countries){
-        countries.find($routeParams.countryName, function(country) {
+        countries.find($routeParams.countryId, function(country) {
           $scope.country = country;
         });
       });
 
-      countryApp.filter('encodeURI', function(){
-        return window.encodeURI;
-      });
     </script>
   </head>
   <body>

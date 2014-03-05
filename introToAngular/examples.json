@@ -489,11 +489,12 @@
     "number": 45,
     "message": "Simulating a RESTful service by splitting the JSON data across files.",
     "files": [
-      "China.json",
-      "India.json",
       "countries.json",
       "country-detail.html",
       "country-list.html",
+      "country_1.json",
+      "country_2.json",
+      "country_3.json",
       "index.html",
       "node_modules"
     ],

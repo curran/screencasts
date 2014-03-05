@@ -194,8 +194,8 @@
     "number": 20,
     "message": "Fetching JSON.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot20"
@@ -205,8 +205,8 @@
     "number": 21,
     "message": "Dependency injection syntax for minification.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot21"
@@ -216,8 +216,8 @@
     "number": 22,
     "message": "Adding search using Angular filters.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot22"
@@ -227,8 +227,8 @@
     "number": 23,
     "message": "Sorting in ng-repeat using orderBy",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot23"
@@ -238,8 +238,8 @@
     "number": 24,
     "message": "Sorting in descending order",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot24",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot24"
@@ -249,8 +249,8 @@
     "number": 25,
     "message": "Sorting table columns interactively.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot25",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot25"
@@ -260,8 +260,8 @@
     "number": 26,
     "message": "Interactively reversing sort order.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot26"
@@ -271,8 +271,8 @@
     "number": 27,
     "message": "Adding country flag images.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot27"
@@ -282,8 +282,8 @@
     "number": 28,
     "message": "Using ng-src.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot28"
@@ -293,8 +293,8 @@
     "number": 29,
     "message": "Adding capital data.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot29"
@@ -304,8 +304,8 @@
     "number": 30,
     "message": "Adding GDP data",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30"
@@ -315,8 +315,8 @@
     "number": 31,
     "message": "Formatting currency using Angular filters in templates.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31"
@@ -326,8 +326,8 @@
     "number": 32,
     "message": "Formatting population using Angular filters in templates.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32"
@@ -337,8 +337,8 @@
     "number": 33,
     "message": "Preparing for routing - making a simple country listing.",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33"
@@ -348,8 +348,8 @@
     "number": 34,
     "message": "Getting started with routing using ngRoute",
     "files": [
-      "countries.json",
-      "index.html"
+      "index.html",
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34"
@@ -359,10 +359,10 @@
     "number": 35,
     "message": "Moving templates for routes into separate files",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35"
@@ -372,10 +372,10 @@
     "number": 36,
     "message": "Extracting and using parameters from routes",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36"
@@ -385,10 +385,10 @@
     "number": 37,
     "message": "Using links with routes for navigation between views",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot37",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot37"
@@ -398,10 +398,10 @@
     "number": 38,
     "message": "Looking up details for a single country",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot38",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot38"
@@ -411,10 +411,10 @@
     "number": 39,
     "message": "Surfacing data on the country details page",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot39",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot39"
@@ -424,10 +424,10 @@
     "number": 40,
     "message": "Creating a service for loading the list of countries",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot40",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot40"
@@ -437,10 +437,10 @@
     "number": 41,
     "message": "Extracting the country details query into a service",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot41",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot41"
@@ -450,10 +450,10 @@
     "number": 42,
     "message": "Caching JSON data in a service.",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot42",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot42"
@@ -463,10 +463,10 @@
     "number": 43,
     "message": "Caching JSON using cache option",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot43",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot43"
@@ -476,10 +476,10 @@
     "number": 44,
     "message": "Creating a custom filter to encode URIs",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
-      "index.html"
+      "countries.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot44",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot44"
@@ -489,13 +489,13 @@
     "number": 45,
     "message": "Simulating a RESTful service by splitting the JSON data across files.",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
+      "countries.json",
       "country_1.json",
       "country_2.json",
-      "country_3.json",
-      "index.html"
+      "country_3.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot45",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot45"
@@ -505,14 +505,14 @@
     "number": 46,
     "message": "Creating a custom Angular directive for country entries.",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
       "country.html",
+      "countries.json",
       "country_1.json",
       "country_2.json",
-      "country_3.json",
-      "index.html"
+      "country_3.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot46",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot46"
@@ -522,14 +522,14 @@
     "number": 47,
     "message": "Adding a controller to our custom directive",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
       "country.html",
+      "countries.json",
       "country_1.json",
       "country_2.json",
-      "country_3.json",
-      "index.html"
+      "country_3.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot47",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot47"
@@ -539,14 +539,14 @@
     "number": 48,
     "message": "Fetching data within custom directives - adding flags to the country listing.",
     "files": [
-      "countries.json",
+      "index.html",
       "country-detail.html",
       "country-list.html",
       "country.html",
+      "countries.json",
       "country_1.json",
       "country_2.json",
-      "country_3.json",
-      "index.html"
+      "country_3.json"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot48",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot48"

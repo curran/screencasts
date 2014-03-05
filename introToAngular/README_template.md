@@ -68,6 +68,10 @@ Design and implementation of Angular:
 
 ## Examples
 
+These examples illustrate many Angular features with small increments.
+
+Check them out in the [example viewer](./exampleViewer/).
+
 <%= examples %>
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

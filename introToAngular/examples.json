@@ -536,5 +536,23 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot47",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot47"
+  },
+  {
+    "name": "snapshot48",
+    "number": 48,
+    "message": "Fetching data within directives, using nested scope",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "country.html",
+      "country_1.json",
+      "country_2.json",
+      "country_3.json",
+      "index.html",
+      "node_modules"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot48",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot48"
   }
 ]

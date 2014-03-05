@@ -32,17 +32,14 @@
 
       countryApp.controller('CountryListCtrl', function ($scope, $http, countries){
         countries.list(function(countries) {
-          console.log("here");
           $scope.countries = countries;
         });
       });
 
       countryApp.controller('CountryDetailCtrl', function ($scope, $routeParams, $http){
-        $scope.name = $routeParams.countryName;
-
         $http.get('countries.json').success(function(data) {
           $scope.country = data.filter(function(entry){
-            return entry.name === $scope.name;
+            return entry.name === $routeParams.countryName
           })[0];
         });
       });

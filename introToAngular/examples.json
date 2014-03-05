@@ -518,5 +518,23 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot46",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot46"
+  },
+  {
+    "name": "snapshot47",
+    "number": 47,
+    "message": "Adding a controller to our custom directive",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "country.html",
+      "country_1.json",
+      "country_2.json",
+      "country_3.json",
+      "index.html",
+      "node_modules"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot47",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot47"
   }
 ]

@@ -11,19 +11,25 @@ var _ = require('underscore'),
     fs = require('fs'),
     inputFile = './README_template.md',
     outputFile = './README.md',
+    outputJSONFile = './examples.json',
     outputHTMLFile = './README.html',
     entryDir = 'examples/',
     snapshotsPath = entryDir + 'snapshots/',
     snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/',
     snapshotRunURL = 'http://curran.github.io/screencasts/introToAngular/examples/snapshots/',
     messageFile = '/message.txt',
-    entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html))<%= message %>');
+    entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html)) - <%= message %>'),
+    irrelevantFiles = ['message.txt', 'README.md', 'server.js'];
 
 // Read the template for README.md
 fs.readFile(inputFile, 'utf8', function (err, template) {
 
-  // Generate the model for the README.md template.
-  var model = generateTemplateModel(entryTemplate),
+  // Generate the data describing the examples.
+  var data = generateExampleJSON(),
+      outputJSON = JSON.stringify(data, null, 2),
+
+      // Generate the model for the README.md template.
+      model = generateREADMEmodel(data), 
 
       // Evaluate the README.md template.
       output = _.template(template, model),
@@ -36,6 +42,9 @@ fs.readFile(inputFile, 'utf8', function (err, template) {
 
   // Write README.html
   write(outputHTMLFile, outputHTML);
+
+  // Write examples.json (used by the example viewer app)
+  write(outputJSONFile, outputJSON);
 });
 
 function write(outputFile, output){
@@ -48,19 +57,29 @@ function write(outputFile, output){
   });
 }
 
-function generateTemplateModel(){
-  var files = fs.readdirSync(snapshotsPath),
-      entries = files.map(function(file){
-        return {
-          name: file,
-          number: extractNumber(file),
-          message: getMessage(file),
-          url: snapshotURL + file,
-          runUrl: snapshotRunURL + file
-        };
-      });
+function generateREADMEmodel(data){
+  return { examples: data.map(entryTemplate).join('\n') };
+}
 
-  return { examples: entries.map(entryTemplate).join('\n') };
+function generateExampleJSON(){
+  var files = fs.readdirSync(snapshotsPath);
+  return files.map(function(file){
+    return {
+      name: file,
+      number: extractNumber(file),
+      message: getMessage(file),
+      files: listFilesForExample(file),
+      url: snapshotURL + file,
+      runUrl: snapshotRunURL + file
+    };
+  });
+
+}
+
+function listFilesForExample(file){
+  var path = snapshotsPath + file,
+      files = fs.readdirSync(path);
+  return _.difference(files, irrelevantFiles);
 }
 
 function extractNumber(name){
@@ -71,7 +90,7 @@ function getMessage(file){
   var msgFile = snapshotsPath + file + messageFile;
   if(fs.existsSync(msgFile)){
     var msg = fs.readFileSync(msgFile, 'utf8');
-    return ' - ' + msg.replace('\n','');
+    return msg.replace('\n','');
   }
   return '';
 }

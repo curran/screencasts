@@ -29,8 +29,8 @@ app.factory('examples', function($http){
     list: getData,
     find: function(exampleNumber, callback){
       getData(function(data) {
-        var i = parseInt(exampleNumber) - 1;
-        callback(data[i]);
+        var index = parseInt(exampleNumber) - 1;
+        callback(data[index]);
       });
     }
   };

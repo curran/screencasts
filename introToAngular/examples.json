@@ -540,7 +540,7 @@
   {
     "name": "snapshot48",
     "number": 48,
-    "message": "Fetching data within directives, using nested scope",
+    "message": "Fetching data within custom directives - adding flags to the country listing.",
     "files": [
       "countries.json",
       "country-detail.html",

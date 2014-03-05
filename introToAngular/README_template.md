@@ -1,6 +1,13 @@
 # Angular.js
 
-[Angular.js](http://angularjs.org/) is one of the hottest frameworks out there today and well worth learning.
+[Angular.js](http://angularjs.org/)
+  * "What HTML would have been, had it been designed for building web-apps"
+  * Implements futuristic Web standards now ([Web Components and Model Driven views](http://www.confreaks.com/videos/2204-fronteersconf2011-web-components-and-model-driven-views))
+  * Created by [Misko Hevery](https://www.youtube.com/results?search_query=misko%20hevery%20angularjs&sm=3) in 2009
+  * Open Source, supported by Google
+  * Extremely well documented
+  * Vibrant community of users
+  * Gaining traction in industry
 
 ## Data Binding Frameworks
 
@@ -31,15 +38,27 @@ The following libraries lay the foundation for many data binding frameworks:
  * [Promises](http://howtonode.org/promises) - an industry standard pattern for dealing with asynchronous control flow. The top Promises implementation is [Q](https://github.com/kriskowal/q). [Async.js](https://github.com/caolan/async) is another great asynchronous control flow library, from the [Node.js](http://nodejs.org/) community.
  * [Handlebars](http://handlebarsjs.com/) - one of the top templating libraries. Handlebars is derived from [Mustache](http://mustache.github.io/), which provides logic-less templates.
 
+## Examples
+
+ * Illustrate Angular features in small increments
+ * Meant to be as simple as possible (e.g. no [Bootstrap](http://getbootstrap.com/) or [Grunt](http://gruntjs.com/))
+ * Check out the [example viewer](http://curran.github.io/screencasts/introToAngular/exampleViewer).
+
+Listing of all examples:
+
+<%= examples %>
+
 ## Angular Learning Resources
 
-Birds-eye-view:
+It is straightforward to teach yourself about Angular, as there are so many learning resources on the Web.
+
+### Birds-eye-view:
 
  * [Learn Angularjs This Weekend](http://joelhooks.com/blog/2013/08/03/learn-angularjs-in-a-weekend/) - Advice on which resources to use for getting up to speed on Anguar.
  * [A Better Way to Learn AngularJS](http://www.thinkster.io/angularjs/GtaQ0oMGIl/a-better-way-to-learn-angularjs) - A great collection of links to resources for learning Angular.
  * [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) - A kithen sink of links to Angular learning resources.
 
-Introductory tutorials and guides:
+### Introductory tutorials and guides:
 
  * [Angular Developer Guide Conceptual Overview](http://docs.angularjs.org/guide/concepts)
    * Enumerates fundamental concepts
@@ -58,20 +77,12 @@ Introductory tutorials and guides:
    * Does not cover basics, jumps to advanced usage
    * Great example of how development flows in practice
 
-Design and implementation of Angular:
+### Design and implementation of Angular:
 
  * [Re-Imagining the Browser with AngularJS](https://www.youtube.com/watch?v=ersEb9vTX3Y)
    * Talk by Miško Hevery, creator of Angular
    * Discusses the high-level goals of Angular
  * [Bringing Angular Apps to Life with Animation by Miško Hevery](https://www.youtube.com/watch?v=cF_JsA9KsDM)
  * [Google I/O 2013 - Design Decisions in AngularJS](https://www.youtube.com/watch?v=HCR7i5F5L8c)
-
-## Examples
-
-These examples illustrate many Angular features with small increments.
-
-Check them out in the [example viewer](./exampleViewer/).
-
-<%= examples %>
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

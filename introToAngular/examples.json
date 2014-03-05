@@ -500,5 +500,23 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot45",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot45"
+  },
+  {
+    "name": "snapshot46",
+    "number": 46,
+    "message": "Creating a custom Angular directive for country entries.",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "country.html",
+      "country_1.json",
+      "country_2.json",
+      "country_3.json",
+      "index.html",
+      "node_modules"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot46",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot46"
   }
 ]

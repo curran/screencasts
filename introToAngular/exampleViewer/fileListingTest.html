@@ -13,11 +13,16 @@
       .CodeMirror {
         border: 1px solid #eee;
         height: auto;
+        font-size: 1.3em;
       }
       .CodeMirror-scroll {
         height: auto;
         overflow-y: hidden;
         overflow-x: auto;
+      }
+      iframe {
+        width: 100%;
+        height: 250px;
       }
     </style>
     <script>
@@ -25,6 +30,10 @@
       exampleApp.controller('ExampleCtrl', function ($scope, $http){
         $http.get('../examples.json').success(function(data) {
           $scope.example = data[45];
+          $scope.runUrl = [
+            '../examples/snapshots',
+            $scope.example.name
+          ].join('/');
         });
       });
       exampleApp.directive('file', function(){
@@ -46,7 +55,6 @@
               if(typeof(data) === 'object'){
                 data = JSON.stringify(data, null, 2);
               }
-
               $scope.content = data;
             });
           },
@@ -68,6 +76,8 @@
     </script>
   </head>
   <body ng-controller="ExampleCtrl">
+    <a href="{{runUrl}}">Run this example</a>
+    <iframe ng-src="{{runUrl}}"></iframe>
     <div ng-repeat="file in example.files">
       <h3>{{file}}</h3>
       <textarea file="file" example="example"></textarea>

@@ -1,0 +1,76 @@
+<html ng-app="exampleApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/xml/xml.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/javascript/javascript.min.js"></script> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.css">
+    <style>
+      /* Autoresize code from http://codemirror.net/demo/resize.html */
+      .CodeMirror {
+        border: 1px solid #eee;
+        height: auto;
+      }
+      .CodeMirror-scroll {
+        height: auto;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+    </style>
+    <script>
+      var exampleApp = angular.module('exampleApp', []);
+      exampleApp.controller('ExampleCtrl', function ($scope, $http){
+        $http.get('../examples.json').success(function(data) {
+          $scope.example = data[45];
+        });
+      });
+      exampleApp.directive('file', function(){
+        return {
+          scope: {
+            file: '=',
+            example: '='
+          },
+          restrict: 'A',
+          template: '{{content}}',
+          controller: function($scope, $http){
+            var path = [
+              '../examples/snapshots',
+              $scope.example.name,
+              $scope.file
+            ].join('/');
+            $http.get(path).success(function(data) {
+              // un-parse JSON files
+              if(typeof(data) === 'object'){
+                data = JSON.stringify(data, null, 2);
+              }
+
+              $scope.content = data;
+            });
+          },
+          link : function(scope, element, attrs) {
+            var textArea = element[0];
+            var editor = CodeMirror.fromTextArea(textArea, {
+              mode: "text/html",
+              lineNumbers: true,
+              viewportMargin: Infinity
+            });
+            scope.$watch('content', function(data){
+              if(data) {
+                editor.setValue(data);
+              }
+            });
+          }
+        };
+      });
+    </script>
+  </head>
+  <body ng-controller="ExampleCtrl">
+    <div ng-repeat="file in example.files">
+      <h3>{{file}}</h3>
+      <textarea file="file" example="example"></textarea>
+    </div>
+  </body>
+</html>

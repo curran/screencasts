@@ -1,0 +1,503 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Starter HTML page with a text input",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Added keyup event listener on textInput.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Extracting text from the text input as it changes.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Updating a span when input text changes using the DOM API.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Updating a span when input text changes using jQuery.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Updating a span when input text changes using Backbone.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Updating a template when input text changes using Angular.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Data binding with many text inputs.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "First name and last name.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Initializing the model using an Angular controller, defined with a global function.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Initializing the model using an Angular controller, defined within an Angular module.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Changing scope values asynchronously - updates don't propagate without .apply().",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Changing scope values asynchronously - updates propagate .apply().",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Looping over lists in templates using ng-repeat.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot14",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Adding entries to a list using forms and ng-submit.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Clearing the entered name on submit using data binding.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Removing names from a list using ng-click.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "Enumerating objects - countries and their populations.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "Building a table.",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "Fetching JSON.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "Dependency injection syntax for minification.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "Adding search using Angular filters.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "Sorting in ng-repeat using orderBy",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "Sorting in descending order",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot24",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot24"
+  },
+  {
+    "name": "snapshot25",
+    "number": 25,
+    "message": "Sorting table columns interactively.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot25",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "Interactively reversing sort order.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Adding country flag images.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "Using ng-src.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot28"
+  },
+  {
+    "name": "snapshot29",
+    "number": 29,
+    "message": "Adding capital data.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot29"
+  },
+  {
+    "name": "snapshot30",
+    "number": 30,
+    "message": "Adding GDP data",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30"
+  },
+  {
+    "name": "snapshot31",
+    "number": 31,
+    "message": "Formatting currency using Angular filters in templates.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31"
+  },
+  {
+    "name": "snapshot32",
+    "number": 32,
+    "message": "Formatting population using Angular filters in templates.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32"
+  },
+  {
+    "name": "snapshot33",
+    "number": 33,
+    "message": "Preparing for routing - making a simple country listing.",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33"
+  },
+  {
+    "name": "snapshot34",
+    "number": 34,
+    "message": "Getting started with routing using ngRoute",
+    "files": [
+      "countries.json",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34"
+  },
+  {
+    "name": "snapshot35",
+    "number": 35,
+    "message": "Moving templates for routes into separate files",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35"
+  },
+  {
+    "name": "snapshot36",
+    "number": 36,
+    "message": "Extracting and using parameters from routes",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36"
+  },
+  {
+    "name": "snapshot37",
+    "number": 37,
+    "message": "Using links with routes for navigation between views",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot37",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot37"
+  },
+  {
+    "name": "snapshot38",
+    "number": 38,
+    "message": "Looking up details for a single country",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot38",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot38"
+  },
+  {
+    "name": "snapshot39",
+    "number": 39,
+    "message": "Surfacing data on the country details page",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot39",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot39"
+  },
+  {
+    "name": "snapshot40",
+    "number": 40,
+    "message": "Creating a service for loading the list of countries",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot40",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot40"
+  },
+  {
+    "name": "snapshot41",
+    "number": 41,
+    "message": "Extracting the country details query into a service",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot41",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot41"
+  },
+  {
+    "name": "snapshot42",
+    "number": 42,
+    "message": "Caching JSON data in a service.",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot42",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot42"
+  },
+  {
+    "name": "snapshot43",
+    "number": 43,
+    "message": "Caching JSON using cache option",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot43",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot43"
+  },
+  {
+    "name": "snapshot44",
+    "number": 44,
+    "message": "Creating a custom filter to encode URIs",
+    "files": [
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot44",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot44"
+  },
+  {
+    "name": "snapshot45",
+    "number": 45,
+    "message": "Simulating a RESTful service by splitting the JSON data across files.",
+    "files": [
+      "China.json",
+      "India.json",
+      "countries.json",
+      "country-detail.html",
+      "country-list.html",
+      "index.html",
+      "node_modules"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot45",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot45"
+  }
+]

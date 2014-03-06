@@ -569,5 +569,26 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot49",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot49"
+  },
+  {
+    "name": "snapshot50",
+    "number": 50,
+    "message": "Extracting factories and directives to separate modules using method chaining.",
+    "files": [
+      "index.html",
+      "country-detail.html",
+      "country-list.html",
+      "country.html",
+      "app.js",
+      "countriesFactory.js",
+      "countryControllers.js",
+      "countryDirective.js",
+      "countries.json",
+      "country_1.json",
+      "country_2.json",
+      "country_3.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot50",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot50"
   }
 ]

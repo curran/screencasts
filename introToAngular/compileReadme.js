@@ -76,10 +76,30 @@ function generateExampleJSON(){
 
 }
 
+// Computes the list of files for each example.
+// Sorts files by:
+// index.html > *.html > *.js > *.json > *
 function listFilesForExample(file){
   var path = snapshotsPath + file,
-      files = fs.readdirSync(path);
-  return _.difference(files, irrelevantFiles);
+      allFiles = fs.readdirSync(path),
+      files =_.difference(allFiles, irrelevantFiles);
+  return _.sortBy(files, filePrecedence);
+}
+
+function filePrecedence(name){
+  var ext = name.substr(name.lastIndexOf('.'));
+
+  if(name === 'index.html'){
+    return 0;
+  } else if (ext === '.html') {
+    return 1;
+  } else if (ext === '.js') {
+    return 2;
+  } else if (ext === '.json') {
+    return 3;
+  } else {
+    return 4;
+  }
 }
 
 function extractNumber(name){

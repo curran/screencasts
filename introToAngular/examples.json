@@ -550,5 +550,24 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot48",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot48"
+  },
+  {
+    "name": "snapshot49",
+    "number": 49,
+    "message": "Extracting controllers into a separate module",
+    "files": [
+      "index.html",
+      "country-detail.html",
+      "country-list.html",
+      "country.html",
+      "app.js",
+      "countryControllers.js",
+      "countries.json",
+      "country_1.json",
+      "country_2.json",
+      "country_3.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot49",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot49"
   }
 ]

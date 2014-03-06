@@ -2,6 +2,9 @@
   <h1>Example {{example.number}}</h1>
   <h4>{{example.message}}</h4>
 </div>
+<h3>Running example (<a href="{{runUrl}}" target="_blank" >run standalone</a>)</h3> 
+<iframe ng-src="{{runUrl}}"></iframe>
+<h3>Source code</h3>
 <div ng-repeat="file in example.files">
   <div class="file-name">{{file}}</div>
   <textarea file="file" example="example"></textarea>

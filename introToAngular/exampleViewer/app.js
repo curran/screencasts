@@ -77,6 +77,10 @@ app.controller('ExampleDetailCtrl',
     function ($scope, $routeParams, examples){
   examples.find($routeParams.exampleNumber, function(example) {
     $scope.example = example;
+    $scope.runUrl = '../examples/snapshots/' + example.name;
+    //$http.get($scope.runUrl + '/README.md').success(function(data) {
+    //  $scope.readme = $sce.trustAsHtml(marked(data));
+    //});
   });
 });
 

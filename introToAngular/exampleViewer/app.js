@@ -45,6 +45,14 @@ app.controller('ExampleListCtrl', function ($scope, examples){
 app.controller('ExampleDetailCtrl', function ($scope, $routeParams, examples){
   examples.find($routeParams.exampleNumber, function(example) {
     $scope.example = example;
+  });
+});
 
+app.controller('FileViewerCtrl', function ($scope, $http){
+  var path = '../examples/snapshots/' + $scope.example.name + '/' + $scope.file;
+  console.log(path);
+  $http.get(path, function(data){
+    console.log(data);
+    $scope.content = data;
   });
 });

@@ -1,5 +1,4 @@
-<h1 id="angular-js">Angular.js</h1>
-<p><a href="http://angularjs.org/">Angular.js</a></p>
+<h1 id="-angular-js-http-angularjs-org-"><a href="http://angularjs.org/">Angular.js</a></h1>
 <ul>
 <li>&quot;What HTML would have been, had it been designed for building web-apps&quot;</li>
 <li>Implements futuristic Web standards now (<a href="http://www.confreaks.com/videos/2204-fronteersconf2011-web-components-and-model-driven-views">Web Components and Model Driven views</a>)</li>
@@ -36,12 +35,24 @@
 <h2 id="foundational-libraries">Foundational Libraries</h2>
 <p>The following libraries lay the foundation for many data binding frameworks:</p>
 <ul>
-<li><a href="http://jquery.com/">jQuery</a> - an industry standard library for <a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> <a href="https://api.jquery.com/category/manipulation/">manipulation</a> and <a href="http://en.wikipedia.org/wiki/Ajax_(programming">AJAX</a>).</li>
 <li><a href="http://underscorejs.org/">Underscore</a> - a widely adopted <a href="http://en.wikipedia.org/wiki/Functional_programming">functional programming</a> utility library, providing functional primitives such as map, reduce, each and filter. <a href="http://lodash.com/">Lo-Dash</a> is a replacement for Underscore that boasts performance increases, bug fixes and additional features.</li>
 <li><a href="http://backbonejs.org/">Backbone</a> - a tried and true bare bones MVC framework that provides fundamental features such as events, observable properties, and class-like inheritance. Backbone also has foundational support for routing based on hash fragments and RESTful synchronization with a <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> backend for persistence.</li>
-<li><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> - an industry standard for separating JavaScript projects across many files using modules. The top AMD implementation is <a href="http://requirejs.org/">Require</a>.</li>
-<li><a href="http://howtonode.org/promises">Promises</a> - an industry standard pattern for dealing with asynchronous control flow. The top Promises implementation is <a href="https://github.com/kriskowal/q">Q</a>. <a href="https://github.com/caolan/async">Async.js</a> is another great asynchronous control flow library, from the <a href="http://nodejs.org/">Node.js</a> community.</li>
-<li><a href="http://handlebarsjs.com/">Handlebars</a> - one of the top templating libraries. Handlebars is derived from <a href="http://mustache.github.io/">Mustache</a>, which provides logic-less templates.</li>
+<li><a href="http://jquery.com/">jQuery</a> - an industry standard library for <a href="http://en.wikipedia.org/wiki/Document_Object_Model">DOM</a> <a href="https://api.jquery.com/category/manipulation/">manipulation</a> and <a href="http://en.wikipedia.org/wiki/Ajax_(programming">AJAX</a>).<ul>
+<li>Angular includes a jQuery-like API with <a href="http://docs.angularjs.org/api/ng/function/angular.element">jqLite</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a> - an industry standard for separating JavaScript projects across many files using modules. The top AMD implementation is <a href="http://requirejs.org/">Require</a>.<ul>
+<li><a href="http://docs.angularjs.org/guide/di">Angular dependency injection</a> follows a pattern extremely similar to (and likely influenced by) AMD.</li>
+</ul>
+</li>
+<li><a href="http://howtonode.org/promises">Promises</a> - an industry standard pattern for dealing with asynchronous control flow. The top Promises implementation is <a href="https://github.com/kriskowal/q">Q</a>. <a href="https://github.com/caolan/async">Async.js</a> is another great asynchronous control flow library, from the <a href="http://nodejs.org/">Node.js</a> community.<ul>
+<li>Angular includes a Q-like API with the <a href="http://docs.angularjs.org/api/ng/service/$q">$q service</a></li>
+</ul>
+</li>
+<li><a href="http://handlebarsjs.com/">Handlebars</a> - one of the top templating libraries. Handlebars is derived from <a href="http://mustache.github.io/">Mustache</a>, which provides logic-less templates.<ul>
+<li><a href="http://docs.angularjs.org/guide/templates">Angular templates</a> use syntax similar to Handlebars</li>
+</ul>
+</li>
 </ul>
 <h2 id="examples">Examples</h2>
 <ul>

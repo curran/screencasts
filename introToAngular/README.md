@@ -1,6 +1,5 @@
-# Angular.js
+# [Angular.js](http://angularjs.org/)
 
-[Angular.js](http://angularjs.org/)
   * "What HTML would have been, had it been designed for building web-apps"
   * Implements futuristic Web standards now ([Web Components and Model Driven views](http://www.confreaks.com/videos/2204-fronteersconf2011-web-components-and-model-driven-views))
   * Created by [Misko Hevery](https://www.youtube.com/results?search_query=misko%20hevery%20angularjs&sm=3) in 2009
@@ -31,12 +30,16 @@
 
 The following libraries lay the foundation for many data binding frameworks:
 
- * [jQuery](http://jquery.com/) - an industry standard library for [DOM](http://en.wikipedia.org/wiki/Document_Object_Model) [manipulation](https://api.jquery.com/category/manipulation/) and [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming)).
  * [Underscore](http://underscorejs.org/) - a widely adopted [functional programming](http://en.wikipedia.org/wiki/Functional_programming) utility library, providing functional primitives such as map, reduce, each and filter. [Lo-Dash](http://lodash.com/) is a replacement for Underscore that boasts performance increases, bug fixes and additional features.
  * [Backbone](http://backbonejs.org/) - a tried and true bare bones MVC framework that provides fundamental features such as events, observable properties, and class-like inheritance. Backbone also has foundational support for routing based on hash fragments and RESTful synchronization with a [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) backend for persistence.
+ * [jQuery](http://jquery.com/) - an industry standard library for [DOM](http://en.wikipedia.org/wiki/Document_Object_Model) [manipulation](https://api.jquery.com/category/manipulation/) and [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming)).
+   * Angular includes a jQuery-like API with [jqLite](http://docs.angularjs.org/api/ng/function/angular.element)
  * [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) - an industry standard for separating JavaScript projects across many files using modules. The top AMD implementation is [Require](http://requirejs.org/).
+   * [Angular dependency injection](http://docs.angularjs.org/guide/di) follows a pattern extremely similar to (and likely influenced by) AMD.
  * [Promises](http://howtonode.org/promises) - an industry standard pattern for dealing with asynchronous control flow. The top Promises implementation is [Q](https://github.com/kriskowal/q). [Async.js](https://github.com/caolan/async) is another great asynchronous control flow library, from the [Node.js](http://nodejs.org/) community.
+   * Angular includes a Q-like API with the [$q service](http://docs.angularjs.org/api/ng/service/$q)
  * [Handlebars](http://handlebarsjs.com/) - one of the top templating libraries. Handlebars is derived from [Mustache](http://mustache.github.io/), which provides logic-less templates.
+   * [Angular templates](http://docs.angularjs.org/guide/templates) use syntax similar to Handlebars
 
 ## Examples
 

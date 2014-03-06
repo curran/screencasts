@@ -7,6 +7,7 @@
 /**** Begin styles for all views. ****/
 body {
   font-family: Sans-Serif;
+  margin: 20px;
 }
 
 /* Center the title part of the page. */
@@ -34,8 +35,10 @@ body {
 .CodeMirror-scroll {
   height: auto;
   overflow-y: hidden;
-  overflow-x: auto;
-  max-height: 800px;
+  overflow-x: hidden;
+
+  /* Limit height for the case of large JSON files */
+  max-height: 2000px;
 }
 
 .top-split {
@@ -65,6 +68,6 @@ iframe {
 /* Style the names of source code files. */
 .file-name {
   font-size: 1.5em;
-  padding-top:15px;
+  padding-top: 15px;
   padding-left:20px;
 }

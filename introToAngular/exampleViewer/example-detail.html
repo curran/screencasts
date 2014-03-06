@@ -9,8 +9,8 @@
     <iframe ng-src="{{runUrl}}" frameBorder="0"></iframe>
   </div>
 </div>
+<div ng-bind-html="readme"></div>
 <div ng-repeat="file in example.files">
   <div class="file-name">{{file}}</div>
   <textarea file="file" example="example"></textarea>
 </div>
-<div ng-bind-html="readme"></div>

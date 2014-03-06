@@ -79,7 +79,9 @@ app.controller('ExampleDetailCtrl',
     $scope.example = example;
     $scope.runUrl = '../examples/snapshots/' + example.name;
     $http.get($scope.runUrl + '/README.md').success(function(data) {
-      $scope.readme = $sce.trustAsHtml(marked(data));
+      // Remove first line, as it appears elsewhere on the page (called 'message').
+      var md = data.split('\n').splice(1).join('\n');
+      $scope.readme = $sce.trustAsHtml(marked(md));
     });
   });
 });

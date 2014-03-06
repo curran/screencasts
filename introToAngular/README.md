@@ -45,7 +45,7 @@ The following libraries lay the foundation for many data binding frameworks:
 
  * Illustrate Angular features in small increments
  * Meant to be as simple as possible (e.g. no [Bootstrap](http://getbootstrap.com/) or [Grunt](http://gruntjs.com/))
- * Check out the [example viewer](http://curran.github.io/screencasts/introToAngular/exampleViewer).
+ * Check out the [example viewer](http://curran.github.io/screencasts/introToAngular/exampleViewer) (which is itself an [Angular application](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/exampleViewer)).
 
 Listing of all examples:
 

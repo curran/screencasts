@@ -1,10 +1,14 @@
-<div class="title">
-  <h1>Example {{example.number}}</h1>
-  <h4>{{example.message}}</h4>
+<div class="top-split">
+  <div class="top-left">
+    <div class="centered">
+      <h1><a href="{{runUrl}}" target="_blank" >Example {{example.number}}</a></h1>
+      <h4>{{example.message}}</h4>
+    </div>
+  </div>
+  <div class="top-right">
+    <iframe ng-src="{{runUrl}}" frameBorder="0"></iframe>
+  </div>
 </div>
-<h3>Running example (<a href="{{runUrl}}" target="_blank" >run standalone</a>)</h3> 
-<iframe ng-src="{{runUrl}}"></iframe>
-<h3>Source code</h3>
 <div ng-repeat="file in example.files">
   <div class="file-name">{{file}}</div>
   <textarea file="file" example="example"></textarea>

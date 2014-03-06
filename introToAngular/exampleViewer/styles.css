@@ -10,8 +10,14 @@ body {
 }
 
 /* Center the title part of the page. */
-.title {
+.centered {
   text-align: center;
+}
+
+/* apply a natural box layout model to all elements */
+/* see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
 /**** Begin styles for the details view only. ****/
@@ -29,17 +35,36 @@ body {
   height: auto;
   overflow-y: hidden;
   overflow-x: auto;
+  max-height: 800px;
+}
+
+.top-split {
+  width: 100%;
+  height: 200px;
+}
+
+.top-left {
+  float: left; 
+  width: 50%;
+  height: 200px;
+}
+
+.top-right {
+  float: right; 
+  width: 50%;
+  height: 200px;
 }
 
 /* Size the iFrame that contains the running example. */
 iframe {
   width: 100%;
-  height: 250px;
+  height: 200px;
+  border: 1px gray solid; 
 }
 
 /* Style the names of source code files. */
 .file-name {
   font-size: 1.5em;
-  padding-top:25px;
+  padding-top:15px;
   padding-left:20px;
 }

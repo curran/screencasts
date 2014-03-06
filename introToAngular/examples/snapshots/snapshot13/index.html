@@ -8,6 +8,10 @@
       nameApp.controller('NameCtrl', function ($scope){
         $scope.firstName = 'John';
 
+        $scope.$watch('lastName', function(newValue, oldValue){
+          console.log('new value is ' + newValue);
+        });
+
         setTimeout(function(){
           $scope.lastName = 'Smith';
           $scope.$apply();

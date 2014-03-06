@@ -1,7 +1,45 @@
+/**
+ * CSS for the example viewer application.
+ *
+ * Curran Kelleher 3/5/2014.
+ */
+
+/**** Begin styles for all views. ****/
 body {
   font-family: Sans-Serif;
 }
 
+/* Center the title part of the page. */
 .title {
   text-align: center;
+}
+
+/**** Begin styles for the details view only. ****/
+
+/**
+ * Style code editors on the details view.
+ * Autoresize code from http://codemirror.net/demo/resize.html
+ */
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+  font-size: 1.3em;
+}
+.CodeMirror-scroll {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+/* Size the iFrame that contains the running example. */
+iframe {
+  width: 100%;
+  height: 250px;
+}
+
+/* Style the names of source code files. */
+.file-name {
+  font-size: 1.5em;
+  padding-top:25px;
+  padding-left:20px;
 }

@@ -10,6 +10,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.1/marked.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.css">
     <style>
+      /* Style code editors on the details view.
       /* Autoresize code from http://codemirror.net/demo/resize.html */
       .CodeMirror {
         border: 1px solid #eee;
@@ -21,6 +22,7 @@
         overflow-y: hidden;
         overflow-x: auto;
       }
+      /* Size the iFrame on the details view. */
       iframe {
         width: 100%;
         height: 250px;
@@ -59,7 +61,7 @@
               $scope.file
             ].join('/');
             $http.get(path).success(function(data) {
-              // un-parse JSON files
+              // un-parse auto-parsed JSON files for presentation as text
               if(typeof(data) === 'object'){
                 data = JSON.stringify(data, null, 2);
               }

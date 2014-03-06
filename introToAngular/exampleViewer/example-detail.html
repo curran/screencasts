@@ -3,8 +3,6 @@
   <h4>{{example.message}}</h4>
 </div>
 <div ng-repeat="file in example.files">
-  <div ng-controller="FileViewerCtrl">
-    <div>{{file}}</div>
-    <textarea>{{content}}</textarea>
-  </div>
+  <div class="file-name">{{file}}</div>
+  <textarea file="file" example="example"></textarea>
 </div>

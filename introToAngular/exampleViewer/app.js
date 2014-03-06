@@ -48,11 +48,44 @@ app.controller('ExampleDetailCtrl', function ($scope, $routeParams, examples){
   });
 });
 
-app.controller('FileViewerCtrl', function ($scope, $http){
-  var path = '../examples/snapshots/' + $scope.example.name + '/' + $scope.file;
-  console.log(path);
-  $http.get(path, function(data){
-    console.log(data);
-    $scope.content = data;
-  });
+/**
+ * The `file` directive loads the content of an 
+ * example source code file into a CodeMirror instance
+ * for syntax-highlighted presentation.
+ */
+app.directive('file', function(){
+  return {
+    scope: {
+      file: '=',
+      example: '='
+    },
+    restrict: 'A',
+    controller: function($scope, $http){
+      var path = [
+        '../examples/snapshots',
+        $scope.example.name,
+        $scope.file
+      ].join('/');
+      $http.get(path).success(function(data) {
+        // un-parse auto-parsed JSON files for presentation as text
+        if(typeof(data) === 'object'){
+          data = JSON.stringify(data, null, 2);
+        }
+        $scope.content = data;
+      });
+    },
+    link : function(scope, element, attrs) {
+      var textArea = element[0];
+      var editor = CodeMirror.fromTextArea(textArea, {
+        mode: "text/html",
+        lineNumbers: true,
+        viewportMargin: Infinity
+      });
+      scope.$watch('content', function(data){
+        if(data) {
+          editor.setValue(data);
+        }
+      });
+    }
+  };
 });

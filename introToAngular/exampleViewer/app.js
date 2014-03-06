@@ -55,10 +55,7 @@ app.controller('ExampleDetailCtrl', function ($scope, $routeParams, examples){
  */
 app.directive('file', function(){
   return {
-    scope: {
-      file: '=',
-      example: '='
-    },
+    scope: { file: '=', example: '=' },
     restrict: 'A',
     controller: function($scope, $http){
       var path = [
@@ -67,9 +64,12 @@ app.directive('file', function(){
         $scope.file
       ].join('/');
       $http.get(path).success(function(data) {
-        // un-parse auto-parsed JSON files for presentation as text
         if(typeof(data) === 'object'){
+          // un-parse auto-parsed JSON files for presentation as text
           data = JSON.stringify(data, null, 2);
+        } else {
+          // Remove trailing newlines from code presentation
+          data = data.trim();
         }
         $scope.content = data;
       });

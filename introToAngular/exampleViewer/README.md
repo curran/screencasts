@@ -1,3 +1,5 @@
-A viewer for the code examples.
+An application for viewing and presenting a sequence of code examples.
 
-Curran Kelleher 3/4/2014
+Undertaken to learn Angular.js.
+
+By Curran Kelleher 3/5/2014

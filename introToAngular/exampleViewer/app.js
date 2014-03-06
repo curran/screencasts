@@ -36,13 +36,45 @@ app.factory('examples', function($http){
   };
 });
 
+// Responsible for navigating based on key events.
+app.controller('MainCtrl', function ($scope, $document, $location, examples){
+  examples.list(function(examples){
+    var LEFT = 37,
+        RIGHT = 39;
+
+    $scope.changeExample = function(e) {
+      var path = $location.path(),
+          // The example number
+          n;
+
+      // If there is a number,
+      if(path.length > 1){
+
+        // Extract the example number from the path.
+        n = parseInt(path.substr(1), 10);
+
+        // Increment or decrement the example number.
+        if(e.keyCode === RIGHT && n < examples.length){
+          n++;
+        } else if(e.keyCode === LEFT && n > 1) {
+          n--;
+        }
+        
+        // Navigate to the previous or next example.
+        $location.path('/' + n);
+      }
+    };
+  });
+});
+
 app.controller('ExampleListCtrl', function ($scope, examples){
   examples.list(function(examples) {
     $scope.examples = examples;
   });
 });
 
-app.controller('ExampleDetailCtrl', function ($scope, $routeParams, examples){
+app.controller('ExampleDetailCtrl',
+    function ($scope, $routeParams, examples){
   examples.find($routeParams.exampleNumber, function(example) {
     $scope.example = example;
   });

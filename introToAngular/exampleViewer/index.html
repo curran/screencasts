@@ -30,7 +30,7 @@
     <!-- Our Angular app -->
     <script src="app.js"> </script>
   </head>
-  <body>
+  <body ng-controller="MainCtrl" ng-keydown="changeExample($event)">
     <!-- This div will have content injected into it 
          by Angular based on routes and view templates -->
     <div ng-view></div>

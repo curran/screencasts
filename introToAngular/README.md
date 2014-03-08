@@ -1,7 +1,7 @@
 An introduction to Angular.js covering single-page-app concepts, related libraries and angular features by example. 
 
  * [View the screencast on YouTube](https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be)
- * [Run the examples](http://curran.github.io/screencasts/introToAngular/exampleViewer)
+ * [Run the examples](http://curran.github.io/screencasts/introToAngular/exampleViewer) (use left and right arrow keys)
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014
 

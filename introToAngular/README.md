@@ -3,6 +3,8 @@ An introduction to Angular.js covering single-page-app concepts, related librari
  * [View the screencast on YouTube](https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be)
  * [Run the examples](http://curran.github.io/screencasts/introToAngular/exampleViewer)
 
+by [Curran Kelleher](https://github.com/curran/portfolio) March 2014
+
 # [Angular.js](http://angularjs.org/)
 
   * "What HTML would have been, had it been designed for building web-apps"

@@ -145,4 +145,15 @@ It is straightforward to teach yourself about Angular, as there are so many lear
  * [Google I/O 2013 - Design Decisions in AngularJS](https://www.youtube.com/watch?v=HCR7i5F5L8c)
  * ["Writing Directives" talk by Misko Hevery](https://www.youtube.com/watch?v=WqmeI5fZcho&sns=em)
 
+### Angular and D3
+
+ * [AngularJS & D3: Directives for Visualizations - YouTube](https://www.youtube.com/watch?v=aqHBLS_6gF8)
+ * [D3 on AngularJS (ng-newsletter)](http://www.ng-newsletter.com/posts/d3-on-angular.html)
+ * [Dynamic Visualizations with AngularJS and D3 / Protractor E2E testing for AngularJS](https://www.youtube.com/watch?v=BvAeabvZ61o)
+ * [Replacing (most of) d3.js with pure SVG + AngularJS](http://alexandros.resin.io/angular-d3-svg/)
+ * [Diagramme in AngularJS mit D3/nvd3](http://angularjs.de/blog/angularjs-directives-d3-nvd3)
+ * [Using the D3.js Visualization Library with AngularJS](http://briantford.com/blog/angular-d3.html)
+ * [Angularjs-nvd3-directives (GitHub)](http://cmaurer.github.io/angularjs-nvd3-directives/)
+ * [angular-d3-directives(GitHub](https://github.com/robinboehm/angular-d3-directives)
+
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014

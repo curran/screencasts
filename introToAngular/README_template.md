@@ -86,6 +86,7 @@ It is straightforward to teach yourself about Angular, as there are so many lear
    * A screencast showing how to build an app using [UI-Router](https://github.com/angular-ui/ui-router)
    * Does not cover basics, jumps to advanced usage
    * Great example of how development flows in practice
+ * [An Introduction to AngularJS Forms Validation](https://www.youtube.com/watch?v=PxMwW1QBEro)
 
 ### Design and implementation of Angular:
 

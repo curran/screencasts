@@ -139,6 +139,7 @@ It is straightforward to teach yourself about Angular, as there are so many lear
 
 ### Design and implementation of Angular:
 
+ * [Miško Hevery and Brad Green - Keynote - NG-Conf 2014] - The story behind Angular
  * [Re-Imagining the Browser with AngularJS](https://www.youtube.com/watch?v=ersEb9vTX3Y)
    * Talk by Miško Hevery, creator of Angular
    * Discusses the high-level goals of Angular

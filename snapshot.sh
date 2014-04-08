@@ -55,6 +55,7 @@ if [ ! -z "$1" ]
   then
     echo $1 > snapshots/$NEXT_SNAP_NAME/message.txt
     echo $1 > snapshots/$NEXT_SNAP_NAME/README.md
+    vim snapshots/$NEXT_SNAP_NAME/README.md
 fi
 
 # Recompile the README if possible
@@ -65,13 +66,15 @@ if [ -f "../compileReadme.js" ]
 fi
 
 # Push to GitHub in the background
-{
-git add ./
-git commit -m "added $NEXT_SNAP_NAME" -a
-git push &
-} > /dev/null 2>&1
+#{
+#git add ./
+#git commit -m "added $NEXT_SNAP_NAME" -a
+#git push &
+#} > /dev/null 2>&1
 
-echo ""
-echo "Created "$NEXT_SNAP_NAME" and uploaded to GitHub:"
-echo "http://github.com/curran/screencasts/tree/gh-pages/"${PWD##*/}
-echo ""
+#echo ""
+#echo "Created "$NEXT_SNAP_NAME" and uploaded to GitHub:"
+#echo "http://github.com/curran/screencasts/tree/gh-pages/"${PWD##*/}
+#echo ""
+
+echo "Created "$NEXT_SNAP_NAME

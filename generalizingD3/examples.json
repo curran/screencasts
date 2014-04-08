@@ -17,8 +17,8 @@
     "files": [
       "index.html",
       "barChart.js",
-      "data.tsv",
-      "styles.css"
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02"
@@ -30,8 +30,8 @@
     "files": [
       "index.html",
       "barChart.js",
-      "data.tsv",
-      "styles.css"
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03"
@@ -43,8 +43,8 @@
     "files": [
       "index.html",
       "barChart.js",
-      "data.tsv",
-      "styles.css"
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot04"
@@ -55,10 +55,10 @@
     "message": "Split bar chart and main program",
     "files": [
       "index.html",
-      "barChart.js",
       "main.js",
-      "data.tsv",
-      "styles.css"
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot05"
@@ -69,10 +69,10 @@
     "message": "Split up SVG and Group creation and configuration",
     "files": [
       "index.html",
-      "barChart.js",
       "main.js",
-      "data.tsv",
-      "styles.css"
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06"
@@ -83,10 +83,10 @@
     "message": "Split up X axis group creation and configuration",
     "files": [
       "index.html",
-      "barChart.js",
       "main.js",
-      "data.tsv",
-      "styles.css"
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot07"
@@ -97,10 +97,10 @@
     "message": "Split up Y axis group creation and configuration",
     "files": [
       "index.html",
-      "barChart.js",
       "main.js",
-      "data.tsv",
-      "styles.css"
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot08"
@@ -111,10 +111,10 @@
     "message": "Split up enter and update for bars",
     "files": [
       "index.html",
-      "barChart.js",
       "main.js",
-      "data.tsv",
-      "styles.css"
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09"
@@ -125,12 +125,40 @@
     "message": "Isolate hard-coded visualization size",
     "files": [
       "index.html",
-      "barChart.js",
       "main.js",
-      "data.tsv",
-      "styles.css"
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Allow CSS to determine visualization size",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Add resize support",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12"
   }
 ]

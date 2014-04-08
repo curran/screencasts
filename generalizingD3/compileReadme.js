@@ -93,12 +93,16 @@ function filePrecedence(name){
     return 0;
   } else if (ext === '.html') {
     return 1;
-  } else if (ext === '.js') {
+  } else if(name === 'main.js'){
     return 2;
-  } else if (ext === '.json') {
+  } else if (ext === '.js') {
     return 3;
-  } else {
+  } else if (ext === '.css') {
     return 4;
+  } else if (ext === '.json') {
+    return 5;
+  } else {
+    return 6;
   }
 }
 

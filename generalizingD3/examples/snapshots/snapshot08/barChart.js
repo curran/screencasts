@@ -1,9 +1,7 @@
 function BarChart(){
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      outerWidth = 960,
-      outerHeight = 500,
-      width = outerWidth - margin.left - margin.right,
-      height = outerHeight - margin.top - margin.bottom,
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom,
 
       x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1),
@@ -32,8 +30,8 @@ function BarChart(){
       yAxisLabel = yAxisG.append("text");
 
   // Set width and height on the SVG element
-  svg.attr("width", outerWidth)
-     .attr("height", outerHeight);
+  svg.attr("width", width + margin.left + margin.right)
+     .attr("height", height + margin.top + margin.bottom);
 
   // Transform the SVG group that contains the visualization
   // based on the margin
@@ -47,8 +45,6 @@ function BarChart(){
     .text("Frequency");
 
   d3.tsv("data.tsv", type, function(error, data) {
-    var bars;
-
     x.domain(data.map(function(d) { return d.letter; }));
     y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
@@ -58,16 +54,11 @@ function BarChart(){
 
     yAxisG.call(yAxis);
 
-    // Create the D3 selection with data binding
-    bars = g.selectAll(".bar").data(data);
-
-    // Enter: stuff that happens only once when DOM elements are created.
-    // Should be independent of data and visualization size.
-    bars.enter().append("rect").attr("class", "bar");
-
-    // Update: stuff that may happen many times,
-    // and may change based on the data or visualization size.
-    bars.attr("x", function(d) { return x(d.letter); })
+    g.selectAll(".bar")
+        .data(data)
+      .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d) { return x(d.letter); })
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.frequency); })
         .attr("height", function(d) { return height - y(d.frequency); });

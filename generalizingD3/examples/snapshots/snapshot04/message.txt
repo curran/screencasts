@@ -1,0 +1,1 @@
+Make HTML structure explicit

@@ -1,9 +1,7 @@
 function BarChart(){
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      outerWidth = 960,
-      outerHeight = 500,
-      width = outerWidth - margin.left - margin.right,
-      height = outerHeight - margin.top - margin.bottom,
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom,
 
       x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1),
@@ -32,8 +30,8 @@ function BarChart(){
       yAxisLabel = yAxisG.append("text");
 
   // Set width and height on the SVG element
-  svg.attr("width", outerWidth)
-     .attr("height", outerHeight);
+  svg.attr("width", width + margin.left + margin.right)
+     .attr("height", height + margin.top + margin.bottom);
 
   // Transform the SVG group that contains the visualization
   // based on the margin

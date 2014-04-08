@@ -1,0 +1,1 @@
+Split up SVG and Group creation and configuration

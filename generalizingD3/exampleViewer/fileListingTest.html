@@ -1,0 +1,98 @@
+<html ng-app="exampleApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular.js Example</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/xml/xml.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/mode/javascript/javascript.min.js"></script> 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.1/marked.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.22.0/codemirror.css">
+    <style>
+      /* Style code editors on the details view.
+      /* Autoresize code from http://codemirror.net/demo/resize.html */
+      .CodeMirror {
+        border: 1px solid #eee;
+        height: auto;
+        font-size: 1.3em;
+      }
+      .CodeMirror-scroll {
+        height: auto;
+        overflow-y: hidden;
+        overflow-x: auto;
+      }
+      /* Size the iFrame on the details view. */
+      iframe {
+        width: 100%;
+        height: 250px;
+      }
+    </style>
+    <script>
+      var exampleApp = angular.module('exampleApp', []);
+      exampleApp.controller('ExampleCtrl', function ($scope, $http, $sce){
+        $http.get('../examples.json').success(function(data) {
+          $scope.example = data[45];
+
+          var runUrl = [
+                '../examples/snapshots',
+                $scope.example.name
+              ].join('/'),
+              readmeUrl = runUrl + '/README.md';
+
+          $scope.runUrl = runUrl;
+          $http.get(readmeUrl).success(function(data) {
+            var html = marked(data);
+            $scope.readme = $sce.trustAsHtml(html);
+          });
+        });
+      });
+      exampleApp.directive('file', function(){
+        return {
+          scope: {
+            file: '=',
+            example: '='
+          },
+          restrict: 'A',
+          controller: function($scope, $http){
+            var path = [
+              '../examples/snapshots',
+              $scope.example.name,
+              $scope.file
+            ].join('/');
+            $http.get(path).success(function(data) {
+              // un-parse auto-parsed JSON files for presentation as text
+              if(typeof(data) === 'object'){
+                data = JSON.stringify(data, null, 2);
+              }
+              $scope.content = data;
+            });
+          },
+          link : function(scope, element, attrs) {
+            var textArea = element[0];
+            var editor = CodeMirror.fromTextArea(textArea, {
+              mode: "text/html",
+              lineNumbers: true,
+              viewportMargin: Infinity
+            });
+            scope.$watch('content', function(data){
+              if(data) {
+                editor.setValue(data);
+              }
+            });
+          }
+        };
+      });
+    </script>
+  </head>
+  <body ng-controller="ExampleCtrl">
+    <div ng-bind-html="readme"></div>
+    <h3>Running example (<a href="{{runUrl}}" target="_blank" >run standalone</a>)</h3> 
+    <iframe ng-src="{{runUrl}}"></iframe>
+    <h3>Source code</h3>
+    <div ng-repeat="file in example.files">
+      <h3>{{file}}</h3>
+      <textarea file="file" example="example"></textarea>
+    </div>
+  </body>
+</html>

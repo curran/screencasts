@@ -1,0 +1,39 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Original D3 Bar Chart Example",
+    "files": [
+      "index.html",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Split into HTML, CSS and JS files",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "data.tsv",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Implement Single Var Pattern",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "data.tsv",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03"
+  }
+]

@@ -370,5 +370,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "Cleaning up when()",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot28"
   }
 ]

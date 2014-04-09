@@ -34,15 +34,13 @@ function BarChart(div){
       width = size.width - margin.left - margin.right,
       height = size.height - margin.top - margin.bottom,
 
-      y.range([height, 0]);
-      x.rangeRoundBands([0, width], .1);
 
       svg.attr("width", outerWidth)
          .attr("height", outerHeight);
 
       g.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     }
-  }));
+  }, 0));
 
   // The following code depends on "size" and "data" from the model
   model.on('change:size change:data', _.debounce(function (){
@@ -58,12 +56,15 @@ function BarChart(div){
 
     if(size && data){
       console.log('Updating visualization');
-      x.domain(data.map(function(d) { return d.letter; }));
-      y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
       // TODO eliminate this duplicated code
       width = size.width - margin.left - margin.right,
       height = size.height - margin.top - margin.bottom,
+
+      x.domain(data.map(function(d) { return d.letter; }));
+      y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+      x.rangeRoundBands([0, width], .1);
+      y.range([height, 0]);
 
       xAxisG
         .attr("transform", "translate(0," + height + ")")
@@ -89,7 +90,7 @@ function BarChart(div){
       // and there are extra DOM elements left over. In this case, just remove them.
       bars.exit().remove();
     }
-  }));
+  }, 0));
 
   return model;
 }

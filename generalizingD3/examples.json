@@ -399,5 +399,20 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot29"
+  },
+  {
+    "name": "snapshot30",
+    "number": 30,
+    "message": "",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "when.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30"
   }
 ]

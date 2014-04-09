@@ -314,5 +314,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "Adding (width, height) computed properties",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot24",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot24"
   }
 ]

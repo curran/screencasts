@@ -1,0 +1,1 @@
+Adding (width, height) computed properties

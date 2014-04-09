@@ -216,5 +216,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Isolating the model",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17"
   }
 ]

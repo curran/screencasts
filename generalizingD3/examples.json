@@ -286,5 +286,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "Introducing when()",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot22"
   }
 ]

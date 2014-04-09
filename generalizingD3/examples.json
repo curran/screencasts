@@ -342,5 +342,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot25",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "Adding Y Axis Label to the model",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot26"
   }
 ]

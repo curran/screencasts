@@ -244,5 +244,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "Model driven updates",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot19"
   }
 ]

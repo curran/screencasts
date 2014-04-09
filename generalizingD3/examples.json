@@ -202,5 +202,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Handling the exit() case for bars",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16"
   }
 ]

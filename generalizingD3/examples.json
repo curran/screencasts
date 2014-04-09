@@ -160,5 +160,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Eliminate multiple data fetching",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13"
   }
 ]

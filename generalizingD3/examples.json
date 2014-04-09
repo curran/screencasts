@@ -188,5 +188,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot14",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Reset data each second",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot15"
   }
 ]

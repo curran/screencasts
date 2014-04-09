@@ -1,0 +1,1 @@
+Modifying when() to accept a 'this' argument

@@ -356,5 +356,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Modifying when() to accept a 'this' argument",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot27"
   }
 ]

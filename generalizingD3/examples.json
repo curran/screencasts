@@ -230,5 +230,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "Using a Backbone Model to drive the visualization",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot18"
   }
 ]

@@ -174,5 +174,19 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Move data fetching to main",
+    "files": [
+      "index.html",
+      "main.js",
+      "barChart.js",
+      "styles.css",
+      "data.tsv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot14",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot14"
   }
 ]

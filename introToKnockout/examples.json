@@ -18,5 +18,15 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Hello Knockout",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03"
   }
 ]

@@ -99,5 +99,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Isolating the viewModel",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11"
   }
 ]

@@ -323,5 +323,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31"
+  },
+  {
+    "name": "snapshot32",
+    "number": 32,
+    "message": "Sorting countries by population",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32"
   }
 ]

@@ -28,5 +28,15 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Getting and setting observables",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot04"
   }
 ]

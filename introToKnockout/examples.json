@@ -58,5 +58,15 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Computed properties",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot07"
   }
 ]

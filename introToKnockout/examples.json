@@ -312,5 +312,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30"
+  },
+  {
+    "name": "snapshot31",
+    "number": 31,
+    "message": "Simpler construction avoiding 'this' and 'new'",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31"
   }
 ]

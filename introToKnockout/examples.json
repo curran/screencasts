@@ -227,5 +227,15 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "Removing items from an observable array",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot23"
   }
 ]

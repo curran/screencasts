@@ -154,5 +154,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Using a viewmodel constructor function",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16"
   }
 ]

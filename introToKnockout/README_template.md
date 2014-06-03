@@ -1,6 +1,9 @@
 # What is Knockout.js?
 
  * A "Model View Viewmodel" user interface framework
+   * Model - persistent data residing on the server
+   * Viewmodel - the client-side model that drives the user interface
+   * View - the user interface DOM elements
  * Core functionality
    * Data Binding - synchronize view with viewmodel
    * Computed Properties - automatic change propagation

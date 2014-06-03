@@ -27,14 +27,11 @@
 | Library     | Minified File Size | Github Stars | Observable Models | Computed Properties | Templating | Data Binding | Composable Views  | Routing   |
 |-------------|--------------------|--------------|-------------------|---------------------|------------|--------------|-------------------|-----------|
 | Knockout.js | 17kb               | 5,036        | Yes               | Yes                 | Yes        | Yes          | Durandal          | Durandal  |
-| Angular.js  | 106kb              | 24,580       | Yes               | Yes                 | Yes        | Yes          | AngularUI         | UI-Router |
+| Angular.js  | 106kb              | 24,580       | Dirty checking    | Dirty checking      | Yes        | Yes          | AngularUI         | UI-Router |
 | Ember.js    | 71kb               | 10,368       | Yes               | Yes                 | Yes        | Yes          | Yes               | Yes       |
 | Can.js      | 82kb               | 928          | Yes               | Yes                 | Yes        | Yes          | Yes               | Yes       |
 | React.js    | 123kb              | 7,015        | Yes               |                     | Yes        | Yes          | Yes               | react-router-component |
 | Backbone.js | 6.5kb              | 18,167       | Yes               |                     |            |              | Yes               | Yes       |
-
-# Related Projects
-
 
 ## Examples
 
@@ -53,3 +50,4 @@ Listing of all examples:
  * [Top JavaScript MVC Frameworks](http://www.infoq.com/research/top-javascript-mvc-frameworks) - Comparison of frameworks
  * [A Comparison of Angular, Backbone, CanJS and Ember](http://sporto.github.io/blog/2013/04/12/comparison-angular-backbone-can-ember/)
  * [URL Routing with Sammy.js and Knockout.js](http://www.softfinity.com/blog/an-simple-introduction-to-url-routing/)
+ * [YouTube: A comparison of the two-way binding in AngularJS, EmberJS and KnockoutJS](https://www.youtube.com/watch?v=mVjpwia1YN4) Surveys common features across libraries, lots of code examples

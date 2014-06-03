@@ -110,5 +110,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Updating on key up",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12"
   }
 ]

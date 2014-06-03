@@ -165,5 +165,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Binding 'this' for computed properties",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17"
   }
 ]

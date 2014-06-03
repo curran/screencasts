@@ -48,5 +48,15 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Unsubscribing from observables",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06"
   }
 ]

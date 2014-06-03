@@ -290,16 +290,5 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot28"
-  },
-  {
-    "name": "snapshot29",
-    "number": 29,
-    "message": "Computed property Gotcha",
-    "files": [
-      "index.html",
-      "countries.json"
-    ],
-    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29",
-    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot29"
   }
 ]

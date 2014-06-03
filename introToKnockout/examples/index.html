@@ -23,20 +23,15 @@
     <script>
       var viewModel = {
         countries: ko.observableArray(),
-        query: ko.observable(""),
-
-        // Breaks because the function is evaluated immediately
-        filteredCountries: ko.computed(function () {
-          var lowerCaseQuery = viewModel.query().toLowerCase();
-          if(lowerCaseQuery === "") {
-            return viewModel.countries();
-          } else {
-            return viewModel.countries().filter(function (country) {
-              return country.name.toLowerCase().indexOf(lowerCaseQuery) >= 0;
-            });
-          }
-        })
+        query: ko.observable("")
       };
+
+      viewModel.filteredCountries = ko.computed(function () {
+        var lowerCaseQuery = viewModel.query().toLowerCase();
+        return viewModel.countries().filter(function (country) {
+          return country.name.toLowerCase().indexOf(lowerCaseQuery) >= 0;
+        });
+      });
 
       ko.applyBindings(viewModel);
 

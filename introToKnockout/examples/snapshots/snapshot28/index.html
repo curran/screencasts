@@ -28,13 +28,9 @@
 
       viewModel.filteredCountries = ko.computed(function () {
         var lowerCaseQuery = viewModel.query().toLowerCase();
-        if(lowerCaseQuery === "") {
-          return viewModel.countries();
-        } else {
-          return viewModel.countries().filter(function (country) {
-            return country.name.toLowerCase().indexOf(lowerCaseQuery) >= 0;
-          });
-        }
+        return viewModel.countries().filter(function (country) {
+          return country.name.toLowerCase().indexOf(lowerCaseQuery) >= 0;
+        });
       });
 
       ko.applyBindings(viewModel);

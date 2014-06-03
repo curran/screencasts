@@ -1,1 +1,0 @@
-Computed property Gotcha

@@ -198,5 +198,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "Using observable arrays in templates",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot20"
   }
 ]

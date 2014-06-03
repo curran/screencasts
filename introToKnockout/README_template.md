@@ -51,3 +51,4 @@ Listing of all examples:
  * [A Comparison of Angular, Backbone, CanJS and Ember](http://sporto.github.io/blog/2013/04/12/comparison-angular-backbone-can-ember/)
  * [URL Routing with Sammy.js and Knockout.js](http://www.softfinity.com/blog/an-simple-introduction-to-url-routing/)
  * [YouTube: A comparison of the two-way binding in AngularJS, EmberJS and KnockoutJS](https://www.youtube.com/watch?v=mVjpwia1YN4) Surveys common features across libraries, lots of code examples
+ * [YouTube: Getting the Most Out of Knockout js](https://www.youtube.com/watch?v=a108oDs39Ss) A deep dive into the internal organiation of Knockout, complex code examples

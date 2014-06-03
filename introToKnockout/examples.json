@@ -193,8 +193,7 @@
     "number": 19,
     "message": "Observable arrays",
     "files": [
-      "index.html",
-      "script.js"
+      "index.html"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot19"
@@ -204,10 +203,19 @@
     "number": 20,
     "message": "Using observable arrays in templates",
     "files": [
-      "index.html",
-      "script.js"
+      "index.html"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "Adding entries to observable arrays using forms",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot21"
   }
 ]

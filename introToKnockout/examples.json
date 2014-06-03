@@ -88,5 +88,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Separating out JavaScript",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10"
   }
 ]

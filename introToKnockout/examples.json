@@ -176,5 +176,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "An alternative pattern avoiding 'this' and 'new'",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot18"
   }
 ]

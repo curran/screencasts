@@ -121,5 +121,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Data binding with many text inputs",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13"
   }
 ]

@@ -113,9 +113,14 @@ app.directive('file', function(){
       });
     },
     link : function(scope, element, attrs) {
-      var textArea = element[0];
+      var textArea = element[0],
+          ext = scope.file.substr(scope.file.lastIndexOf("."));
       var editor = CodeMirror.fromTextArea(textArea, {
-        mode: "text/html",
+        mode: {
+          '.html': 'text/html',
+          '.js': 'text/javascript',
+          '.json': 'text/javascript'
+        }[ext],
         lineNumbers: true,
         viewportMargin: Infinity
       });

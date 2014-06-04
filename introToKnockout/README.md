@@ -76,6 +76,7 @@ Listing of all examples:
  * [Example 33](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33/index.html)) - Sorting by field, the wrong way
  * [Example 34](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34/index.html)) - Using inline click handler functions
  * [Example 35](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35/index.html)) - Using function.prototype.bind in click handler
+ * [Example 36](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36/index.html)) - Using DOM attributes in click handler
 
 # Sources
 

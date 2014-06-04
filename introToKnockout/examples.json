@@ -367,5 +367,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35"
+  },
+  {
+    "name": "snapshot36",
+    "number": 36,
+    "message": "Using DOM attributes in click handler",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36"
   }
 ]

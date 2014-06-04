@@ -356,5 +356,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34"
+  },
+  {
+    "name": "snapshot35",
+    "number": 35,
+    "message": "Using function.prototype.bind in click handler",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35"
   }
 ]

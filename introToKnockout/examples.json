@@ -378,5 +378,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36"
+  },
+  {
+    "name": "snapshot37",
+    "number": 37,
+    "message": "Interactively reversing sort order",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot37",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot37"
   }
 ]

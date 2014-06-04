@@ -20,18 +20,18 @@
  * blank means it is not included
  * a library name means there is an additional library for the feature
 
-| Library     | Size | Github Stars | Templating | Data Binding | Nested Views  | Routing   |
-|-------------|------|--------------|------------|--------------|---------------|-----------|
-| [Backbone.js](http://backbonejs.org/) | 6.5kb| 18,167       |            |              | Yes               | Yes       |
-| [Knockout.js](http://knockoutjs.com/) | 17kb | 5,036        | Yes        | Yes          | Durandal          | Durandal  |
-| [Angular.js](https://angularjs.org/) | 106kb| 24,580        | Yes        | Yes          | AngularUI         | UI-Router |
-| [Ember.js](http://emberjs.com/)    | 71kb | 10,368          | Yes        | Yes          | Yes               | Yes       |
-| [Can.js](http://canjs.com/)    | 82kb | 928                 | Yes        | Yes          | Yes               | Yes       |
-| [React.js](https://github.com/facebook/react) | 123kb| 7,015| Yes        | Yes          | Yes               | react-router-component |
+| Library     | Size | Github Stars | Templating | Data Binding | Routing   |
+|-------------|------|--------------|------------|--------------|-----------|
+| [Backbone.js](http://backbonejs.org/) | 6.5kb| 18,167       |            |              | Yes       |
+| [Knockout.js](http://knockoutjs.com/) | 17kb | 5,036        | Yes        | Yes          | [Durandal](http://durandaljs.com/)  |
+| [Angular.js](https://angularjs.org/) | 106kb| 24,580        | Yes        | Yes          | [UI-Router](https://github.com/angular-ui/ui-router) |
+| [Ember.js](http://emberjs.com/)    | 71kb | 10,368          | Yes        | [Handlebars](http://handlebarsjs.com/) | Yes       |
+| [Can.js](http://canjs.com/)    | 82kb | 928                 | Yes        | Yes          | Yes       |
+| [React.js](https://github.com/facebook/react) | 123kb| 7,015| Yes        | Yes          | [react-router-component](https://github.com/andreypopp/react-router-component) |
 
 Table fields:
 
- * Size - minified library bundle size
+ * Size - minified library size
  * GitHub Stars - number of people who have starred the repository (popularity indicator)
  * Observable - the library has some means to observe changes in a model with named properties
  * Computed Properties - explicitly supports data dependency graphs

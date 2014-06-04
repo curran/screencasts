@@ -7,19 +7,17 @@
 </ul>
 </li>
 <li>Core functionality<ul>
-<li>Data Binding - synchronize view with viewmodel</li>
-<li>Computed Properties - automatic change propagation</li>
+<li><a href="http://knockoutjs.com/documentation/observables.html">Observables</a> - implement the <a href="http://en.wikipedia.org/wiki/Observer_pattern">observer pattern</a></li>
+<li><a href="http://knockoutjs.com/documentation/binding-syntax.html">Data Binding</a> - automatic View and Viewmodel synchronization</li>
+<li><a href="http://knockoutjs.com/documentation/computedObservables.html">Computed Properties</a> - automatic change propagation through data dependency graphs</li>
 </ul>
 </li>
-<li>Related Frameworks<ul>
-<li><a href="http://durandaljs.com/">Durandal.js</a> A complete Single Page App framework built on Knockout, <a href="http://requirejs.org/">Require.js</a> and <a href="http://jquery.com/">JQuery</a></li>
-<li><a href="https://angularjs.org/">Angular.js</a></li>
-<li><a href="http://emberjs.com/">Ember.js</a></li>
-<li><a href="http://backbonejs.org/">Backbone.js</a></li>
-<li><a href="https://github.com/facebook/react">React.js</a></li>
-<li><a href="http://canjs.com/">Can.js</a> </li>
-<li><a href="http://www.jsviews.com/">JSViews</a></li>
-<li><a href="http://spinejs.com/">Spine.js</a></li>
+<li>Limited in scope to user interface only<ul>
+<li>Does not deal with routing or AJAX</li>
+<li>Gaps filled by <a href="http://durandaljs.com/">Durandal.js</a><ul>
+<li>A complete Single Page App framework built on Knockout, <a href="http://requirejs.org/">Require.js</a> and <a href="http://jquery.com/">JQuery</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -34,9 +32,9 @@
 <thead>
 <tr>
 <th>Library</th>
-<th>Minified File Size</th>
+<th>Size</th>
 <th>Github Stars</th>
-<th>Observable Models</th>
+<th>Observable</th>
 <th>Computed Properties</th>
 <th>Templating</th>
 <th>Data Binding</th>
@@ -45,6 +43,17 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="http://backbonejs.org/">Backbone.js</a></td>
+<td>6.5kb</td>
+<td>18,167</td>
+<td>Yes</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
 <tr>
 <td>Knockout.js</td>
 <td>17kb</td>
@@ -57,7 +66,7 @@
 <td>Durandal</td>
 </tr>
 <tr>
-<td>Angular.js</td>
+<td><a href="https://angularjs.org/">Angular.js</a></td>
 <td>106kb</td>
 <td>24,580</td>
 <td>Dirty checking</td>
@@ -68,7 +77,7 @@
 <td>UI-Router</td>
 </tr>
 <tr>
-<td>Ember.js</td>
+<td><a href="http://emberjs.com/">Ember.js</a></td>
 <td>71kb</td>
 <td>10,368</td>
 <td>Yes</td>
@@ -79,7 +88,7 @@
 <td>Yes</td>
 </tr>
 <tr>
-<td>Can.js</td>
+<td><a href="http://canjs.com/">Can.js</a></td>
 <td>82kb</td>
 <td>928</td>
 <td>Yes</td>
@@ -90,7 +99,7 @@
 <td>Yes</td>
 </tr>
 <tr>
-<td>React.js</td>
+<td><a href="https://github.com/facebook/react">React.js</a></td>
 <td>123kb</td>
 <td>7,015</td>
 <td>Yes</td>
@@ -100,19 +109,27 @@
 <td>Yes</td>
 <td>react-router-component</td>
 </tr>
-<tr>
-<td>Backbone.js</td>
-<td>6.5kb</td>
-<td>18,167</td>
-<td>Yes</td>
-<td></td>
-<td></td>
-<td></td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
 </tbody>
 </table>
+<p>Table fields:</p>
+<ul>
+<li>Size - minified library bundle size</li>
+<li>GitHub Stars - number of people who have starred the repository (popularity indicator)</li>
+<li>Observable - the library has some means to observe changes in a model with named properties</li>
+<li>Computed Properties - explicitly supports data dependency graphs</li>
+<li>Data Binding - automatic synchronization between views and models</li>
+<li>Composable Views - views can contain other views (also called &quot;partials&quot;)</li>
+<li>Routing - responding to changes in the URL hash fragment and parsing its parameters</li>
+</ul>
+<p>More frameworks:</p>
+<ul>
+<li><a href="http://sproutcore.com/">SproutCore</a></li>
+<li><a href="http://www.jsviews.com/">JSViews</a></li>
+<li><a href="http://spinejs.com/">Spine.js</a></li>
+<li><a href="http://batmanjs.org/">Batman.js</a></li>
+<li><a href="https://www.meteor.com/">Meteor.js</a></li>
+<li><a href="http://enyojs.com/">Enyo.js</a></li>
+</ul>
 <h2 id="examples">Examples</h2>
 <ul>
 <li>Illustrate Knockout features in small increments</li>

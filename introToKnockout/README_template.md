@@ -5,17 +5,13 @@
    * Viewmodel - the client-side model that drives the user interface
    * View - the user interface DOM elements
  * Core functionality
-   * Data Binding - synchronize view with viewmodel
-   * Computed Properties - automatic change propagation
- * Related Frameworks
-   * [Durandal.js](http://durandaljs.com/) A complete Single Page App framework built on Knockout, [Require.js](http://requirejs.org/) and [JQuery](http://jquery.com/)
-   * [Angular.js](https://angularjs.org/)
-   * [Ember.js](http://emberjs.com/)
-   * [Backbone.js](http://backbonejs.org/)
-   * [React.js](https://github.com/facebook/react)
-   * [Can.js](http://canjs.com/) 
-   * [JSViews](http://www.jsviews.com/)
-   * [Spine.js](http://spinejs.com/)
+   * [Observables](http://knockoutjs.com/documentation/observables.html) - implement the [observer pattern](http://en.wikipedia.org/wiki/Observer_pattern)
+   * [Data Binding](http://knockoutjs.com/documentation/binding-syntax.html) - automatic View and Viewmodel synchronization
+   * [Computed Properties](http://knockoutjs.com/documentation/computedObservables.html) - automatic change propagation through data dependency graphs
+ * Limited in scope to user interface only
+   * Does not deal with routing or AJAX
+   * Gaps filled by [Durandal.js](http://durandaljs.com/)
+     * A complete Single Page App framework built on Knockout, [Require.js](http://requirejs.org/) and [JQuery](http://jquery.com/)
 
 # Framework Comparison Table
 
@@ -24,14 +20,33 @@
  * blank means it is not included
  * a library name means there is an additional library for the feature
 
-| Library     | Minified File Size | Github Stars | Observable Models | Computed Properties | Templating | Data Binding | Composable Views  | Routing   |
-|-------------|--------------------|--------------|-------------------|---------------------|------------|--------------|-------------------|-----------|
-| Knockout.js | 17kb               | 5,036        | Yes               | Yes                 | Yes        | Yes          | Durandal          | Durandal  |
-| Angular.js  | 106kb              | 24,580       | Dirty checking    | Dirty checking      | Yes        | Yes          | AngularUI         | UI-Router |
-| Ember.js    | 71kb               | 10,368       | Yes               | Yes                 | Yes        | Yes          | Yes               | Yes       |
-| Can.js      | 82kb               | 928          | Yes               | Yes                 | Yes        | Yes          | Yes               | Yes       |
-| React.js    | 123kb              | 7,015        | Yes               |                     | Yes        | Yes          | Yes               | react-router-component |
-| Backbone.js | 6.5kb              | 18,167       | Yes               |                     |            |              | Yes               | Yes       |
+| Library     | Size | Github Stars | Observable| Computed Properties | Templating | Data Binding | Composable Views  | Routing   |
+|-------------|------|--------------|-------------------|---------------------|------------|--------------|-------------------|-----------|
+| [Backbone.js](http://backbonejs.org/) | 6.5kb| 18,167       | Yes               |                     |            |              | Yes               | Yes       |
+| Knockout.js | 17kb | 5,036        | Yes               | Yes                 | Yes        | Yes          | Durandal          | Durandal  |
+| [Angular.js](https://angularjs.org/) | 106kb| 24,580       | Dirty checking    | Dirty checking      | Yes        | Yes          | AngularUI         | UI-Router |
+| [Ember.js](http://emberjs.com/)    | 71kb | 10,368       | Yes               | Yes                 | Yes        | Yes          | Yes               | Yes       |
+| [Can.js](http://canjs.com/)    | 82kb | 928          | Yes               | Yes                 | Yes        | Yes          | Yes               | Yes       |
+| [React.js](https://github.com/facebook/react) | 123kb| 7,015        | Yes               |                     | Yes        | Yes          | Yes               | react-router-component |
+
+Table fields:
+
+ * Size - minified library bundle size
+ * GitHub Stars - number of people who have starred the repository (popularity indicator)
+ * Observable - the library has some means to observe changes in a model with named properties
+ * Computed Properties - explicitly supports data dependency graphs
+ * Data Binding - automatic synchronization between views and models
+ * Composable Views - views can contain other views (also called "partials")
+ * Routing - responding to changes in the URL hash fragment and parsing its parameters
+
+More frameworks:
+
+ * [SproutCore](http://sproutcore.com/)
+ * [JSViews](http://www.jsviews.com/)
+ * [Spine.js](http://spinejs.com/)
+ * [Batman.js](http://batmanjs.org/)
+ * [Meteor.js](https://www.meteor.com/)
+ * [Enyo.js](http://enyojs.com/)
 
 ## Examples
 

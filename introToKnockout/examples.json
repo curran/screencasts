@@ -334,5 +334,16 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32",
     "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32"
+  },
+  {
+    "name": "snapshot33",
+    "number": 33,
+    "message": "Sorting by field, the wrong way",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33"
   }
 ]

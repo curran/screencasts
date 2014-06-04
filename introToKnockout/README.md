@@ -73,6 +73,7 @@ Listing of all examples:
  * [Example 30](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30/index.html)) - Using a constructor function
  * [Example 31](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31/index.html)) - Simpler construction avoiding 'this' and 'new'
  * [Example 32](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32/index.html)) - Sorting countries by population
+ * [Example 33](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33/index.html)) - Sorting by field, the wrong way
 
 # Sources
 

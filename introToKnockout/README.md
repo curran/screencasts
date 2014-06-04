@@ -74,6 +74,7 @@ Listing of all examples:
  * [Example 31](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31/index.html)) - Simpler construction avoiding 'this' and 'new'
  * [Example 32](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32/index.html)) - Sorting countries by population
  * [Example 33](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33/index.html)) - Sorting by field, the wrong way
+ * [Example 34](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34/index.html)) - Using inline click handler functions
 
 # Sources
 

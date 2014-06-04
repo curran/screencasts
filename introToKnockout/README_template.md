@@ -20,8 +20,8 @@
  * blank means it is not included
  * a library name means there is an additional library for the feature
 
-| Library     | Size | Github Stars | Templating | Data Binding | Composable Views  | Routing   |
-|-------------|------|--------------|-------------------|---------------------|------------|--------------|-------------------|-----------|
+| Library     | Size | Github Stars | Templating | Data Binding | Nested Views  | Routing   |
+|-------------|------|--------------|------------|--------------|---------------|-----------|
 | [Backbone.js](http://backbonejs.org/) | 6.5kb| 18,167       |            |              | Yes               | Yes       |
 | [Knockout.js](http://knockoutjs.com/) | 17kb | 5,036        | Yes        | Yes          | Durandal          | Durandal  |
 | [Angular.js](https://angularjs.org/) | 106kb| 24,580        | Yes        | Yes          | AngularUI         | UI-Router |

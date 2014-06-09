@@ -1,11 +1,13 @@
 An introduction to Angular.js covering single-page-app concepts, related libraries and angular features by example. 
 
- * [View the screencast on YouTube](https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be)
+ * View the screencasts on YouTube
+   * [Part I](https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be)
+   * [Part II](https://www.youtube.com/watch?v=6J08m1H2BME&feature=youtu.be)
  * [Run the examples](http://curran.github.io/screencasts/introToAngular/exampleViewer) (use left and right arrow keys)
 
 by [Curran Kelleher](https://github.com/curran/portfolio) March 2014
 
-# [Angular.js](http://angularjs.org/)
+## [Angular.js](http://angularjs.org/)
 
   * "What HTML would have been, had it been designed for building web-apps"
   * Implements futuristic Web standards now ([Web Components and Model Driven views](http://www.confreaks.com/videos/2204-fronteersconf2011-web-components-and-model-driven-views))
@@ -53,8 +55,6 @@ The following libraries lay the foundation for many data binding frameworks:
  * Illustrate Angular features in small increments
  * Meant to be as simple as possible (e.g. no [Bootstrap](http://getbootstrap.com/) or [Grunt](http://gruntjs.com/))
  * Check out the [example viewer](http://curran.github.io/screencasts/introToAngular/exampleViewer) (which is itself an [Angular application](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/exampleViewer)).
-
-Listing of all examples:
 
  * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01/index.html)) - Starter HTML page with a text input
  * [Example 2](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02) - ([run it!](http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02/index.html)) - Added keyup event listener on textInput.
@@ -139,7 +139,6 @@ It is straightforward to teach yourself about Angular, as there are so many lear
 
 ### Design and implementation of Angular:
 
- * [Miško Hevery and Brad Green - Keynote - NG-Conf 2014] - The story behind Angular
  * [Re-Imagining the Browser with AngularJS](https://www.youtube.com/watch?v=ersEb9vTX3Y)
    * Talk by Miško Hevery, creator of Angular
    * Discusses the high-level goals of Angular

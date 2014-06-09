@@ -77,8 +77,9 @@ app.controller('ExampleDetailCtrl',
     function ($scope, $routeParams, $http, $sce, examples){
   examples.find($routeParams.exampleNumber, function(example) {
     $scope.example = example;
-    $scope.runUrl = '../examples/snapshots/' + example.name;
-    $http.get($scope.runUrl + '/README.md').success(function(data) {
+    var examplePath = '../examples/snapshots/' + example.name;
+    $scope.runUrl = examplePath + '/index.html';
+    $http.get(examplePath + '/README.md').success(function(data) {
       // Remove first line, as it appears elsewhere on the page (called 'message').
       var md = data.split('\n').splice(1).join('\n');
       $scope.readme = $sce.trustAsHtml(marked(md));

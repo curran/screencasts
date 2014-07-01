@@ -113,7 +113,7 @@ It is straightforward to teach yourself about Angular, as there are so many lear
 
 ### Birds-eye-view:
 
- * [Learn Angularjs This Weekend](http://joelhooks.com/blog/2013/08/03/learn-angularjs-in-a-weekend/) - Advice on which resources to use for getting up to speed on Anguar.
+ * [Learn Angularjs This Weekend](http://joelhooks.com/blog/2013/08/03/learn-angularjs-in-a-weekend/) - Advice on which resources to use for getting up to speed on Angular.
  * [A Better Way to Learn AngularJS](http://www.thinkster.io/angularjs/GtaQ0oMGIl/a-better-way-to-learn-angularjs) - A great collection of links to resources for learning Angular.
  * [AngularJS-Learning](https://github.com/jmcunningham/AngularJS-Learning) - A kithen sink of links to Angular learning resources.
 

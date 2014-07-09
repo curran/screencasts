@@ -3,14 +3,16 @@
   "slides": [
     { "title": "Welcome", "name": "firstSlide" },
     { "title": "Overview", "name": "overview" },
+    { "title": "Data Visualization", "name": "dataVisualization" },
+      { "title": "Bertin's Theory", "name": "bertin", "indent": true },
+    { "title": "Web Graphics", "name": "webGraphics" },
     
     { "title": "Related Work", "name": "relatedWork" },
+      { "title": "Data Representation", "name": "dataRepresentation", "indent": true },
       { "title": "Data Representation", "name": "dataRepresentation", "indent": true },
       { "title": "Data Integration", "name": "dataIntegration", "indent": true },
       { "title": "Integration Architecture", "name": "integration_architecture", "image": "dataIntegrationArchitecture.png",
         "link": "https://www.youtube.com/watch?v=dLo8meG4TJQ", "indent": true },
-      { "title": "Data Visualization", "name": "dataVisualization", "indent": true },
-      { "title": "Web Graphics", "name": "webGraphics", "indent": true },
 
     { "title": "Data Cubes", "name": "cube_example", "image": "cubes.png",
         "link": "https://graphics.stanford.edu/papers/pan_zoom/paper.pdf" },

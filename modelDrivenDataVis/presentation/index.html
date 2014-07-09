@@ -1,12 +1,19 @@
 <!-- 
-  A simple presentation framework using Angular.js.
+  A slide presentation framework using Angular.js.
 
-  Curran Kelleher 2/26/2014
+  By Curran Kelleher July 2014
 -->
 <!DOCTYPE html>
 <html ng-app="app">
   <head>
     <meta charset="utf-8">
+
+    <!-- Bootstrap -->
+      <!--
+      <script src="http://code.jquery.com/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+      -->
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -30,22 +37,28 @@
     <!-- The presentation title, drawn from presentation.json -->
     <title>{{title}}</title>
   </head>
+
   <body ng-controller="ArrowKeyCtrl" ng-keydown="changeSlide($event.keyCode)">
     
-    <!-- Split the page vertically into two parts. -->
-    <div class="split">
+    <!-- Split the page vertically into two parts using Bootstrap. -->
+    <!-- See http://getbootstrap.com/css/#grid -->
+    <div class="container-fluid">
+      <div class="row">
 
-      <!-- The navigation part with the outline of slides -->
-      <div class="split-left">
-        <div ng-repeat="slide in slides">
-          <a href="#/{{slide.name}}" ng-class="{currentSlide: slide.name === currentSlide.name, indented: slide.indent}">
-            {{slide.title}}
-          </a>
+        <!-- The navigation part with the outline of slides -->
+        <div class="col-md-2 split-left">
+          <div ng-repeat="slide in slides">
+            <a href="#/{{slide.name}}" ng-class="{currentSlide: slide.name === currentSlide.name, indented: slide.indent}">
+              {{slide.title}}
+            </a>
+          </div>
+        </div>
+
+        <!-- The slide content part -->
+        <div class="col-md-10 split-right">
+          <div ng-view> </div>
         </div>
       </div>
-
-      <!-- The slide content part -->
-      <div ng-view class="split-right"> </div>
     </div>
   </body>
 </html>

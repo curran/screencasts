@@ -1,16 +1,16 @@
 /**
  * CSS for the presentation application.
  *
- * Curran Kelleher 3/7/2014.
+ * Curran Kelleher July 2014
  */
 
 /* Remove margin and padding, make body full height. */
-html, body {
+/*html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
   font-family: Sans-Serif;
-}
+} */
 
 
 /* apply a natural box layout model to all elements */
@@ -21,18 +21,18 @@ html, body {
 
 /* Split the page vertically into two parts. */
 /* See http://stackoverflow.com/questions/13530741/css-fill-horizonal-space */
-.split {
+/*.split {
   width: 100%;
   height: 100%;
-}
+}*/
 
 /* The navigation part with the outline of slides */
-.split-left {
+/*.split-left {
   float: left; 
   height: 100%;
   width: 230px;
   padding: 5px;
-}
+}*/
 
 /* Style the entries in the list of slides */
 .split-left a {
@@ -61,28 +61,22 @@ html, body {
 }
 
 /* The slide content outer container */
-.split-right {
+/*.split-right {
   height: 100%;
   width: auto;
   overflow: auto; 
-}
-
-/* The current slide listing on the left is "active" */
-.active {
-  color: red;
-}
+}*/
 
 /* The div inside the split-right div containing slide content. */
 .slide {
   font-size: 2em;
-  height: 100%;
+  /*height: 100%; */
 }
 
 /* The slide titles. */
 .slide h1, h2 {
   text-align: center;
-  padding-top: 30px;
-  margin: 0px;
+  font-size: 2em;
 }
 
 /* The subtitle lines for the first slide. */

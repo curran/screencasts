@@ -1,6 +1,4 @@
-# Curran Kelleher's Doctoral Dissertation Proposal Presentation
-
-* [View presentation](http://curran.github.io/phd/proposal/presentation/).
+The slides for the model driven data visualization talk.
 
 ## Presentation Framework
 
@@ -8,7 +6,8 @@
  * Slides authored in [Markdown](http://en.wikipedia.org/wiki/Markdown), in the `slides` directory
  * `presentation.json` specifies the presentation title and the ordering of slides
  * Main Angular app resides in [`app.js`](https://github.com/curran/phd/blob/gh-pages/proposal/presentation/js/app.js).
+ * Derived from [Dissertation Proposal Presentation](https://github.com/curran/phd/tree/gh-pages/proposal/presentation).
 
-Feel free to use and modify for your own presentations!
+Feel free to use and modify for your own presentations! MIT License.
 
-Curran Kelleher 3/10/2014
+Curran Kelleher July 2014

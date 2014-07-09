@@ -1,0 +1,167 @@
+<h1 id="what-is-knockout-js-">What is Knockout.js?</h1>
+<ul>
+<li>A &quot;Model View Viewmodel&quot; user interface framework<ul>
+<li>Model - persistent data residing on the server</li>
+<li>Viewmodel - the client-side model that drives the user interface</li>
+<li>View - the user interface DOM elements</li>
+</ul>
+</li>
+<li>Core functionality<ul>
+<li><a href="http://knockoutjs.com/documentation/observables.html">Observables</a> - implement the <a href="http://en.wikipedia.org/wiki/Observer_pattern">observer pattern</a></li>
+<li><a href="http://knockoutjs.com/documentation/binding-syntax.html">Data Binding</a> - automatic View and Viewmodel synchronization</li>
+<li><a href="http://knockoutjs.com/documentation/computedObservables.html">Computed Properties</a> - automatic change propagation through data dependency graphs</li>
+</ul>
+</li>
+<li>Limited in scope to user interface only<ul>
+<li>Does not deal with routing or AJAX</li>
+<li>Gaps filled by <a href="http://durandaljs.com/">Durandal.js</a><ul>
+<li>A complete Single Page App framework built on Knockout, <a href="http://requirejs.org/">Require.js</a> and <a href="http://jquery.com/">JQuery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="framework-comparison-table">Framework Comparison Table</h1>
+<ul>
+<li>Shows popular JavaScript Frameworks related to building single page applications</li>
+<li>&quot;Yes&quot; means the feature is included</li>
+<li>blank means it is not included</li>
+<li>a library name means there is an additional library for the feature</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Size</th>
+<th>Github Stars</th>
+<th>Templating</th>
+<th>Data Binding</th>
+<th>Routing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://backbonejs.org/">Backbone.js</a></td>
+<td>6.5kb</td>
+<td>18,167</td>
+<td></td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="http://knockoutjs.com/">Knockout.js</a></td>
+<td>17kb</td>
+<td>5,036</td>
+<td>Yes</td>
+<td>Yes</td>
+<td><a href="http://durandaljs.com/">Durandal</a></td>
+</tr>
+<tr>
+<td><a href="https://angularjs.org/">Angular.js</a></td>
+<td>106kb</td>
+<td>24,580</td>
+<td>Yes</td>
+<td>Yes</td>
+<td><a href="https://github.com/angular-ui/ui-router">UI-Router</a></td>
+</tr>
+<tr>
+<td><a href="http://emberjs.com/">Ember.js</a></td>
+<td>71kb</td>
+<td>10,368</td>
+<td>Yes</td>
+<td><a href="http://handlebarsjs.com/">Handlebars</a></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="http://canjs.com/">Can.js</a></td>
+<td>82kb</td>
+<td>928</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a href="https://github.com/facebook/react">React.js</a></td>
+<td>123kb</td>
+<td>7,015</td>
+<td>Yes</td>
+<td>Yes</td>
+<td><a href="https://github.com/andreypopp/react-router-component">react-router-component</a></td>
+</tr>
+</tbody>
+</table>
+<p>Table fields:</p>
+<ul>
+<li>Size - minified library size</li>
+<li>GitHub Stars - number of people who have starred the repository (popularity indicator)</li>
+<li>Observable - the library has some means to observe changes in a model with named properties</li>
+<li>Computed Properties - explicitly supports data dependency graphs</li>
+<li>Data Binding - automatic synchronization between views and models</li>
+<li>Composable Views - views can contain other views (also called &quot;partials&quot;)</li>
+<li>Routing - responding to changes in the URL hash fragment and parsing its parameters</li>
+</ul>
+<p>More frameworks:</p>
+<ul>
+<li><a href="http://sproutcore.com/">SproutCore</a></li>
+<li><a href="http://www.jsviews.com/">JSViews</a></li>
+<li><a href="http://spinejs.com/">Spine.js</a></li>
+<li><a href="http://batmanjs.org/">Batman.js</a></li>
+<li><a href="https://www.meteor.com/">Meteor.js</a></li>
+<li><a href="http://enyojs.com/">Enyo.js</a></li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+<li>Illustrate Knockout features in small increments</li>
+<li>Meant to be as simple as possible (e.g. no <a href="http://getbootstrap.com/">Bootstrap</a> or <a href="http://gruntjs.com/">Grunt</a>)</li>
+<li>Check out the <a href="http://curran.github.io/screencasts/introToKnockout/exampleViewer">example viewer</a></li>
+</ul>
+<p>Listing of all examples:</p>
+<ul>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01">Example 1</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01/index.html">index.html</a>) - Starter HTML page with a text input</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02">Example 2</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02/index.html">index.html</a>) - DIY One-way Data Binding</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03">Example 3</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03/index.html">index.html</a>) - Hello Knockout</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04">Example 4</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot04">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04/index.html">index.html</a>) - Getting and setting observables</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05">Example 5</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot05">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05/index.html">index.html</a>) - Subscribing to observables</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06">Example 6</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06/index.html">index.html</a>) - Unsubscribing from observables</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07">Example 7</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot07">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07/index.html">index.html</a>) - Computed properties</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08">Example 8</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot08">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08/index.html">index.html</a>) - Subscribing to computed properties</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09">Example 9</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09/index.html">index.html</a>) - Hello Knockout</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10">Example 10</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10/index.html">index.html</a>) - Separating out JavaScript</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11">Example 11</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11/index.html">index.html</a>) - Isolating the viewModel</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12">Example 12</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12/index.html">index.html</a>) - Updating on key up</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13">Example 13</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13/index.html">index.html</a>) - Data binding with many text inputs</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot14">Example 14</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot14">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot14/index.html">index.html</a>) - Displaying first and last name</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15">Example 15</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot15">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15/index.html">index.html</a>) - Why object literals are not good viewmodels</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16">Example 16</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16/index.html">index.html</a>) - Using a viewmodel constructor function</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17">Example 17</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17/index.html">index.html</a>) - Binding &#39;this&#39; for computed properties</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18">Example 18</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot18">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18/index.html">index.html</a>) - An alternative pattern avoiding &#39;this&#39; and &#39;new&#39;</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19">Example 19</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot19">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19/index.html">index.html</a>) - Observable arrays</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20">Example 20</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot20">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20/index.html">index.html</a>) - Using observable arrays in templates</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21">Example 21</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot21">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21/index.html">index.html</a>) - Adding entries to observable arrays using forms</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22">Example 22</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot22">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22/index.html">index.html</a>) - Clearing the entered name on submit</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23">Example 23</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot23">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23/index.html">index.html</a>) - Removing items from an observable array</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot24">Example 24</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot24">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot24/index.html">index.html</a>) - Enumerating objects - countries and their populations</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot25">Example 25</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot25">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot25/index.html">index.html</a>) - Building a table</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26">Example 26</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot26">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26/index.html">index.html</a>) - Fetching JSON for populating a table</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27">Example 27</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot27">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27/index.html">index.html</a>) - Adding a search query box</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28">Example 28</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot28">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28/index.html">index.html</a>) - Live search</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29">Example 29</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot29">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29/index.html">index.html</a>) - Object literal computed property gotcha</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30">Example 30</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30/index.html">index.html</a>) - Using a constructor function</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31">Example 31</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31/index.html">index.html</a>) - Simpler construction avoiding &#39;this&#39; and &#39;new&#39;</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32">Example 32</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32/index.html">index.html</a>) - Sorting countries by population</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33">Example 33</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33/index.html">index.html</a>) - Sorting by field, the wrong way</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34">Example 34</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34/index.html">index.html</a>) - Using inline click handler functions</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35">Example 35</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35/index.html">index.html</a>) - Using function.prototype.bind in click handler</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36">Example 36</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36/index.html">index.html</a>) - Using DOM attributes in click handler</li>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot37">Example 37</a> - (<a href="http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot37">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot37/index.html">index.html</a>) - Interactively reversing sort order</li>
+</ul>
+<h1 id="sources">Sources</h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=MNiUcuo3Wio">Rich Web UIs with Knockout.js - Steven Sanderson</a> - A brief introduction to Knockout by its creator Steven Sanderson</li>
+<li><a href="http://learn.knockoutjs.com/">learn.knockoutjs.com</a> - Knockout interactive tutorial</li>
+<li><a href="http://www.infoq.com/research/top-javascript-mvc-frameworks">Top JavaScript MVC Frameworks</a> - Comparison of frameworks</li>
+<li><a href="http://sporto.github.io/blog/2013/04/12/comparison-angular-backbone-can-ember/">A Comparison of Angular, Backbone, CanJS and Ember</a></li>
+<li><a href="http://www.softfinity.com/blog/an-simple-introduction-to-url-routing/">URL Routing with Sammy.js and Knockout.js</a></li>
+<li><a href="https://www.youtube.com/watch?v=mVjpwia1YN4">YouTube: A comparison of the two-way binding in AngularJS, EmberJS and KnockoutJS</a> Surveys common features across libraries, lots of code examples</li>
+<li><a href="https://www.youtube.com/watch?v=a108oDs39Ss">YouTube: Getting the Most Out of Knockout js</a> A deep dive into the internal organiation of Knockout, complex code examples</li>
+</ul>

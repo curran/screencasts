@@ -1,0 +1,123 @@
+/**
+ * CSS for the presentation application.
+ *
+ * Curran Kelleher 3/7/2014.
+ */
+
+/* Remove margin and padding, make body full height. */
+html, body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: Sans-Serif;
+}
+
+
+/* apply a natural box layout model to all elements */
+/* See http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* Split the page vertically into two parts. */
+/* See http://stackoverflow.com/questions/13530741/css-fill-horizonal-space */
+.split {
+  width: 100%;
+  height: 100%;
+}
+
+/* The navigation part with the outline of slides */
+.split-left {
+  float: left; 
+  height: 100%;
+  width: 230px;
+  padding: 5px;
+}
+
+/* Style the entries in the list of slides */
+.split-left a {
+  /* Remove underlines */
+  text-decoration: none;
+
+  /* Make the non-active slides fade into the background. */
+  color: darkgray;
+
+  font-size: 1.05em;
+}
+
+/* Make the active slide pop out. */
+.split-left .currentSlide {
+  color: black;
+}
+
+/* Indent slides that are configured to be indented. */
+.split-left .indented {
+  margin-left: 10px;
+}
+
+.split-left a:hover {
+  /* Add underline only on hover (as a clickability affordance)*/
+  text-decoration: underline;
+}
+
+/* The slide content outer container */
+.split-right {
+  height: 100%;
+  width: auto;
+  overflow: auto; 
+}
+
+/* The current slide listing on the left is "active" */
+.active {
+  color: red;
+}
+
+/* The div inside the split-right div containing slide content. */
+.slide {
+  font-size: 2em;
+  height: 100%;
+}
+
+/* The slide titles. */
+.slide h1, h2 {
+  text-align: center;
+  padding-top: 30px;
+  margin: 0px;
+}
+
+/* The subtitle lines for the first slide. */
+.slide h3 {
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Spread apart list entries. */
+.slide li {
+  padding-top: 10px;
+}
+
+.img-container {
+  text-align: center;
+}
+
+/* Style images to fit on the screen. */
+.img-container img {
+  max-width: 100%;
+
+  /* Using 100% here caused quirky behavior where
+   * a scroll bar would appear. */
+  max-height: 100%;
+  margin: auto;
+  overflow: auto;
+  vertical-align: middle;
+}
+/*
+.slide iframe {
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+  */

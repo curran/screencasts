@@ -1,0 +1,393 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Starter HTML page with a text input",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot01",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "DIY One-way Data Binding",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Hello Knockout",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Getting and setting observables",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Subscribing to observables",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Unsubscribing from observables",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Computed properties",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Subscribing to computed properties",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Hello Knockout",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Separating out JavaScript",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Isolating the viewModel",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Updating on key up",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Data binding with many text inputs",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Displaying first and last name",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot14",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Why object literals are not good viewmodels",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot15",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Using a viewmodel constructor function",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Binding 'this' for computed properties",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "An alternative pattern avoiding 'this' and 'new'",
+    "files": [
+      "index.html",
+      "script.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot18",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "Observable arrays",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot19",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "Using observable arrays in templates",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot20",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "Adding entries to observable arrays using forms",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot21",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "Clearing the entered name on submit",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot22",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "Removing items from an observable array",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot23",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "Enumerating objects - countries and their populations",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot24",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot24"
+  },
+  {
+    "name": "snapshot25",
+    "number": 25,
+    "message": "Building a table",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot25",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "Fetching JSON for populating a table",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot26",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Adding a search query box",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot27",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "Live search",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot28",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot28"
+  },
+  {
+    "name": "snapshot29",
+    "number": 29,
+    "message": "Object literal computed property gotcha",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot29",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot29"
+  },
+  {
+    "name": "snapshot30",
+    "number": 30,
+    "message": "Using a constructor function",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot30",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot30"
+  },
+  {
+    "name": "snapshot31",
+    "number": 31,
+    "message": "Simpler construction avoiding 'this' and 'new'",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot31",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot31"
+  },
+  {
+    "name": "snapshot32",
+    "number": 32,
+    "message": "Sorting countries by population",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot32",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot32"
+  },
+  {
+    "name": "snapshot33",
+    "number": 33,
+    "message": "Sorting by field, the wrong way",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot33",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot33"
+  },
+  {
+    "name": "snapshot34",
+    "number": 34,
+    "message": "Using inline click handler functions",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot34",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot34"
+  },
+  {
+    "name": "snapshot35",
+    "number": 35,
+    "message": "Using function.prototype.bind in click handler",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot35",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot35"
+  },
+  {
+    "name": "snapshot36",
+    "number": 36,
+    "message": "Using DOM attributes in click handler",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot36",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot36"
+  },
+  {
+    "name": "snapshot37",
+    "number": 37,
+    "message": "Interactively reversing sort order",
+    "files": [
+      "index.html",
+      "countries.json"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/snapshot37",
+    "runUrl": "http://curran.github.io/screencasts/introToAngular/examples/snapshots/snapshot37"
+  }
+]

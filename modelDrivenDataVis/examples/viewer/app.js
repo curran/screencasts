@@ -1,3 +1,5 @@
+// An Angular.js app that displays code examples.
+// Curran Kelleher July 2014
 var app = angular.module('exampleViewerApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
@@ -77,7 +79,7 @@ app.controller('ExampleDetailCtrl',
     function ($scope, $routeParams, $http, $sce, examples){
   examples.find($routeParams.exampleNumber, function(example) {
     $scope.example = example;
-    $scope.runUrl = '../examples/snapshots/' + example.name;
+    $scope.runUrl = '../code/' + example.name;
     $http.get($scope.runUrl + '/README.md').success(function(data) {
       // Remove first line, as it appears elsewhere on the page (called 'message').
       var md = data.split('\n').splice(1).join('\n');
@@ -97,11 +99,12 @@ app.directive('file', function(){
     restrict: 'A',
     controller: function($scope, $http){
       var path = [
-        '../examples/snapshots',
+        '../code',
         $scope.example.name,
         $scope.file
       ].join('/');
       $http.get(path).success(function(data) {
+        console.log(data);
         if(typeof(data) === 'object'){
           // un-parse auto-parsed JSON files for presentation as text
           data = JSON.stringify(data, null, 2);

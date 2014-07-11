@@ -5,7 +5,11 @@
 //  * dynamically generating a markdown list of example entries
 //  * injecting the list into the template
 //
-//  Curran Kelleher 3/2/2014
+//  Created by Curran Kelleher 3/2/2014
+//
+//  Updated July 2014 to point to the "code" subdirectory,
+//  so the URL looks like modelDrivenDataVis/examples/code/index.html
+//  rather than modelDrivenDataVis/examples/examples/index.html
 var _ = require('underscore'),
     marked = require('marked'),
     fs = require('fs'),
@@ -13,10 +17,10 @@ var _ = require('underscore'),
     outputFile = './README.md',
     outputJSONFile = './examples.json',
     outputHTMLFile = './README.html',
-    entryDir = 'examples/',
-    snapshotsPath = entryDir + 'snapshots/',
-    snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/introToAngular/examples/snapshots/',
-    snapshotRunURL = 'http://curran.github.io/screencasts/introToAngular/examples/snapshots/',
+    entryDir = 'code/',
+    snapshotsPath = entryDir,
+    snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/',
+    snapshotRunURL = 'http://curran.github.io/screencasts/modelDrivenDataVis/examples/code',
     messageFile = '/message.txt',
     entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html)) - <%= message %>'),
     irrelevantFiles = ['message.txt', 'README.md', 'server.js'];
@@ -52,7 +56,7 @@ function write(outputFile, output){
     if(err) {
       console.log(err);
     } else {
-      console.log("Wrote '" + outputFile + "'!");
+      console.log("Wrote file " + outputFile);
     }
   });
 }
@@ -63,7 +67,11 @@ function generateREADMEmodel(data){
 
 function generateExampleJSON(){
   var files = fs.readdirSync(snapshotsPath);
-  return files.map(function(file){
+  return files
+    .filter(function (file) {
+      return file !== "latest";
+    })
+    .map(function (file) {
     return {
       name: file,
       number: extractNumber(file),

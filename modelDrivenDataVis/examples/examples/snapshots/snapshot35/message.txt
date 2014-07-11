@@ -1,1 +1,0 @@
-Using function.prototype.bind in click handler

@@ -1,1 +1,0 @@
-Using DOM attributes in click handler

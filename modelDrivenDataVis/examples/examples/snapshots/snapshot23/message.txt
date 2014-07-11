@@ -1,1 +1,0 @@
-Removing items from an observable array

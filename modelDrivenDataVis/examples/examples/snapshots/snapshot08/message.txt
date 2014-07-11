@@ -1,1 +1,0 @@
-Subscribing to computed properties

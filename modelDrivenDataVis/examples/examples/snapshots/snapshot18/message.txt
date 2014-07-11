@@ -1,1 +1,0 @@
-An alternative pattern avoiding 'this' and 'new'

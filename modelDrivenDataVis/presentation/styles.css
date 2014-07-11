@@ -4,36 +4,6 @@
  * Curran Kelleher July 2014
  */
 
-/* Remove margin and padding, make body full height. */
-/*html, body {
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  font-family: Sans-Serif;
-} */
-
-
-/* apply a natural box layout model to all elements */
-/* See http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-*, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
-
-/* Split the page vertically into two parts. */
-/* See http://stackoverflow.com/questions/13530741/css-fill-horizonal-space */
-/*.split {
-  width: 100%;
-  height: 100%;
-}*/
-
-/* The navigation part with the outline of slides */
-/*.split-left {
-  float: left; 
-  height: 100%;
-  width: 230px;
-  padding: 5px;
-}*/
-
 /* Style the entries in the list of slides */
 .split-left a {
   /* Remove underlines */
@@ -42,7 +12,7 @@
   /* Make the non-active slides fade into the background. */
   color: darkgray;
 
-  font-size: 1.05em;
+  font-size: 1.2em;
 }
 
 /* Make the active slide pop out. */
@@ -60,36 +30,42 @@
   text-decoration: underline;
 }
 
-/* The slide content outer container */
-/*.split-right {
-  height: 100%;
-  width: auto;
-  overflow: auto; 
-}*/
-
-/* The div inside the split-right div containing slide content. */
-.slide {
-  font-size: 2em;
-  /*height: 100%; */
+/* The slide titles. */
+.slide h1, h2, h3 {
+  text-align: center;
 }
 
-/* The slide titles. */
-.slide h1, h2 {
-  text-align: center;
-  font-size: 2em;
+/* Assign font sizes for different headings. */
+.slide h1 {
+  font-size: 5em;
+}
+
+.slide h2 {
+  font-size: 4em;
 }
 
 /* The subtitle lines for the first slide. */
 .slide h3 {
-  text-align: center;
+  font-size: 2.5em;
   margin: 0px;
   padding: 0px;
 }
 
-/* Spread apart list entries. */
-.slide li {
-  padding-top: 10px;
+.slide p {
+  font-size: 2em;
 }
+
+
+/* Bullets within slides. */
+.slide li {
+  font-size: 2em;
+}
+.slide li li {
+  /* This fixes the nesting issue with em units
+   * where nested elements appear larger than their parents */
+  font-size: 1em;
+}
+
 
 .img-container {
   text-align: center;

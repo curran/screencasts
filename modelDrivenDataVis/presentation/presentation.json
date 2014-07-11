@@ -5,20 +5,12 @@
     { "title": "Overview", "name": "overview" },
     { "title": "Data Visualization", "name": "dataVisualization" },
       { "title": "Bertin's Theory", "name": "bertin", "indent": true },
+      { "title": "Bertin's Diagram", "name": "bertinDiagram", "image": "bertin.gif",
+        "link": "http://fellinlovewithdata.com/guides/the-hidden-legacy-of-bertin-and-the-semiology-of-graphics" },
+      { "title": "Mackinlay's Theory", "name": "mackinlay", "indent": true },
     { "title": "Web Graphics", "name": "webGraphics" },
     
     { "title": "Related Work", "name": "relatedWork" },
-      { "title": "Data Representation", "name": "dataRepresentation", "indent": true },
-      { "title": "Data Representation", "name": "dataRepresentation", "indent": true },
-      { "title": "Data Integration", "name": "dataIntegration", "indent": true },
-      { "title": "Integration Architecture", "name": "integration_architecture", "image": "dataIntegrationArchitecture.png",
-        "link": "https://www.youtube.com/watch?v=dLo8meG4TJQ", "indent": true },
-
-    { "title": "Data Cubes", "name": "cube_example", "image": "cubes.png",
-        "link": "https://graphics.stanford.edu/papers/pan_zoom/paper.pdf" },
-      { "title": "Data Cube Qualities", "name": "cube_qualities", "indent": true },
-      { "title": "SphereCube", "name": "sphere_cube", "image": "earthball.png",
-        "link": "http://outerra.blogspot.com/2012/11/view-frustum-culling-of-sphere-mapped.html", "indent": true },
 
     { "title": "Vision", "name": "vision", "image": "telescope.jpg",
       "link": "http://pixabay.com/en/telescope-by-looking-view-122960/" },
@@ -27,7 +19,6 @@
       { "title": "Our Solution", "name": "solution", "image": "dots_solution.png", "indent": true },
 
     { "title": "Expected Contributions", "name": "contributions" },
-      { "title": "Data Model", "name": "data_model", "image": "UDCModel.png", "indent": true },
       { "title": "Visualization Taxonomy", "name": "taxonomy", "image": "visTaxonomy.png", "indent": true},
       { "title": "Public Data Index", "name": "dataset_taxonomy", "image": "dataSetTaxonomy.png", "indent": true},
 

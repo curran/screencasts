@@ -1,1 +1,0 @@
-Separating out JavaScript

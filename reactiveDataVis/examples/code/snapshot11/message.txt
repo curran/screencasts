@@ -1,0 +1,1 @@
+Using thisArg for shorter code

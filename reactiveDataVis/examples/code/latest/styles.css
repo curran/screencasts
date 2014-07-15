@@ -1,0 +1,31 @@
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+/* Make the visualization container fill the page. */
+#container {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  background-color: lightgray;
+}

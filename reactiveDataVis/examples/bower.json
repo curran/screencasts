@@ -1,0 +1,10 @@
+{
+  "name": "reactiveDataVis",
+  "version": "0.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "model": "~0.1.0",
+    "requirejs": "~2.1.11",
+    "d3": "~3.4.8"
+  }
+}

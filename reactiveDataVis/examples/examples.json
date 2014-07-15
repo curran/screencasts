@@ -8,5 +8,207 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01",
     "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Separate HTML, CSS and JS files",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Introducing Model.js",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Introducing 'g'",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Introducing 'xAxisG' and 'yAxisG'",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Making the bars dynamic.",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Introducing model.data",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Introducing barChart.js",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Generalizing X and Y attributes",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Generalizing the Y Axis label",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Using thisArg for shorter code",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Renaming scales",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Making scales model properties",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Encapsulating conventional margins",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot14",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Using a container div",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot15",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Dynamic resize",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Cleaning up the code",
+    "files": [
+      "index.html",
+      "barChart.js",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot17"
   }
 ]

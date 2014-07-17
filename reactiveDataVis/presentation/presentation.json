@@ -15,6 +15,7 @@
     { "title": "Model.js", "name": "model" },
     { "title": "Example Code", "name": "examples", "image": "barChart.png",
         "link": "../examples/viewer/#/1" },
+    { "title": "Linked Views", "name": "linkedViews" },
     { "title": "Future Work", "name": "future" },
       { "title": "Reactivis", "name": "reactivis", "image": "reactivis.png",
         "link": "http://curran.github.io/reactivis/docs/reactivis.html", "indent": true },

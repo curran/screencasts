@@ -1,6 +1,6 @@
 <div style="height: 10%"></div>
 
-# Model Driven
+# Reactive
 # Data Visualization
 
 <div style="height: 10%"></div>

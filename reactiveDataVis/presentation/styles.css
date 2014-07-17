@@ -55,10 +55,9 @@
   font-size: 2em;
 }
 
-
 /* Bullets within slides. */
 .slide li {
-  font-size: 2em;
+  font-size: 3em;
 }
 .slide li li {
   /* This fixes the nesting issue with em units

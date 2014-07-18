@@ -17,6 +17,7 @@
         "link": "../examples/viewer/#/1" },
     { "title": "Linked Views", "name": "linkedViews" },
     { "title": "Future Work", "name": "future" },
+      { "title": "Bar Chart Flow", "name": "barChartFlow", "image": "barChartFlow.png", "indent": true },
       { "title": "Reactivis", "name": "reactivis", "image": "reactivis.png",
         "link": "http://curran.github.io/reactivis/docs/reactivis.html", "indent": true },
       { "title": "Dashboard Scaffold", "name": "dashboardscaffold", "image": "dashboardScaffold.png",

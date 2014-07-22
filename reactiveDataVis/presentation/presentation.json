@@ -10,6 +10,7 @@
       "link": "https://github.com/mbostock/d3/wiki/Gallery" },
     { "title": "The Reality", "name": "reality", "image": "dots_reality.png" },
     { "title": "The Ideal", "name": "ideal", "image": "dots_ideal.png" },
+    { "title": "Reusable D3", "name": "reusableD3" },
     { "title": "Rapid7 Dashboard", "name": "r7", "image": "mapDocs7.png",
       "link": "http://curran.github.io/portfolio/2013/UserInsightIngressDashboard.pdf" },
     { "title": "Model.js", "name": "model" },

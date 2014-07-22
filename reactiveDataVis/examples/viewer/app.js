@@ -104,7 +104,6 @@ app.directive('file', function(){
         $scope.file
       ].join('/');
       $http.get(path).success(function(data) {
-        console.log(data);
         if(typeof(data) === 'object'){
           // un-parse auto-parsed JSON files for presentation as text
           data = JSON.stringify(data, null, 2);
@@ -122,7 +121,8 @@ app.directive('file', function(){
         mode: {
           '.html': 'text/html',
           '.js': 'text/javascript',
-          '.json': 'text/javascript'
+          '.json': 'text/javascript',
+          '.css': 'text/css'
         }[ext],
         lineNumbers: true,
         viewportMargin: Infinity

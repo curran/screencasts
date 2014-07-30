@@ -30,7 +30,7 @@
         };
       });
 
-      countryApp.controller('CountryListCtrl', function ($scope, $http, countries){
+      countryApp.controller('CountryListCtrl', function ($scope, countries){
         countries.list(function(countries) {
           $scope.countries = countries;
         });

@@ -9,7 +9,7 @@ Here's the code from the tutorial:
 
 Here's a more elaborate example demonstrating where you can take these concepts:
 
- * <img src="circularPatterns/mathPatterns.png"></img>
+ * <img src="circularPatterns/mathPatterns.png">
 ([run full screen](http://jsbin.com/urecex/36), [edit in JSBin](http://jsbin.com/urecex/31/edit), [in GitHub](circularPatterns))
 
 Content of the tutorial:

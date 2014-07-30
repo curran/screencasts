@@ -1,0 +1,9 @@
+{
+  "title": "Introduction to Backbone.js",
+  "slides": [
+    { "title": "Welcome", "name": "firstSlide" },
+    { "title": "Background", "name": "background" },
+    { "title": "Example Code", "name": "code" },
+    { "title": "The End", "name": "lastSlide" }
+  ]
+}

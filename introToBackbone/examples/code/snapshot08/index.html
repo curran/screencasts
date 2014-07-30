@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Introduction to Backbone</title>
+    <script src="underscore.js"></script>
+    <script src="backbone.js"></script>
+  </head>
+  <body>
+    <script>
+      var point = new Backbone.Model();
+
+      point.set({
+        x: 5,
+        y: 10
+      });
+
+      // Logs "5"
+      console.log(point.get("x"));
+
+      // Logs "10"
+      console.log(point.get("y"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Minimum HTML5 Document",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Creating a point object",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Introducing Underscore.js",
+    "files": [
+      "index.html",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Introducing Backbone.js",
+    "files": [
+      "index.html",
+      "backbone.js",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Listening for and triggering events",
+    "files": [
+      "index.html",
+      "backbone.js",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Passing messages through events",
+    "files": [
+      "index.html",
+      "backbone.js",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Introducing Backbone Models",
+    "files": [
+      "index.html",
+      "backbone.js",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Model.set object literal syntax",
+    "files": [
+      "index.html",
+      "backbone.js",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Model constructor with initial values",
+    "files": [
+      "index.html",
+      "backbone.js",
+      "underscore.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09"
+  }
+]

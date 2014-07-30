@@ -1,0 +1,83 @@
+/**
+ * CSS for the presentation application.
+ *
+ * Curran Kelleher July 2014
+ */
+
+/* Style the entries in the list of slides */
+.split-left a {
+  /* Remove underlines */
+  text-decoration: none;
+
+  /* Make the non-active slides fade into the background. */
+  color: darkgray;
+
+  font-size: 1.2em;
+}
+
+/* Make the active slide pop out. */
+.split-left .currentSlide {
+  color: black;
+}
+
+/* Indent slides that are configured to be indented. */
+.split-left .indented {
+  margin-left: 10px;
+}
+
+.split-left a:hover {
+  /* Add underline only on hover (as a clickability affordance)*/
+  text-decoration: underline;
+}
+
+/* The slide titles. */
+.slide h1, h2, h3 {
+  text-align: center;
+}
+
+/* Assign font sizes for different headings. */
+.slide h1 {
+  font-size: 5em;
+}
+
+.slide h2 {
+  font-size: 4em;
+}
+
+/* The subtitle lines for the first slide. */
+.slide h3 {
+  font-size: 2.5em;
+  margin: 0px;
+  padding: 0px;
+}
+
+.slide p {
+  font-size: 3em;
+}
+
+/* Bullets within slides. */
+.slide li {
+  font-size: 3em;
+}
+.slide li li {
+  /* This fixes the nesting issue with em units
+   * where nested elements appear larger than their parents */
+  font-size: 1em;
+}
+
+
+.img-container {
+  text-align: center;
+}
+
+/* Style images to fit on the screen. */
+.img-container img {
+  max-width: 100%;
+
+  /* Using 100% here caused quirky behavior where
+   * a scroll bar would appear. */
+  max-height: 100%;
+  margin: auto;
+  overflow: auto;
+  vertical-align: middle;
+}

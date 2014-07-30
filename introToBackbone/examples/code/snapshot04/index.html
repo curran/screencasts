@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Introduction to Backbone</title>
+    <script src="underscore.js"></script>
+    <script src="backbone.js"></script>
+  </head>
+  <body>
+    <script>
+      var point = {
+        x: 5,
+        y: 10
+      };
+      
+      _.extend(point, Backbone.Events);
+
+      // point now includes x, y and Backbone Event methods
+      console.log(point);
+    </script>
+  </body>
+</html>

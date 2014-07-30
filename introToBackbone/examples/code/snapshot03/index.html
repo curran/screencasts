@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Introduction to Backbone</title>
+    <script src="underscore.js"></script>
+  </head>
+  <body>
+    <script>
+      var point = {
+        x: 5,
+        y: 10
+      };
+      
+      _.extend(point, {
+        z: 7
+      });
+
+      // point now includes x, y and z properties
+      console.log(point);
+    </script>
+  </body>
+</html>

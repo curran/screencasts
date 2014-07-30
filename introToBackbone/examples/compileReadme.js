@@ -23,7 +23,9 @@ var _ = require('underscore'),
     snapshotRunURL = 'http://curran.github.io/screencasts/modelDrivenDataVis/examples/code',
     messageFile = '/message.txt',
     entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html)) - <%= message %>'),
-    irrelevantFiles = ['message.txt', 'README.md', 'server.js'];
+
+    // These files are not excluded from the example code viewer.
+    irrelevantFiles = ['message.txt', 'README.md', 'server.js', 'backbone.js', 'underscore.js'];
 
 // Read the template for README.md
 fs.readFile(inputFile, 'utf8', function (err, template) {

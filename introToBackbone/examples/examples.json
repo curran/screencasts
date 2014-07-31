@@ -84,9 +84,20 @@
     "number": 9,
     "message": "Model constructor with initial values",
     "files": [
-      "index.html"
+      "index.html",
+      ".index.html.swp"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09",
     "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Listening for changes in models",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot10"
   }
 ]

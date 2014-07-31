@@ -13,6 +13,7 @@ Listing of all examples:
  * [Example 7](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot07) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07/index.html)) - Introducing Backbone Models
  * [Example 8](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot08) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08/index.html)) - Model.set object literal syntax
  * [Example 9](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09/index.html)) - Model constructor with initial values
+ * [Example 10](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot10) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10/index.html)) - Listening for changes in models
 
 Feel free to use and modify for your own presentations! MIT License.
 

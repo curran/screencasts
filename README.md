@@ -1,7 +1,5 @@
 This repository contains code that goes along with [my screencasts](http://www.youtube.com/user/currankelleher/videos).
 
-Tutorials:
-
  1. **Introduction to Computer Programming in JavaScript** (July 2013) - [screencast](http://www.youtube.com/watch?v=zIpA8k167gU) - [code](https://github.com/curran/screencasts/tree/gh-pages/introToJS) - Introduces basic syntax and semantics of the JavaScript Language.
  2. **Mathematical Graphic Patterns** (August 2013) - [screencast](http://www.youtube.com/watch?v=P8SaZtTctKQ) - [code](https://github.com/curran/screencasts/tree/gh-pages/mathPatterns) - Introduces HTML5 Canvas and animation.
  3. **Bouncing Circles** (March 2013) - [screencast](http://www.youtube.com/watch?v=yF0T7lviBnY&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/bouncingCircles) - Covers interaction with HTML5 canvas and n-body physics simulation.

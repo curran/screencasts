@@ -8,7 +8,7 @@
 
 ## Commands
 
- * `git clone <repository url goes here>` Creates a local copy of the repository
+ * `git clone <repository address goes here>` Creates a local copy of the repository
  * `git status` Tells you which files have changed
  * `git log` Shows the log of commits with their messages, dates and users
  * `git add <file name goes here>` Adds a file or directory to the set of changes that will be applied when you commit
@@ -22,6 +22,7 @@
  * `git status -s` A "short" version of `git status` that is more concise
  * `git commit -m "<message>" -a` The `-a` option automatically adds all changed files. This is equivalent to first invoking `git add` for each changed file, then committing.
  * `git push origin master` The full form of `git push` that is assumed. `origin` refers to GitHub, and `master` refers to the master branch (the default main branch that is automatically created with the repository).
+ * `git pull` Equivalent to `git fetch; git merge;`
 
 ## Using GitHub Pages
 
@@ -30,6 +31,7 @@
    * `git checkout -b gh-pages`
  * Push the `gh-pages` branch to GitHub using:
    * `git push origin gh-pages`
-
+ * Access the page at `http://<user name>.github.io/<repository name>/`
+   * e.g. [http://curran.github.io/myPage](http://curran.github.io/myPage)
 
 Curran Kelleher, 9/8/2012

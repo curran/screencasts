@@ -1,10 +1,13 @@
 # Introduction to GitHub
 
+This screencast covers:
+
  * [Git](http://en.wikipedia.org/wiki/Git_(software))
- * [Revision Control](http://en.wikipedia.org/wiki/Revision_control)
- * [Comparison of revision control software](http://en.wikipedia.org/wiki/Comparison_of_revision_control_software)
+   * [Revision Control](http://en.wikipedia.org/wiki/Revision_control)
+   * [Comparison of revision control software](http://en.wikipedia.org/wiki/Comparison_of_revision_control_software)
  * [GitHub](http://en.wikipedia.org/wiki/GitHub)
- * [github.com](https://github.com/)
+   * [github.com](https://github.com/)
+ * [GitHub Pages](https://pages.github.com/)
 
 ## Commands
 

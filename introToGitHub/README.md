@@ -20,10 +20,14 @@ This screencast covers:
    * `git commit -m "<Your message goes here>" -a` The `-a` option automatically adds all modified files. This is equivalent to first invoking `git add` for each changed file, then committing.
  * `git push` Pushes your local commits to GitHub, making GitHub contain the same changed files that are on your computer
    * `git push origin master` The full form of `git push` that is assumed. `origin` refers to GitHub, and `master` refers to the master branch (the default main branch that is automatically created with the repository).
- * `git pull` Pulls the remote changes from GitHub down to your computer
-   * `git pull` is actually a shorthand for the folliwing commands:
-   * `git fetch` gets the changes from GitHub to your computer, but does not change the files you see on your system
-   * `git merge origin/master` merges the remote changes into the files you see on your system
+ * `git pull` Pulls the remote changes from GitHub down to your computer. Shorthand for
+   * `git fetch` gets the changes from GitHub to your computer, but does not change the files you see
+   * `git merge origin/master` merges the remote changes into the files you see
+ * `git branch` Lists branches and shows the currently checked out branch
+   * `git branch <new branch name>` Creates a new branch
+   * `git branch -d <new branch name>` Deletes a branch
+ * `git checkout <branch name goes here>` Checks out a branch
+   * `git checkout -b <new branch name>` Creates and checks out a branch
 
 ## Using GitHub Pages
 

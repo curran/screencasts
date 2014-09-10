@@ -38,5 +38,9 @@ This screencast covers:
    * `git push origin gh-pages`
  * Access the page at `http://<user name>.github.io/<repository name>/`
    * e.g. [http://curran.github.io/myPage](http://curran.github.io/myPage)
+ 
+## Sources
+
+ * [Mind Blown Gif](http://mindblowngifs.tumblr.com/post/32712441400)
 
 Curran Kelleher, 9/9/2014

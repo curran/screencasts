@@ -1,0 +1,34 @@
+/*
+ * Styles for the blog page, applied to dynamically generated HTML.
+ *
+ * By Curran Kelleher 9/25/2014 curran.kelleher@gmail.com
+ */
+
+/* Make post names large. */
+.post-name {
+  font-size: 24pt;
+}
+
+/* Make post authors blue. */
+.post-author {
+  color: blue;
+}
+
+/* Make post content green. */
+.post-content {
+  color: green;
+}
+
+/* The below CSS gets applied on devices with small screens. */
+@media (max-width: 980px) {
+ 
+  /* Reduce the margin. */
+  body {
+    margin: 0px ;
+  }
+ 
+  /* Make the post content larger. */
+  .post-content {
+    font-size: 18pt ;
+  }
+}

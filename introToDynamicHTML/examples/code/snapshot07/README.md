@@ -1,0 +1,1 @@
+Refactoring into functions

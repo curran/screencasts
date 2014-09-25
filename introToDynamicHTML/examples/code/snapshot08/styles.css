@@ -1,0 +1,14 @@
+/* Make post names large. */
+.post-name {
+  font-size: 24pt;
+}
+
+/* Make post authors blue. */
+.post-author {
+  color: blue;
+}
+
+/* Make post content green. */
+.post-content {
+  color: green;
+}

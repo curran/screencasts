@@ -1,0 +1,1 @@
+Any HTML text can be set to innerHTML.

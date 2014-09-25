@@ -1,0 +1,132 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Manipulating DOM Elements with JavaScript",
+    "files": [
+      "index.html",
+      "main.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Any HTML text can be set to innerHTML.",
+    "files": [
+      "index.html",
+      "main.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "createElement and appendChild.",
+    "files": [
+      "index.html",
+      "main.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Generating elements from an array",
+    "files": [
+      "index.html",
+      "main.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Adding a more complex DOM structure for posts",
+    "files": [
+      "index.html",
+      "main.js"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Adding classes and styling posts",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Refactoring into functions",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Preparing for asynchronous data fetching",
+    "files": [
+      "index.html",
+      "main.js",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Fetching a JSON file for posts",
+    "files": [
+      "index.html",
+      "main.js",
+      "posts.json",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Cleaning up",
+    "files": [
+      "index.html",
+      "main.js",
+      "posts.json",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "CSS Media Queries",
+    "files": [
+      "index.html",
+      "main.js",
+      "posts.json",
+      "styles.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot11"
+  }
+]

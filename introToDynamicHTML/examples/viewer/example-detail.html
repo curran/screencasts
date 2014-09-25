@@ -1,0 +1,16 @@
+<div class="top-split">
+  <div class="top-left">
+    <div class="centered">
+      <h1 class="page-title"><a href="{{runUrl}}" target="_blank" >Example {{example.number}}</a></h1>
+      <h4>{{example.message}}</h4>
+    </div>
+  </div>
+  <div class="top-right">
+    <iframe ng-src="{{runUrl}}" frameBorder="0"></iframe>
+  </div>
+</div>
+<div ng-bind-html="readme"></div>
+<div ng-repeat="file in example.files">
+  <div class="file-name">{{file}}</div>
+  <textarea file="file" example="example"></textarea>
+</div>

@@ -10,13 +10,18 @@
 //  Updated July 2014 to point to the "code" subdirectory,
 //  so the URL looks like modelDrivenDataVis/examples/code/index.html
 //  rather than modelDrivenDataVis/examples/examples/index.html
+//
+//  Updated October 2014
+//
+//   * put the README in the parent directory
+//   * stop producing README.html
+//
 var _ = require('underscore'),
     marked = require('marked'),
     fs = require('fs'),
     inputFile = './README_template.md',
-    outputFile = './README.md',
+    outputFile = '../README.md',
     outputJSONFile = './examples.json',
-    outputHTMLFile = './README.html',
     entryDir = 'code/',
     snapshotsPath = entryDir,
     snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/',
@@ -38,16 +43,10 @@ fs.readFile(inputFile, 'utf8', function (err, template) {
       model = generateREADMEmodel(data), 
 
       // Evaluate the README.md template.
-      output = _.template(template, model),
-
-      // Create an HTML page with the compiled markdown.
-      outputHTML = marked(output);
+      output = _.template(template, model);
 
   // Write README.md
   write(outputFile, output);
-
-  // Write README.html
-  write(outputHTMLFile, outputHTML);
 
   // Write examples.json (used by the example viewer app)
   write(outputJSONFile, outputJSON);

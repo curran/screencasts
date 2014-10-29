@@ -1,6 +1,8 @@
 # Implementing a Single-Page, Tabbed Interface App
 
-This screencast covers how to construct a single page application with a tab-like navigation user interface. A first solution is introduced that uses only Web Standards (HTML, JavaScript, CSS, [The DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)). Later, the approaches taken by various JavaScript libraries such as Backbone.js and Angular.js is discussed.
+This screencast covers how to construct a single page application with a tab-like navigation user interface. A solution is introduced that uses only Web Standards (HTML, JavaScript, CSS, [The DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)).
+
+Even though libraries like Bootstrap, Backbone, Angular, Knockout and Ember do most of the work for you when implementing this kind of system, this screencast does not use any libraries. This emphasizes the core technogies, and provides a foundation for understanding how those libraries work.
 
 ## Background
 
@@ -64,9 +66,26 @@ Navigation Interfaces
        * The same content is never fetched twice
        * More efficient, better user experience
 
+
 ## Examples
 
  * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01/index.html)) - Simple Navigation Links
+ * [Example 2](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot02) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot02) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot02/index.html)) - Separate pages
+ * [Example 3](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot03) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot03) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot03/index.html)) - Styling navigation links
+ * [Example 4](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot04) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot04) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot04/index.html)) - Styling the entire site
+ * [Example 5](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot05) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot05) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot05/index.html)) - Removing type=“text/css”
+ * [Example 6](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot06) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot06) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot06/index.html)) - Styling the currently visited page link
+ * [Example 7](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot07) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07/index.html)) - Put some effort into CSS
+ * [Example 8](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot08) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08/index.html)) - Fragment identifier links
+ * [Example 9](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09/index.html)) - Accessing the fragment identifier
+ * [Example 10](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot10) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10/index.html)) - Dynamic content
+ * [Example 11](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot11) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot11) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot11/index.html)) - Encapsulating navigation
+ * [Example 12](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot12) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot12) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot12/index.html)) - Cleaning up
+ * [Example 13](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot13) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot13) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot13/index.html)) - Defaulting to #home
+ * [Example 14](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot14) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot14) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot14/index.html)) - Removing the # character
+ * [Example 15](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot15) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot15) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot15/index.html)) - Encapsulating content retrieval
+ * [Example 16](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot16) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot16) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot16/index.html)) - Adding content from a JS object
+ * [Example 17](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot17) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot17) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot17/index.html)) - Setting the active class on links
 
 Feel free to use and modify for your own presentations! MIT License.
 

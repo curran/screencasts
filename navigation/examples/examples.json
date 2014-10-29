@@ -8,5 +8,199 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01",
     "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Separate pages",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Styling navigation links",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Styling the entire site",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Removing type=“text/css”",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Styling the currently visited page link",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Put some effort into CSS",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Fragment identifier links",
+    "files": [
+      "index.html",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Accessing the fragment identifier",
+    "files": [
+      "index.html",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Dynamic content",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Encapsulating navigation",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Cleaning up",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Defaulting to #home",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Removing the # character",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot14",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Encapsulating content retrieval",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot15",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Adding content from a JS object",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Setting the active class on links",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot17"
   }
 ]

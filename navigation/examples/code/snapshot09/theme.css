@@ -1,0 +1,28 @@
+/* The CSS theme for the Navigation Example site. */
+
+/* Use Google Fonts. */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+/* Style the navigation bar links.  */ 
+#navbar a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  margin: 0px 10px 0px 10px;
+  padding: 0px 8px 0px 8px;
+  color: black;
+  text-decoration: none;
+
+  border: 2px solid;
+  border-color: white;
+  border-radius: 20px;
+}
+
+/* Give the user an affordance that each link is clickable. */
+#navbar a:hover {
+  border-color: black;
+}
+
+/* Style the active page link. */
+#navbar a.active{
+  border-color: gray;
+}

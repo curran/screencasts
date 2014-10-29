@@ -1,0 +1,11 @@
+/* The CSS theme for the Navigation Example site. */
+
+/* Style the navigation bar links. */
+#navbar a {
+  background-color: lightgray;
+}
+
+/* Style the currently active page link. */
+#navbar .active {
+  background-color: gray;
+}

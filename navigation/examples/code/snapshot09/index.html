@@ -7,6 +7,19 @@
     <!-- The CSS theme for the site. -->
     <link rel="stylesheet" href="theme.css" />
 
+    <!-- The JavaScript code for dynamic behavior. -->
+    <script>
+
+      // Print the initial fragment identifier value.
+      console.log(location.hash);
+
+      // Listen for fragment identifier value changes.
+      window.addEventListener("hashchange", function (){
+        console.log(location.hash);
+      });
+
+    </script>
+
   </head>
   <body>
 
@@ -17,10 +30,5 @@
       <a href="#contact">Contact</a>
     </div>
 
-    <!-- Dynamic content will be placed here by JavaScript. -->
-    <div id="content"></div>
-
-    <!-- The JavaScript code for dynamic behavior. -->
-    <script src="main.js"></script>
   </body>
 </html>

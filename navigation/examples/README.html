@@ -1,0 +1,101 @@
+<h1 id="implementing-a-single-page-tabbed-interface-app">Implementing a Single-Page, Tabbed Interface App</h1>
+<p>This screencast covers how to construct a single page application with a tab-like navigation user interface. A first solution is introduced that uses only Web Standards (HTML, JavaScript, CSS, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">The DOM</a>). Later, the approaches taken by various JavaScript libraries such as Backbone.js and Angular.js is discussed.</p>
+<h2 id="background">Background</h2>
+<p>Single Page Application</p>
+<ul>
+<li>One page only, no page loads.</li>
+<li>Information fetched on the fly using <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHTTPRequest</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Ajax_(programming">AJAX</a>)</li>
+<li>Related concept: &quot;Server Side Push&quot;<ul>
+<li><a href="http://en.wikipedia.org/wiki/Comet_(programming">Comet (programming) (also known as Reverse Ajax)</a>) long polling XMLHTTPRequest</li>
+<li><a href="http://en.wikipedia.org/wiki/WebSocket">WebSocket</a> full-duplex communications channels over a single TCP connection</li>
+<li><a href="http://socket.io/">Socket.io Node.js library for WebSocket</a></li>
+</ul>
+</li>
+<li><a href="http://en.wikipedia.org/wiki/Fragment_identifier">Fragment Identifier</a> used for routing<ul>
+<li><code>index.html#pageA</code></li>
+<li><code>index.html#pageB</code></li>
+</ul>
+</li>
+</ul>
+<p>Workflow Review</p>
+<ul>
+<li>Editor / IDE<ul>
+<li>Needs to insert only spaces or only tabs</li>
+<li>Mixed tabs and spaces causes editor-specific indentation errors<ul>
+<li>My Vim configuration uses 2 spaces for a single tab</li>
+<li><a href="http://codemirror.net/demo/visibletabs.html">CodeMirror Visible Tabs Demo</a></li>
+<li>Chrome Source view uses 8 spaces to represent a tab</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Git Command Line<ul>
+<li>Running on your machine in same directory as the editor</li>
+</ul>
+</li>
+<li>Local Server (e.g. <a href="http://www.pythonforbeginners.com/modules-in-python/how-to-use-simplehttpserver/"><code>python -m SimpleHTTPServer 8080</code></a>)<ul>
+<li>This is far better than doing your development over an SSH connection</li>
+</ul>
+</li>
+<li>DOM Inspector (<a href="http://jsbin.com/nuduzahoga/1/edit"><code>&lt;p&gt;Hello&lt;/p&gt;</code></a>)</li>
+<li>JavaScript Console (<a href="http://jsbin.com/luxiqonefa/1/edit"><code>console.log(&quot;Hello&quot;);</code></a>)</li>
+</ul>
+<p>Navigation Interfaces</p>
+<ul>
+<li><a href="https://wordpress.com/fresh/">Wordpress Blogs</a><ul>
+<li><a href="http://citizensketcher.wordpress.com/2014/10/23/in-which-holmes-creates-a-painting-in-the-rain-or-the-case-of-the-vanishing-castle/">Citizen Sketcher</a></li>
+</ul>
+</li>
+<li>Approaches<ul>
+<li>Separate HTML pages<ul>
+<li>e.g. PHP applications</li>
+<li>Used to be standard practice</li>
+<li>Replaced by the &quot;Single Page Application&quot;</li>
+</ul>
+</li>
+<li>Single Page Application<ul>
+<li>A single page containing content for all tabs</li>
+<li>Dynamic behavior added using JavaScript</li>
+<li>Content could be all within the original page</li>
+<li>Content could be fetched as needed</li>
+<li>Without routing<ul>
+<li>Has dynamic behavior</li>
+<li>Linking not possible</li>
+</ul>
+</li>
+<li>With routing<ul>
+<li>Same dynamic behavior</li>
+<li>Linking possible</li>
+</ul>
+</li>
+<li>Routing using a <a href="http://en.wikipedia.org/wiki/Fragment_identifier">fragment identifier</a><ul>
+<li>Was the standard practice for a long time</li>
+<li>Slowly being replaced by HTML5 History API</li>
+</ul>
+</li>
+<li>Routing using <a href="http://diveintohtml5.info/history.html">HTML5 History API</a><ul>
+<li><a href="http://caniuse.com/#search=history">CanIUse Report</a></li>
+</ul>
+</li>
+<li>Without Caching<ul>
+<li>The same content is fetched twice</li>
+<li>Less efficient, poor user experience</li>
+</ul>
+</li>
+<li>With Caching<ul>
+<li>The same content is never fetched twice</li>
+<li>More efficient, better user experience</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><a href="https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01">Example 1</a> - (<a href="http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot01">run it!</a> | <a href="https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot01/index.html">index.html</a>) - Simple Navigation Links</li>
+</ul>
+<p>Feel free to use and modify for your own presentations! MIT License.</p>
+<p>By Curran Kelleher October 2014</p>

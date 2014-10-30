@@ -7,6 +7,8 @@ This screencast covers how to construct a single page application with a tab-lik
 
 Even though libraries like Bootstrap, Backbone, Angular, Knockout and Ember do most of the work for you when implementing this kind of system, this screencast does not use any libraries at all. This emphasizes the core technogies, and provides a foundation for understanding how those libraries work.
 
+Curran Kelleher October 2014
+
 ## Background
 
 Single Page Application

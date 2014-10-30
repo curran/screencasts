@@ -38,6 +38,8 @@ Navigation Interfaces
 
  * [Wordpress Blogs](https://wordpress.com/fresh/)
    * [Citizen Sketcher](http://citizensketcher.wordpress.com/2014/10/23/in-which-holmes-creates-a-painting-in-the-rain-or-the-case-of-the-vanishing-castle/)
+   * [The New West](http://thewpsa.wordpress.com/)
+   * These use separate HTML pages
  * Approaches
    * Separate HTML pages
      * e.g. PHP applications

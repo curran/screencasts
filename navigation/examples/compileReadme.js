@@ -25,7 +25,7 @@ var _ = require('underscore'),
     entryDir = 'code/',
     snapshotsPath = entryDir,
     snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/',
-    snapshotRunURL = 'http://curran.github.io/screencasts/navigation/examples/code',
+    snapshotRunURL = 'http://curran.github.io/screencasts/navigation/examples/code/',
     messageFile = '/message.txt',
     entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html)) - <%= message %>'),
 

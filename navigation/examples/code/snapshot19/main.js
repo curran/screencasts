@@ -1,15 +1,17 @@
 // Gets the appropriate content for the given fragment identifier.
-function getContent(fragmentId){
+function getContent(fragmentId, callback){
 
-  // Content for each navigation link.
-  var partials = {
-    home: "This is the Home page. Welcome to my site.",
-    about: "This is the About page.",
-    contact: "This is the Contact page."
+  // Create a new AJAX request for fetching the partial HTML file.
+  var request = new XMLHttpRequest();
+
+  // Call the callback with the content loaded from the file.
+  request.onload = function () {
+    callback(request.responseText);
   };
 
-  // Look up the partial for the given fragment id.
-  return partials[fragmentId];
+  // Fetch the partial HTML file for the given fragment id.
+  request.open("GET", fragmentId + ".html");
+  request.send(null);
 }
 
 // Sets the "active" class on the active navigation link.
@@ -39,7 +41,9 @@ function navigate(){
       fragmentId = location.hash.substr(1);
 
   // Set the "content" div innerHTML based on the fragment identifier.
-  contentDiv.innerHTML = getContent(fragmentId);
+  getContent(fragmentId, function (content) {
+    contentDiv.innerHTML = content;
+  });
 
   // Toggle the "active" class on the link currently navigated to.
   setActiveLink(fragmentId);
@@ -48,11 +52,11 @@ function navigate(){
 // If no fragment identifier is provided,
 if(!location.hash) {
 
-  // default to #home
+  // default to #home.
   location.hash = "#home";
 }
 
-// Navigate once to the initial hash value.
+// Navigate once to the initial fragment identifier.
 navigate();
 
 // Navigate whenever the fragment identifier value changes.

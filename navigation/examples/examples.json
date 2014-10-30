@@ -202,5 +202,77 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot17",
     "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "Using a callback to fetch content",
+    "files": [
+      "index.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot18",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "Fetching partial HTML files using AJAX",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "home.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot19",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "Encapsulating AJAX",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "home.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot20",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "Caching fetched partials",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "home.html",
+      "main.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot21",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "Cleaning up JavaScript",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "home.html",
+      "navigation.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot22",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot22"
   }
 ]

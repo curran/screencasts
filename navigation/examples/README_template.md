@@ -58,7 +58,7 @@ Navigation Interfaces
 
 ## Examples
 
-Check out the [Example Viewer](http://curran.github.io/screencasts/navigation/examples/viewer/#/).
+Check out the [Example Viewer](http://curran.github.io/screencasts/navigation/examples/viewer/#/). Use left and right arrow keys to navigate.
 
 <%= examples %>
 

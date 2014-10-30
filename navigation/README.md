@@ -58,7 +58,7 @@ Navigation Interfaces
 
 ## Examples
 
-Check out the [Example Viewer](http://curran.github.io/screencasts/navigation/examples/viewer/#/).
+Check out the [Example Viewer](http://curran.github.io/screencasts/navigation/examples/viewer/#/). Use left and right arrow keys to navigate.
 
  * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/navigation/examples/code/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/snapshot01/index.html)) - Simple Navigation Links
  * [Example 2](https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/snapshot02) - ([run it!](http://curran.github.io/screencasts/navigation/examples/code/snapshot02) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/snapshot02/index.html)) - Separate pages

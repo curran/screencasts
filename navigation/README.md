@@ -1,8 +1,8 @@
-# Implementing a Single-Page, Tabbed Interface App
+# Navigation for Single Page Applications
 
-This screencast covers how to construct a single page application with a tab-like navigation user interface. A solution is introduced that uses only Web Standards (HTML, JavaScript, CSS, [The DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)).
+This screencast covers how to construct a single page application with a tab-like navigation user interface and routing. A solution is introduced that uses only Web Standards (HTML, JavaScript, CSS, [The DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)).
 
-Even though libraries like Bootstrap, Backbone, Angular, Knockout and Ember do most of the work for you when implementing this kind of system, this screencast does not use any libraries. This emphasizes the core technogies, and provides a foundation for understanding how those libraries work.
+Even though libraries like Bootstrap, Backbone, Angular, Knockout and Ember do most of the work for you when implementing this kind of system, this screencast does not use any libraries at all. This emphasizes the core technogies, and provides a foundation for understanding how those libraries work.
 
 ## Background
 
@@ -44,28 +44,15 @@ Navigation Interfaces
      * Used to be standard practice
      * Replaced by the "Single Page Application"
    * Single Page Application
-     * A single page containing content for all tabs
+     * A single page with no reload
      * Dynamic behavior added using JavaScript
-     * Content could be all within the original page
-     * Content could be fetched as needed
-     * Without routing
-       * Has dynamic behavior
-       * Linking not possible
-     * With routing
-       * Same dynamic behavior
-       * Linking possible
+     * Content fetched as needed
      * Routing using a [fragment identifier](http://en.wikipedia.org/wiki/Fragment_identifier)
        * Was the standard practice for a long time
        * Slowly being replaced by HTML5 History API
      * Routing using [HTML5 History API](http://diveintohtml5.info/history.html)
        * [CanIUse Report](http://caniuse.com/#search=history)
-     * Without Caching
-       * The same content is fetched twice
-       * Less efficient, poor user experience
-     * With Caching
-       * The same content is never fetched twice
-       * More efficient, better user experience
-
+     * Caching
 
 ## Examples
 
@@ -91,6 +78,7 @@ Navigation Interfaces
  * [Example 20](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot20) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot20) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot20/index.html)) - Encapsulating AJAX
  * [Example 21](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot21) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot21) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot21/index.html)) - Caching fetched partials
  * [Example 22](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot22) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot22) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot22/index.html)) - Cleaning up JavaScript
+ * [Example 23](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot23) - ([run it!](http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot23) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot23/index.html)) - Using jQuery
 
 Feel free to use and modify for your own presentations! MIT License.
 

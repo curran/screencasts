@@ -274,5 +274,20 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot22",
     "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "Using jQuery",
+    "files": [
+      "index.html",
+      "about.html",
+      "contact.html",
+      "home.html",
+      "navigation.js",
+      "theme.css"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/modelDrivenDataVis/examples/code/snapshot23",
+    "runUrl": "http://curran.github.io/screencasts/modelDrivenDataVis/examples/codesnapshot23"
   }
 ]

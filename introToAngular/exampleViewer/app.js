@@ -116,7 +116,7 @@ app.directive('file', function(){
     link : function(scope, element, attrs) {
       var textArea = element[0];
       var editor = CodeMirror.fromTextArea(textArea, {
-        mode: "text/html",
+        mode: scope.file.split('.').pop() == 'js' ? 'text/typescript' : 'text/html',
         lineNumbers: true,
         viewportMargin: Infinity
       });

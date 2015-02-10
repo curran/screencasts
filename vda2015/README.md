@@ -1,4 +1,5 @@
 # Reactive Data Visualizations
+Curran Kelleher, Alpine Data Labs
 
  * Foundation for
   * reusable interactive visualizations

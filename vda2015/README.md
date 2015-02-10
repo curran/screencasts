@@ -4,6 +4,7 @@ Curran Kelleher, Alpine Data Labs
  * Foundation for
   * reusable interactive visualizations
   * combining visualizations with linked views
+ * Work from [Ph. D. at University of Massachusetts](https://github.com/curran/phd)
  * Focus is on Web-based 2D visualizations using [D3.js](http://d3js.org/)
  * Core concept: [Data Dependency Graphs](https://github.com/curran/model#data-dependency-graphs)
  * Examples
@@ -14,4 +15,4 @@ Curran Kelleher, Alpine Data Labs
   * [Linked Choropleth and Line Chart](http://curran.github.io/model/examples/d3LinkedChoropleth/)
  * Future work
   * [VisEditor](https://github.com/curran/visEditor)
-  * Integration with [OpenChorus](http://openchorus.org/) and [Alpine](http://alpinenow.com/)
+  * Integration with [Alpine](http://alpinenow.com/) [Chorus](http://openchorus.org/)

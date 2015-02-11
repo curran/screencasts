@@ -10,6 +10,7 @@ Curran Kelleher, Alpine Data Labs
  * Examples
   * [Bar Chart](http://curran.github.io/model-contrib/#/examples/barChart)
   * [Scatter Plot](http://curran.github.io/model-contrib/#/examples/scatterPlot)
+  * Reusable visualization elements: [Reactivis](https://github.com/curran/reactivis)
   * [Table](http://curran.github.io/model-contrib/#/examples/table)
   * [Linked Bar Chart, Scatter Plot, and Table](http://curran.github.io/model-contrib/#/examples/linkedViews)
   * [Linked Choropleth and Line Chart](http://curran.github.io/model/examples/d3LinkedChoropleth/)

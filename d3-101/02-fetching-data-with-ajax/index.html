@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSV Test</title>
+
+    <!--
+      A code example that fetches and parses a CSV file.
+      By Curran Kelleher March 2015
+    -->
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+      // This function fetches a file using AJAX.
+      // 
+      // The given callback is invoked when the request finishes.
+      // 
+      // The callback signature is callback(err, data) where:
+      //  * "err" is an error object, or null if no error occurred.
+      //  * "data" is the content of the loaded file as a string.
+      //
+      // This follows the "error-first" callback convention for asynchronous programming.
+      // See http://thenodeway.io/posts/understanding-error-first-callbacks/
+      function getFile(fileName, callback){
+
+        // AJAX code copied from Wikipedia.
+        // http://en.wikipedia.org/wiki/Ajax_%28programming%29
+        var xhr = new XMLHttpRequest(),
+            DONE = 4; // readyState 4 means the request is done.
+            OK = 200; // status 200 is a successful return.
+        xhr.open("get", fileName);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === DONE) {
+            if (xhr.status === OK) {
+              callback(null, xhr.responseText);
+            } else {
+              callback(xhr.status);
+            }
+          }
+        };
+        xhr.send(null);
+      }
+
+      // Parses a CSV string into an array of objects.
+      // Similar to d3.csv.parse(), documented at
+      // github.com/mbostock/d3/wiki/CSV#parse
+      function parseCSV(csvString, accessor){
+        
+        // Handle accessor as an optional argument.
+        accessor = accessor || function(d){ return d; };
+        
+        var lines = csvString.split("\n"),
+            columnNames = lines[0].split(","),
+            rows = lines.slice(1);
+        return rows.map(function(row){
+          var entries = row.split(","),
+              rowObject = {};
+          columnNames.forEach(function(columnName, i){
+            rowObject[columnName] = entries[i];
+          });
+          return accessor(rowObject);
+        });
+      } 
+
+      // Fetch the CSV file using AJAX.
+      getFile("iris.csv", function(err, irisCSVString){
+        if(err){
+          alert("Could not load file");
+        } else {
+
+          // Parse the CSV string into an array of objects.
+          var parsedCSV = parseCSV(irisCSVString, function(rowObject){
+
+            // Parse strings into numbers for numeric columns.
+            rowObject["petal length"] = +rowObject["petal length"];
+            rowObject["petal width"] = +rowObject["petal width"];
+            rowObject["sepal length"] = +rowObject["sepal length"];
+            rowObject["sepal width"] = +rowObject["sepal width"];
+            
+            return rowObject;
+          });
+
+          console.log(parsedCSV);
+        }
+      });
+    </script>
+  </body>
+</html>

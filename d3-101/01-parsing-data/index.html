@@ -5,7 +5,7 @@
     <title>CSV Test</title>
 
     <!--
-      A code example that fetches and parses a CSV file.
+      A code example that parses a CSV string.
       By Curran Kelleher March 2015
     -->
 
@@ -13,36 +13,6 @@
   </head>
   <body>
     <script>
-
-      // This function fetches a file using AJAX.
-      // 
-      // The given callback is invoked when the request finishes.
-      // 
-      // The callback signature is callback(err, data) where:
-      //  * "err" is an error object, or null if no error occurred.
-      //  * "data" is the content of the loaded file as a string.
-      //
-      // This follows the "error-first" callback convention for asynchronous programming.
-      // See http://thenodeway.io/posts/understanding-error-first-callbacks/
-      function getFile(fileName, callback){
-
-        // AJAX code copied from Wikipedia.
-        // http://en.wikipedia.org/wiki/Ajax_%28programming%29
-        var xhr = new XMLHttpRequest(),
-            DONE = 4; // readyState 4 means the request is done.
-            OK = 200; // status 200 is a successful return.
-        xhr.open("get", fileName);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === DONE) {
-            if (xhr.status === OK) {
-              callback(null, xhr.responseText);
-            } else {
-              callback(xhr.status);
-            }
-          }
-        };
-        xhr.send(null);
-      }
 
       // Parses a CSV string into an array of objects.
       // Similar to d3.csv.parse(), documented at
@@ -66,26 +36,28 @@
       } 
 
       // Fetch the CSV file using AJAX.
-      getFile("iris.csv", function(err, irisCSVString){
-        if(err){
-          alert("Could not load file");
-        } else {
+      var irisCSVString = "sepal length,sepal width,petal length,petal width,class\n\
+5.1,3.5,1.4,0.2,Iris-setosa\n\
+4.9,3.0,1.4,0.2,Iris-setosa\n\
+4.7,3.2,1.3,0.2,Iris-setosa\n\
+4.6,3.1,1.5,0.2,Iris-setosa\n\
+5.0,3.6,1.4,0.2,Iris-setosa\n\
+5.4,3.9,1.7,0.4,Iris-setosa";
 
-          // Parse the CSV string into an array of objects.
-          var parsedCSV = parseCSV(irisCSVString, function(rowObject){
+      // Parse the CSV string into an array of objects.
+      var parsedCSV = parseCSV(irisCSVString, function(rowObject){
 
-            // Parse strings into numbers for numeric columns.
-            rowObject["petal length"] = +rowObject["petal length"];
-            rowObject["petal width"] = +rowObject["petal width"];
-            rowObject["sepal length"] = +rowObject["sepal length"];
-            rowObject["sepal width"] = +rowObject["sepal width"];
-            
-            return rowObject;
-          });
-
-          console.log(parsedCSV);
-        }
+        // Parse strings into numbers for numeric columns.
+        rowObject["petal length"] = +rowObject["petal length"];
+        rowObject["petal width"] = +rowObject["petal width"];
+        rowObject["sepal length"] = +rowObject["sepal length"];
+        rowObject["sepal width"] = +rowObject["sepal width"];
+        
+        return rowObject;
       });
+
+      console.log(parsedCSV);
+
     </script>
   </body>
 </html>

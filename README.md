@@ -3,6 +3,7 @@ This repository contains code that goes along with [my screencasts](http://www.y
 ## D3 101
 
  * 01 - **Parsing Data** (March 2014) - [screencast](https://www.youtube.com/watch?v=iuA-gmvJ5n0) - [code](https://github.com/curran/screencasts/blob/gh-pages/d3-101/01-parsing-data/index.html) - An intro to the "Data" part of "Data Driven Documents" (d3.js). Covers parsing CSV (Comma Separated Value) data in JavaScript.
+ * 02 - **Fetching Data with AJAX** (March 2014) - [screencast](https://www.youtube.com/watch?v=9E9qtNg5V2I) - [code](https://github.com/curran/screencasts/tree/gh-pages/d3-101/02-fetching-data-with-ajax) - Covers fetching a CSV file using AJAX.
 
 --------------------------------------------------
 ## Web Technologies

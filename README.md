@@ -16,9 +16,13 @@ This repository contains code that goes along with [my screencasts](http://www.y
  * **Polygon Editor with HTML5 Canvas, Backbone.js and Require.js** (April 2013) - [screencast](http://www.youtube.com/watch?v=lNfKn0wbxYI) - [code](https://github.com/curran/screencasts/tree/gh-pages/polygonEditor) - Introduces the Model View Controller concept along with Require.js, Underscore.js, and Backbone.js by building an interactive polygon editor.
  * **Bouncing Circles** (March 2013) - [screencast](http://www.youtube.com/watch?v=yF0T7lviBnY&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/bouncingCircles) - Covers interaction with HTML5 canvas and n-body physics simulation.
 
+-----------------------
+
 ## Presentations on My Work
 
+ * **Visualizing the Universal Data Cube** (July 2014) - [screencast](https://www.youtube.com/watch?v=XVHyygdD1Kg) - [code](http://curran.github.io/phd/defense/) - My doctoral dissertation defense presentation, about visualizing data cubes.
  * **Reactive Data Visualization with ModelJS** (July 2014) - [screencast](https://www.youtube.com/watch?v=TpZqVAtQs94) - [code](https://github.com/curran/screencasts/tree/gh-pages/reactiveDataVis) - Discusses a new approach to developing generalized reactive data visualizations using D3.js.
+
 
 All content released under the [MIT License](http://opensource.org/licenses/MIT). Feel free to use and modify!
 

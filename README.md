@@ -15,7 +15,6 @@ This repository contains code that goes along with [my screencasts](http://www.y
  * **Introduction to JavaScript Programming** (July 2013) - [screencast](http://www.youtube.com/watch?v=zIpA8k167gU) - [code](https://github.com/curran/screencasts/tree/gh-pages/introToJS) - Introduces the syntax and semantics of the JavaScript Language.
  * **Polygon Editor with HTML5 Canvas, Backbone.js and Require.js** (April 2013) - [screencast](http://www.youtube.com/watch?v=lNfKn0wbxYI) - [code](https://github.com/curran/screencasts/tree/gh-pages/polygonEditor) - Introduces the Model View Controller concept along with Require.js, Underscore.js, and Backbone.js by building an interactive polygon editor.
  * **Bouncing Circles** (March 2013) - [screencast](http://www.youtube.com/watch?v=yF0T7lviBnY&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/bouncingCircles) - Covers interaction with HTML5 canvas and n-body physics simulation.
- * 
 
 ## Presentations on My Work
 

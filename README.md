@@ -1,5 +1,11 @@
 This repository contains code that goes along with [my screencasts](http://www.youtube.com/user/currankelleher/videos).
 
+## D3 101
+
+ * 01 - ** Parsing Data** (March 2014) - [screencast](https://www.youtube.com/watch?v=iuA-gmvJ5n0) - [code](https://github.com/curran/screencasts/blob/gh-pages/d3-101/01-parsing-data/index.html) - An intro to the "Data" part of "Data Driven Documents" (d3.js). Covers parsing CSV (Comma Separated Value) data in JavaScript.
+
+--------------------------------------------------
+
  * **Navigation for Single Page Applications** (October 2014) - [screencast](https://www.youtube.com/watch?v=xN9QxPtK2LM&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/navigation) - This screencast covers how to construct a single page application with a tab-like navigation user interface and routing using only Web Standards (HTML, JavaScript, CSS, The DOM).
  * **Introduction to Dynamic HTML with JavaScript, CSS and AJAX** (September 2014) - [screencast](https://www.youtube.com/watch?v=8uWZpvS3IoI&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/introToDynamicHTML) - An introduction to dynamic HTML using only Web standards (no libraries) to build the essence of a blog. Covers HTML, JavaScript, DOM APIs and CSS including Media Queries.
  * **Reactive Data Visualization with ModelJS** (July 2014) - [screencast](https://www.youtube.com/watch?v=TpZqVAtQs94) - [code](https://github.com/curran/screencasts/tree/gh-pages/reactiveDataVis) - Discusses a new approach to developing generalized reactive data visualizations using D3.js.

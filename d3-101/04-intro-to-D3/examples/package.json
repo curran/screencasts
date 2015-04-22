@@ -1,0 +1,14 @@
+{
+  "name": "exampleViewer",
+  "version": "1.0.0",
+  "description": "A presentation tool for sequences of code examples.",
+  "main": "compileReadme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Curran Kelleher",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}

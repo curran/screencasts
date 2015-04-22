@@ -1,0 +1,16 @@
+{
+  "name": "navigation",
+  "version": "0.1.0",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "requirejs": "~2.1.14",
+    "angular": "~1.2.20",
+    "angular-route": "~1.2.20",
+    "codemirror": "~4.3.0",
+    "marked": "~0.3.2",
+    "bootstrap": "~3.2.0",
+    "underscore": "~1.6.0",
+    "backbone": "~1.1.2"
+  }
+}

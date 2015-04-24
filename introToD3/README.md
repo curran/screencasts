@@ -19,7 +19,7 @@ This screencast covers fundamental [D3.js](http://d3js.org/) concepts from the g
 
 Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/). Use left and right arrow keys to navigate.
 
- * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/navigation/examples/code/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/snapshot01/index.html)) - 
+ * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01/index.html)) - 
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

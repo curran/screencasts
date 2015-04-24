@@ -1,7 +1,13 @@
 # Introduction to D3
 
-This screencast covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
+Streaming live at [this Google Hangout](https://plus.google.com/hangouts/_/g2adpgfm4tkrdvwq3qgcbanmfaa).
 
+This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
+
+ * technologies leveraged by D3
+   * HTML
+   * SVG
+   * CSS
  * fundamental D3 concepts
    * selections
    * scales

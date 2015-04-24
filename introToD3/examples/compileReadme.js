@@ -18,39 +18,49 @@
 //
 var _ = require('underscore'),
     fs = require('fs'),
+
+    // This file contains data that changes for each different presentation.
+    // This includes fields like project title, and base GitHub URL.
+    projectFile = './project.json',
+
     inputFile = './README_template.md',
     outputFile = '../README.md',
     outputJSONFile = './examples.json',
     entryDir = 'code/',
     snapshotsPath = entryDir,
-    snapshotURL = 'https://github.com/curran/screencasts/tree/gh-pages/navigation/examples/code/',
-    snapshotRunURL = 'http://curran.github.io/screencasts/navigation/examples/code/',
     messageFile = '/message.txt',
     entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html)) - <%= message %>'),
 
     // These files are not excluded from the example code viewer.
     irrelevantFiles = ['message.txt', 'README.md', 'server.js', 'backbone.js', 'underscore.js'];
 
-// Read the template for README.md
-fs.readFile(inputFile, 'utf8', function (err, template) {
+// Read the project description file.
+fs.readFile(projectFile, 'utf8', function (err, project) {
 
-  // Generate the data describing the examples.
-  var data = generateExampleJSON(),
-      outputJSON = JSON.stringify(data, null, 2),
+  // Parse the JSON text into an object.
+  project = JSON.parse(project);
 
-      // Generate the model for the README.md template.
-      model = generateREADMEmodel(data), 
+  // Read the template for README.md
+  fs.readFile(inputFile, 'utf8', function (err, template) {
 
-      // Evaluate the README.md template.
-      output = _.template(template)(model);
+    // Generate the data describing the examples.
+    var entries = generateExampleJSON(project),
 
-  console.log(model);
+        // The raw data about each example is output as examples.json.
+        outputJSON = JSON.stringify(entries, null, 2),
 
-  // Write README.md
-  write(outputFile, output);
+        // The same data is used to generate the model for the README.md template.
+        model = generateREADMEmodel(entries), 
 
-  // Write examples.json (used by the example viewer app)
-  write(outputJSONFile, outputJSON);
+        // Evaluate the README.md template.
+        output = _.template(template)(model);
+
+    // Write README.md
+    write(outputFile, output);
+
+    // Write examples.json (used by the example viewer app)
+    write(outputJSONFile, outputJSON);
+  });
 });
 
 function write(outputFile, output){
@@ -63,27 +73,43 @@ function write(outputFile, output){
   });
 }
 
-function generateREADMEmodel(data){
-  return { examples: data.map(entryTemplate).join('\n') };
+// Generates the object passed into the README template.
+function generateREADMEmodel(entries){
+
+  // Return an object with a property "examples",
+  // which is referenced from within the README template.
+  return {
+
+    // Apply the entry template to each example entry.
+    examples: entries.map(entryTemplate).join('\n')
+  };
 }
 
-function generateExampleJSON(){
+// Generates data about all examples by reading
+// a directory listing from the file system.
+function generateExampleJSON(project){
+
+  // Read the list of examples from the file system.
   var files = fs.readdirSync(snapshotsPath);
+
   return files
+
+    // Exclude the "latest" subdirectory.
     .filter(function (file) {
       return file !== "latest";
     })
-    .map(function (file) {
-    return {
-      name: file,
-      number: extractNumber(file),
-      message: getMessage(file),
-      files: listFilesForExample(file),
-      url: snapshotURL + file,
-      runUrl: snapshotRunURL + file
-    };
-  });
 
+    // Assemble data about each example.
+    .map(function (file) {
+      return {
+        name: file,
+        number: extractNumber(file),
+        message: getMessage(file),
+        files: listFilesForExample(file),
+        url: project.snapshotURL + file,
+        runUrl: project.snapshotRunURL + file
+      };
+    });
 }
 
 // Computes the list of files for each example.

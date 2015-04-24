@@ -1,7 +1,9 @@
 // An Angular.js app that displays code examples.
-// Curran Kelleher July 2014
+// Create by Curran Kelleher July 2014
+// Updated April 2015
 var app = angular.module('exampleViewerApp', ['ngRoute']);
 
+// Set up routes.
 app.config(function($routeProvider) {
   $routeProvider.
     when('/', {
@@ -17,6 +19,7 @@ app.config(function($routeProvider) {
     });
 });
 
+// This service works with examples.json.
 app.factory('examples', function($http){
 
   function getData(callback){
@@ -28,12 +31,29 @@ app.factory('examples', function($http){
   }
 
   return {
+
+    // examples.list(callback) lists all examples.
     list: getData,
+
+    // examples.find gets details about one specific example.
     find: function(exampleNumber, callback){
       getData(function(data) {
         var index = parseInt(exampleNumber) - 1;
         callback(data[index]);
       });
+    }
+  };
+});
+
+// This service works with project.json.
+app.factory('project', function($http){
+  return {
+    getData: function (callback){
+      $http({
+        method: 'GET',
+        url: '../project.json',
+        cache: true
+      }).success(callback);
     }
   };
 });
@@ -69,9 +89,15 @@ app.controller('MainCtrl', function ($scope, $document, $location, examples){
   });
 });
 
-app.controller('ExampleListCtrl', function ($scope, examples){
+app.controller('ExampleListCtrl', function ($scope, examples, project){
   examples.list(function(examples) {
     $scope.examples = examples;
+  });
+  project.getData(function(project){
+    $scope.title = project.title;
+    $scope.date = project.date;
+    $scope.author = project.author;
+    $scope.authorLink = project.authorLink;
   });
 });
 

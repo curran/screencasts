@@ -10,6 +10,9 @@ body {
   margin: 20px;
 }
 
+/* Import Googld Font. */
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
+
 /* Center the title part of the page. */
 .centered {
   text-align: center;
@@ -20,6 +23,11 @@ body {
   font-size: 3em;
   padding-top: 5px;
   margin: 10px;
+}
+
+.title-text {
+  font-family: 'Playfair Display', serif;
+  color: #00755A;
 }
 
 /* apply a natural box layout model to all elements */
@@ -82,8 +90,8 @@ iframe {
 
 /* Style the video. */
 video{
-  position:fixed;
-  bottom: 20px;
-  right: 20px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
   border-radius:150px;
 }

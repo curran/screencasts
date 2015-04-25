@@ -2,6 +2,8 @@
 
 Streaming live at [this Google Hangout](https://plus.google.com/hangouts/_/g2adpgfm4tkrdvwq3qgcbanmfaa).
 
+[Slides](https://docs.google.com/presentation/d/1QI8ztO-2baoW8SToaPTlSu24w8dvqvrEMD-xVpI3LmE/pub?start=false&loop=false&delayms=3000)
+
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 
  * technologies leveraged by D3

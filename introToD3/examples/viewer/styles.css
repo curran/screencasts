@@ -4,14 +4,14 @@
  * Curran Kelleher 3/5/2014.
  */
 
+/* Import Google Font. */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
 /**** Begin styles for all views. ****/
 body {
   font-family: Sans-Serif;
   margin: 20px;
 }
-
-/* Import Googld Font. */
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display);
 
 /* Center the title part of the page. */
 .centered {
@@ -20,14 +20,21 @@ body {
 
 /* Make the title large and move it down a little so it is more vertically centered. */
 .page-title {
-  font-size: 3em;
+  font-size: 5em;
   padding-top: 5px;
-  margin: 10px;
+  margin: 0px;
 }
 
 .title-text {
-  font-family: 'Playfair Display', serif;
-  color: #00755A;
+  margin: 0px;
+  font-family: 'Raleway', sans-serif;
+  color: #253634;
+}
+
+.title-text a {
+  font-family: 'Raleway', sans-serif;
+  color: #253634;
+  text-decoration: none;
 }
 
 /* apply a natural box layout model to all elements */

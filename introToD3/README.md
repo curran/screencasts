@@ -1,7 +1,15 @@
 # Introduction to D3
 
-This screencast covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
+Streaming live at [this Google Hangout](https://plus.google.com/hangouts/_/g2adpgfm4tkrdvwq3qgcbanmfaa).
 
+[Slides](https://docs.google.com/presentation/d/1QI8ztO-2baoW8SToaPTlSu24w8dvqvrEMD-xVpI3LmE/pub?start=false&loop=false&delayms=3000)
+
+This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
+
+ * technologies leveraged by D3
+   * HTML
+   * SVG
+   * CSS
  * fundamental D3 concepts
    * selections
    * scales
@@ -19,7 +27,27 @@ This screencast covers fundamental [D3.js](http://d3js.org/) concepts from the g
 
 Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/). Use left and right arrow keys to navigate.
 
- * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01/index.html)) - 
+ * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01/index.html)) - Hello HTML
+ * [Example 2](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot02) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot02) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot02/index.html)) - Hello SVG
+ * [Example 3](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot03) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot03) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot03/index.html)) - Default SVG size
+ * [Example 4](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot04) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot04) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot04/index.html)) - Specifying SVG dimensions
+ * [Example 5](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot05) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot05) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot05/index.html)) - Adding (x, y) coordinates
+ * [Example 6](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot06) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot06) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot06/index.html)) - Adding color
+ * [Example 7](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot07) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot07) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot07/index.html)) - rgb() color syntax
+ * [Example 8](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot08) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot08) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot08/index.html)) - Transparency with rgba()
+ * [Example 9](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot09) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot09) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot09/index.html)) - Hex color codes
+ * [Example 10](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot10) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot10) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot10/index.html)) - Drawing outlines with stroke
+ * [Example 11](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot11) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot11) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot11/index.html)) - Controlling stroke width
+ * [Example 12](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot12) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot12) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot12/index.html)) - Using fill=none
+ * [Example 13](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot13) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot13) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot13/index.html)) - Drawing a circle
+ * [Example 14](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot14) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot14) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot14/index.html)) - cx and cy
+ * [Example 15](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot15) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot15) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot15/index.html)) - stroke and width
+ * [Example 16](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot16) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot16) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot16/index.html)) - drawing a line
+ * [Example 17](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot17) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot17) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot17/index.html)) - drawing several lines
+ * [Example 18](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot18) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot18) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot18/index.html)) - using SVG paths
+ * [Example 19](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot19) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot19) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot19/index.html)) - drawing several lines with a path
+ * [Example 20](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot20) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot20) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot20/index.html)) - filling a path
+ * [Example 21](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot21) - ([run it!](http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot21) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot21/index.html)) - closing a path
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

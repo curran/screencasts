@@ -89,9 +89,18 @@ body {
 }
 
 .top-right {
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  width: 50%;
+  height: 300px;
+  z-index: 100;
+  background: white;
+  /*
   float: right; 
   width: 50%;
   height: 100%;
+  */
 }
 
 /* Size the iFrame that contains the running example. */

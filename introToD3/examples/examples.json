@@ -208,5 +208,105 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot21",
     "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "pseudo scatterplot",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot22",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "the g element",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot23",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "pseudo bar chart",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot24",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot24"
+  },
+  {
+    "name": "snapshot25",
+    "number": 25,
+    "message": "pseudo line chart",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot25",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "SVG Text",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot26",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Styling SVG Text with CSS",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot27",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "CSS class selector syntax",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot28",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot28"
+  },
+  {
+    "name": "snapshot29",
+    "number": 29,
+    "message": "multiple SVG text elements",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot29",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot29"
+  },
+  {
+    "name": "snapshot30",
+    "number": 30,
+    "message": "font fill and stroke",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot30",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot30"
+  },
+  {
+    "name": "snapshot31",
+    "number": 31,
+    "message": "Using Google Fonts",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot31",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot31"
   }
 ]

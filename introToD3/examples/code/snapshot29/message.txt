@@ -1,0 +1,1 @@
+multiple SVG text elements

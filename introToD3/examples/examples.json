@@ -2,11 +2,211 @@
   {
     "name": "snapshot01",
     "number": 1,
-    "message": "",
+    "message": "Hello HTML",
     "files": [
       "index.html"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot01",
     "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Hello SVG",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot02",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Default SVG size",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot03",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Specifying SVG dimensions",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot04",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Adding (x, y) coordinates",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot05",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Adding color",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot06",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "rgb() color syntax",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot07",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Transparency with rgba()",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot08",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Hex color codes",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot09",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Drawing outlines with stroke",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot10",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Controlling stroke width",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot11",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Using fill=none",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot12",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Drawing a circle",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot13",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "cx and cy",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot14",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "stroke and width",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot15",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "drawing a line",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot16",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "drawing several lines",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot17",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "using SVG paths",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot18",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "drawing several lines with a path",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot19",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "filling a path",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot20",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "closing a path",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot21",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot21"
   }
 ]

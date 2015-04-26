@@ -31,6 +31,19 @@ body {
   color: #253634;
 }
 
+.subtitle-text {
+  margin: 0px;
+  font-size: 1.8em;
+  font-family: 'Raleway', sans-serif;
+  color: #253634;
+}
+
+.readme {
+  font-size: 1.5em;
+  font-family: 'Raleway', sans-serif;
+  color: #253634;
+}
+
 .title-text a {
   font-family: 'Raleway', sans-serif;
   color: #253634;
@@ -65,26 +78,26 @@ body {
 
 .top-split {
   width: 100%;
-  height: 150px;
+  height: 300px;
 }
 
 .top-left {
   float: left; 
   width: 50%;
-  height: 150px;
+  height: 100%;
   padding: 20px;
 }
 
 .top-right {
   float: right; 
   width: 50%;
-  height: 150px;
+  height: 100%;
 }
 
 /* Size the iFrame that contains the running example. */
 iframe {
   width: 100%;
-  height: 150px;
+  height: 100%;
   border: 2px lightgray solid; 
 }
 

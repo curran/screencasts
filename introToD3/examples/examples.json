@@ -734,5 +734,60 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot71",
     "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot71"
+  },
+  {
+    "name": "snapshot72",
+    "number": 72,
+    "message": "using extent",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot72",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot72"
+  },
+  {
+    "name": "snapshot73",
+    "number": 73,
+    "message": "basic scatter plot",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot73",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot73"
+  },
+  {
+    "name": "snapshot74",
+    "number": 74,
+    "message": "inverting the Y range",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot74",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot74"
+  },
+  {
+    "name": "snapshot75",
+    "number": 75,
+    "message": "isolating configurable variables",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot75",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot75"
+  },
+  {
+    "name": "snapshot76",
+    "number": 76,
+    "message": "using variables for X and Y columns",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot76",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot76"
   }
 ]

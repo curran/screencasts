@@ -18,9 +18,8 @@
       }
 
       d3.csv("iris.csv", type, function (data){
-        var min = d3.min(data, function (d){ return d.sepal_length; });
-        var max = d3.max(data, function (d){ return d.sepal_length; });
-        console.log([min, max]);
+        var extent = d3.extent(data, function (d){ return d.sepal_length; });
+        console.log(extent);
       });
 
     </script>

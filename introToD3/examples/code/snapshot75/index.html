@@ -11,8 +11,6 @@
       var outerWidth = 300;
       var outerHeight = 250;
       var circleRadius = 5;
-      var xColumn = "sepal_length";
-      var yColumn = "petal_length";
 
       var svg = d3.select("body").append("svg")
         .attr("width", outerWidth)
@@ -22,14 +20,14 @@
       var yScale = d3.scale.linear().range([outerWidth, 0]);
 
       function render(data){
-        xScale.domain(d3.extent(data, function (d){ return d[xColumn]; }));
-        yScale.domain(d3.extent(data, function (d){ return d[yColumn]; }));
+        xScale.domain(d3.extent(data, function (d){ return d.sepal_length; }));
+        yScale.domain(d3.extent(data, function (d){ return d.petal_length; }));
 
         var circles = svg.selectAll("circle").data(data);
         circles.enter().append("circle").attr("r", circleRadius);
         circles
-          .attr("cx", function (d){ return xScale(d[xColumn]); })
-          .attr("cy", function (d){ return yScale(d[yColumn]); });
+          .attr("cx", function (d){ return xScale(d.sepal_length); })
+          .attr("cy", function (d){ return yScale(d.petal_length); });
         circles.exit().remove();
       }
 

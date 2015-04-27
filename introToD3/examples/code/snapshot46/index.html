@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+      d3.csv("data.csv", function (myArrayOfObjects){
+        myArrayOfObjects.forEach(function (d){
+          console.log(d.x + ", " + d.y);
+        });
+      });
+    </script>
+
+  </body>
+</html>

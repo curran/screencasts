@@ -1,0 +1,1 @@
+Parsing strings with parseFloat

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+
+      var scale = d3.scale.ordinal()
+          .domain(["A", "B", "C", "D"])
+          .rangePoints([0, 100]);
+
+      console.log(scale("A")); // Prints 0
+      console.log(scale("B")); // Prints 33.333333...
+      console.log(scale("C")); // Prints 66.666666...
+      console.log(scale("D")); // Prints 100
+
+    </script>
+
+  </body>
+</html>

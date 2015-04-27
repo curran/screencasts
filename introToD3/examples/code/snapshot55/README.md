@@ -1,0 +1,3 @@
+rangeRoundPoints
+
+ * Rounds values up

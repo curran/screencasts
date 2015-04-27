@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+
+      var scale = d3.scale.linear()
+        .domain([0, 1])   // Data space
+        .range([0, 100]); // Pixel space
+
+      console.log(scale(0));   // Prints 0
+      console.log(scale(0.5)); // Prints 50
+      console.log(scale(1));   // Prints 100
+
+    </script>
+
+  </body>
+</html>

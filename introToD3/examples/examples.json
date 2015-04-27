@@ -308,5 +308,431 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot31",
     "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot31"
+  },
+  {
+    "name": "snapshot32",
+    "number": 32,
+    "message": "Applying CSS to circles",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot32",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot32"
+  },
+  {
+    "name": "snapshot33",
+    "number": 33,
+    "message": "JavaScript Debugging",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot33",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot33"
+  },
+  {
+    "name": "snapshot34",
+    "number": 34,
+    "message": "JavaScript Numbers",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot34",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot34"
+  },
+  {
+    "name": "snapshot35",
+    "number": 35,
+    "message": "JavaScript Strings",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot35",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot35"
+  },
+  {
+    "name": "snapshot36",
+    "number": 36,
+    "message": "Concatenation",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot36",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot36"
+  },
+  {
+    "name": "snapshot37",
+    "number": 37,
+    "message": "Concatenation of number strings",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot37",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot37"
+  },
+  {
+    "name": "snapshot38",
+    "number": 38,
+    "message": "Parsing strings with parseFloat",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot38",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot38"
+  },
+  {
+    "name": "snapshot39",
+    "number": 39,
+    "message": "Parsing strings with +",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot39",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot39"
+  },
+  {
+    "name": "snapshot40",
+    "number": 40,
+    "message": "JavaScript Arrays",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot40",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot40"
+  },
+  {
+    "name": "snapshot41",
+    "number": 41,
+    "message": "JavaScript Objects",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot41",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot41"
+  },
+  {
+    "name": "snapshot42",
+    "number": 42,
+    "message": "An array of objects",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot42",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot42"
+  },
+  {
+    "name": "snapshot43",
+    "number": 43,
+    "message": "JavaScript functions",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot43",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot43"
+  },
+  {
+    "name": "snapshot44",
+    "number": 44,
+    "message": "Functions in variables",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot44",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot44"
+  },
+  {
+    "name": "snapshot45",
+    "number": 45,
+    "message": "Functional forEach",
+    "files": [
+      "index.html"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot45",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot45"
+  },
+  {
+    "name": "snapshot46",
+    "number": 46,
+    "message": "Loading CSV data",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot46",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot46"
+  },
+  {
+    "name": "snapshot47",
+    "number": 47,
+    "message": "Concatenating unparsed strings",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot47",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot47"
+  },
+  {
+    "name": "snapshot48",
+    "number": 48,
+    "message": "Parsing CSV data",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot48",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot48"
+  },
+  {
+    "name": "snapshot49",
+    "number": 49,
+    "message": "Parsing CSV data",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot49",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot49"
+  },
+  {
+    "name": "snapshot50",
+    "number": 50,
+    "message": "D3 linear scale",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot50",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot50"
+  },
+  {
+    "name": "snapshot51",
+    "number": 51,
+    "message": "D3 method chaining",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot51",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot51"
+  },
+  {
+    "name": "snapshot52",
+    "number": 52,
+    "message": "D3 getter setter functions",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot52",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot52"
+  },
+  {
+    "name": "snapshot53",
+    "number": 53,
+    "message": "D3 ordinal scale",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot53",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot53"
+  },
+  {
+    "name": "snapshot54",
+    "number": 54,
+    "message": "rangePoints",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot54",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot54"
+  },
+  {
+    "name": "snapshot55",
+    "number": 55,
+    "message": "rangeRoundPoints",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot55",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot55"
+  },
+  {
+    "name": "snapshot56",
+    "number": 56,
+    "message": "constructing DOM elements with D3",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot56",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot56"
+  },
+  {
+    "name": "snapshot57",
+    "number": 57,
+    "message": "D3 method chaining",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot57",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot57"
+  },
+  {
+    "name": "snapshot58",
+    "number": 58,
+    "message": "The complete D3 pipeline",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot58",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot58"
+  },
+  {
+    "name": "snapshot59",
+    "number": 59,
+    "message": "Passing the scale as a function",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot59",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot59"
+  },
+  {
+    "name": "snapshot60",
+    "number": 60,
+    "message": "Splitting data binding and enter",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot60",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot60"
+  },
+  {
+    "name": "snapshot61",
+    "number": 61,
+    "message": "Enter handles added data only",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot61",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot61"
+  },
+  {
+    "name": "snapshot62",
+    "number": 62,
+    "message": "Enter does not update data",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot62",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot62"
+  },
+  {
+    "name": "snapshot63",
+    "number": 63,
+    "message": "The D3 update phase",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot63",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot63"
+  },
+  {
+    "name": "snapshot64",
+    "number": 64,
+    "message": "Using enter for static properties",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot64",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot64"
+  },
+  {
+    "name": "snapshot65",
+    "number": 65,
+    "message": "The need for exit",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot65",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot65"
+  },
+  {
+    "name": "snapshot66",
+    "number": 66,
+    "message": "Exit",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot66",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot66"
+  },
+  {
+    "name": "snapshot67",
+    "number": 67,
+    "message": "Using setTimeout",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot67",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot67"
+  },
+  {
+    "name": "snapshot68",
+    "number": 68,
+    "message": "Rendering an array of objects",
+    "files": [
+      "index.html",
+      ".DS_Store"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot68",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot68"
+  },
+  {
+    "name": "snapshot69",
+    "number": 69,
+    "message": "Rendering a parsed CSV file",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot69",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot69"
+  },
+  {
+    "name": "snapshot70",
+    "number": 70,
+    "message": "Functional simplification",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot70",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot70"
+  },
+  {
+    "name": "snapshot71",
+    "number": 71,
+    "message": "Introducing the Iris data set",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/d3-101/04-intro-to-D3/examples/code/snapshot71",
+    "runUrl": "http://curran.github.io/screencasts/navigation/d3-101/04-intro-to-D3/examples/code/snapshot71"
   }
 ]

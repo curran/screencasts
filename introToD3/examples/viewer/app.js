@@ -64,7 +64,7 @@ app.controller('MainCtrl', function ($scope, $document, $location, examples){
     var LEFT = 37,
         RIGHT = 39;
 
-    $scope.changeExample = function(e) {
+    $scope.onKeydown = function(e) {
       var path = $location.path(),
           // The example number
           n;

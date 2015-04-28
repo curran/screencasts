@@ -129,6 +129,11 @@ app.controller('ExampleDetailCtrl',
       $scope.readme = $sce.trustAsHtml(marked(md));
     });
   });
+
+  // Postponed feature - dynamic code changing
+  //$scope.$on('htmlChange', function (event, data){
+  //  $scope.iFrameSrcDoc = $sce.trustAsHtml(data);
+  //});
 });
 
 /**
@@ -170,6 +175,14 @@ app.directive('file', function(){
         lineNumbers: true,
         viewportMargin: Infinity
       });
+      // Postponed feature - dynamic code changing
+      //editor.on('changes', function (instance, changeObj){
+      //  // Propagate the event up the scope tree.
+      //  // http://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/
+      //  if(scope.file === 'index.html'){
+      //    scope.$emit('htmlChange', editor.getValue());
+      //  }
+      //});
       scope.$watch('content', function(data){
         if(data) {
           editor.setValue(data);

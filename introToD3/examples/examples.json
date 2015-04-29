@@ -498,7 +498,8 @@
     "number": 50,
     "message": "D3 linear scale",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot50",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot50"
@@ -508,7 +509,8 @@
     "number": 51,
     "message": "D3 method chaining",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot51",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot51"
@@ -518,7 +520,8 @@
     "number": 52,
     "message": "D3 getter setter functions",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot52",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot52"
@@ -528,7 +531,8 @@
     "number": 53,
     "message": "D3 ordinal scale",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot53",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot53"
@@ -538,7 +542,8 @@
     "number": 54,
     "message": "rangePoints",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot54",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot54"
@@ -548,7 +553,8 @@
     "number": 55,
     "message": "rangeRoundPoints",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot55",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot55"
@@ -558,7 +564,8 @@
     "number": 56,
     "message": "constructing DOM elements with D3",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot56",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot56"
@@ -568,7 +575,8 @@
     "number": 57,
     "message": "D3 method chaining",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot57",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot57"
@@ -578,7 +586,8 @@
     "number": 58,
     "message": "The complete D3 pipeline",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot58",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot58"
@@ -588,7 +597,8 @@
     "number": 59,
     "message": "Passing the scale as a function",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot59",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot59"
@@ -598,7 +608,8 @@
     "number": 60,
     "message": "Splitting data binding and enter",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot60",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot60"
@@ -608,7 +619,8 @@
     "number": 61,
     "message": "Enter handles added data only",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot61",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot61"
@@ -618,7 +630,8 @@
     "number": 62,
     "message": "Enter does not update data",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot62",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot62"
@@ -628,7 +641,8 @@
     "number": 63,
     "message": "The D3 update phase",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot63",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot63"
@@ -638,7 +652,8 @@
     "number": 64,
     "message": "Using enter for static properties",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot64",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot64"
@@ -648,7 +663,8 @@
     "number": 65,
     "message": "The need for exit",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot65",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot65"
@@ -658,7 +674,8 @@
     "number": 66,
     "message": "Exit",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot66",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot66"
@@ -668,7 +685,8 @@
     "number": 67,
     "message": "Using setTimeout",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot67",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot67"
@@ -678,7 +696,8 @@
     "number": 68,
     "message": "Rendering an array of objects",
     "files": [
-      "index.html"
+      "index.html",
+      ".DS_Store"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot68",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot68"
@@ -770,5 +789,126 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot76",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot76"
+  },
+  {
+    "name": "snapshot77",
+    "number": 77,
+    "message": "Adding a radius column",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot77",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot77"
+  },
+  {
+    "name": "snapshot78",
+    "number": 78,
+    "message": "Using CSS to color circles",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot78",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot78"
+  },
+  {
+    "name": "snapshot79",
+    "number": 79,
+    "message": "Drawing transparent rings",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot79",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot79"
+  },
+  {
+    "name": "snapshot80",
+    "number": 80,
+    "message": "Adding a color column",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot80",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot80"
+  },
+  {
+    "name": "snapshot81",
+    "number": 81,
+    "message": "Using fill, tweaking parameters",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot81",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot81"
+  },
+  {
+    "name": "snapshot82",
+    "number": 82,
+    "message": "Population vs. GDP",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot82",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot82"
+  },
+  {
+    "name": "snapshot83",
+    "number": 83,
+    "message": "logarithmic scales",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot83",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot83"
+  },
+  {
+    "name": "snapshot84",
+    "number": 84,
+    "message": "population as linear size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot84",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot84"
+  },
+  {
+    "name": "snapshot85",
+    "number": 85,
+    "message": "population as logarithmic size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot85",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot85"
+  },
+  {
+    "name": "snapshot86",
+    "number": 86,
+    "message": "population as sqrt size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot86",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot86"
+  },
+  {
+    "name": "snapshot87",
+    "number": 87,
+    "message": "population true to size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot87",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot87"
   }
 ]

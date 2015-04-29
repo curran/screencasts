@@ -1,0 +1,1 @@
+Drawing transparent rings

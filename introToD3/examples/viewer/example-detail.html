@@ -7,7 +7,8 @@
     <div class="readme" ng-bind-html="readme"></div>
   </div>
   <div class="top-right">
-    <iframe ng-src="{{runUrl}}" frameBorder="0"></iframe>
+    <!-- Tried getting dynamic code changes with srcdoc="{{iFrameSrcDoc}}", ran into base URL issues. -->
+    <iframe ng-src="{{runUrl}}" ng-show="showIFrame" frameBorder="0"></iframe>
   </div>
 </div>
 <div class="files-container">

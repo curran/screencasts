@@ -60,30 +60,47 @@ app.factory('project', function($http){
 
 // Responsible for navigating based on key events.
 app.controller('MainCtrl', function ($scope, $document, $location, examples){
+
+  // Show the iframe running the example code by default.
+  // This can be toggled by pressing "p".
+  $scope.showIFrame = true;
+
   examples.list(function(examples){
+
+    // These are key codes from key down events.
     var LEFT = 37,
-        RIGHT = 39;
+        RIGHT = 39,
+        P = 80;
 
-    $scope.changeExample = function(e) {
-      var path = $location.path(),
-          // The example number
-          n;
+    $scope.onKeydown = function(e) {
 
-      // If there is a number,
-      if(path.length > 1){
+      // Use left and right arrows for navigation
+      if(e.keyCode === RIGHT || e.keyCode === LEFT){
+        var path = $location.path(),
+            // The example number
+            n;
 
-        // Extract the example number from the path.
-        n = parseInt(path.substr(1), 10);
+        // If there is a number,
+        if(path.length > 1){
 
-        // Increment or decrement the example number.
-        if(e.keyCode === RIGHT && n < examples.length){
-          n++;
-        } else if(e.keyCode === LEFT && n > 1) {
-          n--;
+          // Extract the example number from the path.
+          n = parseInt(path.substr(1), 10);
+
+          // Increment or decrement the example number.
+          if(e.keyCode === RIGHT && n < examples.length){
+            n++;
+          } else if(e.keyCode === LEFT && n > 1) {
+            n--;
+          }
+          
+          // Navigate to the previous or next example.
+          $location.path('/' + n);
         }
-        
-        // Navigate to the previous or next example.
-        $location.path('/' + n);
+      }
+
+      // Use the "p" key to toggle visibility of the iframe.
+      if(e.keyCode === P){
+        $scope.showIFrame = !$scope.showIFrame;
       }
     };
   });
@@ -112,6 +129,11 @@ app.controller('ExampleDetailCtrl',
       $scope.readme = $sce.trustAsHtml(marked(md));
     });
   });
+
+  // Postponed feature - dynamic code changing
+  //$scope.$on('htmlChange', function (event, data){
+  //  $scope.iFrameSrcDoc = $sce.trustAsHtml(data);
+  //});
 });
 
 /**
@@ -153,6 +175,14 @@ app.directive('file', function(){
         lineNumbers: true,
         viewportMargin: Infinity
       });
+      // Postponed feature - dynamic code changing
+      //editor.on('changes', function (instance, changeObj){
+      //  // Propagate the event up the scope tree.
+      //  // http://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/
+      //  if(scope.file === 'index.html'){
+      //    scope.$emit('htmlChange', editor.getValue());
+      //  }
+      //});
       scope.$watch('content', function(data){
         if(data) {
           editor.setValue(data);

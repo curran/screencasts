@@ -14,7 +14,7 @@
         .range([0, 200]); // Pixel space
 
       var svg = d3.select("body").append("svg")
-        .attr("width", 250)
+        .attr("width",  250)
         .attr("height", 250);
 
       function render(data, color){
@@ -25,7 +25,7 @@
         // Enter
         rects.enter().append("rect")
           .attr("y", 50)
-          .attr("width", 20)
+          .attr("width",  20)
           .attr("height", 20);
 
         // Update
@@ -34,9 +34,9 @@
           .attr("fill", color);
       }
 
-      render([1, 2, 2.5], "red");
+      render([1, 2, 2.5],     "red");
       render([1, 2, 3, 4, 5], "blue");
-      render([1, 2], "green");
+      render([1, 2],          "green");
 
     </script>
 

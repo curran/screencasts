@@ -10,7 +10,7 @@
     <script>
 
       var svg = d3.select("body").append("svg")
-        .attr("width", 250)
+        .attr("width",  250)
         .attr("height", 250);
 
       var xScale = d3.scale.linear().range([0, 250]);
@@ -32,9 +32,9 @@
 
       function type(d){
         d.sepal_length = +d.sepal_length;
-        d.sepal_width = +d.sepal_width;
+        d.sepal_width  = +d.sepal_width;
         d.petal_length = +d.petal_length;
-        d.petal_width = +d.petal_width;
+        d.petal_width  = +d.petal_width;
         return d;
       }
 

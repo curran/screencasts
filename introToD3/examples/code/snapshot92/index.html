@@ -12,14 +12,12 @@
       var outerHeight = 250;
 
       var margin = {
-        left: 30,
-        top: 30,
-        right: 30,
-        bottom: 30
+        left: 0,
+        top: 30
       };
 
-      var innerWidth =  outerWidth  - margin.left - margin.right;
-      var innerHeight = outerHeight - margin.top  - margin.bottom;
+      var innerWidth = outerWidth - 30;
+      var innerHeight = outerHeight - 100;
 
       // This will determine the maximum circle radius.
       var peoplePerPixel = 1000000;
@@ -29,7 +27,7 @@
       var rColumn = "population";
 
       var svg = d3.select("body").append("svg")
-        .attr("width",  outerWidth)
+        .attr("width", outerWidth)
         .attr("height", outerHeight);
 
       var g = svg.append("g")

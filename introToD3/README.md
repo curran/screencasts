@@ -2,7 +2,7 @@
 
 Streaming live at [this Google Hangout](https://plus.google.com/hangouts/_/g2adpgfm4tkrdvwq3qgcbanmfaa).
 
-[Slides](https://docs.google.com/presentation/d/1QI8ztO-2baoW8SToaPTlSu24w8dvqvrEMD-xVpI3LmE/pub?start=false&loop=false&delayms=3000)
+[Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/)
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 
@@ -10,14 +10,14 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
    * HTML
    * SVG
    * CSS
+ * graphical elements
+   * rectangles
+   * circles
+   * lines
  * fundamental D3 concepts
    * selections
    * scales
    * axes
-   * graphical elements
-     * rectangles
-     * circles
-     * lines
  * visualizations
    * bar chart
    * scatter plot
@@ -25,7 +25,7 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
 
 ## Examples
 
-Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/). Use left and right arrow keys to navigate.
+Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/1). Use left and right arrow keys to navigate.
 
  * [Example 1](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot01) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot01) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot01/index.html)) - Hello HTML
  * [Example 2](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot02) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot02) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot02/index.html)) - Hello SVG
@@ -131,6 +131,9 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/exa
  * [Example 102](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot102) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot102) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot102/index.html)) - adding axes
  * [Example 103](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot103) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot103) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot103/index.html)) - customizing axes
  * [Example 104](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot104) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot104) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot104/index.html)) - horizontal bars
+ * [Example 105](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot105) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot105) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot105/index.html)) - axis labels
+ * [Example 106](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot106) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot106) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot106/index.html)) - axes on a scatter plot
+ * [Example 107](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot107) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot107) | [index.html](https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot107/index.html)) - axes on a line chart
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

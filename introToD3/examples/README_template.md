@@ -2,7 +2,7 @@
 
 Streaming live at [this Google Hangout](https://plus.google.com/hangouts/_/g2adpgfm4tkrdvwq3qgcbanmfaa).
 
-[Slides](https://docs.google.com/presentation/d/1QI8ztO-2baoW8SToaPTlSu24w8dvqvrEMD-xVpI3LmE/pub?start=false&loop=false&delayms=3000)
+[Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/)
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 
@@ -10,14 +10,14 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
    * HTML
    * SVG
    * CSS
+ * graphical elements
+   * rectangles
+   * circles
+   * lines
  * fundamental D3 concepts
    * selections
    * scales
    * axes
-   * graphical elements
-     * rectangles
-     * circles
-     * lines
  * visualizations
    * bar chart
    * scatter plot
@@ -25,7 +25,7 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
 
 ## Examples
 
-Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/). Use left and right arrow keys to navigate.
+Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/1). Use left and right arrow keys to navigate.
 
 <%= examples %>
 

@@ -1081,5 +1081,38 @@
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot104",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot104"
+  },
+  {
+    "name": "snapshot105",
+    "number": 105,
+    "message": "axis labels",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot105",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot105"
+  },
+  {
+    "name": "snapshot106",
+    "number": 106,
+    "message": "axes on a scatter plot",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot106",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot106"
+  },
+  {
+    "name": "snapshot107",
+    "number": 107,
+    "message": "axes on a line chart",
+    "files": [
+      "index.html",
+      "week_temperature_sf.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot107",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot107"
   }
 ]

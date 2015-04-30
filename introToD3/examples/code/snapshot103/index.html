@@ -4,6 +4,22 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <style>
+    
+      .axis text {
+        font: 16pt sans-serif;
+        font-family: 'Poiret One', cursive;
+      }
+
+      .axis path,
+      .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+    </style>
   </head>
   <body>
     <script>
@@ -25,14 +41,20 @@
       var g = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       var xAxisG = g.append("g")
+        .attr("class", "x axis")
         .attr("transform", "translate(0," + innerHeight + ")");
-      var yAxisG = g.append("g");
+      var yAxisG = g.append("g")
+        .attr("class", "y axis");
 
       var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
       var yScale = d3.scale.linear().range([innerHeight, 0]);
 
-      var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-      var yAxis = d3.svg.axis().scale(yScale).orient("left");
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
+        .outerTickSize(0);          // Turn off the marks at the end of the axis.
+      var yAxis = d3.svg.axis().scale(yScale).orient("left")
+        .ticks(5)                   // Use approximately 5 ticks marks.
+        .tickFormat(d3.format("s")) // Use intelligent abbreviations, e.g. 5M for 5 Million
+        .outerTickSize(0);          // Turn off the marks at the end of the axis.
 
       function render(data){
 

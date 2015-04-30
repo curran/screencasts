@@ -1,3 +1,4 @@
-resizing the inner visualization
+translating the inner visualization
 
- * trying to fit circles in the SVG
+ * g means SVG Group
+ * similar to [example 23](#/23)

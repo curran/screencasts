@@ -1,1 +1,1 @@
-introducing 'g'
+using variables to define the margin

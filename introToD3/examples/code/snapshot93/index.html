@@ -8,25 +8,17 @@
   <body>
     <script>
 
-      var outerWidth = 300;
+      var outerWidth  = 300;
       var outerHeight = 250;
-
-      var margin = {
-        left: 30,
-        top: 30,
-        right: 30,
-        bottom: 30
-      };
-
-      var innerWidth =  outerWidth  - margin.left - margin.right;
-      var innerHeight = outerHeight - margin.top  - margin.bottom;
-
-      // This will determine the maximum circle radius.
-      var peoplePerPixel = 1000000;
+      var margin = { left: 30, top: 30, right: 30, bottom: 30 };
 
       var xColumn = "population";
       var yColumn = "gdp";
       var rColumn = "population";
+      var peoplePerPixel = 1000000;
+
+      var innerWidth  = outerWidth - margin.left - margin.right;
+      var innerHeight = outerWidth - margin.top  - margin.bottom;
 
       var svg = d3.select("body").append("svg")
         .attr("width",  outerWidth)
@@ -43,11 +35,13 @@
 
         xScale.domain( d3.extent(data, function (d){ return d[xColumn]; }));
         yScale.domain( d3.extent(data, function (d){ return d[yColumn]; }));
-        rScale.domain([0, d3.max(data, function (d){ return d[rColumn]; })])
+        rScale.domain([0, d3.max(data, function (d){ return d[rColumn]; })]);
 
         // Compute the size of the biggest circle as a function of peoplePerPixel.
-        var rMax = Math.sqrt(rScale.domain()[1] / (peoplePerPixel * Math.PI));
-        rScale.range([0, rMax]);
+        var peopleMax = rScale.domain()[1];
+        var rMin = 0;
+        var rMax = Math.sqrt(peopleMax / (peoplePerPixel * Math.PI));
+        rScale.range([rMin, rMax]);
 
         var circles = g.selectAll("circle").data(data);
         circles.enter().append("circle");
@@ -60,7 +54,7 @@
 
       function type(d){
         d.population = +d.population;
-        d.gdp = +d.gdp;
+        d.gdp        = +d.gdp;
         return d;
       }
 

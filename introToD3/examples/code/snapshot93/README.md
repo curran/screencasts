@@ -1,3 +1,4 @@
-full margin object
+specifying number of people per pixel
 
- * This is the [D3 Margin Convention](http://bl.ocks.org/mbostock/3019563)
+ * Exactly 1 million people per pixel.
+ * Algebraic manipulation of [example 87](#87)

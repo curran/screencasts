@@ -1,1 +1,1 @@
-computing the max radius
+sizing the inner visualization

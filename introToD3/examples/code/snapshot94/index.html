@@ -8,21 +8,28 @@
   <body>
     <script>
 
-      var outerWidth = 300;
+      var outerWidth  = 600;
       var outerHeight = 250;
-      var rMin = 0; // "r" stands for radius
-      var rMax = 20;
-      var xColumn = "population";
-      var yColumn = "gdp";
+      var margin = { left: 0, top: 0, right: 0, bottom: 10 };
+
+      var xColumn = "longitude";
+      var yColumn = "latitude";
       var rColumn = "population";
+      var peoplePerPixel = 1000000;
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
 
       var svg = d3.select("body").append("svg")
         .attr("width",  outerWidth)
         .attr("height", outerHeight);
 
-      var xScale = d3.scale.log().range([0, outerWidth]);
-      var yScale = d3.scale.log().range([outerHeight, 0]);
-      var rScale = d3.scale.sqrt().range([rMin, rMax]);
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var xScale = d3.scale.linear().range([0, innerWidth]);
+      var yScale = d3.scale.linear().range([innerHeight, 0]);
+      var rScale = d3.scale.sqrt();
 
       function render(data){
 
@@ -30,7 +37,13 @@
         yScale.domain( d3.extent(data, function (d){ return d[yColumn]; }));
         rScale.domain([0, d3.max(data, function (d){ return d[rColumn]; })]);
 
-        var circles = svg.selectAll("circle").data(data);
+        // Compute the size of the biggest circle as a function of peoplePerPixel.
+        var peopleMax = rScale.domain()[1];
+        var rMin = 0;
+        var rMax = Math.sqrt(peopleMax / (peoplePerPixel * Math.PI));
+        rScale.range([rMin, rMax]);
+
+        var circles = g.selectAll("circle").data(data);
         circles.enter().append("circle");
         circles
           .attr("cx", function (d){ return xScale(d[xColumn]); })
@@ -40,22 +53,13 @@
       }
 
       function type(d){
+        d.latitude   = +d.latitude;
+        d.longitude  = +d.longitude;
         d.population = +d.population;
-        d.gdp        = +d.gdp;
         return d;
       }
 
-      d3.csv("countries_population_GDP.csv", type, function(data){
-        render(data);
-      
-        // The population in the biggest circle.
-        var people = rScale.domain()[1];
-
-        // The number of pixels in the biggest circle, in pixels.
-        var pixels = Math.PI * rMax * rMax;
-
-        console.log((people / pixels) + " people per pixel.");
-      });
+      d3.csv("geonames_cities100000.csv", type, render);
 
     </script>
   </body>

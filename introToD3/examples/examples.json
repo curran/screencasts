@@ -895,7 +895,7 @@
   {
     "name": "snapshot88",
     "number": 88,
-    "message": "computing the max radius",
+    "message": "sizing the inner visualization",
     "files": [
       "index.html",
       "countries_population_GDP.csv"
@@ -906,7 +906,7 @@
   {
     "name": "snapshot89",
     "number": 89,
-    "message": "resizing the inner visualization",
+    "message": "translating the inner visualization",
     "files": [
       "index.html",
       "countries_population_GDP.csv"
@@ -917,7 +917,7 @@
   {
     "name": "snapshot90",
     "number": 90,
-    "message": "innerHeight",
+    "message": "sizing taking translation into account",
     "files": [
       "index.html",
       "countries_population_GDP.csv"
@@ -928,7 +928,7 @@
   {
     "name": "snapshot91",
     "number": 91,
-    "message": "introducing 'g'",
+    "message": "using variables to define the margin",
     "files": [
       "index.html",
       "countries_population_GDP.csv"
@@ -939,7 +939,7 @@
   {
     "name": "snapshot92",
     "number": 92,
-    "message": "Introducing a margin object",
+    "message": "using a margin object",
     "files": [
       "index.html",
       "countries_population_GDP.csv"
@@ -950,12 +950,34 @@
   {
     "name": "snapshot93",
     "number": 93,
-    "message": "full margin object",
+    "message": "specifying number of people per pixel",
     "files": [
       "index.html",
       "countries_population_GDP.csv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot93",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot93"
+  },
+  {
+    "name": "snapshot94",
+    "number": 94,
+    "message": "visualizing cities",
+    "files": [
+      "index.html",
+      "geonames_cities100000.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot94",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot94"
+  },
+  {
+    "name": "snapshot95",
+    "number": 95,
+    "message": "tweaking the visualization",
+    "files": [
+      "index.html",
+      "geonames_cities100000.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot95",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot95"
   }
 ]

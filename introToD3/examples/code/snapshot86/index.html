@@ -17,7 +17,7 @@
       var rColumn = "population";
 
       var svg = d3.select("body").append("svg")
-        .attr("width", outerWidth)
+        .attr("width",  outerWidth)
         .attr("height", outerHeight);
 
       var xScale = d3.scale.log().range([0, outerWidth]);
@@ -33,15 +33,15 @@
         var circles = svg.selectAll("circle").data(data);
         circles.enter().append("circle");
         circles
-          .attr("cx",      function (d){ return     xScale(d[xColumn]); })
-          .attr("cy",      function (d){ return     yScale(d[yColumn]); })
-          .attr("r",       function (d){ return     rScale(d[rColumn]); });
+          .attr("cx", function (d){ return xScale(d[xColumn]); })
+          .attr("cy", function (d){ return yScale(d[yColumn]); })
+          .attr("r",  function (d){ return rScale(d[rColumn]); });
         circles.exit().remove();
       }
 
       function type(d){
         d.population = +d.population;
-        d.gdp  = +d.gdp;
+        d.gdp        = +d.gdp;
         return d;
       }
 

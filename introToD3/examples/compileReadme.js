@@ -92,7 +92,7 @@ function generateExampleJSON(project){
   // Read the list of examples from the file system.
   var files = fs.readdirSync(snapshotsPath);
 
-  return files
+  return _.sortBy(files
 
     // Exclude the "latest" subdirectory.
     .filter(function (file) {
@@ -109,7 +109,7 @@ function generateExampleJSON(project){
         url: project.snapshotURL + file,
         runUrl: project.snapshotRunURL + file
       };
-    });
+    }), "number");
 }
 
 // Computes the list of files for each example.

@@ -4,6 +4,17 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <style>
+
+      body {
+        background: black;
+      }
+
+      circle {
+        fill: rgba(255, 255, 255, 0.2);
+      }
+
+    </style>
   </head>
   <body>
     <script>
@@ -15,7 +26,7 @@
       var xColumn = "longitude";
       var yColumn = "latitude";
       var rColumn = "population";
-      var peoplePerPixel = 1000000;
+      var peoplePerPixel = 100000;
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
       var innerHeight = outerHeight - margin.top  - margin.bottom;

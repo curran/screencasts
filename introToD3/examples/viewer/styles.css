@@ -25,6 +25,11 @@ body {
   margin: 0px;
 }
 
+.example-entry{
+  font-family: 'Raleway', sans-serif;
+  font-size: 3em;
+}
+
 .title-text {
   margin: 0px;
   font-family: 'Raleway', sans-serif;

@@ -11,6 +11,7 @@
       var outerWidth = 500;
       var outerHeight = 250;
       var margin = { left: 90, top: 30, right: 30, bottom: 30 };
+      var barPadding = 0.2;
 
       var xColumn = "name";
       var yColumn = "population";
@@ -24,7 +25,7 @@
       var g = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      var xScale = d3.scale.ordinal().rangeBands([0, innerWidth]);
+      var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
       var yScale = d3.scale.linear().range([innerHeight, 0]);
 
       function render(data){

@@ -1049,12 +1049,34 @@
   {
     "name": "snapshot100",
     "number": 100,
-    "message": "adding axes",
+    "message": "basic bar chart",
     "files": [
       "index.html",
       "geonames_cities_top3.csv"
     ],
     "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot100",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot100"
+  },
+  {
+    "name": "snapshot101",
+    "number": 101,
+    "message": "bar padding",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot101",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot101"
+  },
+  {
+    "name": "snapshot102",
+    "number": 102,
+    "message": "adding axes",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "https://github.com/curran/screencasts/tree/gh-pages/introToD3/examples/code/snapshot102",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot102"
   }
 ]

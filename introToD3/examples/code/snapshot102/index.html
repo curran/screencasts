@@ -11,6 +11,7 @@
       var outerWidth = 500;
       var outerHeight = 250;
       var margin = { left: 90, top: 30, right: 30, bottom: 30 };
+      var barPadding = 0.2;
 
       var xColumn = "name";
       var yColumn = "population";
@@ -23,14 +24,23 @@
         .attr("height", outerHeight);
       var g = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var xAxisG = g.append("g")
+        .attr("transform", "translate(0," + innerHeight + ")");
+      var yAxisG = g.append("g");
 
-      var xScale = d3.scale.ordinal().rangeBands([0, innerWidth]);
+      var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
       var yScale = d3.scale.linear().range([innerHeight, 0]);
+
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+      var yAxis = d3.svg.axis().scale(yScale).orient("left");
 
       function render(data){
 
         xScale.domain(       data.map( function (d){ return d[xColumn]; }));
         yScale.domain([0, d3.max(data, function (d){ return d[yColumn]; })]);
+
+        xAxisG.call(xAxis);
+        yAxisG.call(yAxis);
 
         var bars = g.selectAll("rect").data(data);
         bars.enter().append("rect")

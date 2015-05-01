@@ -106,7 +106,7 @@ function generateExampleJSON(project){
         number: extractNumber(file),
         message: getMessage(file),
         files: listFilesForExample(file),
-        url: project.snapshotURL + file,
+        url: project.snapshotURL + extractNumber(file),
         runUrl: project.snapshotRunURL + file
       };
     }), "number");

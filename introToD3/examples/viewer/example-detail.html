@@ -6,9 +6,9 @@
     </div>
     <div class="readme" ng-bind-html="readme"></div>
   </div>
-  <div class="top-right">
+  <div class="top-right" ng-show="showIFrame" >
     <!-- Tried getting dynamic code changes with srcdoc="{{iFrameSrcDoc}}", ran into base URL issues. -->
-    <iframe ng-src="{{runUrl}}" ng-show="showIFrame" frameBorder="0"></iframe>
+    <iframe ng-src="{{runUrl}}" frameBorder="0"></iframe>
   </div>
 </div>
 <div class="files-container">

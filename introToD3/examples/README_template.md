@@ -1,7 +1,5 @@
 # Introduction to D3
 
-Streaming live at 6:30PM PST at [this Google Hangout](https://plus.google.com/hangouts/_/g2adpgfm4tkrdvwq3qgcbanmfaa).
-
 [Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/)
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.

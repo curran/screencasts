@@ -1,7 +1,7 @@
 # Introduction to D3
 
  * [YouTube Video Presentation](https://www.youtube.com/watch?v=8jvoTV54nXw)
- * [Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/)
+ * [Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/) (use left and right arrow keys to navigate [examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/1))
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 

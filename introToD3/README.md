@@ -10,6 +10,22 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
  * Fundamental D3 concepts: CSV data, selections, scales, axes
  * Visualizations: bar chart, scatter plot, line chart
 
+## Navigating the Video
+
+The video is very long. Here's an index of checkpoints where the focus shifts. You can click these times to go to specific points in the YouTube video.
+
+ * [0:00 - 7:08](https://youtu.be/8jvoTV54nXw) Background information
+ * [7:08 - 25:20](https://youtu.be/8jvoTV54nXw?t=7m8s) Code examples covering basic HTML, SVG, and CSS
+ * [25:20 - 32:54](https://youtu.be/8jvoTV54nXw?t=25m20s) JavaScript overview, including parsing strings
+ * [32:54 - 45:57](https://youtu.be/8jvoTV54nXw?t=32m54s) Basic D3 (parsing CSV data, simple DOM manipulation, scales)
+ * [45:57 - 1:02:00](https://youtu.be/8jvoTV54nXw?t=45m57s) D3 selections and the Enter, Update, Exit pipeline
+ * [1:02:00 - 1:13:45](https://youtu.be/8jvoTV54nXw?t=1h2m) Building up a colored bubble chart with the Iris data set
+ * [1:13:45 - 1:22:30](https://youtu.be/8jvoTV54nXw?t=1h13m45s) Visualizing Population vs. GDP using log and sqrt scales
+ * [1:22:30 - 1:25:05](https://youtu.be/8jvoTV54nXw?t=1h22m30s) Visualizing cities (see also [World City Explorer](http://bl.ocks.org/curran/752b97cef3f880a813ab)
+ * [1:25:05 - 1:27:58](https://youtu.be/8jvoTV54nXw?t=1h25m5s) Building a line chart of temperature
+ * [1:27:58 - 1:32:10](https://youtu.be/8jvoTV54nXw?t=1h27m58s) Building a bar chart of city populations
+ * [1:32:10 - end](https://youtu.be/8jvoTV54nXw?t=1h32m10s) Adding axes and text labels to visualizations
+
 ![](picFromEvent.png)
 
 The YouTube Video was recorded at a free event held at Galvanize in San Francisco on April 30, 2015. Many thanks to [@enjalot](https://twitter.com/enjalot) and the [Bay Area D3 Meetup Group](http://www.meetup.com/Bay-Area-d3-User-Group/) for helping organize the event.

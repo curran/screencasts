@@ -33,11 +33,14 @@
         yScale.domain([0, d3.max(data, function (d){ return d[yColumn]; })]);
 
         var bars = g.selectAll("rect").data(data);
-        bars.enter().append("rect")
-          .attr("width", xScale.rangeBand());
+        bars.enter().append("rect");
+
+        // Correction: the value for xScale.rangeBand()
+        // DOES depend on the data, so it should go in the update phase, not the enter phase.
         bars
-          .attr("x",      function (d){ return               xScale(d[xColumn]); })
-          .attr("y",      function (d){ return               yScale(d[yColumn]); })
+          .attr("x", function (d){ return xScale(d[xColumn]); })
+          .attr("y", function (d){ return yScale(d[yColumn]); })
+          .attr("width", xScale.rangeBand());
           .attr("height", function (d){ return innerHeight - yScale(d[yColumn]); });
         bars.exit().remove();
       }

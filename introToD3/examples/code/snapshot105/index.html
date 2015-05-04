@@ -52,7 +52,8 @@
         .attr("transform", "translate(0," + innerHeight + ")")
       var xAxisLabel = xAxisG.append("text")
         .style("text-anchor", "middle")
-        .attr("transform", "translate(" + (innerWidth / 2) + "," + xAxisLabelOffset + ")")
+        .attr("x", innerWidth / 2)
+        .attr("y", xAxisLabelOffset)
         .attr("class", "label")
         .text(xAxisLabelText);
       var yAxisG = g.append("g")

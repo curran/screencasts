@@ -5,25 +5,10 @@
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 
-
- * Technologies leveraged by D3
-   * HTML
-   * SVG
-   * CSS
-   * JavaScript
- * SVG graphical elements
-   * rectangles
-   * circles
-   * lines
-   * paths
- * Fundamental D3 concepts
-   * selections
-   * scales
-   * axes
- * Visualizations
-   * bar chart
-   * scatter plot
-   * line chart
+ * Technologies leveraged by D3: HTML, SVG, CSS, JavaScript
+ * SVG graphical elements: rect, circle, line, path
+ * Fundamental D3 concepts: CSV data, selections, scales, axes
+ * Visualizations: bar chart, scatter plot, line chart
 
 ![](picFromEvent.png)
 

@@ -1,25 +1,29 @@
 # Introduction to D3
 
-[Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/)
+ * [YouTube Video Presentation](https://www.youtube.com/watch?v=8jvoTV54nXw)
+ * [Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/)
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 
- * technologies leveraged by D3
+ * Technologies leveraged by D3
    * HTML
    * SVG
    * CSS
- * graphical elements
+ * SVG graphical elements
    * rectangles
    * circles
    * lines
- * fundamental D3 concepts
+   * paths
+ * Fundamental D3 concepts
    * selections
    * scales
    * axes
- * visualizations
+ * Visualizations
    * bar chart
    * scatter plot
    * line chart
+
+Correction from screencast: Mike Bostock is no longer at the New York Times, see this twitterstorm https://twitter.com/mbostock/status/595252571658260481
 
 ## Examples
 

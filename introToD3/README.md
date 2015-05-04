@@ -21,7 +21,7 @@ The video is very long. Here's an index of checkpoints where the focus shifts. Y
  * [45:57 - 1:02:00](https://youtu.be/8jvoTV54nXw?t=45m57s) D3 selections and the Enter, Update, Exit pipeline
  * [1:02:00 - 1:13:45](https://youtu.be/8jvoTV54nXw?t=1h2m) Building up a colored bubble chart with the Iris data set
  * [1:13:45 - 1:22:30](https://youtu.be/8jvoTV54nXw?t=1h13m45s) Visualizing Population vs. GDP using log and sqrt scales
- * [1:22:30 - 1:25:05](https://youtu.be/8jvoTV54nXw?t=1h22m30s) Visualizing cities (see also [World City Explorer](http://bl.ocks.org/curran/752b97cef3f880a813ab)
+ * [1:22:30 - 1:25:05](https://youtu.be/8jvoTV54nXw?t=1h22m30s) Visualizing cities (see also [World City Explorer](http://bl.ocks.org/curran/752b97cef3f880a813ab))
  * [1:25:05 - 1:27:58](https://youtu.be/8jvoTV54nXw?t=1h25m5s) Building a line chart of temperature
  * [1:27:58 - 1:32:10](https://youtu.be/8jvoTV54nXw?t=1h27m58s) Building a bar chart of city populations
  * [1:32:10 - end](https://youtu.be/8jvoTV54nXw?t=1h32m10s) Adding axes and text labels to visualizations

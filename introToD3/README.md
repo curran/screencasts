@@ -28,7 +28,7 @@ The video is very long. Here's an index of checkpoints where the focus shifts. Y
 
 ![](picFromEvent.png)
 
-The YouTube Video was recorded at a free event held at Galvanize in San Francisco on April 30, 2015. Many thanks to [@enjalot](https://twitter.com/enjalot) and the [Bay Area D3 Meetup Group](http://www.meetup.com/Bay-Area-d3-User-Group/) for helping organize the event.
+The [video for this tutorial](http://www.galvanize.com/) was recorded at a free event held in San Francisco on April 30, 2015. Many thanks to [@enjalot](https://twitter.com/enjalot) and the [Bay Area D3 Meetup Group](http://www.meetup.com/Bay-Area-d3-User-Group/) for helping organize the event. Also big thanks to [Galvanize](http://www.galvanize.com/) for donating the great space for the evening.
 
 Correction from screencast: Mike Bostock is no longer at the New York Times, see this twitterstorm https://twitter.com/mbostock/status/595252571658260481
 

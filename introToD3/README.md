@@ -1,4 +1,4 @@
-# Introduction to D3
+# Introduction to D3 [![](D3Thumbnail.png)](https://www.youtube.com/watch?v=8jvoTV54nXw)
 
  * [YouTube Video Presentation](https://www.youtube.com/watch?v=8jvoTV54nXw)
  * [Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/) (use left and right arrow keys to navigate [examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/1))

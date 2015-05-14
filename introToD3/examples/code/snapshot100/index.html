@@ -40,7 +40,7 @@
         bars
           .attr("x", function (d){ return xScale(d[xColumn]); })
           .attr("y", function (d){ return yScale(d[yColumn]); })
-          .attr("width", xScale.rangeBand());
+          .attr("width", xScale.rangeBand())
           .attr("height", function (d){ return innerHeight - yScale(d[yColumn]); });
         bars.exit().remove();
       }

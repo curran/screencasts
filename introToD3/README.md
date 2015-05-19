@@ -148,4 +148,6 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/exa
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 
+Also, feel free to present these code examples to your own audiences.
+
 By [Curran Kelleher](https://github.com/curran/portfolio) April 2015

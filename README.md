@@ -24,8 +24,8 @@ This repository contains code that goes along with [my screencasts](http://www.y
 -----------------------
 
 ## Presentations on My Work
-
- * **Constructing Interactive Data Visualizations** (February 2014) - [screencast](https://www.youtube.com/watch?v=GxGkHam33Cw) - [code](https://github.com/curran/chiasm) - A talk describing a new data visualization project involving reusable modules, linked visualizations, and "Big Data".
+ * **Chiasm** (May 2015) - [video](https://www.youtube.com/watch?v=9jh4E3-jxcQ&feature=youtu.be&a) - [slides](http://www.slideshare.net/currankelleher/chiasm) - A presentation about the [Chiasm Open Source Data Visualization project](https://github.com/curran/chiasm/).
+ * **Constructing Interactive Data Visualizations** (February 2015) - [screencast](https://www.youtube.com/watch?v=GxGkHam33Cw) - [code](https://github.com/curran/chiasm) - A talk describing a new data visualization project involving reusable modules, linked visualizations, and "Big Data".
  * **Visualizing the Universal Data Cube** (November 2014) - [screencast](https://www.youtube.com/watch?v=XVHyygdD1Kg) - [code](http://curran.github.io/phd/defense/) - My doctoral dissertation defense presentation, about visualizing data cubes.
  * **Reactive Data Visualization with ModelJS** (July 2014) - [screencast](https://www.youtube.com/watch?v=TpZqVAtQs94) - [code](https://github.com/curran/screencasts/tree/gh-pages/reactiveDataVis) - Discusses a new approach to developing generalized reactive data visualizations using D3.js.
 

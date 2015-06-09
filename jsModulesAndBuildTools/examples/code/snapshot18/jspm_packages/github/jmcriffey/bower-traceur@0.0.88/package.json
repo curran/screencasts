@@ -1,0 +1,25 @@
+{
+  "name": "bower-traceur",
+  "description": "A Bower package for the Google Traceur compiler.",
+  "version": "0.0.88",
+  "homepage": "http://ambition.com",
+  "scripts": {
+    "build": "npm install && grunt"
+  },
+  "author": {
+    "name": "Jeff McRiffey",
+    "email": "jeff.mcriffey@ambition.com",
+    "url": "https://github.com/jmcriffey"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmcriffey/bower-traceur.git"
+  },
+  "devDependencies": {
+    "traceur": "0.0.88",
+    "grunt": "~0.4.2",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-cli": "^0.1.13"
+  }
+}

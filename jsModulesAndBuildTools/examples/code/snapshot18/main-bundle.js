@@ -360,31 +360,37 @@
 
 (['main'], function(System) {
 
-System.register("reduce", [], true, function(require, exports, module) {
-  var global = System.global,
-      __define = global.define;
-  global.define = undefined;
+System.register("reduce", [], function($__export) {
+  "use strict";
+  var __moduleName = "reduce";
   function reduce(list, iteratee, memo) {
     list.forEach(function(item) {
       memo = iteratee(item, memo);
     });
     return memo;
   }
-  module.exports = reduce;
-  global.define = __define;
-  return module.exports;
+  $__export("default", reduce);
+  return {
+    setters: [],
+    execute: function() {
+    }
+  };
 });
 
-(function() {
-function define(){};  define.amd = {};
-System.register("add", [], false, function(__require, __exports, __module) {
-  return (function() {
-    return function add(a, b) {
-      return a + b;
-    };
-  }).call(this);
+System.register("add", [], function($__export) {
+  "use strict";
+  var __moduleName = "add";
+  function add(a, b) {
+    return a + b;
+  }
+  $__export("default", add);
+  return {
+    setters: [],
+    execute: function() {
+    }
+  };
 });
-})();
+
 System.register("sum", ["reduce", "add"], function($__export) {
   "use strict";
   var __moduleName = "sum";

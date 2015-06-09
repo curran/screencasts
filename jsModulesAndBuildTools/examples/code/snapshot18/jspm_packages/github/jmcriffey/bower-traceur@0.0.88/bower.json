@@ -1,0 +1,12 @@
+{
+  "name": "traceur",
+  "version": "0.0.88",
+  "main": "./traceur.js",
+  "ignore": [
+    "node_modules",
+    "Gruntfile.js",
+    "update.js",
+    "*.json",
+    ".*"
+  ]
+}

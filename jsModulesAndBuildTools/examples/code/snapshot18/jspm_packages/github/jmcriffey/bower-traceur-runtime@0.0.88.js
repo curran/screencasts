@@ -1,0 +1,1 @@
+module.exports = require("github:jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime");

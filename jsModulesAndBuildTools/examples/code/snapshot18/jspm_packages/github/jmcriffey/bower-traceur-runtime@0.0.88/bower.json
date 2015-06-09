@@ -1,0 +1,11 @@
+{
+  "name": "traceur-runtime",
+  "version": "0.0.88",
+  "main": "./traceur-runtime.js",
+  "ignore": [
+    "node_modules",
+    "Gruntfile.js",
+    "*.json",
+    ".*"
+  ]
+}

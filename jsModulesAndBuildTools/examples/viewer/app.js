@@ -174,7 +174,7 @@ app.directive('file', function(){
         }[ext],
         lineNumbers: true,
         viewportMargin: Infinity,
-        fixedGutter: false
+        tabSize: 2
         //lineWrapping: true
       });
       // Postponed feature - dynamic code changing

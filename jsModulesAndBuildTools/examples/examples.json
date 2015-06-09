@@ -133,8 +133,7 @@
       "add.js",
       "reduce.js",
       "sum.js",
-      "main.js",
-      "Makefile"
+      "main.js"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/9",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot09"
@@ -195,5 +194,69 @@
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/12",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "AMD & deamdify",
+    "files": [
+      "index.html",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
+      "main-bundle.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/13",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "ES6 & Babelify",
+    "files": [
+      "index.html",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
+      "main-bundle.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/14",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "ES6 & es6ify",
+    "files": [
+      "index.html",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
+      "main-bundle.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/15",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "ES6 & Esperanto",
+    "files": [
+      "index.html",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
+      "main-bundle.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/16",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot16"
   }
 ]

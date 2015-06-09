@@ -1,0 +1,1 @@
+specifying number of people per pixel

@@ -1,0 +1,1 @@
+sizing the inner visualization

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+      var outerWidth = 500;
+      var outerHeight = 250;
+      var margin = { left: 90, top: 30, right: 30, bottom: 30 };
+      var barPadding = 0.2;
+
+      var xColumn = "name";
+      var yColumn = "population";
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
+
+      var svg = d3.select("body").append("svg")
+        .attr("width",  outerWidth)
+        .attr("height", outerHeight);
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
+      var yScale = d3.scale.linear().range([innerHeight, 0]);
+
+      function render(data){
+
+        xScale.domain(       data.map( function (d){ return d[xColumn]; }));
+        yScale.domain([0, d3.max(data, function (d){ return d[yColumn]; })]);
+
+        var bars = g.selectAll("rect").data(data);
+        bars.enter().append("rect")
+          .attr("width", xScale.rangeBand());
+        bars
+          .attr("x",      function (d){ return               xScale(d[xColumn]); })
+          .attr("y",      function (d){ return               yScale(d[yColumn]); })
+          .attr("height", function (d){ return innerHeight - yScale(d[yColumn]); });
+        bars.exit().remove();
+      }
+
+      function type(d){
+        d.population = +d.population;
+        return d;
+      }
+
+      d3.csv("geonames_cities_top3.csv", type, render);
+
+    </script>
+  </body>
+</html>

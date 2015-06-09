@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  </head>
+  <body>
+    <script>
+
+      var outerWidth = 300;
+      var outerHeight = 250;
+      var rMin = 0; // "r" stands for radius
+      var rMax = 20;
+      var xColumn = "population";
+      var yColumn = "gdp";
+      var rColumn = "population";
+
+      var svg = d3.select("body").append("svg")
+        .attr("width",  outerWidth)
+        .attr("height", outerHeight);
+
+      var xScale = d3.scale.log().range([0, outerWidth]);
+      var yScale = d3.scale.log().range([outerHeight, 0]);
+      var rScale = d3.scale.sqrt().range([rMin, rMax]);
+
+      function render(data){
+
+        xScale.domain( d3.extent(data, function (d){ return d[xColumn]; }));
+        yScale.domain( d3.extent(data, function (d){ return d[yColumn]; }));
+        rScale.domain([0, d3.max(data, function (d){ return d[rColumn]; })]);
+
+        var circles = svg.selectAll("circle").data(data);
+        circles.enter().append("circle");
+        circles
+          .attr("cx", function (d){ return xScale(d[xColumn]); })
+          .attr("cy", function (d){ return yScale(d[yColumn]); })
+          .attr("r",  function (d){ return rScale(d[rColumn]); });
+        circles.exit().remove();
+      }
+
+      function type(d){
+        d.population = +d.population;
+        d.gdp        = +d.gdp;
+        return d;
+      }
+
+      d3.csv("countries_population_GDP.csv", type, function(data){
+        render(data);
+      
+        // The population in the biggest circle.
+        var people = rScale.domain()[1];
+
+        // The number of pixels in the biggest circle, in pixels.
+        var pixels = Math.PI * rMax * rMax;
+
+        console.log((people / pixels) + " people per pixel.");
+      });
+
+    </script>
+  </body>
+</html>

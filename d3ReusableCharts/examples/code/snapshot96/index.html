@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <style>
+
+      body {
+        background: black;
+      }
+
+      circle {
+        fill: rgba(255, 255, 255, 0.2);
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+
+      var outerWidth  = 500;
+      var outerHeight = 250;
+      var margin = { left: -50, top: 0, right: -50, bottom: 0 };
+
+      var xColumn = "longitude";
+      var yColumn = "latitude";
+      var rColumn = "population";
+      var peoplePerPixel = 100000;
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
+
+      var svg = d3.select("body").append("svg")
+        .attr("width",  outerWidth)
+        .attr("height", outerHeight);
+
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      var xScale = d3.scale.linear().range([0, innerWidth]);
+      var yScale = d3.scale.linear().range([innerHeight, 0]);
+      var rScale = d3.scale.sqrt();
+
+      function render(data){
+
+        xScale.domain( d3.extent(data, function (d){ return d[xColumn]; }));
+        yScale.domain( d3.extent(data, function (d){ return d[yColumn]; }));
+        rScale.domain([0, d3.max(data, function (d){ return d[rColumn]; })]);
+
+        // Compute the size of the biggest circle as a function of peoplePerPixel.
+        var peopleMax = rScale.domain()[1];
+        var rMin = 0;
+        var rMax = Math.sqrt(peopleMax / (peoplePerPixel * Math.PI));
+        rScale.range([rMin, rMax]);
+
+        var circles = g.selectAll("circle").data(data);
+        circles.enter().append("circle");
+        circles
+          .attr("cx", function (d){ return xScale(d[xColumn]); })
+          .attr("cy", function (d){ return yScale(d[yColumn]); })
+          .attr("r",  function (d){ return rScale(d[rColumn]); });
+        circles.exit().remove();
+      }
+
+      function type(d){
+        d.latitude   = +d.latitude;
+        d.longitude  = +d.longitude;
+        d.population = +d.population;
+        return d;
+      }
+
+      d3.csv("geonames_cities100000.csv", type, render);
+
+    </script>
+  </body>
+</html>

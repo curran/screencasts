@@ -1,0 +1,1118 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Hello HTML",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/1",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Hello SVG",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/2",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Default SVG size",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/3",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Specifying SVG dimensions",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/4",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Adding (x, y) coordinates",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/5",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Adding color",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/6",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "rgb() color syntax",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/7",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Transparency with rgba()",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/8",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Hex color codes",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/9",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Drawing outlines with stroke",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/10",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Controlling stroke width",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/11",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Using fill=none",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/12",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Drawing a circle",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/13",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "cx and cy",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/14",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "stroke and width",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/15",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "drawing a line",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/16",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "drawing several lines",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/17",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "using SVG paths",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/18",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "drawing several lines with a path",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/19",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "filling a path",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/20",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "closing a path",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/21",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "pseudo scatterplot",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/22",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "the g element",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/23",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "pseudo bar chart",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/24",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot24"
+  },
+  {
+    "name": "snapshot25",
+    "number": 25,
+    "message": "pseudo line chart",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/25",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "SVG Text",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/26",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Styling SVG Text with CSS",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/27",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "CSS class selector syntax",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/28",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot28"
+  },
+  {
+    "name": "snapshot29",
+    "number": 29,
+    "message": "multiple SVG text elements",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/29",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot29"
+  },
+  {
+    "name": "snapshot30",
+    "number": 30,
+    "message": "font fill and stroke",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/30",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot30"
+  },
+  {
+    "name": "snapshot31",
+    "number": 31,
+    "message": "Using Google Fonts",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/31",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot31"
+  },
+  {
+    "name": "snapshot32",
+    "number": 32,
+    "message": "Applying CSS to circles",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/32",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot32"
+  },
+  {
+    "name": "snapshot33",
+    "number": 33,
+    "message": "JavaScript Debugging",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/33",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot33"
+  },
+  {
+    "name": "snapshot34",
+    "number": 34,
+    "message": "JavaScript Numbers",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/34",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot34"
+  },
+  {
+    "name": "snapshot35",
+    "number": 35,
+    "message": "JavaScript Strings",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/35",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot35"
+  },
+  {
+    "name": "snapshot36",
+    "number": 36,
+    "message": "Concatenation",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/36",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot36"
+  },
+  {
+    "name": "snapshot37",
+    "number": 37,
+    "message": "Concatenation of number strings",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/37",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot37"
+  },
+  {
+    "name": "snapshot38",
+    "number": 38,
+    "message": "Parsing strings with parseFloat",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/38",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot38"
+  },
+  {
+    "name": "snapshot39",
+    "number": 39,
+    "message": "Parsing strings with +",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/39",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot39"
+  },
+  {
+    "name": "snapshot40",
+    "number": 40,
+    "message": "JavaScript Arrays",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/40",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot40"
+  },
+  {
+    "name": "snapshot41",
+    "number": 41,
+    "message": "JavaScript Objects",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/41",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot41"
+  },
+  {
+    "name": "snapshot42",
+    "number": 42,
+    "message": "An array of objects",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/42",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot42"
+  },
+  {
+    "name": "snapshot43",
+    "number": 43,
+    "message": "JavaScript functions",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/43",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot43"
+  },
+  {
+    "name": "snapshot44",
+    "number": 44,
+    "message": "Functions in variables",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/44",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot44"
+  },
+  {
+    "name": "snapshot45",
+    "number": 45,
+    "message": "Functional forEach",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/45",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot45"
+  },
+  {
+    "name": "snapshot46",
+    "number": 46,
+    "message": "Loading CSV data",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/46",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot46"
+  },
+  {
+    "name": "snapshot47",
+    "number": 47,
+    "message": "Concatenating unparsed strings",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/47",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot47"
+  },
+  {
+    "name": "snapshot48",
+    "number": 48,
+    "message": "Parsing CSV data",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/48",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot48"
+  },
+  {
+    "name": "snapshot49",
+    "number": 49,
+    "message": "Parsing CSV data",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/49",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot49"
+  },
+  {
+    "name": "snapshot50",
+    "number": 50,
+    "message": "D3 linear scale",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/50",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot50"
+  },
+  {
+    "name": "snapshot51",
+    "number": 51,
+    "message": "D3 method chaining",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/51",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot51"
+  },
+  {
+    "name": "snapshot52",
+    "number": 52,
+    "message": "D3 getter setter functions",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/52",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot52"
+  },
+  {
+    "name": "snapshot53",
+    "number": 53,
+    "message": "D3 ordinal scale",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/53",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot53"
+  },
+  {
+    "name": "snapshot54",
+    "number": 54,
+    "message": "rangePoints",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/54",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot54"
+  },
+  {
+    "name": "snapshot55",
+    "number": 55,
+    "message": "rangeRoundPoints",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/55",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot55"
+  },
+  {
+    "name": "snapshot56",
+    "number": 56,
+    "message": "constructing DOM elements with D3",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/56",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot56"
+  },
+  {
+    "name": "snapshot57",
+    "number": 57,
+    "message": "D3 method chaining",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/57",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot57"
+  },
+  {
+    "name": "snapshot58",
+    "number": 58,
+    "message": "The complete D3 pipeline",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/58",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot58"
+  },
+  {
+    "name": "snapshot59",
+    "number": 59,
+    "message": "Passing the scale as a function",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/59",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot59"
+  },
+  {
+    "name": "snapshot60",
+    "number": 60,
+    "message": "Splitting data binding and enter",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/60",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot60"
+  },
+  {
+    "name": "snapshot61",
+    "number": 61,
+    "message": "Enter handles added data only",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/61",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot61"
+  },
+  {
+    "name": "snapshot62",
+    "number": 62,
+    "message": "Enter does not update data",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/62",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot62"
+  },
+  {
+    "name": "snapshot63",
+    "number": 63,
+    "message": "The D3 update phase",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/63",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot63"
+  },
+  {
+    "name": "snapshot64",
+    "number": 64,
+    "message": "Using enter for static properties",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/64",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot64"
+  },
+  {
+    "name": "snapshot65",
+    "number": 65,
+    "message": "The need for exit",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/65",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot65"
+  },
+  {
+    "name": "snapshot66",
+    "number": 66,
+    "message": "Exit",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/66",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot66"
+  },
+  {
+    "name": "snapshot67",
+    "number": 67,
+    "message": "Using setTimeout",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/67",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot67"
+  },
+  {
+    "name": "snapshot68",
+    "number": 68,
+    "message": "Rendering an array of objects",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/68",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot68"
+  },
+  {
+    "name": "snapshot69",
+    "number": 69,
+    "message": "Rendering a parsed CSV file",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/69",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot69"
+  },
+  {
+    "name": "snapshot70",
+    "number": 70,
+    "message": "Functional simplification",
+    "files": [
+      "index.html",
+      "data.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/70",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot70"
+  },
+  {
+    "name": "snapshot71",
+    "number": 71,
+    "message": "Introducing the Iris data set",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/71",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot71"
+  },
+  {
+    "name": "snapshot72",
+    "number": 72,
+    "message": "using extent",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/72",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot72"
+  },
+  {
+    "name": "snapshot73",
+    "number": 73,
+    "message": "basic scatter plot",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/73",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot73"
+  },
+  {
+    "name": "snapshot74",
+    "number": 74,
+    "message": "inverting the Y range",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/74",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot74"
+  },
+  {
+    "name": "snapshot75",
+    "number": 75,
+    "message": "isolating configurable variables",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/75",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot75"
+  },
+  {
+    "name": "snapshot76",
+    "number": 76,
+    "message": "using variables for X and Y columns",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/76",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot76"
+  },
+  {
+    "name": "snapshot77",
+    "number": 77,
+    "message": "Adding a radius column",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/77",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot77"
+  },
+  {
+    "name": "snapshot78",
+    "number": 78,
+    "message": "Using CSS to color circles",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/78",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot78"
+  },
+  {
+    "name": "snapshot79",
+    "number": 79,
+    "message": "Drawing transparent rings",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/79",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot79"
+  },
+  {
+    "name": "snapshot80",
+    "number": 80,
+    "message": "Adding a color column",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/80",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot80"
+  },
+  {
+    "name": "snapshot81",
+    "number": 81,
+    "message": "Using fill, tweaking parameters",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/81",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot81"
+  },
+  {
+    "name": "snapshot82",
+    "number": 82,
+    "message": "Population vs. GDP",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/82",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot82"
+  },
+  {
+    "name": "snapshot83",
+    "number": 83,
+    "message": "logarithmic scales",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/83",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot83"
+  },
+  {
+    "name": "snapshot84",
+    "number": 84,
+    "message": "population as linear size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/84",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot84"
+  },
+  {
+    "name": "snapshot85",
+    "number": 85,
+    "message": "population as logarithmic size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/85",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot85"
+  },
+  {
+    "name": "snapshot86",
+    "number": 86,
+    "message": "population as sqrt size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/86",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot86"
+  },
+  {
+    "name": "snapshot87",
+    "number": 87,
+    "message": "population true to size",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/87",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot87"
+  },
+  {
+    "name": "snapshot88",
+    "number": 88,
+    "message": "sizing the inner visualization",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/88",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot88"
+  },
+  {
+    "name": "snapshot89",
+    "number": 89,
+    "message": "translating the inner visualization",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/89",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot89"
+  },
+  {
+    "name": "snapshot90",
+    "number": 90,
+    "message": "sizing taking translation into account",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/90",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot90"
+  },
+  {
+    "name": "snapshot91",
+    "number": 91,
+    "message": "using variables to define the margin",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/91",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot91"
+  },
+  {
+    "name": "snapshot92",
+    "number": 92,
+    "message": "using a margin object",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/92",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot92"
+  },
+  {
+    "name": "snapshot93",
+    "number": 93,
+    "message": "specifying number of people per pixel",
+    "files": [
+      "index.html",
+      "countries_population_GDP.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/93",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot93"
+  },
+  {
+    "name": "snapshot94",
+    "number": 94,
+    "message": "visualizing cities",
+    "files": [
+      "index.html",
+      "geonames_cities100000.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/94",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot94"
+  },
+  {
+    "name": "snapshot95",
+    "number": 95,
+    "message": "tweaking the visualization",
+    "files": [
+      "index.html",
+      "geonames_cities100000.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/95",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot95"
+  },
+  {
+    "name": "snapshot96",
+    "number": 96,
+    "message": "showing density with transparency",
+    "files": [
+      "index.html",
+      "geonames_cities100000.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/96",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot96"
+  },
+  {
+    "name": "snapshot97",
+    "number": 97,
+    "message": "temperature in San Francisco",
+    "files": [
+      "index.html",
+      "simplify.js",
+      "toCSV.js",
+      "week.csv",
+      "week_temperature_sf.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/97",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot97"
+  },
+  {
+    "name": "snapshot98",
+    "number": 98,
+    "message": "using d3.svg.line",
+    "files": [
+      "index.html",
+      "week_temperature_sf.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/98",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot98"
+  },
+  {
+    "name": "snapshot99",
+    "number": 99,
+    "message": "drawing a proper line",
+    "files": [
+      "index.html",
+      "week_temperature_sf.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/99",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot99"
+  },
+  {
+    "name": "snapshot100",
+    "number": 100,
+    "message": "basic bar chart",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/100",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot100"
+  },
+  {
+    "name": "snapshot101",
+    "number": 101,
+    "message": "bar padding",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/101",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot101"
+  },
+  {
+    "name": "snapshot102",
+    "number": 102,
+    "message": "adding axes",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/102",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot102"
+  },
+  {
+    "name": "snapshot103",
+    "number": 103,
+    "message": "customizing axes",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/103",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot103"
+  },
+  {
+    "name": "snapshot104",
+    "number": 104,
+    "message": "horizontal bars",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/104",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot104"
+  },
+  {
+    "name": "snapshot105",
+    "number": 105,
+    "message": "axis labels",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/105",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot105"
+  },
+  {
+    "name": "snapshot106",
+    "number": 106,
+    "message": "axes on a scatter plot",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/106",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot106"
+  },
+  {
+    "name": "snapshot107",
+    "number": 107,
+    "message": "axes on a line chart",
+    "files": [
+      "index.html",
+      "week_temperature_sf.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/107",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot107"
+  }
+]

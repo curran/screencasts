@@ -1,0 +1,1 @@
+FunctionalUtils={},FunctionalUtils.add=function(n,t){return n+t},FunctionalUtils.reduce=function(n,t,i){return n.forEach(function(n){i=t(n,i)}),i},FunctionalUtils.sum=function(n){return FunctionalUtils.reduce(n,FunctionalUtils.add,0)};

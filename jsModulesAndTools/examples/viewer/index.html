@@ -1,0 +1,48 @@
+<!--
+  An application for viewing and presenting a sequence of code examples.
+
+  Undertaken to learn Angular.js.
+
+  By Curran Kelleher 3/5/2014
+  Updated 9/25/2014
+-->
+<html ng-app="exampleViewerApp">
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Examples Viewer</title>
+
+    <!-- Angular web application framework -->
+    <script src="../../../bower_components/angular/angular.min.js"></script>
+    <script src="../../../bower_components/angular-route/angular-route.min.js"></script>
+
+    <!-- CodeMirror syntax highlighing code editor -->
+    <script src="../../../bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="../../../bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="../../../bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="../../../bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../../../bower_components/codemirror/mode/css/css.js"></script>
+    <link rel="stylesheet" ng-href="../../../bower_components/codemirror/lib/codemirror.css">
+
+    <!-- Marked markdown parser -->
+    <script src="../../../bower_components/marked/lib/marked.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Our Angular app -->
+    <script src="app.js"> </script>
+  </head>
+  <body ng-controller="MainCtrl" ng-keydown="onKeydown($event)">
+    <!-- This div will have content injected into it 
+         by Angular based on routes and view templates -->
+    <div ng-view></div>
+
+    <!-- This box shows my face live from the camera. -->
+    <video width="300" autoplay></video>
+
+    <!-- The below code makes the GitHub banner.
+         Copied verbatim from https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/curran/screencasts/tree/gh-pages/introToD3"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 200" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+ 
+  </body>
+</html>

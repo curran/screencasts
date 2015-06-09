@@ -1,0 +1,161 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Monolithic",
+    "files": [
+      "index.html"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/1",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Global Variables",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "reduce.js",
+      "sum.js"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/2",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Namespace",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "functional-utils.js",
+      "reduce.js",
+      "sum.js"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/3",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Bundling with concatenation",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "functional-utils-bundle.js",
+      "functional-utils.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/4",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Minification",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "functional-utils-bundle-min.js",
+      "functional-utils-bundle.js",
+      "functional-utils.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/5",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "CommonJS",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/6",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "CommonJS & Webpack",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/7",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "AMD & Webpack",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/8",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "AMD & RequireJS",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/9",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "AMD & RequireJS Optimizer",
+    "files": [
+      "index.html",
+      "main.js",
+      "add.js",
+      "almond.js",
+      "build.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
+      "reduce.js",
+      "sum.js",
+      "Makefile"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/10",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot10"
+  }
+]

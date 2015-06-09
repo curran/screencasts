@@ -1,5 +1,5 @@
 // This script compiles README_template.md 
-// into README.md by
+
 //
 //  * compiling metadata about examples 
 //  * dynamically generating a markdown list of example entries
@@ -127,6 +127,14 @@ function filePrecedence(name){
 
   if(name === 'index.html'){
     return 0;
+  } else if (name === 'functional-utils.js') {
+    return 0.4;
+  } else if (name === 'add.js') {
+    return 0.5;
+  } else if (name === 'reduce.js') {
+    return 0.6;
+  } else if (name === 'sum.js') {
+    return 0.7;
   } else if (name === 'main.js') {
     return 1;
   } else if (ext === '.html') {

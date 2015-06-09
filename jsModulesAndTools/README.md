@@ -35,6 +35,8 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/exa
  * [Example 8](http://curran.github.io/screencasts/introToD3/examples/viewer/#/8) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot08) | [index.html](http://curran.github.io/screencasts/introToD3/examples/viewer/#/8/index.html)) - AMD & Webpack
  * [Example 9](http://curran.github.io/screencasts/introToD3/examples/viewer/#/9) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot09) | [index.html](http://curran.github.io/screencasts/introToD3/examples/viewer/#/9/index.html)) - AMD & RequireJS
  * [Example 10](http://curran.github.io/screencasts/introToD3/examples/viewer/#/10) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot10) | [index.html](http://curran.github.io/screencasts/introToD3/examples/viewer/#/10/index.html)) - AMD & RequireJS Optimizer
+ * [Example 11](http://curran.github.io/screencasts/introToD3/examples/viewer/#/11) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot11) | [index.html](http://curran.github.io/screencasts/introToD3/examples/viewer/#/11/index.html)) - Gulp & amd-optimize
+ * [Example 12](http://curran.github.io/screencasts/introToD3/examples/viewer/#/12) - ([run it!](http://curran.github.io/screencasts/introToD3/examples/code/snapshot12) | [index.html](http://curran.github.io/screencasts/introToD3/examples/viewer/#/12/index.html)) - Bundling Almond with Gulp
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

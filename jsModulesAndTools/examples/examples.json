@@ -15,10 +15,10 @@
     "message": "Global Variables",
     "files": [
       "index.html",
-      "main.js",
       "add.js",
       "reduce.js",
-      "sum.js"
+      "sum.js",
+      "main.js"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/2",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot02"
@@ -29,11 +29,11 @@
     "message": "Namespace",
     "files": [
       "index.html",
-      "main.js",
-      "add.js",
       "functional-utils.js",
+      "add.js",
       "reduce.js",
-      "sum.js"
+      "sum.js",
+      "main.js"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/3",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot03"
@@ -44,12 +44,12 @@
     "message": "Bundling with concatenation",
     "files": [
       "index.html",
-      "main.js",
-      "add.js",
-      "functional-utils-bundle.js",
       "functional-utils.js",
+      "add.js",
       "reduce.js",
       "sum.js",
+      "main.js",
+      "functional-utils-bundle.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/4",
@@ -61,13 +61,13 @@
     "message": "Minification",
     "files": [
       "index.html",
-      "main.js",
-      "add.js",
-      "functional-utils-bundle-min.js",
-      "functional-utils-bundle.js",
       "functional-utils.js",
+      "add.js",
       "reduce.js",
       "sum.js",
+      "main.js",
+      "functional-utils-bundle-min.js",
+      "functional-utils-bundle.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/5",
@@ -79,12 +79,12 @@
     "message": "CommonJS",
     "files": [
       "index.html",
-      "main.js",
       "add.js",
-      "main-bundle-min.js",
-      "main-bundle.js",
       "reduce.js",
       "sum.js",
+      "main.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/6",
@@ -96,12 +96,12 @@
     "message": "CommonJS & Webpack",
     "files": [
       "index.html",
-      "main.js",
       "add.js",
-      "main-bundle-min.js",
-      "main-bundle.js",
       "reduce.js",
       "sum.js",
+      "main.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/7",
@@ -113,12 +113,12 @@
     "message": "AMD & Webpack",
     "files": [
       "index.html",
-      "main.js",
       "add.js",
-      "main-bundle-min.js",
-      "main-bundle.js",
       "reduce.js",
       "sum.js",
+      "main.js",
+      "main-bundle-min.js",
+      "main-bundle.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/8",
@@ -130,10 +130,10 @@
     "message": "AMD & RequireJS",
     "files": [
       "index.html",
-      "main.js",
       "add.js",
       "reduce.js",
       "sum.js",
+      "main.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/9",
@@ -145,17 +145,55 @@
     "message": "AMD & RequireJS Optimizer",
     "files": [
       "index.html",
-      "main.js",
       "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
       "almond.js",
       "build.js",
       "main-bundle-min.js",
       "main-bundle.js",
-      "reduce.js",
-      "sum.js",
       "Makefile"
     ],
     "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/10",
     "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Gulp & amd-optimize",
+    "files": [
+      "index.html",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
+      "almond.js",
+      "gulpfile.js",
+      "main-bundle.js",
+      "package.json",
+      "node_modules"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/11",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Bundling Almond with Gulp",
+    "files": [
+      "index.html",
+      "add.js",
+      "reduce.js",
+      "sum.js",
+      "main.js",
+      "almond.js",
+      "gulpfile.js",
+      "main-bundle.js",
+      "package.json",
+      "node_modules"
+    ],
+    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/12",
+    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot12"
   }
 ]

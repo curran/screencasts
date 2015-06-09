@@ -173,7 +173,9 @@ app.directive('file', function(){
           '.css': 'text/css'
         }[ext],
         lineNumbers: true,
-        viewportMargin: Infinity
+        viewportMargin: Infinity,
+        fixedGutter: false
+        //lineWrapping: true
       });
       // Postponed feature - dynamic code changing
       //editor.on('changes', function (instance, changeObj){

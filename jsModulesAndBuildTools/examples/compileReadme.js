@@ -29,7 +29,7 @@ var _ = require('underscore'),
     entryDir = 'code/',
     snapshotsPath = entryDir,
     messageFile = '/message.txt',
-    entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - ([run it!](<%= runUrl %>) | [index.html](<%= url %>/index.html)) - <%= message %>'),
+    entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - <%= message %>'),
 
     // These files are not excluded from the example code viewer.
     irrelevantFiles = ['message.txt', 'README.md', 'server.js', 'backbone.js', 'underscore.js'];

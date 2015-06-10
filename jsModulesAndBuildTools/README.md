@@ -1,6 +1,7 @@
-# Introduction to D3
+# JavaScript Modules & Build Tools
 
-[Slides and Code Examples](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/)
+ * [Slides and Code Examples](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/)
+ * [YouTube Video: JavaScript Modules & Build Tools](https://www.youtube.com/edit?o=U&video_id=U4ja6HeBm6s)
 
 ## Examples
 

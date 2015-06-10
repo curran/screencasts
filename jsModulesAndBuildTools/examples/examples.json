@@ -6,8 +6,8 @@
     "files": [
       "index.html"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/1",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot01"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/1",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot01"
   },
   {
     "name": "snapshot02",
@@ -20,8 +20,8 @@
       "sum.js",
       "main.js"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/2",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot02"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/2",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot02"
   },
   {
     "name": "snapshot03",
@@ -35,8 +35,8 @@
       "sum.js",
       "main.js"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/3",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot03"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/3",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot03"
   },
   {
     "name": "snapshot04",
@@ -52,8 +52,8 @@
       "functional-utils-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/4",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot04"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/4",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot04"
   },
   {
     "name": "snapshot05",
@@ -70,8 +70,8 @@
       "functional-utils-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/5",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot05"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/5",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot05"
   },
   {
     "name": "snapshot06",
@@ -87,8 +87,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/6",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot06"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/6",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot06"
   },
   {
     "name": "snapshot07",
@@ -104,8 +104,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/7",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot07"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/7",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot07"
   },
   {
     "name": "snapshot08",
@@ -121,8 +121,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/8",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot08"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/8",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot08"
   },
   {
     "name": "snapshot09",
@@ -135,8 +135,8 @@
       "sum.js",
       "main.js"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/9",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot09"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/9",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot09"
   },
   {
     "name": "snapshot10",
@@ -154,8 +154,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/10",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot10"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/10",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot10"
   },
   {
     "name": "snapshot11",
@@ -170,11 +170,10 @@
       "almond.js",
       "gulpfile.js",
       "main-bundle.js",
-      "package.json",
-      "node_modules"
+      "package.json"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/11",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot11"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/11",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot11"
   },
   {
     "name": "snapshot12",
@@ -189,11 +188,10 @@
       "almond.js",
       "gulpfile.js",
       "main-bundle.js",
-      "package.json",
-      "node_modules"
+      "package.json"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/12",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot12"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/12",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot12"
   },
   {
     "name": "snapshot13",
@@ -208,8 +206,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/13",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot13"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/13",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot13"
   },
   {
     "name": "snapshot14",
@@ -224,8 +222,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/14",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot14"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/14",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot14"
   },
   {
     "name": "snapshot15",
@@ -240,8 +238,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/15",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot15"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/15",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot15"
   },
   {
     "name": "snapshot16",
@@ -256,8 +254,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/16",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot16"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/16",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot16"
   },
   {
     "name": "snapshot17",
@@ -272,8 +270,8 @@
       "main-bundle.js",
       "Makefile"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/17",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot17"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/17",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot17"
   },
   {
     "name": "snapshot18",
@@ -292,8 +290,8 @@
       "jspm_packages",
       "main-bundle.js.map"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/18",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot18"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/18",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot18"
   },
   {
     "name": "snapshot19",
@@ -311,7 +309,7 @@
       "Makefile",
       "main-bundle.js.map"
     ],
-    "url": "http://curran.github.io/screencasts/introToD3/examples/viewer/#/19",
-    "runUrl": "http://curran.github.io/screencasts/introToD3/examples/code/snapshot19"
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/19",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot19"
   }
 ]

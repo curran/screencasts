@@ -1,7 +1,5 @@
 This repository contains code that goes along with [my screencasts](http://www.youtube.com/user/currankelleher/videos).
 
-# [Introduction to D3.js](https://github.com/curran/screencasts/tree/gh-pages/introToD3)
-
 ## D3 101
 
  * 01 - **Parsing Data** (March 2015) - [screencast](https://www.youtube.com/watch?v=iuA-gmvJ5n0) - [code](https://github.com/curran/screencasts/blob/gh-pages/d3-101/01-parsing-data/index.html) - An intro to the "Data" part of "Data Driven Documents" (d3.js). Covers parsing CSV (Comma Separated Value) data in JavaScript.
@@ -12,6 +10,7 @@ This repository contains code that goes along with [my screencasts](http://www.y
 --------------------------------------------------
 ## Web Technologies
 
+ * **JavaScript Modules & Build Tools** (June 2015) - [screencast](https://www.youtube.com/watch?v=U4ja6HeBm6s) - [code](https://github.com/curran/screencasts/tree/gh-pages/jsModulesAndBuildTools) - A brief tour of the ocean of tools around JavaScript Modules. Content at https://github.com/curran/screencasts/tree/gh-pages/jsModulesAndBuildTools Covers Browser Globals, Namespaces, CommonJS, AMD, ES6, Browserify, Webpack, RequireJS, JSPM, Esperanto, Rollup, and Make.
  * **Navigation for Single Page Applications** (October 2014) - [screencast](https://www.youtube.com/watch?v=xN9QxPtK2LM&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/navigation) - This screencast covers how to construct a single page application with a tab-like navigation user interface and routing using only Web Standards (HTML, JavaScript, CSS, The DOM).
  * **Introduction to Dynamic HTML with JavaScript, CSS and AJAX** (September 2014) - [screencast](https://www.youtube.com/watch?v=8uWZpvS3IoI&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/introToDynamicHTML) - An introduction to dynamic HTML using only Web standards (no libraries) to build the essence of a blog. Covers HTML, JavaScript, DOM APIs and CSS including Media Queries.
  * **Introduction to Angular.js in 50 examples** (March 2014) - [screencast](https://www.youtube.com/watch?v=TRrL5j3MIvo&feature=youtu.be) - [code](https://github.com/curran/screencasts/tree/gh-pages/introToAngular) - Introduces Angular.js, covers background of data binding, single-page-apps, and related libraries, then introduces Angular features by example.

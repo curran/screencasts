@@ -1,10 +1,11 @@
-# Introduction to D3
+# JavaScript Modules & Build Tools
 
-[Slides and Code Examples](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/)
+* [Slides and Code Examples](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/)
+* [YouTube Video: JavaScript Modules & Build Tools](https://www.youtube.com/watch?v=U4ja6HeBm6s)
 
 ## Examples
 
-Check out the [Example Viewer](http://curran.github.io/screencasts/introToD3/examples/viewer/#/1). Use left and right arrow keys to navigate.
+Check out the [Example Viewer](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/1). Use left and right arrow keys to navigate.
 
  * [Example 1](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/1) - ([run it!](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot01) | [index.html](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/1/index.html)) - Monolithic
  * [Example 2](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/2) - ([run it!](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot02) | [index.html](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/2/index.html)) - Global Variables

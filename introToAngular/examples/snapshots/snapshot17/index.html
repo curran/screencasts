@@ -23,7 +23,8 @@
   <body ng-controller="NameCtrl">
     <ul>
       <li ng-repeat="name in names">{{name}}
-      <a href="" ng-click="removeName(name)">remove</a></li>
+        <a href="" ng-click="removeName(name)">remove</a>
+      </li>
     </ul>
     <form ng-submit="addName()">
       <input type="text" ng-model="enteredName">

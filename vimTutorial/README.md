@@ -33,8 +33,11 @@ Vim and Unix Commands:
  * V - visual line mode
  * \< - unindent
  * \> - indent
+ * CTRL+V - visual block mode (SUPER USEFUL)
+   * I - insert at selected block (e.g. commenting out multiple lines)
+   * d - delete selected block
  * u - undo
- * y - yank (copy)
+ * y - copy (y stands for "yank")
  * p - paste
  * dd - delete line
  * d - deletes selection
@@ -45,10 +48,10 @@ Vim and Unix Commands:
  * :wq - save and close
  * :sp <filename> - split window
  * :vs <filename> - split window vertical
- * CTRL-w j - go down a window
- * CTRL-w k - go up a window
- * CTRL-w l - go left a window
- * CTRL-w h - go left a window
+ * CTRL+w j - go down a window
+ * CTRL+w k - go up a window
+ * CTRL+w l - go left a window
+ * CTRL+w h - go left a window
  * $ - go to line end
  * 0 - go to beginning of line
  * :wa - write all files
@@ -64,4 +67,3 @@ Vim and Unix Commands:
  * :echo @% - show current file
  * :set nu (short form of :set number) - show line numbers
  * :set nu! - toggle line numbers on and off
-

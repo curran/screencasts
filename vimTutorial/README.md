@@ -19,6 +19,9 @@ Vim and Unix Commands:
  * vimtutor - the VIM quick start tutorial
  * vim <file> - open file
  * :q - close vim
+ * :q! - close vim without saving the file
+ * :w - save
+ * :wq - save and close
  * hjkl - move 1 character
  * CTRL+d - move down by half a page
  * CTRL+u - move up by half a page
@@ -44,8 +47,6 @@ Vim and Unix Commands:
  * x - deletes one character
  * J - join lines
  * r - replace character
- * :w - save
- * :wq - save and close
  * :sp <filename> - split window
  * :vs <filename> - split window vertical
  * CTRL+w j - go down a window

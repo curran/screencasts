@@ -10,11 +10,13 @@ Vim and Unix Commands:
  * cd - changes directory
  * pwd - present working directory
  * cd .. or cd ../ - navigate to parent
- * wget - fetches the content of a URL
+ * curl -O http://curran.github.io/data/uci_ml/iris/iris.csv - fetches the content of a URL
+ * CTRL+a - move to beginning of line
+ * CTRL+e - move to end of line
+ * up arrow - navigate previous commands
  * clear - clears the console
- * up arrow - previous commands
- * ls -l - ls with details
- * make - run the Makefile
+ * history - list previous commands
+ * vimtutor - the VIM quick start tutorial
  * vim <file> - open file
  * :q - close vim
  * hjkl - move 1 character
@@ -55,7 +57,11 @@ Vim and Unix Commands:
  * :r !ls - read `ls` into the file
  * :%/s/A/B/g - replace all occurences of A with B
  * qq - record macro at 'q'
- * @q - play back macro at 'q'
- * @@ - play previous macro
+ * @q - run macro at 'q'
+ * @@ - run previous macro
+ * 99@@ - run previous macro 99 times 
  * 118G - go to line 118
+ * :echo @% - show current file
+ * :set nu (short form of :set number) - show line numbers
+ * :set nu! - toggle line numbers on and off
 

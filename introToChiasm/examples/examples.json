@@ -1,0 +1,42 @@
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Hello World",
+    "files": [
+      "index.html",
+      "main.js",
+      "main-build.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/1",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Dynamic HTML",
+    "files": [
+      "index.html",
+      "main.js",
+      "main-build.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/2",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Introducing Model.js",
+    "files": [
+      "index.html",
+      "main.js",
+      "main-build.js",
+      "package.json",
+      "node_modules"
+    ],
+    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/3",
+    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot03"
+  }
+]

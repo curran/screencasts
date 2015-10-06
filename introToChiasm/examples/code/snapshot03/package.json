@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "A code example. Feel free to copy and use however you like.",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify main.js > main-build.js"
+  },
+  "author": "Curran Kelleher",
+  "license": "MIT",
+  "dependencies": {
+    "model-js": "^0.2.4"
+  }
+}

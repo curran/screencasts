@@ -1,0 +1,12 @@
+<!-- Show the link at the top of the page during slides presentation,
+     so audience members can type it after the presentation begins. -->
+<h1 class="title-text"><a href="http://github.com/curran/screencasts">github.com/curran/screencasts</a></h2>
+
+<!-- Embed the Google Docs presentation -->
+<iframe src="https://docs.google.com/presentation/d/18bLCQatwzBuLplDWV1qaSxBcdJoSlXplqcyYCHERYXQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+<ul>
+  <li ng-repeat="example in examples" class="example-entry">
+    <a href="#/{{example.number}}">Example {{example.number}}</a> - {{example.message}}
+  </li>
+<ul>

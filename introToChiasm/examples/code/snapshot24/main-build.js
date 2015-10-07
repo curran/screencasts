@@ -4,11 +4,8 @@ var Chiasm = require("chiasm");
 function myApp(){
   var chiasm = new Chiasm();
 
-  chiasm.plugins.layout = require("chiasm-layout");
-  chiasm.plugins.links = require("chiasm-links");
-  chiasm.plugins.dsvDataset = require("chiasm-dsv-dataset");
-
   chiasm.plugins.myPlugin = require("./myComponent");
+  chiasm.plugins.layout = require("chiasm-layout");
 
   chiasm.setConfig({
     "layout": {
@@ -18,32 +15,12 @@ function myApp(){
         "layout": "myComponent"
       }
     },
-    "myComponent": {
-      "plugin": "myPlugin",
-      "state": {
-        "xAxisLabelText": "Name",
-        "xColumn": "name",
-        "yAxisLabelText": "Amount",
-        "yColumn": "amount"
-      }
-    },
-    "myDataLoader": {
-      "plugin": "dsvDataset",
-      "state": {
-        "path": "barChartData"
-      }
-    },
-    "myLinks": {
-      "plugin": "links",
-      "state": {
-        "bindings": ["myDataLoader.data -> myComponent.data"]
-      }
-    }
+    "myComponent": { "plugin": "myPlugin" }
   });
 }
 myApp();
 
-},{"./myComponent":3,"chiasm":16,"chiasm-dsv-dataset":5,"chiasm-layout":7,"chiasm-links":11}],2:[function(require,module,exports){
+},{"./myComponent":3,"chiasm":13,"chiasm-layout":5}],2:[function(require,module,exports){
 (function (global){
 var d3 = (typeof window !== "undefined" ? window['d3'] : typeof global !== "undefined" ? global['d3'] : null);
 
@@ -66,17 +43,6 @@ function xScaleLinear(my){
   my.addPublicProperty("xScaleDomain", [0, 1000]);
   my.when(["xScaleDomain", "width"], function (xScaleDomain, width){
     my.xScale = scale.domain(xScaleDomain).range([0, width]);
-  });
-}
-
-function xScaleOrdinal(my){
-  var scale = d3.scale.ordinal();
-  my.addPublicProperty("xScaleDomain", [0, 1000]);
-  my.addPublicProperty("xScaleRangePadding", 0.1);
-  my.when(["xScaleDomain", "width", "xScaleRangePadding"], function (xScaleDomain, width, xScaleRangePadding){
-    my.xScale = scale
-      .domain(xScaleDomain)
-      .rangeBands([0, width], xScaleRangePadding);
   });
 }
 
@@ -110,7 +76,7 @@ function yAxis(my, g){
   var axisG = g.append("g").attr("class", "y axis");
   var axis = d3.svg.axis().orient("left");
 
-  my.addPublicProperty("yAxisTickDensity", 30);
+  my.addPublicProperty("yAxisTickDensity", 70);
 
   my.when(["yScale", "yAxisTickDensity", "height"], function (yScale, yAxisTickDensity, height){
     axis.scale(yScale).ticks(height / yAxisTickDensity)
@@ -155,7 +121,6 @@ function yAxisLabel(my, yAxisG){
 module.exports = {
   marginConvention: marginConvention,
   xScaleLinear: xScaleLinear,
-  xScaleOrdinal: xScaleOrdinal,
   yScaleLinear: yScaleLinear,
   xAxis: xAxis,
   xAxisLabel: xAxisLabel,
@@ -165,60 +130,29 @@ module.exports = {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],3:[function(require,module,exports){
-var Model = require("model-js");
 var ChiasmComponent = require("chiasm-component");
 var mixins = require("./mixins");
 
 function MyComponent(){
 
-  var my = new ChiasmComponent({
-    xColumn: Model.None,
-    yColumn: Model.None
-  });
-
+  var my = new ChiasmComponent();
   var svg = d3.select(my.initSVG());
   var g = mixins.marginConvention(my, svg);
 
   var xAxisG = mixins.xAxis(my, g);
-  mixins.xScaleOrdinal(my);
+  mixins.xScaleLinear(my);
   mixins.xAxisLabel(my, xAxisG);
 
   var yAxisG = mixins.yAxis(my, g);
   mixins.yScaleLinear(my);
   mixins.yAxisLabel(my, yAxisG);
-
-  my.when(["data", "xColumn"], function (data, xColumn){
-    if(xColumn !== Model.None){
-      my.xScaleDomain = data.map( function (d) { return d[xColumn]; });
-    }
-  });
   
-  my.when(["data", "yColumn"], function (data, yColumn){
-    if(yColumn !== Model.None){
-      my.yScaleDomain = [0, d3.max(data, function (d) { return d[yColumn]; })];
-    }
-  });
-
-  my.when(["data", "xScale", "xColumn", "yScale", "yColumn", "height"],
-      function (data, xScale, xColumn, yScale, yColumn, height) {
-
-    var bars = g.selectAll("rect").data(data);
-      bars.enter().append("rect");
-      bars.exit().remove();
-      bars
-        .attr("x", function (d){ return xScale(d[xColumn]); })
-        .attr("width", xScale.rangeBand())
-        .attr("y", function (d){ return yScale(d[yColumn]); })
-        .attr("height", function (d){ return height - yScale(d[yColumn]); });
-
-  });
-
   return my;
 }
 
 module.exports = MyComponent;
 
-},{"./mixins":2,"chiasm-component":4,"model-js":19}],4:[function(require,module,exports){
+},{"./mixins":2,"chiasm-component":4}],4:[function(require,module,exports){
 // chiasm-component.js
 // github.com/chiasm-project/chiasm-component
 //
@@ -286,231 +220,7 @@ function ChiasmComponent (publicProperties){
 
 module.exports = ChiasmComponent;
 
-},{"model-js":19}],5:[function(require,module,exports){
-//chiasm-dsv-dataset.js
-//
-//A Chiasm plugin that loads data files.
-
-var Model = require("model-js");
-var ChiasmComponent = require("chiasm-component");
-var d3 = require("d3");
-var dsvDataset = require("dsv-dataset");
-
-function ChiasmDsvDataset (){
-
-  var my = ChiasmComponent({
-    path: Model.None
-  });
-
-  my.when("path", function (path){
-    if(path !== Model.None){
-      d3.json(path + ".json", function(error, metadata) {
-        if(error){ throw error; }
-        my.metadata = metadata;
-      });
-      d3.xhr(path + ".csv", function (error, xhr){
-        if(error){ throw error; }
-        my.dsvString = xhr.response;
-      });
-    }
-  });
-
-  my.when(["dsvString", "metadata"], function (dsvString, metadata){
-    my.dataset = dsvDataset.parse({
-      dsvString: dsvString, 
-      metadata: metadata
-    });
-    my.data = my.dataset.data;
-  });
-
-  return my;
-}
-
-module.exports = ChiasmDsvDataset;
-
-},{"chiasm-component":4,"d3":18,"dsv-dataset":6,"model-js":19}],6:[function(require,module,exports){
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  global.dsvDataset = factory();
-}(this, function () { 'use strict';
-
-  function dsv(delimiter) {
-    var reFormat = new RegExp("[\"" + delimiter + "\n]"),
-        delimiterCode = delimiter.charCodeAt(0);
-
-    function parse(text, f) {
-      var o;
-      return parseRows(text, function(row, i) {
-        if (o) return o(row, i - 1);
-        var a = new Function("d", "return {" + row.map(function(name, i) {
-          return JSON.stringify(name) + ": d[" + i + "]";
-        }).join(",") + "}");
-        o = f ? function(row, i) { return f(a(row), i); } : a;
-      });
-    }
-
-    function parseRows(text, f) {
-      var EOL = {}, // sentinel value for end-of-line
-          EOF = {}, // sentinel value for end-of-file
-          rows = [], // output rows
-          N = text.length,
-          I = 0, // current character index
-          n = 0, // the current line number
-          t, // the current token
-          eol; // is the current token followed by EOL?
-
-      function token() {
-        if (I >= N) return EOF; // special case: end of file
-        if (eol) return eol = false, EOL; // special case: end of line
-
-        // special case: quotes
-        var j = I;
-        if (text.charCodeAt(j) === 34) {
-          var i = j;
-          while (i++ < N) {
-            if (text.charCodeAt(i) === 34) {
-              if (text.charCodeAt(i + 1) !== 34) break;
-              ++i;
-            }
-          }
-          I = i + 2;
-          var c = text.charCodeAt(i + 1);
-          if (c === 13) {
-            eol = true;
-            if (text.charCodeAt(i + 2) === 10) ++I;
-          } else if (c === 10) {
-            eol = true;
-          }
-          return text.slice(j + 1, i).replace(/""/g, "\"");
-        }
-
-        // common case: find next delimiter or newline
-        while (I < N) {
-          var c = text.charCodeAt(I++), k = 1;
-          if (c === 10) eol = true; // \n
-          else if (c === 13) { eol = true; if (text.charCodeAt(I) === 10) ++I, ++k; } // \r|\r\n
-          else if (c !== delimiterCode) continue;
-          return text.slice(j, I - k);
-        }
-
-        // special case: last token before EOF
-        return text.slice(j);
-      }
-
-      while ((t = token()) !== EOF) {
-        var a = [];
-        while (t !== EOL && t !== EOF) {
-          a.push(t);
-          t = token();
-        }
-        if (f && (a = f(a, n++)) == null) continue;
-        rows.push(a);
-      }
-
-      return rows;
-    }
-
-    function format(rows) {
-      if (Array.isArray(rows[0])) return formatRows(rows); // deprecated; use formatRows
-      var fieldSet = Object.create(null), fields = [];
-
-      // Compute unique fields in order of discovery.
-      rows.forEach(function(row) {
-        for (var field in row) {
-          if (!((field += "") in fieldSet)) {
-            fields.push(fieldSet[field] = field);
-          }
-        }
-      });
-
-      return [fields.map(formatValue).join(delimiter)].concat(rows.map(function(row) {
-        return fields.map(function(field) {
-          return formatValue(row[field]);
-        }).join(delimiter);
-      })).join("\n");
-    }
-
-    function formatRows(rows) {
-      return rows.map(formatRow).join("\n");
-    }
-
-    function formatRow(row) {
-      return row.map(formatValue).join(delimiter);
-    }
-
-    function formatValue(text) {
-      return reFormat.test(text) ? "\"" + text.replace(/\"/g, "\"\"") + "\"" : text;
-    }
-
-    return {
-      parse: parse,
-      parseRows: parseRows,
-      format: format,
-      formatRows: formatRows
-    };
-  }
-
-  var parseFunctions = {
-    // implicitly: string: function (str){ return str; },
-    number: parseFloat,
-    date: function (str) {
-      return new Date(str);
-    }
-  };
-
-  function generateColumnParsers(metadata) {
-    if("columns" in metadata){
-      return metadata.columns
-        .filter(function (column){
-          return column.type !== "string";
-        })
-        .map(function (column){
-          var parse = parseFunctions[column.type];
-          var name = column.name;
-          return function (d){
-            d[name] = parse(d[name]);
-          }
-        });
-    } else {
-      return [];
-    }
-  }
-
-  var index = {
-    parse: function (dataset){
-
-      var dsvString = dataset.dsvString;
-
-      // Handle the case where `metadata` is not speficied.
-      var metadata = dataset.metadata || {};
-
-      // Default to CSV if no delimiter speficied.
-      var delimiter = metadata.delimiter || ",";
-
-      var columnParsers = generateColumnParsers(metadata);
-      var numColumns = columnParsers.length;
-
-      dataset.data = dsv(delimiter).parse(dsvString, function (d){
-
-        // Old school for loop as an optimization.
-        for(var i = 0; i < numColumns; i++){
-
-          // Each column parser function mutates the row object,
-          // replacing the column property string with its parsed variant.
-          columnParsers[i](d);
-        }
-        return d;
-      });
-
-      return dataset;
-    }
-  };
-
-  return index;
-
-}));
-},{}],7:[function(require,module,exports){
+},{"model-js":16}],5:[function(require,module,exports){
 // chiasm-layout.js
 // github.com/chiasm-project/chiasm-layout
 //
@@ -524,7 +234,7 @@ ChiasmLayout.computeLayout = computeLayout;
 
 module.exports = ChiasmLayout;
 
-},{"./src/computeLayout":9,"./src/layout":10}],8:[function(require,module,exports){
+},{"./src/computeLayout":7,"./src/layout":8}],6:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -12879,7 +12589,7 @@ module.exports = ChiasmLayout;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],9:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 // This function computes the nested box layout from a tree data structure.
 //
 // Takes as input the following arguments:
@@ -13059,7 +12769,7 @@ function quantize(box){
 
 module.exports = computeLayout;
 
-},{}],10:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 var ChiasmComponent = require("chiasm-component");
 var None = require("model-js").None;
 var computeLayout = require("./computeLayout");
@@ -13223,116 +12933,9 @@ function Layout(chiasm){
 }
 module.exports = Layout;
 
-},{"./computeLayout":9,"chiasm-component":4,"d3":18,"lodash":8,"model-js":19}],11:[function(require,module,exports){
-// chiasm-links.js
-// github.com/chiasm-project/chiasm-links
-//
-// This is a Chiasm plugin that does data binding between Chiasm components. It
-// uses a special domain specific language (DSL) to express data binding links 
-// between two components:
-//
-//  * Unidirectional  `myComponent.myPropertyA -> myOtherComponent.myPropertyB`
-//  * Bidirectional  `myComponent.myPropertyA <-> myOtherComponent.myPropertyB`
-var ChiasmComponent = require("chiasm-component");
-
-function ChiasmLinks(chiasm) {
-
-  var model = ChiasmComponent({
-    bindings: []
-  });
-
-  var listeners = [];
-
-  model.when("bindings", function (bindings){
-
-    // Clear out the listeners for the old bindings.
-    listeners.forEach(function (d){
-      chiasm.getComponent(d.alias).then(function (component){
-        component.cancel(d.listener);
-      });
-    });
-    listeners = [];
-
-    // Add listeners for the new bindings.
-    bindings.forEach(function(bindingExpr){
-
-      // Determine whether the binding is unidirectional or bidirectional.
-      var bidirectional = false;
-      var operator = "->";
-      if(bindingExpr.indexOf("<->") != -1){
-        bidirectional = true;
-        operator = "<->";
-      }
-
-      // Parse the binding expression of the form
-      // "sourceAlias.sourceProperty -> targetAlias.targetProperty" or
-      // "sourceAlias.sourceProperty <-> targetAlias.targetProperty"
-      var parts = bindingExpr.split(operator).map(function(str){ return str.trim(); }),
-          source = parts[0].split("."),
-          sourceAlias = source[0],
-          sourceProperty = source[1],
-          target = parts[1].split("."),
-          targetAlias = target[0],
-          targetProperty = target[1];
-
-      // Retreive the source and target components.
-      chiasm.getComponent(sourceAlias).then(function(sourceComponent){
-        chiasm.getComponent(targetAlias).then(function(targetComponent){
-
-          // TODO write tests that cover this.
-          if(bidirectional){
-
-            // Bind source -> target
-            listeners.push({
-              alias: sourceAlias,
-              listener: sourceComponent.when(sourceProperty, function(value){
-                if(!deepEqual(targetComponent[targetProperty], value)){
-                  targetComponent[targetProperty] = value;
-                }
-              })
-            });
-
-            // Bind target -> source
-            listeners.push({
-              alias: targetAlias,
-              listener: targetComponent.when(targetProperty, function(value){
-                if(!deepEqual(sourceComponent[sourceProperty], value)){
-                  sourceComponent[sourceProperty] = value;
-                }
-              })
-            });
-
-          } else {
-
-            // Bind source -> target
-            listeners.push({
-              alias: sourceAlias,
-              listener: sourceComponent.when(sourceProperty, function(value){
-                
-                // No check for equality here, because it could potentially be expensive,
-                // e.g. the common use case of setting a data table via "loader.data -> vis.data".
-                targetComponent[targetProperty] = value;
-              })
-            });
-          }
-        });
-      });
-    });
-  });
-
-  // This comparison logic is necessary to avoid an infinite loop in bidirectional data binding.
-  function deepEqual(a, b){
-    return JSON.stringify(a) === JSON.stringify(b);
-  }
-
-  return model;
-}
-
-module.exports = ChiasmLinks;
-
-},{"chiasm-component":4}],12:[function(require,module,exports){
-arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],13:[function(require,module,exports){
+},{"./computeLayout":7,"chiasm-component":4,"d3":15,"lodash":6,"model-js":16}],9:[function(require,module,exports){
+arguments[4][6][0].apply(exports,arguments)
+},{"dup":6}],10:[function(require,module,exports){
 // Methods for creating and serializing Action objects.  These are used to
 // express differences between configurations.
 //
@@ -13381,7 +12984,7 @@ var Action = {
 
 module.exports = Action;
 
-},{}],14:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 // This function computes the difference ("diff") between two configurations.
 // The diff is returned as an array of Action objects.
 
@@ -13446,7 +13049,7 @@ function configDiff(oldConfig, newConfig){
 }
 module.exports = configDiff;
 
-},{"./action":13,"lodash":12}],15:[function(require,module,exports){
+},{"./action":10,"lodash":9}],12:[function(require,module,exports){
 // All error message strings are kept track of here.
 var ErrorMessages = {
 
@@ -13470,7 +13073,7 @@ var ErrorMessages = {
 };
 module.exports = ErrorMessages;
 
-},{}],16:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 // chiasm.js
 // github.com/chiasm-project/chiasm
 //
@@ -13865,7 +13468,7 @@ Chiasm.Action = Action;
 // Return the Chiasm constructor function as this AMD module.
 module.exports = Chiasm;
 
-},{"./action":13,"./config-diff":14,"./error-messages":15,"./queue":17,"lodash":12,"model-js":19}],17:[function(require,module,exports){
+},{"./action":10,"./config-diff":11,"./error-messages":12,"./queue":14,"lodash":9,"model-js":16}],14:[function(require,module,exports){
 // An asynchronous batch queue for processing Actions using Promises.
 // Draws from https://www.promisejs.org/patterns/#all
 //
@@ -13893,7 +13496,7 @@ function Queue(process){
 }
 module.exports = Queue;
 
-},{}],18:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.6"
@@ -23398,7 +23001,7 @@ module.exports = Queue;
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
-},{}],19:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // ModelJS v0.2.1
 //
 // https://github.com/curran/model

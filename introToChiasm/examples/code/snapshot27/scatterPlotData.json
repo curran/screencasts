@@ -1,0 +1,9 @@
+{
+  "columns": [
+    { "name": "sepal_length", "type": "number" },
+    { "name": "sepal_width",  "type": "number" },
+    { "name": "petal_length", "type": "number" },
+    { "name": "petal_width",  "type": "number" },
+    { "name": "class",        "type": "string" }
+  ]
+}

@@ -270,5 +270,110 @@
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/22",
     "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "Adding a Y Axis",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/23",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "Isolating mixins",
+    "files": [
+      "index.html",
+      "main.js",
+      "mixins.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/24",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot24"
+  },
+  {
+    "name": "snapshot25",
+    "number": 25,
+    "message": "Loading CSV Data",
+    "files": [
+      "index.html",
+      "main.js",
+      "mixins.js",
+      "myComponent.js",
+      "package.json",
+      "scatterPlotData.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/25",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "Scatter Plot",
+    "files": [
+      "index.html",
+      "main.js",
+      "mixins.js",
+      "myComponent.js",
+      "package.json",
+      "scatterPlotData.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/26",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Generalizing data loading",
+    "files": [
+      "index.html",
+      "main.js",
+      "mixins.js",
+      "myComponent.js",
+      "package.json",
+      "scatterPlotData.json",
+      "scatterPlotData.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/27",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "Loading Data the Chiasm Way",
+    "files": [
+      "index.html",
+      "main.js",
+      "mixins.js",
+      "myComponent.js",
+      "package.json",
+      "scatterPlotData.json",
+      "scatterPlotData.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/28",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot28"
+  },
+  {
+    "name": "snapshot29",
+    "number": 29,
+    "message": "Bar Chart",
+    "files": [
+      "index.html",
+      "main.js",
+      "mixins.js",
+      "myComponent.js",
+      "barChartData.json",
+      "package.json",
+      "barChartData.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/29",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot29"
   }
 ]

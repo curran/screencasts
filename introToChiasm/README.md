@@ -45,6 +45,13 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/introToChiasm
  * [Example 20](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/20) - Adding an X Axis
  * [Example 21](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/21) - Density based ticks
  * [Example 22](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/22) - Adding an Axis Label
+ * [Example 23](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/23) - Adding a Y Axis
+ * [Example 24](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/24) - Isolating mixins
+ * [Example 25](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/25) - Loading CSV Data
+ * [Example 26](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/26) - Scatter Plot
+ * [Example 27](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/27) - Generalizing data loading
+ * [Example 28](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/28) - Loading Data the Chiasm Way
+ * [Example 29](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/29) - Bar Chart
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

@@ -1,0 +1,6 @@
+{
+  "columns": [
+    { "name": "name", "type": "string" },
+    { "name": "amount", "type": "number" }
+  ]
+}

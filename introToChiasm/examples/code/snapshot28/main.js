@@ -20,16 +20,16 @@ function myApp(){
     "myComponent": {
       "plugin": "myPlugin",
       "state": {
-        "xAxisLabelText": "Name",
-        "xColumn": "name",
-        "yAxisLabelText": "Amount",
-        "yColumn": "amount"
+        "xAxisLabelText": "Sepal Length",
+        "xColumn": "sepal_length",
+        "yAxisLabelText": "Petal Length",
+        "yColumn": "petal_length",
       }
     },
     "myDataLoader": {
       "plugin": "dsvDataset",
       "state": {
-        "path": "barChartData"
+        "path": "scatterPlotData"
       }
     },
     "myLinks": {

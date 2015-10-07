@@ -6,14 +6,15 @@ function MyComponent(){
 
   var my = new ChiasmComponent({
     xColumn: Model.None,
-    yColumn: Model.None
+    yColumn: Model.None,
+    circleRadius: 5
   });
 
   var svg = d3.select(my.initSVG());
   var g = mixins.marginConvention(my, svg);
 
   var xAxisG = mixins.xAxis(my, g);
-  mixins.xScaleOrdinal(my);
+  mixins.xScaleLinear(my);
   mixins.xAxisLabel(my, xAxisG);
 
   var yAxisG = mixins.yAxis(my, g);
@@ -22,27 +23,27 @@ function MyComponent(){
 
   my.when(["data", "xColumn"], function (data, xColumn){
     if(xColumn !== Model.None){
-      my.xScaleDomain = data.map( function (d) { return d[xColumn]; });
+      my.xScaleDomain = d3.extent(data, function (d) { return d[xColumn]; });
     }
   });
   
   my.when(["data", "yColumn"], function (data, yColumn){
     if(yColumn !== Model.None){
-      my.yScaleDomain = [0, d3.max(data, function (d) { return d[yColumn]; })];
+      my.yScaleDomain = d3.extent(data, function (d) { return d[yColumn]; });
     }
   });
 
-  my.when(["data", "xScale", "xColumn", "yScale", "yColumn", "height"],
-      function (data, xScale, xColumn, yScale, yColumn, height) {
+  my.when(["data", "xScale", "xColumn", "yScale", "yColumn", "circleRadius"],
+      function (data, xScale, xColumn, yScale, yColumn, circleRadius) {
 
-    var bars = g.selectAll("rect").data(data);
-      bars.enter().append("rect");
-      bars.exit().remove();
-      bars
-        .attr("x", function (d){ return xScale(d[xColumn]); })
-        .attr("width", xScale.rangeBand())
-        .attr("y", function (d){ return yScale(d[yColumn]); })
-        .attr("height", function (d){ return height - yScale(d[yColumn]); });
+    var circles = g.selectAll("circle").data(data);
+    circles.enter().append("circle");
+    circles.exit().remove();
+
+    circles
+      .attr("cx", function (d){ return xScale(d[xColumn]); })
+      .attr("cy", function (d){ return yScale(d[yColumn]); })
+      .attr("r", circleRadius);
 
   });
 

@@ -186,8 +186,8 @@
     "message": "Splitting into files",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/16",
@@ -199,8 +199,8 @@
     "message": "Using addPublicProperty",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/17",
@@ -212,8 +212,8 @@
     "message": "Reactive mixins",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/18",
@@ -225,8 +225,8 @@
     "message": "Encapsulating the D3 Margin Convention",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/19",
@@ -238,8 +238,8 @@
     "message": "Adding an X Axis",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/20",
@@ -251,8 +251,8 @@
     "message": "Density based ticks",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/21",
@@ -264,8 +264,8 @@
     "message": "Adding an Axis Label",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/22",
@@ -277,8 +277,8 @@
     "message": "Adding a Y Axis",
     "files": [
       "main.js",
-      "index.html",
       "myComponent.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/23",
@@ -290,9 +290,9 @@
     "message": "Isolating mixins",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "package.json"
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/24",
@@ -304,9 +304,9 @@
     "message": "Loading CSV Data",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "package.json",
       "scatterPlotData.csv"
     ],
@@ -319,9 +319,9 @@
     "message": "Scatter Plot",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "package.json",
       "scatterPlotData.csv"
     ],
@@ -334,9 +334,9 @@
     "message": "Generalizing data loading",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "package.json",
       "scatterPlotData.json",
       "scatterPlotData.csv"
@@ -350,9 +350,9 @@
     "message": "Loading Data the Chiasm Way",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "package.json",
       "scatterPlotData.json",
       "scatterPlotData.csv"
@@ -366,9 +366,9 @@
     "message": "Bar Chart",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "barChartData.json",
       "package.json",
       "barChartData.csv"
@@ -382,9 +382,9 @@
     "message": "Line Chart",
     "files": [
       "main.js",
-      "index.html",
-      "mixins.js",
       "myComponent.js",
+      "mixins.js",
+      "index.html",
       "lineChartData.json",
       "package.json",
       "lineChartData.csv"
@@ -398,8 +398,8 @@
     "message": "Multiple visualizations",
     "files": [
       "main.js",
-      "index.html",
       "mixins.js",
+      "index.html",
       "barChart.js",
       "lineChart.js",
       "scatterPlot.js",
@@ -420,8 +420,8 @@
     "message": "Focus + Context Line Charts",
     "files": [
       "main.js",
-      "index.html",
       "mixins.js",
+      "index.html",
       "lineChart.js",
       "lineChartData.json",
       "package.json",

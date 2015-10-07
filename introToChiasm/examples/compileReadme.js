@@ -128,9 +128,11 @@ function filePrecedence(name){
   // TODO fix this nasty code.
   if(name === 'main.js'){
     return 0;
-  } else if (name === 'index.html') {
-    return 1;
+  } else if (name === 'myComponent.js') {
+    return 0.5;
   } else if (name === 'mixins.js') {
+    return 1;
+  } else if (name === 'index.html') {
     return 1.5;
   } else if (ext === '.html') {
     return 2;

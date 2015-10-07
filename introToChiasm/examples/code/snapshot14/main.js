@@ -15,7 +15,6 @@ function MyComponent(){
   var rect = svg.append("rect");
 
   my.when("box", function (box){
-    svg .attr("width", box.width).attr("height", box.height);
     rect.attr("width", box.width).attr("height", box.height);
   });
 

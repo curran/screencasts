@@ -47,7 +47,7 @@ function backgroundRect(my, svg){
 function marginConvention(my, svg){
   var g = svg.append("g");
 
-  my.addPublicProperty("margin", {top: 20, right: 20, bottom: 50, left: 20});
+  my.addPublicProperty("margin", {top: 20, right: 20, bottom: 30, left: 20});
 
   my.when(["box", "margin"], function (box, margin){
     my.width = box.width - margin.left - margin.right;
@@ -90,33 +90,18 @@ function xAxis(my, g){
 
   my.addPublicProperty("xAxisTickDensity", 70);
 
-  my.when(["xScale", "xAxisTickDensity", "width"], function (xScale, xAxisTickDensity, width){
-    axis.scale(xScale).ticks(width / xAxisTickDensity)
+  my.when(["xScale", "xAxisTickDensity", "width"],
+      function (xScale, xAxisTickDensity, width){
+
+    axis
+      .scale(xScale)
+      .ticks(width / xAxisTickDensity)
+
     axisG.call(axis);
   });
 
   my.when("height", function (height){
     axisG.attr("transform", "translate(0," + height + ")");
-  });
-
-  return axisG;
-}
-
-function xAxisLabel(my, xAxisG){
-  var label = xAxisG.append("text").attr("class", "x axis-label");
-  my.addPublicProperty("xAxisLabelText", "X Axis Label");
-  my.addPublicProperty("xAxisLabelTextOffset", 43);
-
-  my.when("xAxisLabelText", function (xAxisLabelText){
-    label.text(xAxisLabelText);
-  });
-
-  my.when("xAxisLabelTextOffset", function (xAxisLabelTextOffset){
-    label.attr("y", xAxisLabelTextOffset);
-  });
-
-  my.when("width", function (width){
-    label.attr("x", width / 2);
   });
 }
 
@@ -129,9 +114,7 @@ function MyComponent(){
   marginRect(my, g);
 
   xScaleLinear(my);
-
-  var xAxisG = xAxis(my, g);
-  xAxisLabel(my, xAxisG);
+  xAxis(my, g);
   
   return my;
 }

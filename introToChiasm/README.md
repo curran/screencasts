@@ -3,8 +3,8 @@
 Curran Kelleher 10/7/2015
 South Bay JS Meetup
 
-* [Slides and Code Examples](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/)
-* [YouTube Video: Intro to Chiasm.js]()
+* [Code Example Viewer](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/)
+* [YouTube Video: Intro to Chiasm.js](not posted yet)
 
 # What's the Point of Chiasm?
 
@@ -19,7 +19,7 @@ South Bay JS Meetup
    * responding to browser resize
    * linking visualizations together
 
-## Examples
+## Code Examples
 
 Check out the [Example Viewer](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/1). Use left and right arrow keys to navigate.
 
@@ -38,6 +38,13 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/introToChiasm
  * [Example 13](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/13) - Introducing chiasm-component
  * [Example 14](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/14) - Introducing chiasm-layout
  * [Example 15](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/15) - Nested Box Layout
+ * [Example 16](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/16) - Splitting into files
+ * [Example 17](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/17) - Using addPublicProperty
+ * [Example 18](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/18) - Reactive mixins
+ * [Example 19](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/19) - Encapsulating the D3 Margin Convention
+ * [Example 20](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/20) - Adding an X Axis
+ * [Example 21](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/21) - Density based ticks
+ * [Example 22](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/22) - Adding an Axis Label
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

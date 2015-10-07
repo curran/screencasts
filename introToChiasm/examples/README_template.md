@@ -3,8 +3,8 @@
 Curran Kelleher 10/7/2015
 South Bay JS Meetup
 
-* [Slides and Code Examples](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/)
-* [YouTube Video: Intro to Chiasm.js]()
+* [Code Example Viewer](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/)
+* [YouTube Video: Intro to Chiasm.js](not posted yet)
 
 # What's the Point of Chiasm?
 
@@ -19,7 +19,7 @@ South Bay JS Meetup
    * responding to browser resize
    * linking visualizations together
 
-## Examples
+## Code Examples
 
 Check out the [Example Viewer](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/1). Use left and right arrow keys to navigate.
 

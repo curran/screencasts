@@ -179,5 +179,96 @@
     ],
     "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/15",
     "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "Splitting into files",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/16",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Using addPublicProperty",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/17",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "Reactive mixins",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/18",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "Encapsulating the D3 Margin Convention",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/19",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "Adding an X Axis",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/20",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "Density based ticks",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/21",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "Adding an Axis Label",
+    "files": [
+      "index.html",
+      "main.js",
+      "myComponent.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/22",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot22"
   }
 ]

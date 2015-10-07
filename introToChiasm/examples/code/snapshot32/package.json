@@ -1,0 +1,27 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "A code example. Feel free to copy and use however you like.",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify main.js -t browserify-shim > main-build.js"
+  },
+  "author": "Curran Kelleher",
+  "license": "MIT",
+  "dependencies": {
+    "chiasm": "^0.2.3",
+    "chiasm-component": "^0.2.3",
+    "chiasm-dsv-dataset": "^0.2.2",
+    "chiasm-layout": "^0.2.4",
+    "chiasm-links": "^0.2.3",
+    "d3": "^3.5.6",
+    "model-js": "^0.2.4"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "browserify-shim": "^3.8.10"
+  },
+  "browserify-shim": {
+    "d3": "global:d3"
+  }
+}

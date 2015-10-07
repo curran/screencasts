@@ -1,70 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var Model = require("model-js");
-var ChiasmComponent = require("chiasm-component");
-var mixins = require("./mixins");
-
-function LineChart(){
-
-  var my = new ChiasmComponent({
-    xColumn: Model.None,
-    yColumn: Model.None,
-    lineStroke: "black",
-    lineStrokeWidth: "1px"
-  });
-
-  var svg = d3.select(my.initSVG());
-  var g = mixins.marginConvention(my, svg);
-
-  var line = d3.svg.line().interpolate("basis");
-  var path = g.append("path").attr("fill", "none");
-
-  var xAxisG = mixins.xAxis(my, g);
-  mixins.xScaleTime(my);
-  mixins.xAxisLabel(my, xAxisG);
-
-  var yAxisG = mixins.yAxis(my, g);
-  mixins.yScaleLinear(my);
-  mixins.yAxisLabel(my, yAxisG);
-
-  mixins.xBrush(my, g);
-
-  my.when(["data", "xColumn"], function (data, xColumn){
-    if(xColumn !== Model.None){
-      my.xScaleDomain = d3.extent(data, function (d) { return d[xColumn]; });
-    }
-  });
-  
-  my.when(["data", "yColumn"], function (data, yColumn){
-    if(yColumn !== Model.None){
-      my.yScaleDomain = d3.extent(data, function (d) { return d[yColumn]; });
-    }
-  });
-
-  my.when(["data", "xScale", "xColumn", "yScale", "yColumn"],
-      function (data, xScale, xColumn, yScale, yColumn) {
-
-    line
-      .x(function(d) { return xScale(d[xColumn]); })
-      .y(function(d) { return yScale(d[yColumn]); });
-
-    path.attr("d", line(data));
-
-  });
-
-  my.when("lineStroke", function (lineStroke){
-    path.attr("stroke", lineStroke);
-  });
-
-  my.when("lineStrokeWidth", function (lineStrokeWidth){
-    path.attr("stroke-width", lineStrokeWidth);
-  });
-
-  return my;
-}
-
-module.exports = LineChart;
-
-},{"./mixins":3,"chiasm-component":4,"model-js":19}],2:[function(require,module,exports){
 var Chiasm = require("chiasm");
 
 function myApp(){
@@ -74,76 +8,46 @@ function myApp(){
   chiasm.plugins.links = require("chiasm-links");
   chiasm.plugins.dsvDataset = require("chiasm-dsv-dataset");
 
-  chiasm.plugins.lineChart = require("./lineChart");
+  chiasm.plugins.myPlugin = require("./myComponent");
 
   chiasm.setConfig({
     "layout": {
       "plugin": "layout",
       "state": {
         "containerSelector": "#container",
-        "layout": {
-          "orientation": "vertical",
-          "children": [
-            "focusLineChart",
-            "contextLineChart"
-          ]
-        },
-        "sizes": {
-          "focusLineChart": {
-            "size": 2
-          }
-        }
+        "layout": "myComponent"
       }
     },
-    "lineChartDataLoader": {
+    "myComponent": {
+      "plugin": "myPlugin",
+      "state": {
+        "xAxisLabelText": "Time",
+        "xColumn": "timestamp",
+        "yAxisLabelText": "Temperature",
+        "yAxisLabelTextOffset": 40,
+        "yColumn": "temperature",
+        "margin": { top: 20, right: 20, bottom: 50, left: 70}
+      }
+    },
+    "myDataLoader": {
       "plugin": "dsvDataset",
       "state": {
         "path": "lineChartData"
       }
     },
-    "focusLineChart": {
-      "plugin": "lineChart",
-      "state": {
-        "xAxisLabelText": "Time",
-        "xColumn": "timestamp",
-        "yAxisLabelText": "Temperature",
-        "yColumn": "temperature",
-        "xAxisLabelTextOffset": 32,
-        "yAxisLabelTextOffset": 30,
-        "margin": { top: 0, right: 20, bottom: 35, left: 50 }
-      }
-    },
-    "contextLineChart": {
-      "plugin": "lineChart",
-      "state": {
-        "xAxisLabelText": "Time",
-        "xColumn": "timestamp",
-        "yAxisLabelText": "Temperature",
-        "yColumn": "temperature",
-        "xAxisLabelTextOffset": 32,
-        "yAxisLabelTextOffset": 30,
-        "margin": { top: 0, right: 20, bottom: 35, left: 50 },
-        "brushEnabled": true
-      }
-    },
     "myLinks": {
       "plugin": "links",
       "state": {
-        "bindings": [
-          "lineChartDataLoader.data -> focusLineChart.data",
-          "lineChartDataLoader.data -> contextLineChart.data",
-          "contextLineChart.brushIntervalX -> focusLineChart.xScaleDomain"
-        ]
+        "bindings": ["myDataLoader.data -> myComponent.data"]
       }
     }
   });
 }
 myApp();
 
-},{"./lineChart":1,"chiasm":16,"chiasm-dsv-dataset":5,"chiasm-layout":7,"chiasm-links":11}],3:[function(require,module,exports){
+},{"./myComponent":3,"chiasm":16,"chiasm-dsv-dataset":5,"chiasm-layout":7,"chiasm-links":11}],2:[function(require,module,exports){
 (function (global){
 var d3 = (typeof window !== "undefined" ? window['d3'] : typeof global !== "undefined" ? global['d3'] : null);
-var Model = require("model-js");
 
 function marginConvention(my, svg){
   var g = svg.append("g");
@@ -258,35 +162,6 @@ function yAxisLabel(my, yAxisG){
   });
 }
 
-function xBrush(my, g){
-
-  var brush = d3.svg.brush();
-  var brushG = g.append("g").attr("class", "brush");
-
-  my.addPublicProperty("brushEnabled", false);
-
-  brush.on("brush", function () {
-    my.brushIntervalX = brush.empty() ? my.xScale.domain() : brush.extent();
-  });
-
-  my.when(["xScale", "height"], function (xScale, height){
-    brush.x(xScale);
-    brushG.call(brush);
-
-    brushG.selectAll("rect")
-      .attr("y", 0)
-      .attr("height", height);
-
-  });
-
-  my.when("brushEnabled", function (brushEnabled){
-    brushG.remove();
-    if(brushEnabled){
-      g.node().appendChild(brushG.node());
-    }
-  });
-}
-
 module.exports = {
   marginConvention: marginConvention,
   xScaleLinear: xScaleLinear,
@@ -296,12 +171,75 @@ module.exports = {
   xAxis: xAxis,
   xAxisLabel: xAxisLabel,
   yAxis: yAxis,
-  yAxisLabel: yAxisLabel,
-  xBrush: xBrush
+  yAxisLabel: yAxisLabel
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"model-js":19}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
+var Model = require("model-js");
+var ChiasmComponent = require("chiasm-component");
+var mixins = require("./mixins");
+
+function MyComponent(){
+
+  var my = new ChiasmComponent({
+    xColumn: Model.None,
+    yColumn: Model.None,
+    lineStroke: "black",
+    lineStrokeWidth: "1px"
+  });
+
+  var svg = d3.select(my.initSVG());
+  var g = mixins.marginConvention(my, svg);
+
+  var line = d3.svg.line().interpolate("basis");
+  var path = g.append("path").attr("fill", "none");
+
+  var xAxisG = mixins.xAxis(my, g);
+  mixins.xScaleTime(my);
+  mixins.xAxisLabel(my, xAxisG);
+
+  var yAxisG = mixins.yAxis(my, g);
+  mixins.yScaleLinear(my);
+  mixins.yAxisLabel(my, yAxisG);
+
+  my.when(["data", "xColumn"], function (data, xColumn){
+    if(xColumn !== Model.None){
+      my.xScaleDomain = d3.extent(data, function (d) { return d[xColumn]; });
+    }
+  });
+  
+  my.when(["data", "yColumn"], function (data, yColumn){
+    if(yColumn !== Model.None){
+      my.yScaleDomain = d3.extent(data, function (d) { return d[yColumn]; });
+    }
+  });
+
+  my.when(["data", "xScale", "xColumn", "yScale", "yColumn"],
+      function (data, xScale, xColumn, yScale, yColumn) {
+
+    line
+      .x(function(d) { return xScale(d[xColumn]); })
+      .y(function(d) { return yScale(d[yColumn]); });
+
+    path.attr("d", line(data));
+
+  });
+
+  my.when("lineStroke", function (lineStroke){
+    path.attr("stroke", lineStroke);
+  });
+
+  my.when("lineStrokeWidth", function (lineStrokeWidth){
+    path.attr("stroke-width", lineStrokeWidth);
+  });
+
+  return my;
+}
+
+module.exports = MyComponent;
+
+},{"./mixins":2,"chiasm-component":4,"model-js":19}],4:[function(require,module,exports){
 // chiasm-component.js
 // github.com/chiasm-project/chiasm-component
 //
@@ -23672,4 +23610,4 @@ module.exports = Queue;
   }
 })();
 
-},{}]},{},[2]);
+},{}]},{},[1]);

@@ -3,6 +3,60 @@ var Model = require("model-js");
 var ChiasmComponent = require("chiasm-component");
 var mixins = require("./mixins");
 
+function BarChart(){
+
+  var my = new ChiasmComponent({
+    xColumn: Model.None,
+    yColumn: Model.None
+  });
+
+  var svg = d3.select(my.initSVG());
+  var g = mixins.marginConvention(my, svg);
+
+  var xAxisG = mixins.xAxis(my, g);
+  mixins.xScaleOrdinal(my);
+  mixins.xAxisLabel(my, xAxisG);
+
+  var yAxisG = mixins.yAxis(my, g);
+  mixins.yScaleLinear(my);
+  mixins.yAxisLabel(my, yAxisG);
+
+  my.when(["data", "xColumn"], function (data, xColumn){
+    if(xColumn !== Model.None){
+      my.xScaleDomain = data.map( function (d) { return d[xColumn]; });
+    }
+  });
+  
+  my.when(["data", "yColumn"], function (data, yColumn){
+    if(yColumn !== Model.None){
+      my.yScaleDomain = [0, d3.max(data, function (d) { return d[yColumn]; })];
+    }
+  });
+
+  my.when(["data", "xScale", "xColumn", "yScale", "yColumn", "height"],
+      function (data, xScale, xColumn, yScale, yColumn, height) {
+
+    var bars = g.selectAll("rect").data(data);
+      bars.enter().append("rect");
+      bars.exit().remove();
+      bars
+        .attr("x", function (d){ return xScale(d[xColumn]); })
+        .attr("width", xScale.rangeBand())
+        .attr("y", function (d){ return yScale(d[yColumn]); })
+        .attr("height", function (d){ return height - yScale(d[yColumn]); });
+
+  });
+
+  return my;
+}
+
+module.exports = BarChart;
+
+},{"./mixins":4,"chiasm-component":5,"model-js":20}],2:[function(require,module,exports){
+var Model = require("model-js");
+var ChiasmComponent = require("chiasm-component");
+var mixins = require("./mixins");
+
 function LineChart(){
 
   var my = new ChiasmComponent({
@@ -25,8 +79,6 @@ function LineChart(){
   var yAxisG = mixins.yAxis(my, g);
   mixins.yScaleLinear(my);
   mixins.yAxisLabel(my, yAxisG);
-
-  mixins.xBrush(my, g);
 
   my.when(["data", "xColumn"], function (data, xColumn){
     if(xColumn !== Model.None){
@@ -64,7 +116,7 @@ function LineChart(){
 
 module.exports = LineChart;
 
-},{"./mixins":3,"chiasm-component":4,"model-js":19}],2:[function(require,module,exports){
+},{"./mixins":4,"chiasm-component":5,"model-js":20}],3:[function(require,module,exports){
 var Chiasm = require("chiasm");
 
 function myApp(){
@@ -74,7 +126,9 @@ function myApp(){
   chiasm.plugins.links = require("chiasm-links");
   chiasm.plugins.dsvDataset = require("chiasm-dsv-dataset");
 
+  chiasm.plugins.scatterPlot = require("./scatterPlot");
   chiasm.plugins.lineChart = require("./lineChart");
+  chiasm.plugins.barChart = require("./barChart");
 
   chiasm.setConfig({
     "layout": {
@@ -84,14 +138,13 @@ function myApp(){
         "layout": {
           "orientation": "vertical",
           "children": [
-            "focusLineChart",
-            "contextLineChart"
+            {
+              "orientation": "horizontal",
+              "size": 2,
+              "children": [ "myBarChart", "myScatterPlot" ]
+            },
+            "myLineChart"
           ]
-        },
-        "sizes": {
-          "focusLineChart": {
-            "size": 2
-          }
         }
       }
     },
@@ -101,7 +154,7 @@ function myApp(){
         "path": "lineChartData"
       }
     },
-    "focusLineChart": {
+    "myLineChart": {
       "plugin": "lineChart",
       "state": {
         "xAxisLabelText": "Time",
@@ -110,29 +163,52 @@ function myApp(){
         "yColumn": "temperature",
         "xAxisLabelTextOffset": 32,
         "yAxisLabelTextOffset": 30,
-        "margin": { top: 0, right: 20, bottom: 35, left: 50 }
+        "margin": { top: 0, right: 20, bottom: 35, left: 50}
       }
     },
-    "contextLineChart": {
-      "plugin": "lineChart",
+    "scatterPlotDataLoader": {
+      "plugin": "dsvDataset",
       "state": {
-        "xAxisLabelText": "Time",
-        "xColumn": "timestamp",
-        "yAxisLabelText": "Temperature",
-        "yColumn": "temperature",
+        "path": "scatterPlotData"
+      }
+    },
+    "myScatterPlot": {
+      "plugin": "scatterPlot",
+      "state": {
+        "xAxisLabelText": "Sepal Length",
+        "xColumn": "sepal_length",
+        "yAxisLabelText": "Petal Length",
+        "yColumn": "petal_length",
         "xAxisLabelTextOffset": 32,
         "yAxisLabelTextOffset": 30,
-        "margin": { top: 0, right: 20, bottom: 35, left: 50 },
-        "brushEnabled": true
+        "margin": { top: 5, right: 20, bottom: 35, left: 50}
+      }
+    },
+    "barChartDataLoader": {
+      "plugin": "dsvDataset",
+      "state": {
+        "path": "barChartData"
+      }
+    },
+    "myBarChart": {
+      "plugin": "barChart",
+      "state": {
+        "xAxisLabelText": "Name",
+        "xColumn": "name",
+        "yAxisLabelText": "Amount",
+        "yColumn": "amount",
+        "xAxisLabelTextOffset": 32,
+        "yAxisLabelTextOffset": 30,
+        "margin": { top: 5, right: 20, bottom: 35, left: 50}
       }
     },
     "myLinks": {
       "plugin": "links",
       "state": {
         "bindings": [
-          "lineChartDataLoader.data -> focusLineChart.data",
-          "lineChartDataLoader.data -> contextLineChart.data",
-          "contextLineChart.brushIntervalX -> focusLineChart.xScaleDomain"
+          "lineChartDataLoader.data -> myLineChart.data",
+          "scatterPlotDataLoader.data -> myScatterPlot.data",
+          "barChartDataLoader.data -> myBarChart.data"
         ]
       }
     }
@@ -140,10 +216,9 @@ function myApp(){
 }
 myApp();
 
-},{"./lineChart":1,"chiasm":16,"chiasm-dsv-dataset":5,"chiasm-layout":7,"chiasm-links":11}],3:[function(require,module,exports){
+},{"./barChart":1,"./lineChart":2,"./scatterPlot":21,"chiasm":17,"chiasm-dsv-dataset":6,"chiasm-layout":8,"chiasm-links":12}],4:[function(require,module,exports){
 (function (global){
 var d3 = (typeof window !== "undefined" ? window['d3'] : typeof global !== "undefined" ? global['d3'] : null);
-var Model = require("model-js");
 
 function marginConvention(my, svg){
   var g = svg.append("g");
@@ -258,35 +333,6 @@ function yAxisLabel(my, yAxisG){
   });
 }
 
-function xBrush(my, g){
-
-  var brush = d3.svg.brush();
-  var brushG = g.append("g").attr("class", "brush");
-
-  my.addPublicProperty("brushEnabled", false);
-
-  brush.on("brush", function () {
-    my.brushIntervalX = brush.empty() ? my.xScale.domain() : brush.extent();
-  });
-
-  my.when(["xScale", "height"], function (xScale, height){
-    brush.x(xScale);
-    brushG.call(brush);
-
-    brushG.selectAll("rect")
-      .attr("y", 0)
-      .attr("height", height);
-
-  });
-
-  my.when("brushEnabled", function (brushEnabled){
-    brushG.remove();
-    if(brushEnabled){
-      g.node().appendChild(brushG.node());
-    }
-  });
-}
-
 module.exports = {
   marginConvention: marginConvention,
   xScaleLinear: xScaleLinear,
@@ -296,12 +342,11 @@ module.exports = {
   xAxis: xAxis,
   xAxisLabel: xAxisLabel,
   yAxis: yAxis,
-  yAxisLabel: yAxisLabel,
-  xBrush: xBrush
+  yAxisLabel: yAxisLabel
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"model-js":19}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 // chiasm-component.js
 // github.com/chiasm-project/chiasm-component
 //
@@ -369,7 +414,7 @@ function ChiasmComponent (publicProperties){
 
 module.exports = ChiasmComponent;
 
-},{"model-js":19}],5:[function(require,module,exports){
+},{"model-js":20}],6:[function(require,module,exports){
 //chiasm-dsv-dataset.js
 //
 //A Chiasm plugin that loads data files.
@@ -411,7 +456,7 @@ function ChiasmDsvDataset (){
 
 module.exports = ChiasmDsvDataset;
 
-},{"chiasm-component":4,"d3":18,"dsv-dataset":6,"model-js":19}],6:[function(require,module,exports){
+},{"chiasm-component":5,"d3":19,"dsv-dataset":7,"model-js":20}],7:[function(require,module,exports){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -593,7 +638,7 @@ module.exports = ChiasmDsvDataset;
   return index;
 
 }));
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 // chiasm-layout.js
 // github.com/chiasm-project/chiasm-layout
 //
@@ -607,7 +652,7 @@ ChiasmLayout.computeLayout = computeLayout;
 
 module.exports = ChiasmLayout;
 
-},{"./src/computeLayout":9,"./src/layout":10}],8:[function(require,module,exports){
+},{"./src/computeLayout":10,"./src/layout":11}],9:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -12962,7 +13007,7 @@ module.exports = ChiasmLayout;
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 // This function computes the nested box layout from a tree data structure.
 //
 // Takes as input the following arguments:
@@ -13142,7 +13187,7 @@ function quantize(box){
 
 module.exports = computeLayout;
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 var ChiasmComponent = require("chiasm-component");
 var None = require("model-js").None;
 var computeLayout = require("./computeLayout");
@@ -13306,7 +13351,7 @@ function Layout(chiasm){
 }
 module.exports = Layout;
 
-},{"./computeLayout":9,"chiasm-component":4,"d3":18,"lodash":8,"model-js":19}],11:[function(require,module,exports){
+},{"./computeLayout":10,"chiasm-component":5,"d3":19,"lodash":9,"model-js":20}],12:[function(require,module,exports){
 // chiasm-links.js
 // github.com/chiasm-project/chiasm-links
 //
@@ -13413,9 +13458,9 @@ function ChiasmLinks(chiasm) {
 
 module.exports = ChiasmLinks;
 
-},{"chiasm-component":4}],12:[function(require,module,exports){
-arguments[4][8][0].apply(exports,arguments)
-},{"dup":8}],13:[function(require,module,exports){
+},{"chiasm-component":5}],13:[function(require,module,exports){
+arguments[4][9][0].apply(exports,arguments)
+},{"dup":9}],14:[function(require,module,exports){
 // Methods for creating and serializing Action objects.  These are used to
 // express differences between configurations.
 //
@@ -13464,7 +13509,7 @@ var Action = {
 
 module.exports = Action;
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // This function computes the difference ("diff") between two configurations.
 // The diff is returned as an array of Action objects.
 
@@ -13529,7 +13574,7 @@ function configDiff(oldConfig, newConfig){
 }
 module.exports = configDiff;
 
-},{"./action":13,"lodash":12}],15:[function(require,module,exports){
+},{"./action":14,"lodash":13}],16:[function(require,module,exports){
 // All error message strings are kept track of here.
 var ErrorMessages = {
 
@@ -13553,7 +13598,7 @@ var ErrorMessages = {
 };
 module.exports = ErrorMessages;
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 // chiasm.js
 // github.com/chiasm-project/chiasm
 //
@@ -13948,7 +13993,7 @@ Chiasm.Action = Action;
 // Return the Chiasm constructor function as this AMD module.
 module.exports = Chiasm;
 
-},{"./action":13,"./config-diff":14,"./error-messages":15,"./queue":17,"lodash":12,"model-js":19}],17:[function(require,module,exports){
+},{"./action":14,"./config-diff":15,"./error-messages":16,"./queue":18,"lodash":13,"model-js":20}],18:[function(require,module,exports){
 // An asynchronous batch queue for processing Actions using Promises.
 // Draws from https://www.promisejs.org/patterns/#all
 //
@@ -13976,7 +14021,7 @@ function Queue(process){
 }
 module.exports = Queue;
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.6"
@@ -23481,7 +23526,7 @@ module.exports = Queue;
   if (typeof define === "function" && define.amd) define(d3); else if (typeof module === "object" && module.exports) module.exports = d3;
   this.d3 = d3;
 }();
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 // ModelJS v0.2.1
 //
 // https://github.com/curran/model
@@ -23672,4 +23717,59 @@ module.exports = Queue;
   }
 })();
 
-},{}]},{},[2]);
+},{}],21:[function(require,module,exports){
+var Model = require("model-js");
+var ChiasmComponent = require("chiasm-component");
+var mixins = require("./mixins");
+
+function ScatterPlot(){
+
+  var my = new ChiasmComponent({
+    xColumn: Model.None,
+    yColumn: Model.None,
+    circleRadius: 5
+  });
+
+  var svg = d3.select(my.initSVG());
+  var g = mixins.marginConvention(my, svg);
+
+  var xAxisG = mixins.xAxis(my, g);
+  mixins.xScaleLinear(my);
+  mixins.xAxisLabel(my, xAxisG);
+
+  var yAxisG = mixins.yAxis(my, g);
+  mixins.yScaleLinear(my);
+  mixins.yAxisLabel(my, yAxisG);
+
+  my.when(["data", "xColumn"], function (data, xColumn){
+    if(xColumn !== Model.None){
+      my.xScaleDomain = d3.extent(data, function (d) { return d[xColumn]; });
+    }
+  });
+  
+  my.when(["data", "yColumn"], function (data, yColumn){
+    if(yColumn !== Model.None){
+      my.yScaleDomain = d3.extent(data, function (d) { return d[yColumn]; });
+    }
+  });
+
+  my.when(["data", "xScale", "xColumn", "yScale", "yColumn", "circleRadius"],
+      function (data, xScale, xColumn, yScale, yColumn, circleRadius) {
+
+    var circles = g.selectAll("circle").data(data);
+    circles.enter().append("circle");
+    circles.exit().remove();
+
+    circles
+      .attr("cx", function (d){ return xScale(d[xColumn]); })
+      .attr("cy", function (d){ return yScale(d[yColumn]); })
+      .attr("r", circleRadius);
+
+  });
+
+  return my;
+}
+
+module.exports = ScatterPlot;
+
+},{"./mixins":4,"chiasm-component":5,"model-js":20}]},{},[3]);

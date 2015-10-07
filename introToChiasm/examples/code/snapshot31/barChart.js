@@ -2,7 +2,7 @@ var Model = require("model-js");
 var ChiasmComponent = require("chiasm-component");
 var mixins = require("./mixins");
 
-function MyComponent(){
+function BarChart(){
 
   var my = new ChiasmComponent({
     xColumn: Model.None,
@@ -49,4 +49,4 @@ function MyComponent(){
   return my;
 }
 
-module.exports = MyComponent;
+module.exports = BarChart;

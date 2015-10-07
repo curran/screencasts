@@ -1,5 +1,4 @@
 var d3 = require("d3");
-var Model = require("model-js");
 
 function marginConvention(my, svg){
   var g = svg.append("g");
@@ -114,35 +113,6 @@ function yAxisLabel(my, yAxisG){
   });
 }
 
-function xBrush(my, g){
-
-  var brush = d3.svg.brush();
-  var brushG = g.append("g").attr("class", "brush");
-
-  my.addPublicProperty("brushEnabled", false);
-
-  brush.on("brush", function () {
-    my.brushIntervalX = brush.empty() ? my.xScale.domain() : brush.extent();
-  });
-
-  my.when(["xScale", "height"], function (xScale, height){
-    brush.x(xScale);
-    brushG.call(brush);
-
-    brushG.selectAll("rect")
-      .attr("y", 0)
-      .attr("height", height);
-
-  });
-
-  my.when("brushEnabled", function (brushEnabled){
-    brushG.remove();
-    if(brushEnabled){
-      g.node().appendChild(brushG.node());
-    }
-  });
-}
-
 module.exports = {
   marginConvention: marginConvention,
   xScaleLinear: xScaleLinear,
@@ -152,6 +122,5 @@ module.exports = {
   xAxis: xAxis,
   xAxisLabel: xAxisLabel,
   yAxis: yAxis,
-  yAxisLabel: yAxisLabel,
-  xBrush: xBrush
+  yAxisLabel: yAxisLabel
 };

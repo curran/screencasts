@@ -89,7 +89,7 @@ body {
 }
 
 .top-right {
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 10px;
   width: 50%;

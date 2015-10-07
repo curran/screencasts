@@ -52,6 +52,9 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/introToChiasm
  * [Example 27](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/27) - Generalizing data loading
  * [Example 28](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/28) - Loading Data the Chiasm Way
  * [Example 29](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/29) - Bar Chart
+ * [Example 30](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/30) - Line Chart
+ * [Example 31](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/31) - Multiple visualizations
+ * [Example 32](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/32) - Focus + Context Line Charts
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

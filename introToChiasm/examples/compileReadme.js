@@ -125,19 +125,13 @@ function listFilesForExample(file){
 function filePrecedence(name){
   var ext = name.substr(name.lastIndexOf('.'));
 
-  // TODO fix this nasty code using an array.
-  if(name === 'index.html'){
+  // TODO fix this nasty code.
+  if(name === 'main.js'){
     return 0;
-  } else if (name === 'functional-utils.js') {
-    return 0.4;
-  } else if (name === 'add.js') {
-    return 0.5;
-  } else if (name === 'reduce.js') {
-    return 0.6;
-  } else if (name === 'sum.js') {
-    return 0.7;
-  } else if (name === 'main.js') {
+  } else if (name === 'index.html') {
     return 1;
+  } else if (name === 'mixins.js') {
+    return 1.5;
   } else if (ext === '.html') {
     return 2;
   } else if (ext === '.js') {

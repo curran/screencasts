@@ -50,8 +50,13 @@ mkdir ../$NEXT_SNAP_NAME
 # or this snapshot script,
 for f in `ls | grep -v snapshot`
 do
-  # copy it into the next snapshot directory.
-  cp -r $f ../$NEXT_SNAP_NAME
+  if [ $f == node_modules ]
+  then
+    echo excluding node_modules from copy
+  else
+    # copy it into the next snapshot directory.
+    cp -r $f ../$NEXT_SNAP_NAME
+  fi
 done
 
 # Add the README.md file if there was an argument.

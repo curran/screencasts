@@ -6,11 +6,11 @@
     "files": [
       "index.html",
       "main.js",
-      "main-build.js",
+      "main--build.js",
       "package.json"
     ],
-    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/1",
-    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot01"
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/1",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot01"
   },
   {
     "name": "snapshot02",
@@ -19,11 +19,10 @@
     "files": [
       "index.html",
       "main.js",
-      "main-build.js",
       "package.json"
     ],
-    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/2",
-    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot02"
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/2",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot02"
   },
   {
     "name": "snapshot03",
@@ -32,11 +31,153 @@
     "files": [
       "index.html",
       "main.js",
-      "main-build.js",
-      "package.json",
-      "node_modules"
+      "package.json"
     ],
-    "url": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/3",
-    "runUrl": "http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/code/snapshot03"
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/3",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "Hello D3",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/4",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "D3 + Model.js Component Pattern",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/5",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Hello SVG",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/6",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Lifting the box",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/7",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Responding to resize",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/8",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Lifting color",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/9",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Adding interaction",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/10",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Introducing Chiasm",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/11",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Componentizing layout",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/12",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Introducing chiasm-component",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/13",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Introducing chiasm-layout",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/14",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Nested Box Layout",
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "url": "http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/15",
+    "runUrl": "http://curran.github.io/screencasts/introToChiasm/examples/code/snapshot15"
   }
 ]

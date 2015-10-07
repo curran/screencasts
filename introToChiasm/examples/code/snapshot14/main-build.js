@@ -9,10 +9,11 @@ var ChiasmLayout = require("chiasm-layout");
 function MyComponent(){
 
   var my = new ChiasmComponent({
-    color: "white"
+    color: "green"
   });
 
-  var svg = d3.select(my.initSVG());
+  my.el = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  var svg = d3.select(my.el);
   var rect = svg.append("rect");
 
   my.when("box", function (box){
@@ -32,6 +33,34 @@ function MyComponent(){
   return my;
 }
 
+function SimpleLayout(chiasm){
+
+  var my = new ChiasmComponent({
+    containerSelector: Model.None,
+    componentAlias: Model.None
+  });
+
+  my.when(["containerSelector", "componentAlias"], function (selector, alias){
+    if(selector !== Model.None && alias !== Model.None){
+      chiasm.getComponent(alias).then(function (component){
+        var containerDiv = document.querySelector(selector);
+        containerDiv.appendChild(component.el);
+
+        function updateBox(){
+          component.box = {
+            width:  containerDiv.clientWidth,
+            height: containerDiv.clientHeight
+          };
+        }
+        updateBox();
+        window.addEventListener("resize", updateBox);
+      });
+    }
+  });
+
+  return my;
+}
+
 function myApp(){
   var chiasm = new Chiasm();
 
@@ -39,43 +68,18 @@ function myApp(){
   chiasm.plugins.layout = ChiasmLayout;
 
   chiasm.setConfig({
-    "layout": {
+    "myComponent": {
+      "plugin": "myPlugin",
+      "state": {
+        "color": "blue"
+      }
+    },
+    "myLayout": {
       "plugin": "layout",
       "state": {
         "containerSelector": "#container",
-        "layout": {
-          "orientation": "vertical",
-          "children": [
-            "A", {
-              "orientation": "horizontal",
-              "children": [
-                "B", {
-                  "orientation": "vertical",
-                  "children": [ "C", "D" ]
-                },
-                "E"
-              ]
-            }
-          ]
-        }
+        "layout": "myComponent"
       }
-    },
-    "A": { "plugin": "myPlugin" },
-    "B": {
-      "plugin": "myPlugin",
-      "state": { "color": "#a8f0ff" }
-    },
-    "C": {
-      "plugin": "myPlugin",
-      "state": { "color": "#ffe2a8" }
-    },
-    "D": {
-      "plugin": "myPlugin",
-      "state": { "color": "#99e2c8" }
-    },
-    "E": {
-      "plugin": "myPlugin",
-      "state": { "color": "#a8ffd0" }
     }
   });
 }

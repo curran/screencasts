@@ -1,10 +1,23 @@
 # Intro to Chiasm.js
 
+Curran Kelleher 10/7/2015
+South Bay JS Meetup
+
 * [Slides and Code Examples](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/)
 * [YouTube Video: Intro to Chiasm.js]()
 
-* [Slides and Code Examples](http://curran.github.io/screencasts/jsModulesAndBuildTools/examples/viewer/#/)
-* [YouTube Video: JavaScript Modules & Build Tools](https://www.youtube.com/watch?v=U4ja6HeBm6s)
+# What's the Point of Chiasm?
+
+ * Component framework
+   * interactive graphics
+   * data loading
+   * data transformation
+   * data visualization
+ * Application platform
+   * instantiating and configuring components
+   * mapping data to visualizations
+   * responding to browser resize
+   * linking visualizations together
 
 ## Examples
 

@@ -32,7 +32,7 @@ var _ = require('underscore'),
     entryTemplate = _.template(' * [Example <%= number %>](<%= url %>) - <%= message %>'),
 
     // These files are not excluded from the example code viewer.
-    irrelevantFiles = ['message.txt', 'README.md', 'server.js', 'backbone.js', 'underscore.js', 'index-build.js'];
+    irrelevantFiles = ['message.txt', 'README.md', 'server.js', 'backbone.js', 'underscore.js', 'main-build.js'];
 
 // Read the project description file.
 fs.readFile(projectFile, 'utf8', function (err, project) {

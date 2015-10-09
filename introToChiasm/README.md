@@ -4,7 +4,7 @@ Curran Kelleher 10/7/2015
 South Bay JS Meetup
 
 * [Code Example Viewer](http://curran.github.io/screencasts/introToChiasm/examples/viewer/#/)
-* [YouTube Video: Intro to Chiasm.js](not posted yet)
+* [YouTube Video: Intro to Chiasm.js](https://www.youtube.com/watch?v=MpweS7gNBt4)
 
 # What's the Point of Chiasm?
 

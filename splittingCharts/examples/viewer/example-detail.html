@@ -1,0 +1,19 @@
+<div class="top-split">
+  <div class="top-left">
+    <div class="centered">
+      <h1 class="page-title title-text"><a href="{{runUrl}}" target="_blank" >Example {{example.number}}</a></h1>
+      <h3 class="subtitle-text">{{example.message}}</h3>
+    </div>
+    <div class="readme" ng-bind-html="readme"></div>
+  </div>
+  <div class="top-right" ng-show="showIFrame" >
+    <!-- Tried getting dynamic code changes with srcdoc="{{iFrameSrcDoc}}", ran into base URL issues. -->
+    <iframe ng-src="{{runUrl}}" frameBorder="0"></iframe>
+  </div>
+</div>
+<div class="files-container">
+  <div ng-repeat="file in example.files">
+    <div class="file-name">{{file}}</div>
+    <textarea file="file" example="example"></textarea>
+  </div>
+</div>

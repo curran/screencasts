@@ -1,1 +1,101 @@
-[]
+[
+  {
+    "name": "snapshot01",
+    "number": 1,
+    "message": "Bar Chart",
+    "files": [
+      "index.html",
+      "geonames_cities_top3.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/1",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot01"
+  },
+  {
+    "name": "snapshot02",
+    "number": 2,
+    "message": "Line Chart",
+    "files": [
+      "index.html",
+      "week_temperature_sf.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/2",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot02"
+  },
+  {
+    "name": "snapshot03",
+    "number": 3,
+    "message": "Scatter Plot",
+    "files": [
+      "index.html",
+      "iris.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/3",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot03"
+  },
+  {
+    "name": "snapshot04",
+    "number": 4,
+    "message": "World Population Single Bar",
+    "files": [
+      "index.html",
+      "worldPopulation2015.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/4",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot04"
+  },
+  {
+    "name": "snapshot05",
+    "number": 5,
+    "message": "Custom number format",
+    "files": [
+      "index.html",
+      "worldPopulation2015.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/5",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot05"
+  },
+  {
+    "name": "snapshot06",
+    "number": 6,
+    "message": "Top 5 countries",
+    "files": [
+      "index.html",
+      "populationByCountry2015.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/6",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot06"
+  },
+  {
+    "name": "snapshot07",
+    "number": 7,
+    "message": "Religions world totals",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/7",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot07"
+  },
+  {
+    "name": "snapshot08",
+    "number": 8,
+    "message": "Small tick labels",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/8",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot08"
+  },
+  {
+    "name": "snapshot09",
+    "number": 9,
+    "message": "Tilting tick labels",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/9",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot09"
+  }
+]

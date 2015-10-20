@@ -4,37 +4,32 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <style>
     
       .axis text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 16pt;
-      }
-      .axis .label {
-        font-size: 20pt;
+        font: 16pt sans-serif;
+        font-family: 'Poiret One', cursive;
       }
 
-      .axis path, .axis line {
+      .axis path,
+      .axis line {
         fill: none;
         stroke: #000;
         shape-rendering: crispEdges;
-      }
-
-      .x.axis text {
-        font-size: 10pt;
       }
 
     </style>
   </head>
   <body>
     <script>
+
       var outerWidth = 500;
       var outerHeight = 250;
-      var margin = { left: 90, top: 30, right: 30, bottom: 40 };
+      var margin = { left: 90, top: 30, right: 30, bottom: 30 };
       var barPadding = 0.2;
 
-      var xColumn = "religion";
+      var xColumn = "name";
       var yColumn = "population";
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
@@ -54,31 +49,19 @@
       var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
       var yScale = d3.scale.linear().range([innerHeight, 0]);
 
-      // Use a modified SI formatter that uses "B" for Billion.
-      var siFormat = d3.format("s");
-      var customTickFormat = function (d){
-        return siFormat(d).replace("G", "B");
-      };
-
       var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
-        .outerTickSize(0);
+        .outerTickSize(0);          // Turn off the marks at the end of the axis.
       var yAxis = d3.svg.axis().scale(yScale).orient("left")
-        .ticks(5)
-        .tickFormat(customTickFormat)
-        .outerTickSize(0);
+        .ticks(5)                   // Use approximately 5 ticks marks.
+        .tickFormat(d3.format("s")) // Use intelligent abbreviations, e.g. 5M for 5 Million
+        .outerTickSize(0);          // Turn off the marks at the end of the axis.
 
       function render(data){
 
         xScale.domain(       data.map( function (d){ return d[xColumn]; }));
         yScale.domain([0, d3.max(data, function (d){ return d[yColumn]; })]);
 
-        xAxisG
-          .call(xAxis)
-          .selectAll("text")  
-          .attr("dx", "-.8em")
-          .attr("dy", "1em")
-          .attr("transform", "rotate(-20)" );
-
+        xAxisG.call(xAxis);
         yAxisG.call(yAxis);
 
         var bars = g.selectAll("rect").data(data);
@@ -96,7 +79,7 @@
         return d;
       }
 
-      d3.csv("religionWorldTotals.csv", type, render);
+      d3.csv("geonames_cities_top3.csv", type, render);
 
     </script>
   </body>

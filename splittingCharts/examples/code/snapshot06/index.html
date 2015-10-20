@@ -22,7 +22,7 @@
       }
 
       .x.axis text {
-        font-size: 10pt;
+        font-size: 12pt;
       }
 
     </style>
@@ -31,10 +31,10 @@
     <script>
       var outerWidth = 500;
       var outerHeight = 250;
-      var margin = { left: 90, top: 30, right: 30, bottom: 40 };
+      var margin = { left: 90, top: 30, right: 30, bottom: 30 };
       var barPadding = 0.2;
 
-      var xColumn = "religion";
+      var xColumn = "country";
       var yColumn = "population";
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
@@ -72,13 +72,7 @@
         xScale.domain(       data.map( function (d){ return d[xColumn]; }));
         yScale.domain([0, d3.max(data, function (d){ return d[yColumn]; })]);
 
-        xAxisG
-          .call(xAxis)
-          .selectAll("text")  
-          .attr("dx", "-.8em")
-          .attr("dy", "1em")
-          .attr("transform", "rotate(-20)" );
-
+        xAxisG.call(xAxis);
         yAxisG.call(yAxis);
 
         var bars = g.selectAll("rect").data(data);
@@ -96,7 +90,7 @@
         return d;
       }
 
-      d3.csv("religionWorldTotals.csv", type, render);
+      d3.csv("populationByCountry2015.csv", type, render);
 
     </script>
   </body>

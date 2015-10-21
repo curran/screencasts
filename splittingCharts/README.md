@@ -18,6 +18,8 @@ Additional "goodies" that are covered include:
  * customizing a D3 number format to use "B" for billions
  * rotating tick mark labels to avoid overlap on the X axis
  * using [d3.layout.stack](https://github.com/mbostock/d3/wiki/Stack-Layout)
+ * using [d3.nest](https://github.com/mbostock/d3/wiki/Arrays#-nest)
+ * creating a color legend using [d3-legend](https://github.com/susielu/d3-legend)
 
 This tutorial assumes you already know the topics covered in [Introduction to D3](https://github.com/curran/screencasts/tree/gh-pages/introToD3).
 

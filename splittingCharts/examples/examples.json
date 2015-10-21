@@ -361,5 +361,60 @@
     ],
     "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/33",
     "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot33"
+  },
+  {
+    "name": "snapshot34",
+    "number": 34,
+    "message": "Line chart of current population",
+    "files": [
+      "index.html",
+      "worldPopulationByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/34",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot34"
+  },
+  {
+    "name": "snapshot35",
+    "number": 35,
+    "message": "Using the population extent",
+    "files": [
+      "index.html",
+      "worldPopulationByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/35",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot35"
+  },
+  {
+    "name": "snapshot36",
+    "number": 36,
+    "message": "Line chart of population",
+    "files": [
+      "index.html",
+      "worldPopulationByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/36",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot36"
+  },
+  {
+    "name": "snapshot37",
+    "number": 37,
+    "message": "Nesting timeseries by country",
+    "files": [
+      "index.html",
+      "populationByCountryByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/37",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot37"
+  },
+  {
+    "name": "snapshot38",
+    "number": 38,
+    "message": "Lines for each country",
+    "files": [
+      "index.html",
+      "populationByCountryByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/38",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot38"
   }
 ]

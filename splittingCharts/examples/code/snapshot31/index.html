@@ -77,7 +77,7 @@
 
         var nested = d3.nest()
           .key(function (d){ return d[xColumn]; })
-          .entries(data)
+          .entries(data);
 
         xScale.domain(nested.map( function (d){ return d.key; }));
         colorScale.domain(nested[0].values.map(function (d){ return d[colorColumn]; }));

@@ -62,17 +62,11 @@
       var yScale = d3.scale.linear().range([innerHeight, 0]);
       var colorScale = d3.scale.category10();
 
-      // Use a modified SI formatter that uses "B" for Billion.
-      var siFormat = d3.format("s");
-      var customTickFormat = function (d){
-        return siFormat(d).replace("G", "B");
-      };
-
       var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
         .outerTickSize(0);
       var yAxis = d3.svg.axis().scale(yScale).orient("left")
         .ticks(5)
-        .tickFormat(customTickFormat)
+        .tickFormat(d3.format("s"))
         .outerTickSize(0);
 
       var colorLegend = d3.legend.color()

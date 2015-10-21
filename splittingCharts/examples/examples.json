@@ -416,5 +416,49 @@
     ],
     "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/38",
     "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot38"
+  },
+  {
+    "name": "snapshot39",
+    "number": 39,
+    "message": "Adding color",
+    "files": [
+      "index.html",
+      "populationByCountryByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/39",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot39"
+  },
+  {
+    "name": "snapshot40",
+    "number": 40,
+    "message": "Area chart of World population",
+    "files": [
+      "index.html",
+      "worldPopulationByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/40",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot40"
+  },
+  {
+    "name": "snapshot41",
+    "number": 41,
+    "message": "Stacked area chart",
+    "files": [
+      "index.html",
+      "populationByCountryByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/41",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot41"
+  },
+  {
+    "name": "snapshot42",
+    "number": 42,
+    "message": "Expanded stacked area chart",
+    "files": [
+      "index.html",
+      "populationByCountryByYear.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/42",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot42"
   }
 ]

@@ -30,7 +30,7 @@
     
       var outerWidth = 500;
       var outerHeight = 250;
-      var margin = { left: 30, top: 5, right: 100, bottom: 60 };
+      var margin = { left: 55, top: 5, right: 100, bottom: 60 };
 
       var xColumn = "year";
       var yColumn = "population";
@@ -41,7 +41,7 @@
       var xAxisLabelOffset = 48;
 
       var yAxisLabelText = "Population";
-      var yAxisLabelOffset = 10;
+      var yAxisLabelOffset = 35;
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
       var innerHeight = outerHeight - margin.top  - margin.bottom;
@@ -93,8 +93,7 @@
 
       var stack = d3.layout.stack()
         .y(function (d){ return d[yColumn]; })
-        .values(function (d){ return d.values; })
-        .offset("expand");
+        .values(function (d){ return d.values; });
 
       var area = d3.svg.area()
         .x(function(d) { return xScale(d[xColumn]); })
@@ -137,6 +136,7 @@
           .attr("fill", function (d){ return colorScale(d.key); });
 
         xAxisG.call(xAxis);
+        yAxisG.call(yAxis);
 
         colorLegendG.call(colorLegend);
       }

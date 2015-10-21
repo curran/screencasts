@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+    
+      .axis text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16pt;
+      }
+      .axis .label {
+        font-size: 20pt;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+      var outerWidth = 500;
+      var outerHeight = 250;
+      var margin = { left: 90, top: 60, right: 30, bottom: 60 };
+      var barPadding = 0.2;
+
+      var xColumn = "country";
+      var radiusColumn = "population";
+      var radiusMax = 40;
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
+
+      var svg = d3.select("body").append("svg")
+        .attr("width",  outerWidth)
+        .attr("height", outerHeight);
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var xAxisG = g.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + innerHeight + ")");
+
+      var xScale = d3.scale.ordinal().rangePoints([0, innerWidth], barPadding);
+      var radiusScale = d3.scale.sqrt().range([0, radiusMax]);
+
+      // Use a modified SI formatter that uses "B" for Billion.
+      var siFormat = d3.format("s");
+      var customTickFormat = function (d){
+        return siFormat(d).replace("G", "B");
+      };
+
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
+        .outerTickSize(0);
+
+      function render(data){
+
+        xScale.domain(       data.map( function (d){ return d[xColumn]; }));
+        radiusScale.domain([0, d3.max(data, function (d){ return d[radiusColumn]; })]);
+
+        xAxisG.call(xAxis);
+
+        var circles = g.selectAll("circle").data(data);
+        circles.enter().append("circle")
+          .attr("width", xScale.rangeBand());
+        circles
+          .attr("cx", function (d){ return xScale(d[xColumn]); })
+          .attr("cy", innerHeight / 2)
+          .attr("r", function (d){ return radiusScale(d[radiusColumn]); });
+        circles.exit().remove();
+      }
+
+      function type(d){
+        d.population = +d.population;
+        return d;
+      }
+
+      d3.csv("populationByCountry2015.csv", type, render);
+
+    </script>
+  </body>
+</html>

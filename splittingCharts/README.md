@@ -18,8 +18,6 @@ Additional "goodies" that are covered include:
  * customizing a D3 number format to use "B" for billions
  * rotating tick mark labels to avoid overlap on the X axis
  * using [d3.layout.stack](https://github.com/mbostock/d3/wiki/Stack-Layout)
- * using [d3.nest](https://github.com/mbostock/d3/wiki/Arrays#-nest)
- * creating a color legend using [d3-legend](https://github.com/susielu/d3-legend)
 
 This tutorial assumes you already know the topics covered in [Introduction to D3](https://github.com/curran/screencasts/tree/gh-pages/introToD3).
 
@@ -73,6 +71,15 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/splittingChar
  * [Example 17](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/17) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot17) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/17/index.html)) - Stacked bars
  * [Example 18](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/18) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot18) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/18/index.html)) - Adding a color legend
  * [Example 19](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/19) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot19) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/19/index.html)) - Grouped bars
+ * [Example 20](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/20) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot20) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/20/index.html)) - Getting circular
+ * [Example 21](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/21) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot21) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/21/index.html)) - Circles for each country
+ * [Example 22](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/22) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot22) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/22/index.html)) - Circles for each religion
+ * [Example 23](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/23) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot23) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/23/index.html)) - Adding color
+ * [Example 24](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/24) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot24) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/24/index.html)) - Introducing Pie Layout
+ * [Example 25](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/25) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot25) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/25/index.html)) - Introducing d3.svg.arc
+ * [Example 26](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/26) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot26) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/26/index.html)) - Pie Chart
+ * [Example 27](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/27) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot27) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/27/index.html)) - Adding a color legend
+ * [Example 28](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/28) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot28) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/28/index.html)) - Donut Chart
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

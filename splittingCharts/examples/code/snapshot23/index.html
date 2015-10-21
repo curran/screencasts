@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
     
@@ -22,24 +21,22 @@
         shape-rendering: crispEdges;
       }
 
-      .color-legend text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 12pt;
+      .x.axis text {
+        font-size: 10pt;
       }
 
     </style>
   </head>
   <body>
     <script>
-
       var outerWidth = 500;
       var outerHeight = 250;
-      var margin = { left: 90, top: 30, right: 150, bottom: 30 };
-      var outerRadius = 80;
-      var innerRadius = 40;
+      var margin = { left: 90, top: 90, right: 30, bottom: 90 };
+      var barPadding = 0.2;
 
-      var xColumn = "name";
-      var sliceSizeColumn = "population";
+      var xColumn = "religion";
+      var radiusColumn = "population";
+      var radiusMax = 25;
       var colorColumn = "religion";
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
@@ -53,55 +50,39 @@
       var xAxisG = g.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + innerHeight + ")");
-      var pieG = g.append("g");
 
-      var colorLegendG = g.append("g")
-        .attr("class", "color-legend")
-        .attr("transform", "translate(235, 20)");
-
-      var xScale = d3.scale.ordinal().rangePoints([0, innerWidth]);
+      var xScale = d3.scale.ordinal().rangePoints([0, innerWidth], barPadding);
+      var radiusScale = d3.scale.sqrt().range([0, radiusMax]);
       var colorScale = d3.scale.category10();
 
       var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
         .outerTickSize(0);
 
-      var pie = d3.layout.pie();
-      var arc = d3.svg.arc();
-      arc.outerRadius(outerRadius);
-      arc.innerRadius(innerRadius);
-
-      var colorLegend = d3.legend.color()
-        .scale(colorScale)
-        .shapePadding(3)
-        .shapeWidth(15)
-        .shapeHeight(15)
-        .labelOffset(4);
-
       function render(data){
 
-        xScale.domain(data.map( function (d){ return d[xColumn]; }));
+        xScale.domain( data.map( function (d){ return d[xColumn]; }));
+        radiusScale.domain([0, d3.max(data, function (d){ return d[radiusColumn]; })]);
         colorScale.domain(data.map(function (d){ return d[colorColumn]; }));
-        pie.value(function(d) { return d[sliceSizeColumn]; });
 
-        xAxisG.call(xAxis);
+        xAxisG
+          .call(xAxis)
+          .selectAll("text")  
+          .attr("dx", "-.8em")
+          .attr("dy", "1em")
+          .attr("transform", "rotate(-20)" );
 
-        var pieData = pie(data);
-
-        pieG.attr("transform", "translate(" + innerWidth / 2 + "," + innerHeight / 2 + ")");
-
-        var slices = pieG.selectAll("path").data(pieData);
-        slices.enter().append("path");
-        slices
-          .attr("d", arc)
-          .attr("fill", function (d){ return colorScale(d.data[colorColumn]); });
-        slices.exit().remove();
-
-        colorLegendG.call(colorLegend);
-
+        var circles = g.selectAll("circle").data(data);
+        circles.enter().append("circle")
+          .attr("width", xScale.rangeBand());
+        circles
+          .attr("cx", function (d){ return xScale(d[xColumn]); })
+          .attr("cy", innerHeight / 2)
+          .attr("r", function (d){ return radiusScale(d[radiusColumn]); })
+          .attr("fill", function (d){ return colorScale(d[colorColumn]); });
+        circles.exit().remove();
       }
 
       function type(d){
-        d.name = "World";
         d.population = +d.population;
         return d;
       }

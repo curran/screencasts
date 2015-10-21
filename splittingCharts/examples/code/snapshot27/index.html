@@ -35,8 +35,7 @@
       var outerWidth = 500;
       var outerHeight = 250;
       var margin = { left: 90, top: 30, right: 150, bottom: 30 };
-      var outerRadius = 80;
-      var innerRadius = 40;
+      var radiusMax = 80;
 
       var xColumn = "name";
       var sliceSizeColumn = "population";
@@ -67,8 +66,8 @@
 
       var pie = d3.layout.pie();
       var arc = d3.svg.arc();
-      arc.outerRadius(outerRadius);
-      arc.innerRadius(innerRadius);
+      arc.outerRadius(radiusMax);
+      arc.innerRadius(0);
 
       var colorLegend = d3.legend.color()
         .scale(colorScale)

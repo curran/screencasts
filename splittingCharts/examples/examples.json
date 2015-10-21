@@ -207,5 +207,104 @@
     ],
     "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/19",
     "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot19"
+  },
+  {
+    "name": "snapshot20",
+    "number": 20,
+    "message": "Getting circular",
+    "files": [
+      "index.html",
+      "worldPopulation2015.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/20",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot20"
+  },
+  {
+    "name": "snapshot21",
+    "number": 21,
+    "message": "Circles for each country",
+    "files": [
+      "index.html",
+      "populationByCountry2015.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/21",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot21"
+  },
+  {
+    "name": "snapshot22",
+    "number": 22,
+    "message": "Circles for each religion",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/22",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot22"
+  },
+  {
+    "name": "snapshot23",
+    "number": 23,
+    "message": "Adding color",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/23",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot23"
+  },
+  {
+    "name": "snapshot24",
+    "number": 24,
+    "message": "Introducing Pie Layout",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/24",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot24"
+  },
+  {
+    "name": "snapshot25",
+    "number": 25,
+    "message": "Introducing d3.svg.arc",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/25",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot25"
+  },
+  {
+    "name": "snapshot26",
+    "number": 26,
+    "message": "Pie Chart",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/26",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot26"
+  },
+  {
+    "name": "snapshot27",
+    "number": 27,
+    "message": "Adding a color legend",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/27",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot27"
+  },
+  {
+    "name": "snapshot28",
+    "number": 28,
+    "message": "Donut Chart",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/28",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot28"
   }
 ]

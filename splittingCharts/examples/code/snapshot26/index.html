@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
     
@@ -22,11 +21,6 @@
         shape-rendering: crispEdges;
       }
 
-      .color-legend text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 12pt;
-      }
-
     </style>
   </head>
   <body>
@@ -34,9 +28,8 @@
 
       var outerWidth = 500;
       var outerHeight = 250;
-      var margin = { left: 90, top: 30, right: 150, bottom: 30 };
-      var outerRadius = 80;
-      var innerRadius = 40;
+      var margin = { left: 90, top: 30, right: 30, bottom: 30 };
+      var radiusMax = 80;
 
       var xColumn = "name";
       var sliceSizeColumn = "population";
@@ -55,10 +48,6 @@
         .attr("transform", "translate(0," + innerHeight + ")");
       var pieG = g.append("g");
 
-      var colorLegendG = g.append("g")
-        .attr("class", "color-legend")
-        .attr("transform", "translate(235, 20)");
-
       var xScale = d3.scale.ordinal().rangePoints([0, innerWidth]);
       var colorScale = d3.scale.category10();
 
@@ -67,15 +56,8 @@
 
       var pie = d3.layout.pie();
       var arc = d3.svg.arc();
-      arc.outerRadius(outerRadius);
-      arc.innerRadius(innerRadius);
-
-      var colorLegend = d3.legend.color()
-        .scale(colorScale)
-        .shapePadding(3)
-        .shapeWidth(15)
-        .shapeHeight(15)
-        .labelOffset(4);
+      arc.outerRadius(radiusMax);
+      arc.innerRadius(0);
 
       function render(data){
 
@@ -95,8 +77,6 @@
           .attr("d", arc)
           .attr("fill", function (d){ return colorScale(d.data[colorColumn]); });
         slices.exit().remove();
-
-        colorLegendG.call(colorLegend);
 
       }
 

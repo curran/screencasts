@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
     
       .axis text {
         font-family: 'Open Sans', sans-serif;
-        font-size: 12pt;
+        font-size: 16pt;
       }
       .axis .label {
         font-size: 20pt;
@@ -22,11 +21,6 @@
         shape-rendering: crispEdges;
       }
 
-      .color-legend text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 12pt;
-      }
-
     </style>
   </head>
   <body>
@@ -36,10 +30,9 @@
       var margin = { left: 90, top: 30, right: 30, bottom: 40 };
       var barPadding = 0.2;
 
-      var xColumn = "country";
+      var xColumn = "region";
       var yColumn = "population";
       var colorColumn = "religion";
-      var layerColumn = colorColumn;
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
       var innerHeight = outerHeight - margin.top  - margin.bottom;
@@ -54,9 +47,6 @@
         .attr("transform", "translate(0," + innerHeight + ")");
       var yAxisG = g.append("g")
         .attr("class", "y axis");
-      var colorLegendG = g.append("g")
-        .attr("class", "color-legend")
-        .attr("transform", "translate(235, 0)");
 
       var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
       var yScale = d3.scale.linear().range([innerHeight, 0]);
@@ -75,72 +65,40 @@
         .tickFormat(customTickFormat)
         .outerTickSize(0);
 
-      var colorLegend = d3.legend.color()
-        .scale(colorScale)
-        .shapePadding(3)
-        .shapeWidth(15)
-        .shapeHeight(15)
-        .labelOffset(4);
-
       function render(data){
 
-        var nested = d3.nest()
-          .key(function (d){ return d[layerColumn]; })
-          .entries(data)
+        colorScale.domain(data.map(function (d){ return d[colorColumn]; }));
 
         var stack = d3.layout.stack()
           .y(function (d){ return d[yColumn]; })
-          .values(function (d){ return d.values; });
+          .values(function (d){ return [d]; });
 
-        var layers = stack(nested);
+        var stacked = stack(data);
 
-        xScale.domain(layers[0].values.map(function (d){
-          return d[xColumn];
-        }));
-
-        yScale.domain([
-          0,
-          d3.max(layers, function (layer){
-            return d3.max(layer.values, function (d){
-              return d.y0 + d.y;
-            });
-          })
-        ]);
-
-        colorScale.domain(layers.map(function (layer){
-          return layer.key;
-        }));
+        xScale.domain(stacked.map(function (d){ return d[xColumn]; }));
+        yScale.domain([0, d3.max(stacked, function (d){ return d.y0 + d.y; })]);
 
         xAxisG.call(xAxis);
         yAxisG.call(yAxis);
 
-        var layers = g.selectAll(".layer").data(layers);
-        layers.enter().append("g").attr("class", "layer");
-        layers.exit().remove();
-        layers.style("fill", function (d){
-          return colorScale(d.key);
-        });
-
-        var bars = layers.selectAll("rect").data(function (d){
-          return d.values;
-        });
+        var bars = g.selectAll("rect").data(stacked);
         bars.enter().append("rect")
-        bars.exit().remove();
+          .attr("width", xScale.rangeBand());
         bars
           .attr("x", function (d){ return xScale(d[xColumn]); })
           .attr("y", function (d){ return yScale(d.y0 + d.y); })
-          .attr("width", xScale.rangeBand())
           .attr("height", function (d){ return innerHeight - yScale(d.y); })
-
-        colorLegendG.call(colorLegend);
+          .attr("fill", function (d){ return colorScale(d[colorColumn]); });
+        bars.exit().remove();
       }
 
       function type(d){
+        d.region = "World";
         d.population = +d.population;
         return d;
       }
 
-      d3.csv("religionByCountryTop5.csv", type, render);
+      d3.csv("religionWorldTotals.csv", type, render);
 
     </script>
   </body>

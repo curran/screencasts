@@ -17,6 +17,7 @@ Additional "goodies" that are covered include:
 
  * customizing a D3 number format to use "B" for billions
  * rotating tick mark labels to avoid overlap on the X axis
+ * using [d3.layout.stack](https://github.com/mbostock/d3/wiki/Stack-Layout)
 
 This tutorial assumes you already know the topics covered in [Introduction to D3](https://github.com/curran/screencasts/tree/gh-pages/introToD3).
 
@@ -44,6 +45,8 @@ The following tables are derived from the [Pew Research Center Global Religious 
  * [populationByCountry2010.csv](https://github.com/curran/screencasts/blob/gh-pages/splittingCharts/datasets/populationByCountry2010.csv)
  * [religionByCountryTop5.csv](https://github.com/curran/screencasts/blob/gh-pages/splittingCharts/datasets/religionByCountryTop5.csv)
  * [religionWorldTotals.csv](https://github.com/curran/screencasts/blob/gh-pages/splittingCharts/datasets/religionWorldTotals.csv)
+
+Sketchy preprocessing disclaimer - the original data contained values "< 10000", which were converted to "0" in the preprocessing step so the data can be visualized.
 
 ## Examples
 

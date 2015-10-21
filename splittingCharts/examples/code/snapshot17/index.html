@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>D3 Example</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <style>
     
@@ -20,11 +19,6 @@
         fill: none;
         stroke: #000;
         shape-rendering: crispEdges;
-      }
-
-      .color-legend text {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 12pt;
       }
 
     </style>
@@ -54,9 +48,6 @@
         .attr("transform", "translate(0," + innerHeight + ")");
       var yAxisG = g.append("g")
         .attr("class", "y axis");
-      var colorLegendG = g.append("g")
-        .attr("class", "color-legend")
-        .attr("transform", "translate(235, 0)");
 
       var xScale = d3.scale.ordinal().rangeBands([0, innerWidth], barPadding);
       var yScale = d3.scale.linear().range([innerHeight, 0]);
@@ -74,13 +65,6 @@
         .ticks(5)
         .tickFormat(customTickFormat)
         .outerTickSize(0);
-
-      var colorLegend = d3.legend.color()
-        .scale(colorScale)
-        .shapePadding(3)
-        .shapeWidth(15)
-        .shapeHeight(15)
-        .labelOffset(4);
 
       function render(data){
 
@@ -131,8 +115,6 @@
           .attr("y", function (d){ return yScale(d.y0 + d.y); })
           .attr("width", xScale.rangeBand())
           .attr("height", function (d){ return innerHeight - yScale(d.y); })
-
-        colorLegendG.call(colorLegend);
       }
 
       function type(d){

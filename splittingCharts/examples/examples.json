@@ -97,5 +97,104 @@
     ],
     "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/9",
     "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot09"
+  },
+  {
+    "name": "snapshot10",
+    "number": 10,
+    "message": "Adding color",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/10",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot10"
+  },
+  {
+    "name": "snapshot11",
+    "number": 11,
+    "message": "Introducting Stack Layout",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/11",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot11"
+  },
+  {
+    "name": "snapshot12",
+    "number": 12,
+    "message": "Splitting a rectangle",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/12",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot12"
+  },
+  {
+    "name": "snapshot13",
+    "number": 13,
+    "message": "Adding another dimension",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/13",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot13"
+  },
+  {
+    "name": "snapshot14",
+    "number": 14,
+    "message": "Introducing d3.nest",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/14",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot14"
+  },
+  {
+    "name": "snapshot15",
+    "number": 15,
+    "message": "Nesting by religion",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/15",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot15"
+  },
+  {
+    "name": "snapshot16",
+    "number": 16,
+    "message": "nest & stack",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/16",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot16"
+  },
+  {
+    "name": "snapshot17",
+    "number": 17,
+    "message": "Stacked bars",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/17",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot17"
+  },
+  {
+    "name": "snapshot18",
+    "number": 18,
+    "message": "Adding a color legend",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/18",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot18"
   }
 ]

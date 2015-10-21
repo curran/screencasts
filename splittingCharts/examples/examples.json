@@ -306,5 +306,60 @@
     ],
     "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/28",
     "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot28"
+  },
+  {
+    "name": "snapshot29",
+    "number": 29,
+    "message": "Polar area diagram",
+    "files": [
+      "index.html",
+      "religionWorldTotals.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/29",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot29"
+  },
+  {
+    "name": "snapshot30",
+    "number": 30,
+    "message": "Polar area multiples",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/30",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot30"
+  },
+  {
+    "name": "snapshot31",
+    "number": 31,
+    "message": "Donut multiples",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/31",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot31"
+  },
+  {
+    "name": "snapshot32",
+    "number": 32,
+    "message": "Pie multiples",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/32",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot32"
+  },
+  {
+    "name": "snapshot33",
+    "number": 33,
+    "message": "Sized pie multiples",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/33",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot33"
   }
 ]

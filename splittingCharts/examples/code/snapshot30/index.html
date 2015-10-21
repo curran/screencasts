@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Example</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+    
+      .axis text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12pt;
+      }
+
+      .axis path, .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+      }
+
+      .color-legend text {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12pt;
+      }
+
+    </style>
+  </head>
+  <body>
+    <script>
+
+      var outerWidth = 500;
+      var outerHeight = 250;
+      var margin = { left: 40, top: 50, right: 200, bottom: 70 };
+
+      var xColumn = "country";
+      var colorColumn = "religion";
+      var radiusColumn = "population";
+      var radiusMax = 55;
+
+      var innerWidth  = outerWidth  - margin.left - margin.right;
+      var innerHeight = outerHeight - margin.top  - margin.bottom;
+
+      var svg = d3.select("body").append("svg")
+        .attr("width",  outerWidth)
+        .attr("height", outerHeight);
+      var g = svg.append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      var xAxisG = g.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + innerHeight + ")");
+
+      var colorLegendG = svg.append("g")
+        .attr("class", "color-legend")
+        .attr("transform", "translate(330, 40)");
+
+      var xScale = d3.scale.ordinal().rangePoints([0, innerWidth]);
+      var radiusScale = d3.scale.sqrt().range([0, radiusMax]);
+      var colorScale = d3.scale.category10();
+
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
+        .outerTickSize(0);
+
+      var pie = d3.layout.pie();
+      var arc = d3.svg.arc();
+
+      var colorLegend = d3.legend.color()
+        .scale(colorScale)
+        .shapePadding(3)
+        .shapeWidth(15)
+        .shapeHeight(15)
+        .labelOffset(4);
+
+      function render(data){
+
+        var nested = d3.nest()
+          .key(function (d){ return d[xColumn]; })
+          .entries(data)
+
+        xScale.domain(nested.map( function (d){ return d.key; }));
+        radiusScale.domain([
+          0,
+          d3.max(nested, function (xEntry){
+            return d3.max(xEntry.values, function (d){
+              return d[radiusColumn];
+            });
+          })
+        ]);
+        colorScale.domain(nested[0].values.map(function (d){
+          return d[colorColumn];
+        }));
+
+        pie.value(function (){ return 1; });
+        arc.outerRadius(function(d) { 
+          return radiusScale(d.data[radiusColumn]);
+        });
+
+        var pies = g.selectAll(".pie").data(nested);
+        pies.enter().append("g").attr("class", "pie");
+        pies.attr("transform", function (d){
+          var x = xScale(d.key);
+          return "translate(" + x + "," + innerHeight / 2 + ")";
+        });
+        pies.exit().remove();
+
+        var slices = pies.selectAll("path").data(function (d){
+          return pie(d.values);
+        });
+
+        slices.enter().append("path");
+        slices
+          .attr("d", arc)
+          .attr("fill", function (d){ return colorScale(d.data[colorColumn]); });
+        slices.exit().remove();
+
+        xAxisG.call(xAxis);
+        colorLegendG.call(colorLegend);
+      }
+
+      function type(d){
+        d.name = "World";
+        d.population = +d.population;
+        return d;
+      }
+
+      d3.csv("religionByCountryTop5.csv", type, render);
+
+    </script>
+  </body>
+</html>

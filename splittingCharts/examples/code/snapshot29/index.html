@@ -35,12 +35,12 @@
       var outerWidth = 500;
       var outerHeight = 250;
       var margin = { left: 90, top: 30, right: 150, bottom: 30 };
-      var outerRadius = 80;
-      var innerRadius = 40;
 
       var xColumn = "name";
-      var sliceSizeColumn = "population";
+
       var colorColumn = "religion";
+      var radiusColumn = "population";
+      var radiusMax = 100;
 
       var innerWidth  = outerWidth  - margin.left - margin.right;
       var innerHeight = outerHeight - margin.top  - margin.bottom;
@@ -60,6 +60,7 @@
         .attr("transform", "translate(235, 20)");
 
       var xScale = d3.scale.ordinal().rangePoints([0, innerWidth]);
+      var radiusScale = d3.scale.sqrt().range([0, radiusMax]);
       var colorScale = d3.scale.category10();
 
       var xAxis = d3.svg.axis().scale(xScale).orient("bottom")
@@ -67,8 +68,6 @@
 
       var pie = d3.layout.pie();
       var arc = d3.svg.arc();
-      arc.outerRadius(outerRadius);
-      arc.innerRadius(innerRadius);
 
       var colorLegend = d3.legend.color()
         .scale(colorScale)
@@ -80,10 +79,13 @@
       function render(data){
 
         xScale.domain(data.map( function (d){ return d[xColumn]; }));
+        radiusScale.domain([0, d3.max(data, function (d){ return d[radiusColumn]; })]);
         colorScale.domain(data.map(function (d){ return d[colorColumn]; }));
-        pie.value(function(d) { return d[sliceSizeColumn]; });
 
-        xAxisG.call(xAxis);
+        pie.value(function (){ return 1; });
+        arc.outerRadius(function(d) { 
+          return radiusScale(d.data[radiusColumn]);
+        });
 
         var pieData = pie(data);
 
@@ -96,8 +98,8 @@
           .attr("fill", function (d){ return colorScale(d.data[colorColumn]); });
         slices.exit().remove();
 
+        xAxisG.call(xAxis);
         colorLegendG.call(colorLegend);
-
       }
 
       function type(d){

@@ -98,14 +98,14 @@
         xAxisG.call(xAxis);
         yAxisG.call(yAxis);
 
-        var layers = g.selectAll(".layer").data(layers);
-        layers.enter().append("g").attr("class", "layer");
-        layers.exit().remove();
-        layers.style("fill", function (d){
+        var layerGroups = g.selectAll(".layer").data(layers);
+        layerGroups.enter().append("g").attr("class", "layer");
+        layerGroups.exit().remove();
+        layerGroups.style("fill", function (d){
           return colorScale(d.key);
         });
 
-        var bars = layers.selectAll("rect").data(function (d){
+        var bars = layerGroups.selectAll("rect").data(function (d){
           return d.values;
         });
         bars.enter().append("rect")

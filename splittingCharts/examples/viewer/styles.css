@@ -78,7 +78,7 @@ body {
   overflow-x: hidden;
 
   /* Limit height for the case of large JSON files */
-  max-height: 2000px;
+  max-height: 3000px;
 }
 
 .top-split {

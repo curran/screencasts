@@ -16,6 +16,8 @@ Topics covered include:
 Additional "goodies" that are covered include:
 
  * customizing a D3 number format to use "B" for billions
+ * rotating tick mark labels to avoid overlap on the X axis
+ * using [d3.layout.stack](https://github.com/mbostock/d3/wiki/Stack-Layout)
 
 This tutorial assumes you already know the topics covered in [Introduction to D3](https://github.com/curran/screencasts/tree/gh-pages/introToD3).
 
@@ -44,6 +46,8 @@ The following tables are derived from the [Pew Research Center Global Religious 
  * [religionByCountryTop5.csv](https://github.com/curran/screencasts/blob/gh-pages/splittingCharts/datasets/religionByCountryTop5.csv)
  * [religionWorldTotals.csv](https://github.com/curran/screencasts/blob/gh-pages/splittingCharts/datasets/religionWorldTotals.csv)
 
+Sketchy preprocessing disclaimer - the original data contained values "< 10000", which were converted to "0" in the preprocessing step so the data can be visualized.
+
 ## Examples
 
 Check out the [Example Viewer](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/1). Use left and right arrow keys to navigate.
@@ -57,6 +61,16 @@ Check out the [Example Viewer](http://curran.github.io/screencasts/splittingChar
  * [Example 7](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/7) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot07) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/7/index.html)) - Religions world totals
  * [Example 8](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/8) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot08) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/8/index.html)) - Small tick labels
  * [Example 9](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/9) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot09) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/9/index.html)) - Tilting tick labels
+ * [Example 10](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/10) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot10) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/10/index.html)) - Adding color
+ * [Example 11](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/11) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot11) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/11/index.html)) - Introducting Stack Layout
+ * [Example 12](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/12) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot12) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/12/index.html)) - Splitting a rectangle
+ * [Example 13](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/13) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot13) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/13/index.html)) - Adding another dimension
+ * [Example 14](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/14) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot14) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/14/index.html)) - Introducing d3.nest
+ * [Example 15](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/15) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot15) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/15/index.html)) - Nesting by religion
+ * [Example 16](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/16) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot16) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/16/index.html)) - nest & stack
+ * [Example 17](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/17) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot17) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/17/index.html)) - Stacked bars
+ * [Example 18](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/18) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot18) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/18/index.html)) - Adding a color legend
+ * [Example 19](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/19) - ([run it!](http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot19) | [index.html](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/19/index.html)) - Grouped bars
 
 Feel free to use and modify this presentation framework for your own presentations! MIT License.
 

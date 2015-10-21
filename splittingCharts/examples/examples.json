@@ -196,5 +196,16 @@
     ],
     "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/18",
     "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot18"
+  },
+  {
+    "name": "snapshot19",
+    "number": 19,
+    "message": "Grouped bars",
+    "files": [
+      "index.html",
+      "religionByCountryTop5.csv"
+    ],
+    "url": "http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/19",
+    "runUrl": "http://curran.github.io/screencasts/splittingCharts/examples/code/snapshot19"
   }
 ]

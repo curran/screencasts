@@ -1,5 +1,7 @@
 # Splitting Charts
 
+[![](videoThumbnail.png)](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be)
+
  * [Video on YouTube: Splitting Charts](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be)
  * [Code Examples](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/)
 

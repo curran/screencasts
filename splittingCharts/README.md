@@ -1,6 +1,6 @@
 # Splitting Charts
 
- * [Video on YouTube: Splitting Charts](not posted yet)
+ * [Video on YouTube: Splitting Charts](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be)
  * [Code Examples](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/)
 
 This tutorial deals with the theme of "splitting charts", exploring how simple visualizations can be modified to support an additional dimension of data. Rectangles will be split into stacked bars, circles will be split into pies and donuts, and lines will be split apart.

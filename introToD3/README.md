@@ -12,6 +12,11 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
  * Fundamental D3 concepts: CSV data, selections, scales, axes
  * Visualizations: bar chart, scatter plot, line chart
 
+More advanced tutorials that build off this one:
+
+ * [Splitting Charts](https://www.youtube.com/watch?v=6Xynj_pBybc) (Stacked & Grouped bar charts)
+ * [Introduction to Chiasm](https://www.youtube.com/watch?v=MpweS7gNBt4) (encapsulating reusable D3 patterns and charts)
+
 ## Navigating the Video
 
 The video is very long. Here's an index of checkpoints where the focus shifts. You can click these times to go to specific points in the YouTube video.

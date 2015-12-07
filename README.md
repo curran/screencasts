@@ -32,4 +32,4 @@ This repository contains code that goes along with [my screencasts](http://www.y
 
 All content released under the [MIT License](http://opensource.org/licenses/MIT). Feel free to use and modify!
 
-[Curran Kelleher](https://github.com/curran/portfolio) 2014
+[Curran Kelleher](https://github.com/curran/portfolio) 2015

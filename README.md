@@ -6,6 +6,7 @@ This repository contains code that goes along with [my screencasts](http://www.y
  * 02 - **Fetching Data with AJAX** (March 2015) - [screencast](https://www.youtube.com/watch?v=9E9qtNg5V2I) - [code](https://github.com/curran/screencasts/tree/gh-pages/d3-101/02-fetching-data-with-ajax) - Covers fetching a CSV file using AJAX.
  * 03 - **Bar Chart Rundown** (March 2015) - [screencast](https://www.youtube.com/watch?v=UdCjacdrvi4&feature=youtu.be) - [code](http://bl.ocks.org/mbostock/3885304) - A brief overview of a D3.js Bar Chart Example.
  * 04 - **Introduction to D3.js** (April 2015) - [screencast](https://www.youtube.com/watch?v=8jvoTV54nXw) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/introToD3)
+ * 05 - **Splitting Charts (part 1)** (Oct 2015) - [screencast](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
 
 --------------------------------------------------
 ## Web Technologies

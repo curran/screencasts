@@ -9,6 +9,8 @@ This repository contains code that goes along with [my screencasts](http://www.y
  * 05 - **Splitting Charts (part 1)** (Oct 2015) - [screencast](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
  * 06 - **Splitting Charts (part 2) - Getting Circular** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=dZgLxh_Z86A) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
  * 07 - **Splitting Charts (Part 3) - Pie Charts & Friends** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=QCiA4fD8-Hs) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+ * 08 - **Splitting Charts (Part 4) - Small Multiples Pies** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=XN2hfpGqX4o) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+
 --------------------------------------------------
 ## Web Technologies
 

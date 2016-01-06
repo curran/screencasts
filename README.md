@@ -7,8 +7,8 @@ This repository contains code that goes along with [my screencasts](http://www.y
  * 03 - **Bar Chart Rundown** (March 2015) - [screencast](https://www.youtube.com/watch?v=UdCjacdrvi4&feature=youtu.be) - [code](http://bl.ocks.org/mbostock/3885304) - A brief overview of a D3.js Bar Chart Example.
  * 04 - **Introduction to D3.js** (April 2015) - [screencast](https://www.youtube.com/watch?v=8jvoTV54nXw) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/introToD3)
  * 05 - **Splitting Charts (part 1)** (Oct 2015) - [screencast](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
- * 06 - **Splitting Charts (part 2) Getting Circular ** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=dZgLxh_Z86A) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
-
+ * 06 - **Splitting Charts (part 2) - Getting Circular** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=dZgLxh_Z86A) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+ * 07 - **Splitting Charts (Part 3) - Pie Charts & Friends** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=QCiA4fD8-Hs) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
 --------------------------------------------------
 ## Web Technologies
 

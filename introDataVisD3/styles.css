@@ -27,19 +27,39 @@ body {
   width: 200px;
   background-color: rgb(247, 247, 247);
   overflow-y: scroll;
+  display: flux;
+  flux-direction: row;
 }
 .nav-item {
   position: relative;
   cursor: pointer;
   margin: 8px;
+
+  text-align: center;
+  border-radius: 5px;
+
+  transition: box-shadow 0.3s, border-color 0.3s;
+
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  box-shadow: 0px 0px 5px #888888;
 }
-.nav-item-title {
+.nav-item:hover {
+  box-shadow: 1px 1px 5px #888888;
+}
+.nav-item.active {
+  border-color: gray;
+  box-shadow: 1px 1px 6px #888888;
+}
+
+.nav-item .title {
   pointer-events:none;
-  position: absolute;
   top: 2px;
+  width: 100%;
 
   /* Center the text inside the box. */
-  width: 100%;
+  position: absolute;
   text-align: center;
 
   /* This trick adds a heavy white shadow around the text. */
@@ -53,21 +73,10 @@ body {
     0px 0px 3px white,
     0px 0px 3px white;
 }
-.nav-item-thumbnail {
-  transition: box-shadow 0.3s, border-color 0.3s;
+
+.nav-item .thumbnail {
   width: 100%;
   border-radius: 5px;
-  border-style: solid;
-  border-color: white;
-  border-width: 1px;
-  box-shadow: 0px 0px 5px #888888;
-}
-.nav-item-thumbnail:hover {
-  box-shadow: 1px 1px 5px #888888;
-}
-.nav-item-thumbnail.active {
-  border-color: gray;
-  box-shadow: 1px 1px 6px #888888;
 }
 
 .content {

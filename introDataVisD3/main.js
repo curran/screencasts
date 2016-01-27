@@ -3,16 +3,27 @@ var NavItem = React.createClass({
     this.props.controller.setCurrentIndex(this.props.item.index);
   },
   render: function (){
+
     var item = this.props.item;
-    var blocksUrl = "http://bl.ocks.org/curran/" + item.id;
-    var thumbnailUrl = "http://bl.ocks.org/curran/raw/" + item.id + "/thumbnail.png";
-    var imgClass = "nav-item-thumbnail" + (this.props.active ? " active" : "");
-    return (
-      <div className="nav-item" onClick={this.click} >
-        <span className="nav-item-title">{item.title}</span>
-        <img className={imgClass} src={thumbnailUrl}/>
-      </div>
-    )
+    var type = item.type || "block";
+    var navClass = "nav-item" + (this.props.active ? " active" : "");
+
+    if(type === "block"){
+      var thumbnailUrl = "http://bl.ocks.org/curran/raw/" + item.id + "/thumbnail.png";
+
+      return (
+        <div className={navClass} onClick={this.click} >
+          <span className="title">{item.title}</span>
+          <img className="thumbnail" src={thumbnailUrl}/>
+        </div>
+      );
+    } else {
+      return (
+        <div className={navClass} onClick={this.click} >
+          {item.title}
+        </div>
+      );
+    }
   }
 });
 

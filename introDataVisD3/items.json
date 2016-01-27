@@ -1,5 +1,8 @@
 [
-  { "title": "Bar Chart", "id": "blah", "type": "image", "name": "BarChart.png" },
+  { "title": "Jacques Bertin 1967", "type": "image", "name": "biblio-33-bertin.jpg", "source": "http://metrhispanic.com/2013/03/11/biblio-33-graphic-semiology/" },
+  { "title": "Mackinlay 1986", "type": "image", "name": "mackinlay.png", "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf" },
+  { "title": "UN Population Dataset", "type": "image", "name": "UN_World_Population_Spreadsheet.png", "source": "http://esa.un.org/unpd/wpp/" },
+  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
   { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4" },
   { "title": "Bar Chart Religions", "id": "123f860373b442c7de0e" },
   { "title": "Horizontal Bar Chart", "id": "4df29e2f8c6e20ed2baf" },

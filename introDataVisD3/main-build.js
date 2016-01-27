@@ -5,20 +5,31 @@ var NavItem = React.createClass({
     this.props.controller.setCurrentIndex(this.props.item.index);
   },
   render: function () {
+
     var item = this.props.item;
-    var blocksUrl = "http://bl.ocks.org/curran/" + item.id;
-    var thumbnailUrl = "http://bl.ocks.org/curran/raw/" + item.id + "/thumbnail.png";
-    var imgClass = "nav-item-thumbnail" + (this.props.active ? " active" : "");
-    return React.createElement(
-      "div",
-      { className: "nav-item", onClick: this.click },
-      React.createElement(
-        "span",
-        { className: "nav-item-title" },
+    var type = item.type || "block";
+    var navClass = "nav-item" + (this.props.active ? " active" : "");
+
+    if (type === "block") {
+      var thumbnailUrl = "http://bl.ocks.org/curran/raw/" + item.id + "/thumbnail.png";
+
+      return React.createElement(
+        "div",
+        { className: navClass, onClick: this.click },
+        React.createElement(
+          "span",
+          { className: "title" },
+          item.title
+        ),
+        React.createElement("img", { className: "thumbnail", src: thumbnailUrl })
+      );
+    } else {
+      return React.createElement(
+        "div",
+        { className: navClass, onClick: this.click },
         item.title
-      ),
-      React.createElement("img", { className: imgClass, src: thumbnailUrl })
-    );
+      );
+    }
   }
 });
 

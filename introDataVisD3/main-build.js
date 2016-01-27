@@ -7,7 +7,7 @@ var NavItem = React.createClass({
   render: function () {
 
     var item = this.props.item;
-    var type = item.type || "block";
+    var type = item.type;
     var navClass = "nav-item" + (this.props.active ? " active" : "");
 
     if (type === "block") {
@@ -54,8 +54,26 @@ var ContentPane = React.createClass({
   displayName: "ContentPane",
 
   render: function () {
-    var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
-    return React.createElement("iframe", { className: "content", src: blockbuilderUrl });
+    var item = this.props.item;
+    console.log(item);
+    if (item.type === "block") {
+      var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
+      //<img className="content-img" src={"images/" + item.name}/>
+      return React.createElement("iframe", { className: "content", src: blockbuilderUrl });
+    } else if (item.type === "image") {
+      return React.createElement(
+        "div",
+        { className: "content" },
+        React.createElement("img", { className: "content-img", style: { backgroundImage: "url(images/" + item.name + ")" } })
+      );
+    } else {
+      console.log("unknown item type " + item.type + " " + item.title);
+      return React.createElement(
+        "div",
+        { className: "content" },
+        "Error"
+      );
+    }
   }
 });
 
@@ -121,8 +139,14 @@ controller.incrementCurrentIndex = offset => {
 // Load the file that configures the items and their order.
 d3.json("items.json", (err, items) => {
 
-  // Assign an index to each item.
-  items.forEach((item, i) => item.index = i);
+  items.forEach((item, i) => {
+
+    // Assign an index to each item.
+    item.index = i;
+
+    // Of no type specified, default to "block".
+    item.type = item.type || "block";
+  });
 
   // Set the state from the loaded data.
   controller.setItems(items);

@@ -11,13 +11,28 @@
     "name": "mackinlay.png",
     "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf"
   },
+  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
+  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
+  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
+  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
+  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
+  { "title": "Scatter Plot", "type": "image", "name": "ScatterPlot.png" },
+  { "title": "Bubble Plot", "type": "image", "name": "BubblePlot.png",
+    "more": [
+      "Choropleth.png",
+      "HeatMap.png",
+      "Histogram.png",
+      "LineChart.png",
+      "ParallelCoordinates.png",
+      "SmallMultiples.png"
+    ]
+  },
   {
     "title": "UN Population",
     "type": "image",
     "name": "UN_World_Population_Spreadsheet.png",
     "source": "http://esa.un.org/unpd/wpp/"
   },
-  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
   { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4" },
   { "title": "Bar Chart Religions", "id": "123f860373b442c7de0e" },
   { "title": "Horizontal Bar Chart", "id": "4df29e2f8c6e20ed2baf" },

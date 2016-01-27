@@ -1,0 +1,15 @@
+{
+  "name": "intro-data-vis-d3",
+  "version": "0.0.1",
+  "description": "A React app that displays a presentation.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel main.js --presets react --out-file=main-build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-react": "^6.3.13"
+  }
+}

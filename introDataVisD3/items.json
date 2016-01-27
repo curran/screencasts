@@ -1,0 +1,13 @@
+[
+  { "title": "Bar Chart", "id": "blah", "type": "image", "name": "BarChart.png" },
+  { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4" },
+  { "title": "Bar Chart Religions", "id": "123f860373b442c7de0e" },
+  { "title": "Horizontal Bar Chart", "id": "4df29e2f8c6e20ed2baf" },
+  { "title": "Colored Bar Chart", "id": "fea34ca9b3b8886e3ab8" },
+  { "title": "Grouped Bar Chart", "id": "d4e2b2854f25429a06aa" },
+  { "title": "Bar", "id": "a364f9c0b9a114c90efa" },
+  { "title": "Stacked Bar", "id": "ab098389dd80e4a6eb58" },
+  { "title": "Stacked Bar Chart", "id": "805413fb3b2efaada1ce" },
+  { "title": "Scatter Plot", "id": "134ed87c99257e3f2e31" },
+  { "title": "Line Chart", "id": "60b40877ef898f19aeb8" }
+]

@@ -1,6 +1,8 @@
 # Splitting Charts
 
- * [Video on YouTube: Splitting Charts](not posted yet)
+[![](videoThumbnail.png)](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be)
+
+ * [Video on YouTube: Splitting Charts (Part 1): Stacked & Grouped Bar Charts ](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be) (covers examples 1 - 19) Recorded at the event [SF Big Analytics: D3 Visualization Workshop (Alpine Academy Series)](http://www.meetup.com/SF-Big-Analytics/events/225450873/) on Oct. 21, 2015.
  * [Code Examples](http://curran.github.io/screencasts/splittingCharts/examples/viewer/#/)
 
 This tutorial deals with the theme of "splitting charts", exploring how simple visualizations can be modified to support an additional dimension of data. Rectangles will be split into stacked bars, circles will be split into pies and donuts, and lines will be split apart.

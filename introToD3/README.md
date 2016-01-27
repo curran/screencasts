@@ -1,7 +1,10 @@
-# Introduction to D3 [![](D3Thumbnail.png)](https://www.youtube.com/watch?v=8jvoTV54nXw)
+# Introduction to D3
+
+[![](D3Thumbnail.png)](https://www.youtube.com/watch?v=8jvoTV54nXw)
 
  * [YouTube Video Presentation](https://www.youtube.com/watch?v=8jvoTV54nXw)
  * [Slides and Code Examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/) (use left and right arrow keys to navigate [examples](http://curran.github.io/screencasts/introToD3/examples/viewer/#/1))
+   * [Slides only](http://www.slideshare.net/currankelleher/introduction-to-d3-55556705)
 
 This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the ground up, and introduces basic visualizations.
 
@@ -9,6 +12,11 @@ This tutorial covers fundamental [D3.js](http://d3js.org/) concepts from the gro
  * SVG graphical elements: rect, circle, line, path
  * Fundamental D3 concepts: CSV data, selections, scales, axes
  * Visualizations: bar chart, scatter plot, line chart
+
+More advanced tutorials that build off this one:
+
+ * [Splitting Charts](https://www.youtube.com/watch?v=6Xynj_pBybc) (Stacked & Grouped bar charts)
+ * [Introduction to Chiasm](https://www.youtube.com/watch?v=MpweS7gNBt4) (encapsulating reusable D3 patterns and charts)
 
 ## Navigating the Video
 

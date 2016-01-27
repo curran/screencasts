@@ -6,6 +6,10 @@ This repository contains code that goes along with [my screencasts](http://www.y
  * 02 - **Fetching Data with AJAX** (March 2015) - [screencast](https://www.youtube.com/watch?v=9E9qtNg5V2I) - [code](https://github.com/curran/screencasts/tree/gh-pages/d3-101/02-fetching-data-with-ajax) - Covers fetching a CSV file using AJAX.
  * 03 - **Bar Chart Rundown** (March 2015) - [screencast](https://www.youtube.com/watch?v=UdCjacdrvi4&feature=youtu.be) - [code](http://bl.ocks.org/mbostock/3885304) - A brief overview of a D3.js Bar Chart Example.
  * 04 - **Introduction to D3.js** (April 2015) - [screencast](https://www.youtube.com/watch?v=8jvoTV54nXw) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/introToD3)
+ * 05 - **Splitting Charts (part 1)** (Oct 2015) - [screencast](https://www.youtube.com/watch?v=6Xynj_pBybc&feature=youtu.be) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+ * 06 - **Splitting Charts (part 2) - Getting Circular** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=dZgLxh_Z86A) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+ * 07 - **Splitting Charts (Part 3) - Pie Charts & Friends** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=QCiA4fD8-Hs) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+ * 08 - **Splitting Charts (Part 4) - Small Multiples Pies** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=XN2hfpGqX4o) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
 
 --------------------------------------------------
 ## Web Technologies
@@ -31,4 +35,4 @@ This repository contains code that goes along with [my screencasts](http://www.y
 
 All content released under the [MIT License](http://opensource.org/licenses/MIT). Feel free to use and modify!
 
-[Curran Kelleher](https://github.com/curran/portfolio) 2014
+[Curran Kelleher](https://github.com/curran/portfolio) 2015

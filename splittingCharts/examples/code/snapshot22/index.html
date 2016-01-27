@@ -75,8 +75,7 @@
           .attr("transform", "rotate(-20)" );
 
         var circles = g.selectAll("circle").data(data);
-        circles.enter().append("circle")
-          .attr("width", xScale.rangeBand());
+        circles.enter().append("circle");
         circles
           .attr("cx", function (d){ return xScale(d[xColumn]); })
           .attr("cy", innerHeight / 2)

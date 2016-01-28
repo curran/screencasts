@@ -152,7 +152,26 @@
       }
 
       if (item.type === "block") {
-        return React.createElement("iframe", { className: "content", src: "http://blockbuilder.org/curran/" + this.props.item.id + "#embed=true" });
+
+        // This case was added for clocks that broke under Blockbuilder.
+        if (item.showAsBlock) {
+          return React.createElement(
+            "div",
+            { className: "content" },
+            React.createElement(
+              "a",
+              { className: "run", href: "http://bl.ocks.org/curran/" + item.id },
+              "Run it!"
+            )
+          );
+
+          // This doesn't work due to bl.ocks.org iframe policy set to DENY.
+          //return <iframe className="content" src={
+          //  "http://bl.ocks.org/curran/" + this.props.item.id
+          //} />;
+        } else {
+            return React.createElement("iframe", { className: "content", src: "http://blockbuilder.org/curran/" + this.props.item.id + "#embed=true" });
+          }
       } else if (item.type === "image") {
         return React.createElement(
           "div",

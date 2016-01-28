@@ -122,6 +122,13 @@ body {
   color: gray;
 }
 
+.content .run {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  font-size: 30pt;
+}
+
 /* Custom scrollbars. Draws from https://css-tricks.com/custom-scrollbars-in-webkit/ */
 ::-webkit-scrollbar {
   width: 8px;

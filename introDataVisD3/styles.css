@@ -82,14 +82,16 @@ body {
 
 .nav-item .video i {
   position: absolute;
-  right: 0px;
+  top: 1px;
+  right: 2px;
+  color: #D62422;
 }
 
 .content {
   width: 100%;
   height: 100%;
   position: relative;
-  font-size: 20pt;
+  font-size: 16pt;
 }
 
 .content .img {
@@ -114,8 +116,7 @@ body {
 
 .content .description{
   position: absolute;
-  left: 50%;
-  right: 10px;
+  left: 30%;
   bottom: 10px;
 
   background-color: white;

@@ -2,7 +2,10 @@
   { 
     "title": "Direction",
     "type": "image",
-    "name": "Direction.svg"
+    "name": "Direction.svg",
+    "video": "https://youtu.be/R-oiKt7bUU8?t=1h30m13s",
+    "source": "https://youtu.be/R-oiKt7bUU8?t=1h30m13s",
+    "description": "Designing Data Visualizations with Noah Iliinsky"
   },
   { 
     "title": "Data",
@@ -17,12 +20,11 @@
     "description": "The Iris Data Set, from R. A. Fisher (1936)"
   },
   { 
-    "title": "Chart Libraries",
+    "title": "SF Temperature",
     "type": "image",
-    "name": "monsterVis.svg",
-    "source": "https://docs.google.com/presentation/d/14L2PE3O0q22Oo7tTqw15WfNsY78-2u0jcLXI5Xb72FI/edit#slide=id.g7bbd72659_00",
-    "description": "From \"Visualization Monsters\" by Christophe Viau (March 2015)",
-    "video": "https://www.youtube.com/watch?v=s1ueC7WvKAo"
+    "name": "sfTemp.png",
+    "source": "http://map.datacanvas.org/#!/data",
+    "description": "Temperature in San Francisco, from the Data Canvas \"Sense Your City\" project."
   },
   {
     "title": "UN Population",
@@ -54,6 +56,14 @@
       "ParallelCoordinates.png",
       "SmallMultiples.png"
     ]
+  },
+  { 
+    "title": "Chart Libraries",
+    "type": "image",
+    "name": "monsterVis.svg",
+    "source": "https://docs.google.com/presentation/d/14L2PE3O0q22Oo7tTqw15WfNsY78-2u0jcLXI5Xb72FI/edit#slide=id.g7bbd72659_00",
+    "description": "From \"Visualization Monsters\" by Christophe Viau (March 2015)",
+    "video": "https://youtu.be/s1ueC7WvKAo?t=3m31s"
   },
   { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
   { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },

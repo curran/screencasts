@@ -141,5 +141,7 @@
   { "title": "Live Temperature by City", "id": "5a9767b5c23982c89632", "showAsBlock": true },
   { "title": "Interactive Scatter Plot", "id": "9938078a93a4ba380a0e", "showAsBlock": true },
   { "title": "Magic Bar Chart", "id": "b6e1d23c16dc76371a92", "showAsBlock": true },
-  { "title": "Magic Heat Map", "id": "a54fc3a6578efcdc19f4", "showAsBlock": true }
+  { "title": "Magic Heat Map", "id": "a54fc3a6578efcdc19f4", "showAsBlock": true },
+  { "title": "Line & Choropleth", "type": "iframe", "url": "http://curran.github.io/model/examples/d3LinkedChoropleth" },
+  { "title": "Scatter & Bar", "type": "iframe", "url": "http://curran.github.io/model-contrib/examples/linkedViews/" }
 ]

@@ -185,6 +185,8 @@
             item.description
           )
         );
+      } else if (item.type === "iframe") {
+        return React.createElement("iframe", { className: "content", src: item.url });
       } else {
         console.log("unknown item type " + item.type + " " + item.title);
         return React.createElement(

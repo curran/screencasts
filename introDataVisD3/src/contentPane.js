@@ -33,7 +33,8 @@ var ContentPane = React.createClass({
           <div className="footnote">{source}: {item.description}</div>
         </div>
       );
-
+    } else if (item.type === "iframe"){
+      return <iframe className="content" src={item.url} />;
     } else {
       console.log("unknown item type " + item.type + " " + item.title);
       return <div className="content">Error</div>

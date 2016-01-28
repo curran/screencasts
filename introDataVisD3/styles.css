@@ -24,7 +24,7 @@ body {
 
 .nav {
   /* Original bl.ocks.org thumbnails are (230 X 120). */
-  width: 200px;
+  width: 210px;
   background-color: rgb(247, 247, 247);
   overflow-y: scroll;
   display: flux;
@@ -78,6 +78,11 @@ body {
 .nav-item .thumbnail {
   width: 100%;
   border-radius: 5px;
+}
+
+.nav-item .video i {
+  position: absolute;
+  right: 0px;
 }
 
 .content {

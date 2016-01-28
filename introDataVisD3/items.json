@@ -17,6 +17,20 @@
     "description": "The Iris Data Set, from R. A. Fisher (1936)"
   },
   { 
+    "title": "Chart Libraries",
+    "type": "image",
+    "name": "monsterVis.svg",
+    "source": "https://docs.google.com/presentation/d/14L2PE3O0q22Oo7tTqw15WfNsY78-2u0jcLXI5Xb72FI/edit#slide=id.g7bbd72659_00",
+    "description": "From \"Visualization Monsters\" by Christophe Viau (March 2015)",
+    "video": "https://www.youtube.com/watch?v=s1ueC7WvKAo"
+  },
+  {
+    "title": "UN Population",
+    "type": "image",
+    "name": "UN_World_Population_Spreadsheet.png",
+    "source": "http://esa.un.org/unpd/wpp/"
+  },
+  { 
     "title": "Bertin 1967",
     "type": "image",
     "name": "biblio-33-bertin.jpg",
@@ -30,11 +44,6 @@
     "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf",
     "description": "Jock Mackinlay, \"Automating the Design of Graphical Presentations of Relational Information\" (1986)"
   },
-  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
-  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
-  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
-  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
-  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
   { "title": "Scatter Plot", "type": "image", "name": "ScatterPlot.png" },
   { "title": "Bubble Plot", "type": "image", "name": "BubblePlot.png",
     "more": [
@@ -46,12 +55,12 @@
       "SmallMultiples.png"
     ]
   },
-  {
-    "title": "UN Population",
-    "type": "image",
-    "name": "UN_World_Population_Spreadsheet.png",
-    "source": "http://esa.un.org/unpd/wpp/"
-  },
+  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
+  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
+  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
+  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
+  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
+  { "title": "D3", "type": "image", "name": "usingd3.png" },
   { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4" },
   { "title": "Bar Chart Religions", "id": "123f860373b442c7de0e" },
   { "title": "Horizontal Bar Chart", "id": "4df29e2f8c6e20ed2baf" },

@@ -60,15 +60,69 @@
       return React.createElement(
         "div",
         { className: "nav" },
-        this.props.items.map(item => {
+        this.props.items.map(function (item) {
           return React.createElement(NavItem, { item: item,
             key: item.index,
             active: item.index === this.props.currentIndex,
             controller: this.props.controller });
-        })
+        }.bind(this))
       );
     }
   });
+
+  // Load the file that configures the items and their order.
+  function loadData(controller) {
+    d3.json("items.json", function (err, items) {
+
+      items.forEach(function (item, i) {
+
+        // Assign an index to each item.
+        item.index = i;
+
+        // Of no type specified, default to "block".
+        item.type = item.type || "block";
+      });
+
+      // Set the state from the loaded data.
+      controller.setItems(items);
+    });
+  }
+
+  function Controller() {
+    var controller = {
+      setItems: function (items) {
+        controller.app.setState(function () {
+          return { items: items };
+        });
+        controller.setCurrentIndex(0);
+      },
+      setCurrentIndex: function (currentIndex) {
+        controller.app.setState(function (previousState) {
+          return {
+            currentIndex: currentIndex,
+            item: previousState.items[currentIndex]
+          };
+        });
+      },
+      // Increment (offset == 1) or decrement (offset == -1) the current index.
+      incrementCurrentIndex: function (offset) {
+        controller.app.setState(function (previousState) {
+          var currentIndex = previousState.currentIndex + offset;
+
+          // Guard against going out of bounds.
+          var n = previousState.items.length;
+          currentIndex = currentIndex < 0 ? 0 : currentIndex;
+          currentIndex = currentIndex >= n ? n - 1 : currentIndex;
+
+          return {
+            currentIndex: currentIndex,
+            item: previousState.items[currentIndex]
+          };
+        });
+      }
+    };
+    return controller;
+  }
 
   var ContentPane = React.createClass({
     displayName: "ContentPane",
@@ -124,59 +178,10 @@
     }
   });
 
-  var mountNode = document.getElementById("app-container");
-  var controller = {};
-  var app = ReactDOM.render(React.createElement(App, { controller: controller }), mountNode);
-
-  controller.setItems = items => {
-    app.setState(() => {
-      return { items: items };
-    });
-    controller.setCurrentIndex(0);
-  };
-
-  controller.setCurrentIndex = currentIndex => {
-    app.setState(previousState => {
-      return {
-        currentIndex: currentIndex,
-        item: previousState.items[currentIndex]
-      };
-    });
-  };
-
-  // Increment (offset == 1) or decrement (offset == -1) the current index.
-  controller.incrementCurrentIndex = offset => {
-    app.setState(previousState => {
-      var currentIndex = previousState.currentIndex + offset;
-
-      // Guard against going out of bounds.
-      var n = previousState.items.length;
-      currentIndex = currentIndex < 0 ? 0 : currentIndex;
-      currentIndex = currentIndex >= n ? n - 1 : currentIndex;
-
-      return {
-        currentIndex: currentIndex,
-        item: previousState.items[currentIndex]
-      };
-    });
-  };
-
-  // Load the file that configures the items and their order.
-  d3.json("items.json", (err, items) => {
-
-    items.forEach((item, i) => {
-
-      // Assign an index to each item.
-      item.index = i;
-
-      // Of no type specified, default to "block".
-      item.type = item.type || "block";
-    });
-
-    // Set the state from the loaded data.
-    controller.setItems(items);
-  });
+  var controller = Controller();
+  controller.app = ReactDOM.render(React.createElement(App, { controller: controller }), document.getElementById("app-container"));
 
   arrowKeyNavigation(controller);
+  loadData(controller);
 
 }());

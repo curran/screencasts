@@ -1,47 +1,7 @@
 import arrowKeyNavigation from "./arrowKeyNavigation.js";
-var NavItem = React.createClass({
-  click: function (e){
-    this.props.controller.setCurrentIndex(this.props.item.index);
-  },
-  render: function (){
-
-    var item = this.props.item;
-    var type = item.type;
-    var navClass = "nav-item" + (this.props.active ? " active" : "");
-
-    if(type === "block"){
-      var thumbnailUrl = "http://bl.ocks.org/curran/raw/" + item.id + "/thumbnail.png";
-
-      return (
-        <div className={navClass} onClick={this.click} >
-          <span className="title">{item.title}</span>
-          <img className="thumbnail" src={thumbnailUrl}/>
-        </div>
-      );
-    } else {
-      return (
-        <div className={navClass} onClick={this.click} >
-          {item.title}
-        </div>
-      );
-    }
-  }
-});
-
-var NavList = React.createClass({
-  render: function (){
-    return (
-      <div className="nav">
-        {this.props.items.map((item) => {
-          return <NavItem item={item}
-                          key={item.index}
-                          active={item.index === this.props.currentIndex}
-                          controller={this.props.controller}/>
-        })} 
-      </div>
-    );
-  }
-});
+import NavList from "./navList.js";
+import loadData from "./loadData.js";
+import Controller from "./controller.js";
 
 var ContentPane = React.createClass({
   render: function (){
@@ -87,57 +47,11 @@ var App = React.createClass({
   }
 });
 
-var mountNode = document.getElementById("app-container");
-var controller = {};
-var app = ReactDOM.render(<App controller={controller}/>, mountNode);
-
-controller.setItems = (items) => {
-  app.setState(() => {
-    return { items: items };
-  });
-  controller.setCurrentIndex(0);
-}
-
-controller.setCurrentIndex = (currentIndex) => {
-  app.setState((previousState) => {
-    return {
-      currentIndex: currentIndex,
-      item: previousState.items[currentIndex]
-    };
-  });
-}
-
-// Increment (offset == 1) or decrement (offset == -1) the current index.
-controller.incrementCurrentIndex = (offset) => {
-  app.setState((previousState) => {
-    var currentIndex = previousState.currentIndex + offset;
-
-    // Guard against going out of bounds.
-    var n = previousState.items.length;
-    currentIndex = (currentIndex < 0) ? 0 : currentIndex;
-    currentIndex = (currentIndex >= n) ? (n - 1) : currentIndex;
-
-    return {
-      currentIndex: currentIndex,
-      item: previousState.items[currentIndex]
-    };
-  });
-}
-
-// Load the file that configures the items and their order.
-d3.json("items.json", (err, items) => {
-
-  items.forEach((item, i) => {
-
-    // Assign an index to each item.
-    item.index = i;
-
-    // Of no type specified, default to "block".
-    item.type = item.type || "block";
-  });
- 
-  // Set the state from the loaded data.
-  controller.setItems(items);
-});
+var controller = Controller();
+controller.app = ReactDOM.render(
+  <App controller={controller}/>,
+  document.getElementById("app-container")
+);
 
 arrowKeyNavigation(controller);
+loadData(controller);

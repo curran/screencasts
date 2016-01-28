@@ -35,7 +35,7 @@
       if (item.video) {
         video = React.createElement(
           "a",
-          { className: "video", href: item.video },
+          { className: "video", href: item.video, target: "_blank" },
           React.createElement("i", { className: "fa fa-youtube-play" })
         );
       }

@@ -82,9 +82,13 @@ body {
 
 .nav-item .video i {
   position: absolute;
-  top: 1px;
-  right: 2px;
+  bottom: 0px;
+  right: 0px;
   color: #D62422;
+  background-color: white;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 4px;
 }
 
 .content {

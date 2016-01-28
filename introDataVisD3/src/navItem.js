@@ -12,7 +12,7 @@ var NavItem = React.createClass({
     
     if(item.video){
       video = (
-        <a className="video" href={item.video}>
+        <a className="video" href={item.video} target="_blank">
           <i className="fa fa-youtube-play"></i>
         </a>
       );

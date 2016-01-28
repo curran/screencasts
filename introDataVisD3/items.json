@@ -1,5 +1,10 @@
 [
   { 
+    "title": "Itro",
+    "type": "image",
+    "name": "intro.png"
+  },
+  { 
     "title": "Data",
     "type": "image",
     "name": "Data.svg"
@@ -66,6 +71,14 @@
     "description": "Designing Data Visualizations with Noah Iliinsky"
   },
   { 
+    "title": "Stages",
+    "type": "image",
+    "name": "Stages.svg",
+    "video": "https://youtu.be/R-oiKt7bUU8",
+    "source": "https://youtu.be/R-oiKt7bUU8",
+    "description": "Designing Data Visualizations with Noah Iliinsky"
+  },
+  { 
     "title": "Bertin 1967",
     "type": "image",
     "name": "biblio-33-bertin.jpg",
@@ -86,23 +99,34 @@
     "source": "http://bl.ocks.org/curran/f01e2a07ece4a9ad62cb",
     "description": "Cleveland and McGill, \"Graphical Perception\" (1984)"
   },
-  { "title": "Scatter Plot", "type": "image", "name": "ScatterPlot.png" },
-  { "title": "Bubble Plot", "type": "image", "name": "BubblePlot.png",
-    "more": [
-      "HeatMap.png",
-      "ParallelCoordinates.png",
-      "SmallMultiples.png"
-    ]
-  },
-  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
-  { "title": "Histogram", "type": "image", "name": "Histogram.png" },
-  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
-  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
-  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
-  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
-  { "title": "Choropleth Map", "type": "image", "name": "Choropleth.png" },
+  { "title": "Chart Types", "id": "d9e60dd20f22e37e34e0" },
   { "title": "Line Chart", "type": "image", "name": "LineChart.png" },
-  { "title": "D3", "type": "image", "name": "usingd3.png" },
+  { "title": "Small Multiples", "type": "image", "name": "SmallMultiples.png" },
+  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
+  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
+  { "title": "Histogram", "type": "image", "name": "Histogram.png" },
+  { "title": "Heat Map", "type": "image", "name": "HeatMap.png" },
+  { "title": "Bubble Chart", "type": "image", "name": "BubblePlot.png" },
+  { "title": "Scatter Plot", "type": "image", "name": "ScatterPlot.png" },
+  { "title": "Parallel Coordinates", "type": "image", "name": "ParallelCoordinates.png" },
+  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
+  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
+  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
+  { "title": "Choropleth Map", "type": "image", "name": "Choropleth.png" },
+  {
+    "title": "D3",
+    "type": "image",
+    "name": "usingd3.png",
+    "source": "http://d3js.org/",
+    "description": "Data Driven Documents"
+  },
+  {
+    "title": "D3 Paper",
+    "type": "image",
+    "name": "d3Paper.png",
+    "source": "http://vis.stanford.edu/files/2011-D3-InfoVis.pdf",
+    "description": "D3 InfoVis Paper (2011)"
+  },
   { 
     "title": "Chart Libraries",
     "type": "image",

@@ -129,6 +129,15 @@ body {
   font-size: 30pt;
 }
 
+/* Style the video. */
+.face-video {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 200px;
+  border-radius:150px;
+}
+
 /* Custom scrollbars. Draws from https://css-tricks.com/custom-scrollbars-in-webkit/ */
 ::-webkit-scrollbar {
   width: 8px;

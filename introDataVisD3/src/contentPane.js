@@ -4,7 +4,7 @@ var ContentPane = React.createClass({
     var source, description;
 
     if(item.source){
-      source = <a className="source" href={item.source}>source</a>;
+      source = <a className="source" href={item.source} target="_blank">source</a>;
     }
 
     if(item.type === "block"){
@@ -13,7 +13,7 @@ var ContentPane = React.createClass({
       if(item.showAsBlock){
         return (
           <div className="content">
-            <a className="run" href={"http://bl.ocks.org/curran/" + item.id}>Run it!</a>
+            <a className="run" href={"http://bl.ocks.org/curran/" + item.id} target="_blank">Run it!</a>
           </div>
         );
 

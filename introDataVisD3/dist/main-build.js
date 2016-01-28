@@ -146,7 +146,7 @@
       if (item.source) {
         source = React.createElement(
           "a",
-          { className: "source", href: item.source },
+          { className: "source", href: item.source, target: "_blank" },
           "source"
         );
       }
@@ -160,7 +160,7 @@
             { className: "content" },
             React.createElement(
               "a",
-              { className: "run", href: "http://bl.ocks.org/curran/" + item.id },
+              { className: "run", href: "http://bl.ocks.org/curran/" + item.id, target: "_blank" },
               "Run it!"
             )
           );
@@ -225,5 +225,16 @@
 
   arrowKeyNavigation(controller);
   loadData(controller);
+
+  // Display video from the camera on the video element.
+  // Example code from http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+  navigator.getUserMedia({ video: true }, function (localMediaStream) {
+    var video = document.querySelector('.face-video');
+    video.src = window.URL.createObjectURL(localMediaStream);
+  }, function (e) {
+    console.log("Error " + e);
+  });
 
 }());

@@ -20,6 +20,11 @@
     "description": "imMens: Real-time Visual Querying of Big Data"
   },
   { 
+    "title": "Binned Aggregation",
+    "type": "image",
+    "name": "BinnedAggregation.svg"
+  },
+  { 
     "title": "Aggregated Data",
     "type": "image",
     "name": "AggregatedData.svg"

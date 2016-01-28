@@ -4,12 +4,15 @@
   "description": "A React app that displays a presentation.",
   "main": "index.js",
   "scripts": {
-    "build": "babel main.js --presets react --out-file=main-build.js"
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.4.5",
-    "babel-preset-react": "^6.3.13"
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "rollup": "^0.25.1",
+    "rollup-plugin-babel": "^2.3.9"
   }
 }

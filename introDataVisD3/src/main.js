@@ -1,3 +1,4 @@
+import arrowKeyNavigation from "./arrowKeyNavigation.js";
 var NavItem = React.createClass({
   click: function (e){
     this.props.controller.setCurrentIndex(this.props.item.index);
@@ -46,16 +47,19 @@ var ContentPane = React.createClass({
   render: function (){
     var item = this.props.item;
     console.log(item);
+
     if(item.type === "block"){
       var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
-          //<img className="content-img" src={"images/" + item.name}/>
       return <iframe className="content" src={blockbuilderUrl} />;
+
     } else if (item.type === "image"){
       return (
         <div className="content">
           <img className="content-img" style={{backgroundImage: "url(images/" + item.name + ")"}}/>
+          <a className="content-source-link" href={item.source}>source</a>
         </div>
       );
+
     } else {
       console.log("unknown item type " + item.type + " " + item.title);
       return <div className="content">Error</div>
@@ -136,17 +140,4 @@ d3.json("items.json", (err, items) => {
   controller.setItems(items);
 });
 
-// Set up navigation with arrow keys.
-window.addEventListener("keydown", function (e){
-  var offsets = {
-
-    // Decrement slide on UP (38) and LEFT (37)
-    37: -1,
-    38: -1,
-
-    // Increment slide on DOWN (40) and RIGHT (39);
-    39: 1,
-    40: 1
-  };
-  controller.incrementCurrentIndex(offsets[e.keyCode]);
-});
+arrowKeyNavigation(controller);

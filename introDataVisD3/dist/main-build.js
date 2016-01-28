@@ -151,25 +151,20 @@
         );
       }
 
-      if (item.description) {
-        console.log(item.description);
-        description = React.createElement(
-          "div",
-          { className: "description" },
-          item.description
-        );
-      }
-
       if (item.type === "block") {
-        var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
-        return React.createElement("iframe", { className: "content", src: blockbuilderUrl });
+        return React.createElement("iframe", { className: "content", src: "http://blockbuilder.org/curran/" + this.props.item.id + "#embed=true" });
       } else if (item.type === "image") {
         return React.createElement(
           "div",
           { className: "content" },
           React.createElement("img", { className: "img", style: { backgroundImage: "url(images/" + item.name + ")" } }),
-          source,
-          description
+          React.createElement(
+            "div",
+            { className: "footnote" },
+            source,
+            ": ",
+            item.description
+          )
         );
       } else {
         console.log("unknown item type " + item.type + " " + item.title);

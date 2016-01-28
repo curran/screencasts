@@ -7,25 +7,15 @@ var ContentPane = React.createClass({
       source = <a className="source" href={item.source}>source</a>;
     }
 
-    if(item.description){
-      console.log(item.description);
-      description = <div className="description">{item.description}</div>;
-    }
-
     if(item.type === "block"){
-      var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
-      return <iframe className="content" src={blockbuilderUrl} />;
-
+      return <iframe className="content" src={
+        "http://blockbuilder.org/curran/" + this.props.item.id + "#embed=true"
+      } />;
     } else if (item.type === "image"){
       return (
         <div className="content">
-
           <img className="img" style={{backgroundImage: "url(images/" + item.name + ")"}}/>
-
-          {source}
-
-          {description}
-
+          <div className="footnote">{source}: {item.description}</div>
         </div>
       );
 

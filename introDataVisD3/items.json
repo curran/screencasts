@@ -1,13 +1,5 @@
 [
   { 
-    "title": "Direction",
-    "type": "image",
-    "name": "Direction.svg",
-    "video": "https://youtu.be/R-oiKt7bUU8?t=1h30m13s",
-    "source": "https://youtu.be/R-oiKt7bUU8?t=1h30m13s",
-    "description": "Designing Data Visualizations with Noah Iliinsky"
-  },
-  { 
     "title": "Data",
     "type": "image",
     "name": "Data.svg"
@@ -20,6 +12,19 @@
     "description": "The Iris Data Set, from R. A. Fisher (1936)"
   },
   { 
+    "title": "Data Reduction",
+    "type": "image",
+    "name": "DataReduction.svg",
+    "source": "http://vis.stanford.edu/files/2013-imMens-EuroVis.pdf",
+    "video": "https://youtu.be/WwNs-lDq7f4?t=22m55s",
+    "description": "imMens: Real-time Visual Querying of Big Data"
+  },
+  { 
+    "title": "Aggregated Data",
+    "type": "image",
+    "name": "AggregatedData.svg"
+  },
+  { 
     "title": "SF Temperature",
     "type": "image",
     "name": "sfTemp.png",
@@ -30,7 +35,30 @@
     "title": "UN Population",
     "type": "image",
     "name": "UN_World_Population_Spreadsheet.png",
-    "source": "http://esa.un.org/unpd/wpp/"
+    "source": "https://github.com/curran/data/tree/gh-pages/un/population",
+    "description": "United Nations Population Division"
+  },
+  {
+    "title": "Pew Religions",
+    "type": "image",
+    "name": "religionByCountry.png",
+    "source": "https://github.com/curran/data/tree/gh-pages/pew/religion",
+    "description": "Pew Research Center"
+  },
+  { 
+    "title": "Information Visualization",
+    "type": "image",
+    "name": "InformationVisualization.svg",
+    "source": "http://fellinlovewithdata.com/reflections/infovis-makes-us-cyborgs",
+    "description": "Readings in Information Visualization (via Enrico Bertini)"
+  },
+  { 
+    "title": "Direction",
+    "type": "image",
+    "name": "Direction.svg",
+    "video": "https://youtu.be/R-oiKt7bUU8?t=1h30m13s",
+    "source": "https://youtu.be/R-oiKt7bUU8?t=1h30m13s",
+    "description": "Designing Data Visualizations with Noah Iliinsky"
   },
   { 
     "title": "Bertin 1967",
@@ -39,6 +67,29 @@
     "source": "http://metrhispanic.com/2013/03/11/biblio-33-graphic-semiology/",
     "description": "Jacques Bertin, \"Semiology of Graphics\""
   },
+  { 
+    "title": "Graphical Perception",
+    "type": "image",
+    "name": "GraphicalPerception.png",
+    "source": "http://bl.ocks.org/curran/f01e2a07ece4a9ad62cb",
+    "description": "Cleveland and McGill, \"Graphical Perception\" (1984)"
+  },
+  { "title": "Scatter Plot", "type": "image", "name": "ScatterPlot.png" },
+  { "title": "Bubble Plot", "type": "image", "name": "BubblePlot.png",
+    "more": [
+      "HeatMap.png",
+      "ParallelCoordinates.png",
+      "SmallMultiples.png"
+    ]
+  },
+  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
+  { "title": "Histogram", "type": "image", "name": "Histogram.png" },
+  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
+  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
+  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
+  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
+  { "title": "Choropleth Map", "type": "image", "name": "Choropleth.png" },
+  { "title": "Line Chart", "type": "image", "name": "LineChart.png" },
   {
     "title": "Mackinlay 1986",
     "type": "image",
@@ -46,17 +97,7 @@
     "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf",
     "description": "Jock Mackinlay, \"Automating the Design of Graphical Presentations of Relational Information\" (1986)"
   },
-  { "title": "Scatter Plot", "type": "image", "name": "ScatterPlot.png" },
-  { "title": "Bubble Plot", "type": "image", "name": "BubblePlot.png",
-    "more": [
-      "Choropleth.png",
-      "HeatMap.png",
-      "Histogram.png",
-      "LineChart.png",
-      "ParallelCoordinates.png",
-      "SmallMultiples.png"
-    ]
-  },
+  { "title": "D3", "type": "image", "name": "usingd3.png" },
   { 
     "title": "Chart Libraries",
     "type": "image",
@@ -65,12 +106,6 @@
     "description": "From \"Visualization Monsters\" by Christophe Viau (March 2015)",
     "video": "https://youtu.be/s1ueC7WvKAo?t=3m31s"
   },
-  { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
-  { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },
-  { "title": "Stacked Bar Chart", "type": "image", "name": "StackedBarChart.png" },
-  { "title": "Pie Chart", "type": "image", "name": "PieChart.png" },
-  { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
-  { "title": "D3", "type": "image", "name": "usingd3.png" },
   { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4", "video": "https://youtu.be/6Xynj_pBybc?t=8m19s" },
   { "title": "Bar Chart Religions", "id": "123f860373b442c7de0e", "video": "https://youtu.be/6Xynj_pBybc?t=10m22s" },
   { "title": "Horizontal Bar Chart", "id": "4df29e2f8c6e20ed2baf", "video": "https://youtu.be/8jvoTV54nXw?t=1h35m32s" },

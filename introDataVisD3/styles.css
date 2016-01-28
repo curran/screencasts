@@ -72,6 +72,7 @@ body {
     0px 0px 3px white,
     0px 0px 3px white,
     0px 0px 3px white;
+
 }
 
 .nav-item .thumbnail {
@@ -83,9 +84,10 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+  font-size: 20pt;
 }
 
-.content-img {
+.content .img {
   width: 100%;
   height: 100%;
   
@@ -94,10 +96,26 @@ body {
   background-size: contain;
 }
 
-.content-source-link {
+.content .source{
   position: absolute;
-  left: 5px;
-  bottom: 5px;
+  left: 10px;
+  bottom: 10px;
+
+  /* TODO factor this out */
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.content .description{
+  position: absolute;
+  left: 50%;
+  right: 10px;
+  bottom: 10px;
+
+  background-color: white;
+  border-radius: 5px;
+  padding: 8px;
 }
 
 /* Custom scrollbars. Draws from https://css-tricks.com/custom-scrollbars-in-webkit/ */

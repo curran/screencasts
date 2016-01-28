@@ -1,15 +1,34 @@
 [
   { 
+    "title": "Direction",
+    "type": "image",
+    "name": "Direction.svg"
+  },
+  { 
+    "title": "Data",
+    "type": "image",
+    "name": "Data.svg"
+  },
+  { 
+    "title": "Iris Dataset",
+    "type": "image",
+    "name": "iris.png",
+    "source": "https://archive.ics.uci.edu/ml/datasets/Iris",
+    "description": "The Iris Data Set, from R. A. Fisher (1936)"
+  },
+  { 
     "title": "Bertin 1967",
     "type": "image",
     "name": "biblio-33-bertin.jpg",
-    "source": "http://metrhispanic.com/2013/03/11/biblio-33-graphic-semiology/"
+    "source": "http://metrhispanic.com/2013/03/11/biblio-33-graphic-semiology/",
+    "description": "Jacques Bertin, \"Semiology of Graphics\""
   },
   {
     "title": "Mackinlay 1986",
     "type": "image",
     "name": "mackinlay.png",
-    "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf"
+    "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf",
+    "description": "Jock Mackinlay, \"Automating the Design of Graphical Presentations of Relational Information\" (1986)"
   },
   { "title": "Bar Chart", "type": "image", "name": "BarChart.png" },
   { "title": "Grouped Bar Chart", "type": "image", "name": "GroupedBarChart.png" },

@@ -1,7 +1,16 @@
 var ContentPane = React.createClass({
   render: function (){
     var item = this.props.item;
-    console.log(item);
+    var source, description;
+
+    if(item.source){
+      source = <a className="source" href={item.source}>source</a>;
+    }
+
+    if(item.description){
+      console.log(item.description);
+      description = <div className="description">{item.description}</div>;
+    }
 
     if(item.type === "block"){
       var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
@@ -10,8 +19,13 @@ var ContentPane = React.createClass({
     } else if (item.type === "image"){
       return (
         <div className="content">
-          <img className="content-img" style={{backgroundImage: "url(images/" + item.name + ")"}}/>
-          <a className="content-source-link" href={item.source}>source</a>
+
+          <img className="img" style={{backgroundImage: "url(images/" + item.name + ")"}}/>
+
+          {source}
+
+          {description}
+
         </div>
       );
 

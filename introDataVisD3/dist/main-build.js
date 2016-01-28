@@ -129,7 +129,24 @@
 
     render: function () {
       var item = this.props.item;
-      console.log(item);
+      var source, description;
+
+      if (item.source) {
+        source = React.createElement(
+          "a",
+          { className: "source", href: item.source },
+          "source"
+        );
+      }
+
+      if (item.description) {
+        console.log(item.description);
+        description = React.createElement(
+          "div",
+          { className: "description" },
+          item.description
+        );
+      }
 
       if (item.type === "block") {
         var blockbuilderUrl = "http://blockbuilder.org/curran/" + this.props.item.id;
@@ -138,12 +155,9 @@
         return React.createElement(
           "div",
           { className: "content" },
-          React.createElement("img", { className: "content-img", style: { backgroundImage: "url(images/" + item.name + ")" } }),
-          React.createElement(
-            "a",
-            { className: "content-source-link", href: item.source },
-            "source"
-          )
+          React.createElement("img", { className: "img", style: { backgroundImage: "url(images/" + item.name + ")" } }),
+          source,
+          description
         );
       } else {
         console.log("unknown item type " + item.type + " " + item.title);

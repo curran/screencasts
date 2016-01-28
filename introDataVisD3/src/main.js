@@ -16,12 +16,12 @@ var App = React.createClass({
     return (
       <div className="app">
 
-        // The navigation list on the left side.
+        {/* The navigation list on the left. */}
         <NavList items={this.state.items} 
                  currentIndex={this.state.currentIndex}
                  controller={this.props.controller}/>
 
-        // The content in on the right side.
+        {/* The content on the right. */}
         <ContentPane item={this.state.item} />
 
       </div>

@@ -72,6 +72,13 @@
     "source": "http://metrhispanic.com/2013/03/11/biblio-33-graphic-semiology/",
     "description": "Jacques Bertin, \"Semiology of Graphics\""
   },
+  {
+    "title": "Mackinlay 1986",
+    "type": "image",
+    "name": "mackinlay.png",
+    "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf",
+    "description": "Jock Mackinlay, \"Automating the Design of Graphical Presentations of Relational Information\" (1986)"
+  },
   { 
     "title": "Graphical Perception",
     "type": "image",
@@ -95,13 +102,6 @@
   { "title": "Donut Chart", "type": "image", "name": "DonutChart.png" },
   { "title": "Choropleth Map", "type": "image", "name": "Choropleth.png" },
   { "title": "Line Chart", "type": "image", "name": "LineChart.png" },
-  {
-    "title": "Mackinlay 1986",
-    "type": "image",
-    "name": "mackinlay.png",
-    "source": "http://luci.ics.uci.edu/websiteContent/weAreLuci/biographies/faculty/djp3/LocalCopy/p110-mackinlay.pdf",
-    "description": "Jock Mackinlay, \"Automating the Design of Graphical Presentations of Relational Information\" (1986)"
-  },
   { "title": "D3", "type": "image", "name": "usingd3.png" },
   { 
     "title": "Chart Libraries",
@@ -111,14 +111,36 @@
     "description": "From \"Visualization Monsters\" by Christophe Viau (March 2015)",
     "video": "https://youtu.be/s1ueC7WvKAo?t=3m31s"
   },
+  { "title": "Iris Dataset Scatter Plot", "id": "014b461f460cf8fa3b77" },
+  { "title": "Scatter Plot", "id": "134ed87c99257e3f2e31" },
+  { "title": "Scatter Plot", "id": "9e04ccfebeb84bcdc76c" },
+  { "title": "Line Chart", "id": "60b40877ef898f19aeb8" },
+  { "title": "Bar", "id": "a364f9c0b9a114c90efa" },
   { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4", "video": "https://youtu.be/6Xynj_pBybc?t=8m19s" },
   { "title": "Bar Chart Religions", "id": "123f860373b442c7de0e", "video": "https://youtu.be/6Xynj_pBybc?t=10m22s" },
   { "title": "Horizontal Bar Chart", "id": "4df29e2f8c6e20ed2baf", "video": "https://youtu.be/8jvoTV54nXw?t=1h35m32s" },
   { "title": "Colored Bar Chart", "id": "fea34ca9b3b8886e3ab8" },
   { "title": "Grouped Bar Chart", "id": "d4e2b2854f25429a06aa" },
-  { "title": "Bar", "id": "a364f9c0b9a114c90efa" },
   { "title": "Stacked Bar", "id": "ab098389dd80e4a6eb58" },
   { "title": "Stacked Bar Chart", "id": "805413fb3b2efaada1ce" },
-  { "title": "Scatter Plot", "id": "134ed87c99257e3f2e31" },
-  { "title": "Line Chart", "id": "60b40877ef898f19aeb8" }
+  { "title": "Circle", "id": "87418ef0737bafedcf8e" },
+  { "title": "Circles", "id": "f1d48313521289e52d71" },
+  { "title": "Circles", "id": "f1d48313521289e52d71" },
+  { "title": "Colored Circles", "id": "36933d70fa4e43027910" },
+  { "title": "Religions Pie Chart", "id": "1c23d9c7070deb6f8488" },
+  { "title": "Religions Donut Chart", "id": "8f7f5a72faff9ecc5088" },
+  { "title": "Polar Area Diagram", "id": "94f1376b946c9d217014" },
+  { "title": "Pie Chart Small Multiples", "id": "be3744cfe1b318bf4035" },
+  { "title": "Donut Chart Small Multiples", "id": "11b02f8917fac66d6fe5" },
+  { "title": "Polar Area Small Multiples", "id": "40d5e61963abf20da067" },
+  { "title": "Sized Pie Charts", "id": "e025a50dbaae7186e516" },
+  { "title": "Sized Donut Charts", "id": "d0a42741ce0cf6cdc3ab" },
+  { "title": "Earth At Night", "id": "6ba202660d5393fd3f79" },
+  { "title": "World City Explorer", "id": "752b97cef3f880a813ab" },
+  { "title": "Focus + Context Scatter Plot", "id": "cf4b98fff0517ca04667" },
+  { "title": "Focus + Context Area Chart", "id": "d5252d37917ab6eab032" },
+  { "title": "Live Temperature by City", "id": "5a9767b5c23982c89632" },
+  { "title": "Interactive Scatter Plot", "id": "9938078a93a4ba380a0e" },
+  { "title": "Magic Bar Chart", "id": "b6e1d23c16dc76371a92" },
+  { "title": "Magic Heat Map", "id": "a54fc3a6578efcdc19f4" }
 ]

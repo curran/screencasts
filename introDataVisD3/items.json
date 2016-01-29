@@ -60,7 +60,7 @@
     "type": "image",
     "name": "InformationVisualization.svg",
     "source": "http://fellinlovewithdata.com/reflections/infovis-makes-us-cyborgs",
-    "description": "Readings in Information Visualization (via Enrico Bertini)"
+    "description": "\"Readings in Information Visualization\" 1999 (via Enrico Bertini)"
   },
   { 
     "title": "Direction",
@@ -135,8 +135,22 @@
     "description": "From \"Visualization Monsters\" by Christophe Viau (March 2015)",
     "video": "https://youtu.be/s1ueC7WvKAo?t=3m31s"
   },
-  { "title": "Iris Dataset Scatter Plot", "id": "014b461f460cf8fa3b77", "showAsBlock": true },
-  { "title": "Scatter Plot Variants", "id": "9e04ccfebeb84bcdc76c", "showAsBlock": true },
+  { "title": "Earth At Night", "id": "6ba202660d5393fd3f79" },
+  { "title": "World City Explorer", "id": "752b97cef3f880a813ab" },
+  { 
+    "title": "Iris Scatter Plot",
+    "type": "image",
+    "name": "IrisScatter.png",
+    "source": "http://bl.ocks.org/curran/014b461f460cf8fa3b77",
+    "description": "Iris Dataset Scatter Plot"
+  },
+  { 
+    "title": "Scatter Plot Variants",
+    "type": "image",
+    "name": "scatterVariants.png",
+    "source": "http://bl.ocks.org/curran/9e04ccfebeb84bcdc76c",
+    "description": "Scatter Plot Variants"
+  },
   { "title": "Line Chart", "id": "60b40877ef898f19aeb8" },
   { "title": "Bar", "id": "a364f9c0b9a114c90efa" },
   { "title": "Bar Chart Populations", "id": "6cd1e224d76811b68df4", "video": "https://youtu.be/6Xynj_pBybc?t=8m19s" },
@@ -158,14 +172,17 @@
   { "title": "Polar Area Small Multiples", "id": "40d5e61963abf20da067" },
   { "title": "Sized Pie Charts", "id": "e025a50dbaae7186e516" },
   { "title": "Sized Donut Charts", "id": "d0a42741ce0cf6cdc3ab" },
-  { "title": "Earth At Night", "id": "6ba202660d5393fd3f79" },
-  { "title": "World City Explorer", "id": "752b97cef3f880a813ab" },
+
   { "title": "Focus + Context Scatter Plot", "id": "cf4b98fff0517ca04667", "showAsBlock": true },
-  { "title": "Focus + Context Area Chart", "id": "d5252d37917ab6eab032" },
+  { "title": "Scatter & Bar", "type": "iframe", "url": "http://curran.github.io/model-contrib/examples/linkedViews/" },
   { "title": "Live Temperature by City", "id": "5a9767b5c23982c89632", "showAsBlock": true },
+  { "title": "Line & Choropleth", "type": "iframe", "url": "http://curran.github.io/model/examples/d3LinkedChoropleth" },
   { "title": "Interactive Scatter Plot", "id": "9938078a93a4ba380a0e", "showAsBlock": true },
   { "title": "Magic Bar Chart", "id": "b6e1d23c16dc76371a92", "showAsBlock": true },
   { "title": "Magic Heat Map", "id": "a54fc3a6578efcdc19f4", "showAsBlock": true },
-  { "title": "Line & Choropleth", "type": "iframe", "url": "http://curran.github.io/model/examples/d3LinkedChoropleth" },
-  { "title": "Scatter & Bar", "type": "iframe", "url": "http://curran.github.io/model-contrib/examples/linkedViews/" }
+  { 
+    "title": "The End",
+    "type": "image",
+    "name": "End.png"
+  }
 ]

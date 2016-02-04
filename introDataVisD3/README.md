@@ -1,0 +1,1 @@
+This material is for the presentation in this YouTube video: ["Introduction to Data Visualization"](https://www.youtube.com/watch?v=itNlukt5x18&feature=youtu.be). You can [open the presentation](http://curran.github.io/screencasts/introDataVisD3/) to follow along, and you can use the built-in editor to edit and fork the examples.

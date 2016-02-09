@@ -1,3 +1,7 @@
+
+// Images are hosted by GitHub Pages (so they don't bloat the datavis-tech repository or hose our servers).
+var imageRootUrl = "http://curran.github.io/screencasts/introDataVisD3/images";
+
 var ContentPane = React.createClass({
   render: function (){
     var item = this.props.item;
@@ -29,7 +33,7 @@ var ContentPane = React.createClass({
     } else if (item.type === "image"){
       return (
         <div className="content">
-          <img className="img" style={{backgroundImage: "url(images/" + item.name + ")"}}/>
+          <img className="img" style={{backgroundImage: "url(" + imageRootUrl + "/" + item.name + ")"}}/>
           <div className="footnote">{source}: {item.description}</div>
         </div>
       );

@@ -136,6 +136,9 @@
     return controller;
   }
 
+  // Images are hosted by GitHub Pages (so they don't bloat the datavis-tech repository or hose our servers).
+  var imageRootUrl = "http://curran.github.io/screencasts/introDataVisD3/images";
+
   var ContentPane = React.createClass({
     displayName: "ContentPane",
 
@@ -176,7 +179,7 @@
         return React.createElement(
           "div",
           { className: "content" },
-          React.createElement("img", { className: "img", style: { backgroundImage: "url(images/" + item.name + ")" } }),
+          React.createElement("img", { className: "img", style: { backgroundImage: "url(" + imageRootUrl + "/" + item.name + ")" } }),
           React.createElement(
             "div",
             { className: "footnote" },
@@ -226,15 +229,20 @@
   arrowKeyNavigation(controller);
   loadData(controller);
 
-  // Display video from the camera on the video element.
-  // Example code from http://www.html5rocks.com/en/tutorials/getusermedia/intro/
-  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
-  navigator.getUserMedia({ video: true }, function (localMediaStream) {
-    var video = document.querySelector('.face-video');
-    video.src = window.URL.createObjectURL(localMediaStream);
-  }, function (e) {
-    console.log("Error " + e);
-  });
+  //Commented out for production.
+  //
+  // // Display video from the camera on the video element.
+  // // Example code from http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+  // navigator.getUserMedia  = navigator.getUserMedia ||
+  //                           navigator.webkitGetUserMedia ||
+  //                           navigator.mozGetUserMedia ||
+  //                           navigator.msGetUserMedia;
+  //
+  // navigator.getUserMedia({ video: true }, function (localMediaStream) {
+  //   var video = document.querySelector('.face-video');
+  //   video.src = window.URL.createObjectURL(localMediaStream);
+  // }, function (e) {
+  //   console.log("Error " + e);
+  // });
 
 }());

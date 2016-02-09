@@ -40,16 +40,18 @@ loadData(controller);
 
 
 
-// Display video from the camera on the video element.
-// Example code from http://www.html5rocks.com/en/tutorials/getusermedia/intro/
-navigator.getUserMedia  = navigator.getUserMedia ||
-                          navigator.webkitGetUserMedia ||
-                          navigator.mozGetUserMedia ||
-                          navigator.msGetUserMedia;
-
-navigator.getUserMedia({ video: true }, function (localMediaStream) {
-  var video = document.querySelector('.face-video');
-  video.src = window.URL.createObjectURL(localMediaStream);
-}, function (e) {
-  console.log("Error " + e);
-});
+//Commented out for production.
+//
+// // Display video from the camera on the video element.
+// // Example code from http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+// navigator.getUserMedia  = navigator.getUserMedia ||
+//                           navigator.webkitGetUserMedia ||
+//                           navigator.mozGetUserMedia ||
+//                           navigator.msGetUserMedia;
+// 
+// navigator.getUserMedia({ video: true }, function (localMediaStream) {
+//   var video = document.querySelector('.face-video');
+//   video.src = window.URL.createObjectURL(localMediaStream);
+// }, function (e) {
+//   console.log("Error " + e);
+// });

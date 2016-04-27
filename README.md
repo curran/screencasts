@@ -1,5 +1,10 @@
 This repository contains code that goes along with [my screencasts](http://www.youtube.com/user/currankelleher/videos).
 
+If you appreciate the content, you can
+
+ * [Support me on Patreon](https://www.patreon.com/user?u=2916242&ty=h&u=2916242)
+ * [Tip me with ChangeTip](http://curran.tip.me/)
+
 ## D3 101
 
  * 00 - **Introduction to Data Visualization** (Jan 2016) - [screencast](https://www.youtube.com/watch?v=itNlukt5x18)

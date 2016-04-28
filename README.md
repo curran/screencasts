@@ -7,7 +7,7 @@ If you appreciate the content, you can
 
 ## D3 101
 
- * 00 - **Introduction to Data Visualization** (Jan 2016) - [screencast](https://www.youtube.com/watch?v=itNlukt5x18)
+ * 00 - **Introduction to Data Visualization** (Jan 2016) - [screencast](https://www.youtube.com/watch?v=itNlukt5x18) [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/introDataVisD3)
  * 01 - **Parsing Data** (March 2015) - [screencast](https://www.youtube.com/watch?v=iuA-gmvJ5n0) - [code](https://github.com/curran/screencasts/blob/gh-pages/d3-101/01-parsing-data/index.html) - An intro to the "Data" part of "Data Driven Documents" (d3.js). Covers parsing CSV (Comma Separated Value) data in JavaScript.
  * 02 - **Fetching Data with AJAX** (March 2015) - [screencast](https://www.youtube.com/watch?v=9E9qtNg5V2I) - [code](https://github.com/curran/screencasts/tree/gh-pages/d3-101/02-fetching-data-with-ajax) - Covers fetching a CSV file using AJAX.
  * 03 - **Bar Chart Rundown** (March 2015) - [screencast](https://www.youtube.com/watch?v=UdCjacdrvi4&feature=youtu.be) - [code](http://bl.ocks.org/mbostock/3885304) - A brief overview of a D3.js Bar Chart Example.
@@ -17,7 +17,7 @@ If you appreciate the content, you can
  * 07 - **Splitting Charts (Part 3) - Pie Charts & Friends** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=QCiA4fD8-Hs) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
  * 08 - **Splitting Charts (Part 4) - Small Multiples Pies** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=XN2hfpGqX4o) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
  * 09 - **Splitting Charts (Part 5) - Multi-Line Charts** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=GzH7qUVIkE8) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
- * 09 - **Splitting Charts (Part 6) - Stacked Area Charts ** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=5H7PSAqZ0Co) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
+ * 09 - **Splitting Charts (Part 6) - Stacked Area Charts** (Dec 2015) - [screencast](https://www.youtube.com/watch?v=5H7PSAqZ0Co) - [code & presentation](https://github.com/curran/screencasts/tree/gh-pages/splittingCharts)
  
 
 --------------------------------------------------

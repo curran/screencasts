@@ -1,7 +1,10 @@
-This content goes along with the video [Introduction to Node.js]().
+[![nodevid](https://cloud.githubusercontent.com/assets/68416/15093858/21e2945a-14b1-11e6-9509-591573fc4453.png)
+](https://www.youtube.com/watch?v=Rc9LJ9bdHJY)
+This content goes along with the video [Introduction to Node.js](https://www.youtube.com/watch?v=Rc9LJ9bdHJY).
 
 Resources:
 
+ * [Node.js Web Site](nodejs.org)
  * [How do I read files in node.js?](https://docs.nodejitsu.com/articles/file-system/how-to-read-files-in-nodejs)
  * [Node "fs" API documentation](https://nodejs.org/api/fs.html)
  * [Lorem Ipsum](http://www.lipsum.com/)

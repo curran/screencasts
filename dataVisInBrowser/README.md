@@ -17,3 +17,4 @@
      - Demo of Kibana-Chord plugin in action
      - Walk through the visualization code
      - Walk through the aggregation query generator
+ - React & D3

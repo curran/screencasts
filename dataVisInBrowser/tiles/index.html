@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: 0;
+  background-color: black;
+  overflow: hidden;
+}
+
+path {
+  fill: none;
+  stroke: rgb(24,205,205);
+}
+
+</style>
+<body>
+
+<script src="//d3js.org/d3.v4.0.0-alpha.50.min.js"></script>
+
+<script src="//d3js.org/topojson.v1.min.js"></script>
+
+<script src="//d3js.org/d3-tile.v0.0.min.js"></script>
+<script>
+function tileUrl(pattern){
+  return function (d){
+    return pattern
+      .replace("{x}", d[0])
+      .replace("{y}", d[1])
+      .replace("{z}", d[2])
+      .replace("{s}", ["a", "b", "c"][Math.random() * 3 | 0]);
+  };
+}
+
+d3.tileProviders = {
+  earthAtNight: tileUrl("http://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpg"),
+  stamenTonerLabels: tileUrl("http://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}.png")
+}
+  
+function tileImages(tile){
+  
+  var url = d3.tileProviders.openStreetMap;
+    
+  var images = function (raster){
+
+    var tiles = tile();
+
+    var image = raster
+        .attr("transform", "scale(" + tiles.scale + ")translate(" + tiles.translate + ")")
+      .selectAll("image")
+        .data(tiles, function(d) { return d; });
+
+    image.exit()
+        .remove();
+
+    image.enter().append("image")
+        .attr("xlink:href", url)
+        .attr("width", 1)
+        .attr("height", 1)
+        .attr("opacity", 0)
+        .attr("x", function(d) { return d[0]; })
+        .attr("y", function(d) { return d[1]; })
+        .on("load", function (){
+          d3.select(this).transition().duration(2000)
+            .attr("opacity", 1);
+        })
+  };
+  
+  images.url = function (_){
+    return arguments.length ? (url = _, images) : url;
+  }
+  
+  return images;
+}
+
+var width = Math.max(960, window.innerWidth),
+    height = Math.max(500, window.innerHeight);
+  
+var tile = d3.tile()
+    .size([width, height]);
+  
+var images1 = tileImages(tile)
+    .url(d3.tileProviders.earthAtNight);
+  
+var images2;
+
+// Load the labels after 5 seconds.
+setTimeout(function(){
+  images2 = tileImages(tile)
+    .url(d3.tileProviders.stamenTonerLabels);
+  raster2.call(images2);
+}, 5000);
+
+var projection = d3.geoMercator()
+    .scale((1 << 12) / 2 / Math.PI)
+    .translate([width / 2, height / 2]);
+
+var center = projection([-100, 40]);
+
+var path = d3.geoPath()
+    .projection(projection);
+
+var zoom = d3.zoom()
+    .on("zoom", zoomed);
+
+var initialTransform = d3.zoomIdentity
+    .translate(4103.11, 2119.35)
+    .scale(16384);
+
+// Move to the left by 1/2 pixel each frame.
+var dx = .5/initialTransform.k;
+
+// With the center computed, now adjust the projection such that
+// it uses the zoom behavior’s translate and scale.
+projection
+    .scale(1 / 2 / Math.PI)
+    .translate([0, 0]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var raster1 = svg.append("g");
+var vector1 = svg.append("path");
+var vector2 = svg.append("g");
+var raster2 = svg.append("g")
+    .attr("opacity", 0.8);
+  
+d3.json("https://gist.githubusercontent.com/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/world-110m.json", function(error, world) {
+  if (error) throw error;
+  var features = topojson.feature(world, world.objects.countries);
+  
+  svg.call(zoom).call(zoom.transform, initialTransform);
+  
+  vector1
+    .attr("opacity", 0)
+    .attr("d", path(features))
+    .transition().duration(2000)
+    .attr("opacity", 1);
+    d3.json("https://gist.githubusercontent.com/michellechandra/0b2ce4923dc9b5809922/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json", function(error, us) {
+    if (error) throw error;
+    // topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+    var features = topojson.feature(us, us.features);
+
+    svg.call(zoom).call(zoom.transform, initialTransform);
+
+    vector2.selectAll("path")
+      .data(us.features)
+      .enter()
+      .append("path")
+      .attr("opacity", 0) 
+      .attr("d", path)
+      .transition().duration(2000)
+      .attr("opacity", 1);
+      
+  });
+});
+
+function zoomed() {
+  
+  var transform = d3.event.transform; 
+  vector1
+      .attr("transform", transform)
+      .style("stroke-width", 1 / transform.k);
+  vector2
+      .attr("transform", transform)
+      .style("stroke-width", 1 / transform.k);
+ 
+  tile.scale(transform.k)
+      .translate([transform.x, transform.y])
+      ();
+  
+  raster1.call(images1);
+  
+  if(images2){
+    raster2.call(images2);
+  }
+}
+  
+var moving = true;
+svg.on("click", function (){
+  moving = !moving;
+})
+
+// Start moving West after 8 seconds.
+setTimeout(function (){
+  
+  // Assume 30 FPS.
+  var frameTime = 1000 / 30;
+  
+  var x = 0, t0 = 0;
+  d3.timer(function (t1){
+    
+    // Ease into the westward motion.
+    if(x < dx){
+      x += dx / 80;
+    }
+    
+    if(moving){
+      zoom.translateBy(svg, (t1 - t0) / frameTime * x, 0);
+    }
+    
+    t0 = t1;
+  });
+}, 8000);
+
+</script>

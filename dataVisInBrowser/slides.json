@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Introduction",
+    "id": "intro"
+  },
+  {
+    "title": "Data Visualization Theory",
+    "id": "datavis"
+  },
+  {
+    "title": "Migrant Deaths over Time",
+    "id": "migrants"
+  },
+  {
+    "title": "Religions of Largest 20 Countries",
+    "id": "religion"
+  },
+  {
+    "title": "World City Explorer",
+    "id": "cities"
+  },
+  {
+    "title": "Cross Country Trip",
+    "id": "tiles",
+    "block": "96823ad84b0415536980b1cbf57b1dcc"
+  },
+  {
+    "title": "World Countries Hierarchy",
+    "id": "countries",
+    "block": "1dd7ab046a4ed32380b21e81a38447aa"
+  },
+  {
+    "title": "Global Migration",
+    "id": "migration",
+    "block": "8c5bb1e0dd8ea98695d28c8a0ccfc533",
+    "height": 960
+  },
+  {
+    "title": "The End",
+    "id": "end"
+  }
+]

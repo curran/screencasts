@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Datavis in the Browser</title>
+    <script src="./libs/d3.v4.min.js"></script>
+    <script src="./libs/highlight.min.js"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="nav"></div>
+    <div class="content"></div>
+    <script>
+      d3.json("slides.json", function (slides){
+
+        var nav = d3.select(".nav")
+          .selectAll("div").data(slides)
+          .enter().append("div")
+            .attr("class", "nav-item");
+        nav.append("span")
+            .attr("class", function (d){
+              return d.thumbnail ? "title": "";
+            })
+            .text(function (d){ return d.title; });
+        nav.each(function (d){
+          if(d.thumbnail){
+            d3.select(this).append("img")
+              .attr("class", "thumbnail")
+              .attr("src", function (d){
+                return "./" + d.id + "/thumbnail.png";
+              });
+          }
+        });
+
+
+
+        console.log(slides);
+      });
+    </script>
+  </body>
+</html>

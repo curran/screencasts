@@ -2,7 +2,7 @@
 
 Links:
 
- * [Slides](https://docs.google.com/presentation/d/13vGUjKfT7Y4tLmnZnv8BW46ydLARVo4HvNAHseJq15I/edit#slide=id.g16b5941319_0_260)
+ * [Slides](https://docs.google.com/presentation/d/13vGUjKfT7Y4tLmnZnv8BW46ydLARVo4HvNAHseJq15I/edit#slide=id.g16b5941319_0_260) - [Slides as PDF](https://github.com/curran/screencasts/raw/gh-pages/dataVisInBrowser/slides.pdf)
  * [Pseudo Bar Chart I](http://bl.ocks.org/curran/d0c9242fe9caa5c1ac1f4d98f642c855)
  * [Pseudo Bar Chart II](http://bl.ocks.org/curran/82bb6d11bda885b0eb4f29d46b5cee86)
  * [Pseudo Bar Chart III](http://bl.ocks.org/curran/372c81dd227b33f7c9bb81f0f6796712)

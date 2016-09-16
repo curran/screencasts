@@ -2,7 +2,8 @@
 
 Links:
 
- * [Slides](https://docs.google.com/presentation/d/13vGUjKfT7Y4tLmnZnv8BW46ydLARVo4HvNAHseJq15I/edit#slide=id.g16b5941319_0_260) - [Slides as PDF](https://github.com/curran/screencasts/raw/gh-pages/dataVisInBrowser/slides.pdf)
+ * [Slides (Google Doc)](https://docs.google.com/presentation/d/13vGUjKfT7Y4tLmnZnv8BW46ydLARVo4HvNAHseJq15I/edit#slide=id.g16b5941319_0_260) - [Slides (PDF)](https://github.com/curran/screencasts/raw/gh-pages/dataVisInBrowser/slides.pdf)
+ * [SVG Wikipedia Page](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
  * [Pseudo Bar Chart I](http://bl.ocks.org/curran/d0c9242fe9caa5c1ac1f4d98f642c855)
  * [Pseudo Bar Chart II](http://bl.ocks.org/curran/82bb6d11bda885b0eb4f29d46b5cee86)
  * [Pseudo Bar Chart III](http://bl.ocks.org/curran/372c81dd227b33f7c9bb81f0f6796712)
@@ -16,3 +17,14 @@ Links:
  * [Global Migration in 2015](http://bl.ocks.org/curran/8c5bb1e0dd8ea98695d28c8a0ccfc533)
  * [Migrant Deaths over Time](http://bl.ocks.org/curran/a479b91bba14d633487e)
  * [Music Visualization](http://ribbon.humdrum.org/#Das1002) - [josquin-ribbon](https://github.com/sul-cidr/josquin-ribbon)
+
+Links from answers to questions
+
+ * On colliding points - [Bivariate Hexbin Map](http://bl.ocks.org/mbostock/4330486), [Hexagonal Binning](https://bl.ocks.org/mbostock/4248145), [Force-Directed Scatterplot](http://bl.ocks.org/rpgove/10603627)
+ * [Responding to Resize](http://bl.ocks.org/curran/3a68b0c81991e2e94b19)
+ * On reusability
+   * [Towards Reusable Charts](https://bost.ocks.org/mike/chart/)
+   * [NVD3](http://nvd3.org/)
+   * [C3](http://c3js.org/)
+   * [Dimple](http://dimplejs.org/)
+   * [Vega](https://vega.github.io/vega/) - [Vega Demos](http://vega.github.io/vega-editor/?mode=vega&spec=choropleth)

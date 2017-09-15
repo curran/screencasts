@@ -1,5 +1,7 @@
 # Introduction to D3
 
+Also check out this [video course: D3.js in Motion](https://www.manning.com/livevideo/d3-js-in-motion).
+
 [![](D3Thumbnail.png)](https://www.youtube.com/watch?v=8jvoTV54nXw)
 
  * [YouTube Video Presentation](https://www.youtube.com/watch?v=8jvoTV54nXw)

@@ -1,8 +1,6 @@
 This repository contains code that goes along with [my screencasts](http://www.youtube.com/user/currankelleher/videos).
 
-If you appreciate this work, please consider [supporting me on Patreon](https://www.patreon.com/user?u=2916242&ty=h) or [tip me with ChangeTip](http://curran.tip.me/).
-
-You can also hire me as a consultant, please reach out with inquiries at curran@datavis.tech.
+Also check out this [video course: D3.js in Motion](https://www.manning.com/livevideo/d3-js-in-motion).
 
 ## D3 101
 

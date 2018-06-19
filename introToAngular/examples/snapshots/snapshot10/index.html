@@ -1,13 +1,14 @@
-<html ng-app>
+<html ng-app = "myapp">
   <head>
     <meta charset="utf-8">
     <title>Angular.js Example</title>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
     <script>
-      function NameCtrl($scope){
+      var app = angular.module("myapp");
+      myapp.controller("NameCtrl",function($scope){
         $scope.firstName = 'John';
         $scope.lastName = 'Smith';
-      }
+      })
     </script>
   </head>
   <body ng-controller="NameCtrl">

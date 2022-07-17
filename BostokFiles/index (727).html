@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.node circle {
+  fill: #ddd;
+}
+
+.node:hover circle {
+  stroke: #000;
+  stroke-width: 1.2px;
+}
+
+</style>
+<svg width="960" height="960"><g transform="translate(1,1)"></g></svg>
+<script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var format = d3.format(",d");
+
+var pack = d3.pack()
+    .size([width - 2, height - 2])
+    .padding(3);
+
+d3.csv("flare.csv", type, function(error, data) {
+  if (error) throw error;
+
+  var root = d3.hierarchy({children: data})
+      .sum(function(d) { return d.value; })
+      .sort(function(a, b) { return b.value - a.value; });
+
+  pack(root);
+
+  var node = svg.select("g")
+    .selectAll("g")
+    .data(root.children)
+    .enter().append("g")
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .attr("class", "node");
+
+  node.append("circle")
+      .attr("id", function(d) { return "node-" + d.data.id; })
+      .attr("r", function(d) { return d.r; });
+
+  node.append("clipPath")
+      .attr("id", function(d) { return "clip-" + d.data.id; })
+    .append("use")
+      .attr("xlink:href", function(d) { return "#node-" + d.data.id + ""; });
+
+  node.append("text")
+      .attr("clip-path", function(d) { return "url(#clip-" + d.data.id + ")"; })
+    .selectAll("tspan")
+      .data(function(d) { return d.data.id.split(".").pop().split(/(?=[A-Z][^A-Z])/g); })
+    .enter().append("tspan")
+      .attr("x", 0)
+      .attr("y", function(d, i, nodes) { return 13 + (i - nodes.length / 2 - 0.5) * 10; })
+      .text(function(d) { return d; });
+
+  node.append("title")
+      .text(function(d) { return d.data.id + "\n" + format(d.value); });
+});
+
+function type(d) {
+  return (d.value = +d.value) ? d : null;
+}
+
+</script>

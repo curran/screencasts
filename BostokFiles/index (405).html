@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var area = 1, simplify = d3.geo.transform({
+  point: function(x, y, z) {
+    if (z >= area) this.stream.point(x, y);
+  }
+});
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection(simplify)
+    .context(context);
+
+d3.json("us.json", function(error, topo) {
+  if (error) throw error;
+
+  canvas
+      .datum(topojson.mesh(topojson.presimplify(topo)))
+    .transition()
+      .duration(2500)
+      .each(resimplify);
+});
+
+function render() {
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  canvas.each(path);
+  context.stroke();
+}
+
+function resimplify() {
+  var t = d3.select(this);
+  (function repeat() {
+    t = t.transition()
+        .tween("area", areaTween(20))
+      .transition()
+        .tween("area", areaTween(.5))
+        .each("end", repeat);
+  })();
+}
+
+function areaTween(area1) {
+  return function(d) {
+    var i = d3.interpolate(area, area1);
+    return function(t) {
+      area = i(t);
+      render();
+    };
+  };
+}
+
+</script>

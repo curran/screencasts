@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="//d3js.org/d3-timer.v0.3.min.js"></script>
+<script src="//d3js.org/d3-ease.v0.7.min.js"></script>
+<script src="isometric.js"></script>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height;
+
+var isocontext = isometric(context);
+isocontext.scale3d(30, 30, 30);
+
+d3_timer.timer(function(elapsed) {
+  context.save();
+  context.clearRect(0, 0, width, height);
+  context.fillStyle = "#fff";
+  context.strokeStyle = "#000";
+  context.translate(width / 2, height * 0.6);
+  for (var x = 14, d, t = (elapsed / 5000) % 1; x >= -14; --x) {
+    for (var y = 14; y >= -14; --y) {
+      if ((d = distanceManhattan(x, y)) > 15) continue;
+      var te = d3_ease.easeCubic(Math.max(0, Math.min(1, t * 4.8 - distanceCartesian(x, y) / 5)));
+      drawCube((d & 1 ? -1 : +1) * (Math.PI / 4 - te * Math.PI / 2), x * 1.42, y * 1.42 + te * (x & 1 ? 1 : -1) * 1.42, te * 1.42 * 2);
+    }
+  }
+  context.restore();
+});
+
+function distanceCartesian(x, y) {
+  return Math.sqrt(x * x + y * y);
+}
+
+function distanceManhattan(x, y) {
+  return Math.abs(x) + Math.abs(y);
+}
+
+function drawCube(angle, x, y, z) {
+  if ((angle %= Math.PI / 2) < 0) angle += Math.PI / 2;
+  isocontext.save();
+  isocontext.translate3d(x, y, z);
+  isocontext.rotateZ(angle - Math.PI / 4);
+
+  context.beginPath();
+  isocontext.moveTo(+0.5, -0.5, +0.5);
+  isocontext.lineTo(+0.5, +0.5, +0.5);
+  isocontext.lineTo(-0.5, +0.5, +0.5);
+  isocontext.lineTo(-0.5, +0.5, -0.5);
+  isocontext.lineTo(-0.5, -0.5, -0.5);
+  isocontext.lineTo(+0.5, -0.5, -0.5);
+  isocontext.closePath();
+  context.fill();
+  context.lineWidth = 1.5;
+  context.stroke();
+
+  context.beginPath();
+  isocontext.moveTo(-0.5, -0.5, +0.5);
+  isocontext.lineTo(+0.5, -0.5, +0.5);
+  isocontext.moveTo(-0.5, -0.5, +0.5);
+  isocontext.lineTo(-0.5, +0.5, +0.5);
+  isocontext.moveTo(-0.5, -0.5, +0.5);
+  isocontext.lineTo(-0.5, -0.5, -0.5);
+  context.lineWidth = 0.75;
+  context.stroke();
+
+  isocontext.restore();
+}
+
+</script>

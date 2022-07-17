@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: #ccc;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 500 15px "Helvetica Neue";
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    radius = height / 2 - 20;
+
+var arc = d3.svg.arc()
+    .innerRadius(0)
+    .outerRadius(radius);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.selectAll("g")
+    .data([
+      {startAngle: Math.PI / 4, endAngle: 3 * Math.PI / 4, text: "This is a clockwise arc."},
+      {startAngle: 3 * Math.PI / 4, endAngle: Math.PI / 4, text: "This is a counterclockwise arc."}
+    ])
+  .enter().append("g")
+    .attr("transform", function(d, i) { return "translate(" + ((i + .5) * width / 3) + "," + height / 2 + ")"; });
+
+g.append("path")
+    .attr("d", arc)
+    .attr("id", function(d, i) { return "arc-" + i; });
+
+g.append("text")
+    .attr("dx", 5)
+    .attr("dy", -5)
+  .append("textPath")
+    .attr("xlink:href", function(d, i) { return "#arc-" + i; })
+    .text(function(d) { return d.text; });
+
+</script>

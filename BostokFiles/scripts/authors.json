@@ -1,0 +1,6035 @@
+
+{
+    "name": "aggregate domains",
+    "children": [
+        {
+            "name": "bl.ocks.org",
+            "children": [
+                {
+                    "name": "leondutoit",
+                    "size": 1
+                },
+                {
+                    "name": "dahtah",
+                    "size": 1
+                },
+                {
+                    "name": "Ross Kirsling",
+                    "size": 1
+                },
+                {
+                    "name": "jfarid27",
+                    "size": 1
+                },
+                {
+                    "name": "Iain Dillingham",
+                    "size": 1
+                },
+                {
+                    "name": "Samuel Leach",
+                    "size": 1
+                },
+                {
+                    "name": "Bill Scheidel",
+                    "size": 3
+                },
+                {
+                    "name": "jmgimeno",
+                    "size": 1
+                },
+                {
+                    "name": "Jeremy Stucki",
+                    "size": 4
+                },
+                {
+                    "name": "bewest",
+                    "size": 1
+                },
+                {
+                    "name": "dk8996",
+                    "size": 1
+                },
+                {
+                    "name": "John Delacour",
+                    "size": 1
+                },
+                {
+                    "name": "Caged",
+                    "size": 1
+                },
+                {
+                    "name": "Sara Quigley",
+                    "size": 1
+                },
+                {
+                    "name": "bobbydavid",
+                    "size": 2
+                },
+                {
+                    "name": "bdon",
+                    "size": 1
+                },
+                {
+                    "name": "Charl Botha",
+                    "size": 1
+                },
+                {
+                    "name": "anonymous",
+                    "size": 1
+                },
+                {
+                    "name": "Jon K. Schneider",
+                    "size": 1
+                },
+                {
+                    "name": "j0hnsmith",
+                    "size": 2
+                },
+                {
+                    "name": "Gregor Aisch",
+                    "size": 2
+                },
+                {
+                    "name": "cloudshapes",
+                    "size": 1
+                },
+                {
+                    "name": "sboak",
+                    "size": 1
+                },
+                {
+                    "name": "Guerino1",
+                    "size": 1
+                },
+                {
+                    "name": "D3noob",
+                    "size": 1
+                },
+                {
+                    "name": "d",
+                    "size": 4
+                },
+                {
+                    "name": "t3o-it",
+                    "size": 1
+                },
+                {
+                    "name": "Richard Westenra",
+                    "size": 1
+                },
+                {
+                    "name": "milroc",
+                    "size": 2
+                },
+                {
+                    "name": "dwtkns",
+                    "size": 1
+                },
+                {
+                    "name": "CodeXmonk",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock",
+                    "size": 648
+                },
+                {
+                    "name": "Will Turman",
+                    "size": 1
+                },
+                {
+                    "name": "Harry Voorhees",
+                    "size": 1
+                },
+                {
+                    "name": "ilyabo",
+                    "size": 1
+                },
+                {
+                    "name": "Matt Parker",
+                    "size": 1
+                },
+                {
+                    "name": "syntagmatic",
+                    "size": 4
+                },
+                {
+                    "name": "Reinhard Engel",
+                    "size": 1
+                },
+                {
+                    "name": "J__zsef Hornyik",
+                    "size": 1
+                },
+                {
+                    "name": "Rob Schmuecker",
+                    "size": 1
+                },
+                {
+                    "name": "Ziggy Jonsson",
+                    "size": 6
+                },
+                {
+                    "name": "Simon Barthelm_©",
+                    "size": 1
+                },
+                {
+                    "name": "Liji Jinaraj",
+                    "size": 1
+                },
+                {
+                    "name": "herrstucki",
+                    "size": 1
+                },
+                {
+                    "name": "Tom Nightingale",
+                    "size": 5
+                },
+                {
+                    "name": "Aaron Beppu",
+                    "size": 1
+                },
+                {
+                    "name": "ericcitaire",
+                    "size": 1
+                },
+                {
+                    "name": "Ian Johnson",
+                    "size": 3
+                },
+                {
+                    "name": "Tyler Craft",
+                    "size": 1
+                },
+                {
+                    "name": "Sylvain Gizard",
+                    "size": 1
+                },
+                {
+                    "name": "Kenton Russell",
+                    "size": 1
+                },
+                {
+                    "name": "hlvoorhees",
+                    "size": 2
+                },
+                {
+                    "name": "e-",
+                    "size": 1
+                },
+                {
+                    "name": "yonester",
+                    "size": 1
+                },
+                {
+                    "name": "Christophe Viau",
+                    "size": 1
+                },
+                {
+                    "name": "Matt Woelk",
+                    "size": 2
+                },
+                {
+                    "name": "chaitanyagurrapu",
+                    "size": 1
+                },
+                {
+                    "name": "jo",
+                    "size": 1
+                },
+                {
+                    "name": "Tom MacWright; Christopher Manning",
+                    "size": 1
+                },
+                {
+                    "name": "Andrew Hill",
+                    "size": 1
+                },
+                {
+                    "name": "Jeff Bordogna",
+                    "size": 1
+                },
+                {
+                    "name": "Nate Miller",
+                    "size": 1
+                },
+                {
+                    "name": "Rob Story",
+                    "size": 1
+                },
+                {
+                    "name": "upphiminn",
+                    "size": 1
+                },
+                {
+                    "name": "Gerd Niemetz",
+                    "size": 1
+                },
+                {
+                    "name": "Ken-ichi Ueda",
+                    "size": 1
+                },
+                {
+                    "name": "explunit",
+                    "size": 2
+                },
+                {
+                    "name": "Stephen Bannasch",
+                    "size": 2
+                },
+                {
+                    "name": "Jesse Heitler",
+                    "size": 1
+                },
+                {
+                    "name": "timelyportfolio",
+                    "size": 1
+                },
+                {
+                    "name": "Andrew Thornton",
+                    "size": 1
+                },
+                {
+                    "name": "Nikhil Sonnad",
+                    "size": 2
+                },
+                {
+                    "name": "jazzido",
+                    "size": 1
+                },
+                {
+                    "name": "Bruno Perel",
+                    "size": 1
+                },
+                {
+                    "name": "Chris B. Rich",
+                    "size": 2
+                },
+                {
+                    "name": "d3noob",
+                    "size": 1
+                },
+                {
+                    "name": "Sudeep Das",
+                    "size": 1
+                },
+                {
+                    "name": "Johan Sundstrom",
+                    "size": 2
+                },
+                {
+                    "name": "Ward Cunningham",
+                    "size": 1
+                },
+                {
+                    "name": "Tim Swast",
+                    "size": 1
+                },
+                {
+                    "name": "sjengle",
+                    "size": 1
+                },
+                {
+                    "name": "z-m-k",
+                    "size": 1
+                },
+                {
+                    "name": "Ali Gencay",
+                    "size": 1
+                },
+                {
+                    "name": "benjchristensen",
+                    "size": 1
+                },
+                {
+                    "name": "Kenton Russel",
+                    "size": 6
+                },
+                {
+                    "name": "Miles McCrocklin",
+                    "size": 5
+                },
+                {
+                    "name": "Diego Valle-Jones",
+                    "size": 1
+                },
+                {
+                    "name": "Moritz Stefaner",
+                    "size": 1
+                },
+                {
+                    "name": "John Czaplewski",
+                    "size": 1
+                },
+                {
+                    "name": "Vladimir Agafonkin",
+                    "size": 1
+                },
+                {
+                    "name": "Erik Solen",
+                    "size": 1
+                },
+                {
+                    "name": "Roland Dunn",
+                    "size": 1
+                },
+                {
+                    "name": "couchand",
+                    "size": 1
+                },
+                {
+                    "name": "Tom Carden",
+                    "size": 1
+                },
+                {
+                    "name": "Nick Rabinowitz",
+                    "size": 1
+                },
+                {
+                    "name": "Sujay Vennam",
+                    "size": 2
+                },
+                {
+                    "name": "Jason Davies",
+                    "size": 2
+                },
+                {
+                    "name": "Ger Hobbelt",
+                    "size": 2
+                },
+                {
+                    "name": "nsonnad",
+                    "size": 2
+                },
+                {
+                    "name": "Tom MacWright",
+                    "size": 1
+                },
+                {
+                    "name": "calvinmetcalf",
+                    "size": 1
+                },
+                {
+                    "name": "Ricardo Marimon",
+                    "size": 3
+                },
+                {
+                    "name": "mattsacks",
+                    "size": 1
+                },
+                {
+                    "name": "oncletom",
+                    "size": 1
+                },
+                {
+                    "name": "Ben Elsen",
+                    "size": 1
+                },
+                {
+                    "name": "Christopher Manning",
+                    "size": 4
+                },
+                {
+                    "name": "Kerry Rodden",
+                    "size": 1
+                },
+                {
+                    "name": "other1",
+                    "size": 1
+                },
+                {
+                    "name": "other2",
+                    "size": 1
+                },
+                {
+                    "name": "other3",
+                    "size": 1
+                },
+                {
+                    "name": "other4",
+                    "size": 1
+                },
+                {
+                    "name": "other5",
+                    "size": 1
+                },
+                {
+                    "name": "other6",
+                    "size": 1
+                },
+                {
+                    "name": "other7",
+                    "size": 1
+                },
+                {
+                    "name": "other8",
+                    "size": 1
+                },
+                {
+                    "name": "other9",
+                    "size": 1
+                },
+                {
+                    "name": "other10",
+                    "size": 1
+                },
+                {
+                    "name": "other11",
+                    "size": 1
+                },
+                {
+                    "name": "other12",
+                    "size": 1
+                },
+                {
+                    "name": "other13",
+                    "size": 1
+                },
+                {
+                    "name": "other14",
+                    "size": 1
+                },
+                {
+                    "name": "other15",
+                    "size": 1
+                },
+                {
+                    "name": "other16",
+                    "size": 1
+                },
+                {
+                    "name": "other17",
+                    "size": 1
+                },
+                {
+                    "name": "other18",
+                    "size": 1
+                },
+                {
+                    "name": "other19",
+                    "size": 1
+                },
+                {
+                    "name": "other20",
+                    "size": 1
+                },
+                {
+                    "name": "other21",
+                    "size": 1
+                },
+                {
+                    "name": "other22",
+                    "size": 1
+                },
+                {
+                    "name": "other23",
+                    "size": 1
+                },
+                {
+                    "name": "other24",
+                    "size": 1
+                },
+                {
+                    "name": "other25",
+                    "size": 1
+                },
+                {
+                    "name": "other26",
+                    "size": 1
+                },
+                {
+                    "name": "other27",
+                    "size": 1
+                },
+                {
+                    "name": "other28",
+                    "size": 1
+                },
+                {
+                    "name": "other29",
+                    "size": 1
+                },
+                {
+                    "name": "other30",
+                    "size": 1
+                },
+                {
+                    "name": "other31",
+                    "size": 1
+                },
+                {
+                    "name": "other32",
+                    "size": 1
+                },
+                {
+                    "name": "other33",
+                    "size": 1
+                },
+                {
+                    "name": "other34",
+                    "size": 1
+                },
+                {
+                    "name": "other35",
+                    "size": 1
+                },
+                {
+                    "name": "other36",
+                    "size": 1
+                },
+                {
+                    "name": "other37",
+                    "size": 1
+                },
+                {
+                    "name": "other38",
+                    "size": 1
+                },
+                {
+                    "name": "other39",
+                    "size": 1
+                },
+                {
+                    "name": "other40",
+                    "size": 1
+                },
+                {
+                    "name": "other41",
+                    "size": 1
+                },
+                {
+                    "name": "other42",
+                    "size": 1
+                },
+                {
+                    "name": "other43",
+                    "size": 1
+                },
+                {
+                    "name": "other44",
+                    "size": 1
+                },
+                {
+                    "name": "other45",
+                    "size": 1
+                },
+                {
+                    "name": "other46",
+                    "size": 1
+                },
+                {
+                    "name": "other47",
+                    "size": 1
+                },
+                {
+                    "name": "other48",
+                    "size": 1
+                },
+                {
+                    "name": "other49",
+                    "size": 1
+                },
+                {
+                    "name": "other50",
+                    "size": 1
+                },
+                {
+                    "name": "other51",
+                    "size": 1
+                },
+                {
+                    "name": "other52",
+                    "size": 1
+                },
+                {
+                    "name": "other53",
+                    "size": 1
+                },
+                {
+                    "name": "other54",
+                    "size": 1
+                },
+                {
+                    "name": "other55",
+                    "size": 1
+                },
+                {
+                    "name": "other56",
+                    "size": 1
+                },
+                {
+                    "name": "other57",
+                    "size": 1
+                },
+                {
+                    "name": "other58",
+                    "size": 1
+                },
+                {
+                    "name": "other59",
+                    "size": 1
+                },
+                {
+                    "name": "other60",
+                    "size": 1
+                },
+                {
+                    "name": "Nate Vack",
+                    "size": 1
+                },
+                {
+                    "name": "Michael Hoy",
+                    "size": 1
+                },
+                {
+                    "name": "benzguo",
+                    "size": 1
+                },
+                {
+                    "name": "Bj__rn Sandvik",
+                    "size": 1
+                },
+                {
+                    "name": "Derek Watkins",
+                    "size": 1
+                },
+                {
+                    "name": "Byron Gibson",
+                    "size": 1
+                },
+                {
+                    "name": "Simon Barthelmew",
+                    "size": 1
+                },
+                {
+                    "name": "Julian Burgess",
+                    "size": 1
+                },
+                {
+                    "name": "Kai Chang",
+                    "size": 6
+                },
+                {
+                    "name": "cpbotha",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "github",
+            "children": [
+                {
+                    "name": "mhemesath",
+                    "size": 1
+                },
+                {
+                    "name": "hughsk",
+                    "size": 1
+                },
+                {
+                    "name": "hadley",
+                    "size": 1
+                },
+                {
+                    "name": "Ross Kirsling",
+                    "size": 1
+                },
+                {
+                    "name": "benbjohnson",
+                    "size": 1
+                },
+                {
+                    "name": "esrgc",
+                    "size": 1
+                },
+                {
+                    "name": "d3",
+                    "size": 2
+                },
+                {
+                    "name": "fod",
+                    "size": 1
+                },
+                {
+                    "name": "fullscale",
+                    "size": 1
+                },
+                {
+                    "name": "Rackspace",
+                    "size": 1
+                },
+                {
+                    "name": "Jessica Lor",
+                    "size": 1
+                },
+                {
+                    "name": "Cristian Carpenter",
+                    "size": 1
+                },
+                {
+                    "name": "blog",
+                    "size": 1
+                },
+                {
+                    "name": "Simon Metson",
+                    "size": 1
+                },
+                {
+                    "name": "Jeremy Stucki",
+                    "size": 1
+                },
+                {
+                    "name": "unconed",
+                    "size": 1
+                },
+                {
+                    "name": "Nils Schlomann",
+                    "size": 1
+                },
+                {
+                    "name": "Hugh Kennedy",
+                    "size": 1
+                },
+                {
+                    "name": "Brendan Heberton",
+                    "size": 1
+                },
+                {
+                    "name": "Caged",
+                    "size": 1
+                },
+                {
+                    "name": "Marcello La Rocca",
+                    "size": 1
+                },
+                {
+                    "name": "Idan Gazit; Yuval Adam; David Katz",
+                    "size": 1
+                },
+                {
+                    "name": "dansdom",
+                    "size": 2
+                },
+                {
+                    "name": "Scott Cheng",
+                    "size": 1
+                },
+                {
+                    "name": "timelyportfolio",
+                    "size": 2
+                },
+                {
+                    "name": "Mike Bostock",
+                    "size": 27
+                },
+                {
+                    "name": "Anil Omanwar",
+                    "size": 1
+                },
+                {
+                    "name": "square",
+                    "size": 4
+                },
+                {
+                    "name": "Louis de Valli_®re; Peter Pong; Sam Herbert",
+                    "size": 1
+                },
+                {
+                    "name": "Reinhard Engel",
+                    "size": 3
+                },
+                {
+                    "name": "Nick Zhu",
+                    "size": 1
+                },
+                {
+                    "name": "milafrerichs",
+                    "size": 2
+                },
+                {
+                    "name": "Patrick Martin",
+                    "size": 1
+                },
+                {
+                    "name": "imaginea",
+                    "size": 1
+                },
+                {
+                    "name": "Kenneth Auchenberg",
+                    "size": 1
+                },
+                {
+                    "name": "Ziggy Jonsson",
+                    "size": 1
+                },
+                {
+                    "name": "Calvin Metcalf",
+                    "size": 1
+                },
+                {
+                    "name": "JavaScript User Group Munich",
+                    "size": 1
+                },
+                {
+                    "name": "Ian Johnson",
+                    "size": 8
+                },
+                {
+                    "name": "Swizec Teller",
+                    "size": 1
+                },
+                {
+                    "name": "Andrew Sutherland",
+                    "size": 1
+                },
+                {
+                    "name": "Ben Shaw",
+                    "size": 2
+                },
+                {
+                    "name": "KartikTalwar",
+                    "size": 1
+                },
+                {
+                    "name": "Javier de la Torre",
+                    "size": 1
+                },
+                {
+                    "name": "Matt Davis; Erik Bray",
+                    "size": 1
+                },
+                {
+                    "name": "MinnPost",
+                    "size": 1
+                },
+                {
+                    "name": "migurski",
+                    "size": 1
+                },
+                {
+                    "name": "dyninc",
+                    "size": 1
+                },
+                {
+                    "name": "Mark DiMarco",
+                    "size": 1
+                },
+                {
+                    "name": "Areski Belaid",
+                    "size": 1
+                },
+                {
+                    "name": "ipython",
+                    "size": 1
+                },
+                {
+                    "name": "David Ciarletta",
+                    "size": 1
+                },
+                {
+                    "name": "shutterstock",
+                    "size": 1
+                },
+                {
+                    "name": "Daniel Rodriguez",
+                    "size": 1
+                },
+                {
+                    "name": "Ramnath Vaidyanathan",
+                    "size": 3
+                },
+                {
+                    "name": "Dmitry Kandalov",
+                    "size": 1
+                },
+                {
+                    "name": "Rob Story",
+                    "size": 1
+                },
+                {
+                    "name": "Nacho Caballero",
+                    "size": 1
+                },
+                {
+                    "name": "Goran Halusa",
+                    "size": 1
+                },
+                {
+                    "name": "mikedewar",
+                    "size": 1
+                },
+                {
+                    "name": "Stefan Krastanov",
+                    "size": 1
+                },
+                {
+                    "name": "tenxer",
+                    "size": 1
+                },
+                {
+                    "name": "hhuuggoo",
+                    "size": 1
+                },
+                {
+                    "name": "Lorem Ipsum",
+                    "size": 1
+                },
+                {
+                    "name": "Stephen Bannasch",
+                    "size": 1
+                },
+                {
+                    "name": "Daniel Korenblum",
+                    "size": 1
+                },
+                {
+                    "name": "David Cox",
+                    "size": 1
+                },
+                {
+                    "name": "Lars Grammel",
+                    "size": 1
+                },
+                {
+                    "name": "zonca",
+                    "size": 1
+                },
+                {
+                    "name": "syntagmatic",
+                    "size": 1
+                },
+                {
+                    "name": "Chris Helm",
+                    "size": 1
+                },
+                {
+                    "name": "alexbbrown",
+                    "size": 1
+                },
+                {
+                    "name": "Quartz",
+                    "size": 1
+                },
+                {
+                    "name": "Chris Pettitt",
+                    "size": 1
+                },
+                {
+                    "name": "eyeseast",
+                    "size": 1
+                },
+                {
+                    "name": "Nick Rabinowitz",
+                    "size": 1
+                },
+                {
+                    "name": "Philip Roberts",
+                    "size": 2
+                },
+                {
+                    "name": "Brendan's Weather",
+                    "size": 1
+                },
+                {
+                    "name": "Piotr Migdal",
+                    "size": 2
+                },
+                {
+                    "name": "k9ert",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Wallace; Simon Metson",
+                    "size": 1
+                },
+                {
+                    "name": "danielfrg",
+                    "size": 1
+                },
+                {
+                    "name": "caged",
+                    "size": 1
+                },
+                {
+                    "name": "iros",
+                    "size": 1
+                },
+                {
+                    "name": "sammyt",
+                    "size": 1
+                },
+                {
+                    "name": "Anton Katunin",
+                    "size": 1
+                },
+                {
+                    "name": "sammyd",
+                    "size": 1
+                },
+                {
+                    "name": "Zack Maril",
+                    "size": 1
+                },
+                {
+                    "name": "Quynh Neutron; Nicholas Bollweg",
+                    "size": 1
+                },
+                {
+                    "name": "Tom MacWright",
+                    "size": 1
+                },
+                {
+                    "name": "calvinmetcalf",
+                    "size": 2
+                },
+                {
+                    "name": "CrowdStrike",
+                    "size": 1
+                },
+                {
+                    "name": "cakey",
+                    "size": 1
+                },
+                {
+                    "name": "Ramesh Sridharan",
+                    "size": 1
+                },
+                {
+                    "name": "Saranyan Vigraham",
+                    "size": 1
+                },
+                {
+                    "name": "Philippe Guglielmetti",
+                    "size": 1
+                },
+                {
+                    "name": "lbrucher",
+                    "size": 1
+                },
+                {
+                    "name": "Brad F. Lyon",
+                    "size": 1
+                },
+                {
+                    "name": "Erik Cunningham",
+                    "size": 1
+                },
+                {
+                    "name": "Alan Palazzolo",
+                    "size": 2
+                },
+                {
+                    "name": "Nanda Yadav",
+                    "size": 2
+                },
+                {
+                    "name": "Christopher Manning",
+                    "size": 1
+                },
+                {
+                    "name": "bertranddechoux",
+                    "size": 1
+                },
+                {
+                    "name": "MrCactu5",
+                    "size": 1
+                },
+                {
+                    "name": "Dimitry Kudryavtsev",
+                    "size": 1
+                },
+                {
+                    "name": "Przemyslaw Kaminski",
+                    "size": 1
+                },
+                {
+                    "name": "exploringdata",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Parsons",
+                    "size": 1
+                },
+                {
+                    "name": "gajus",
+                    "size": 2
+                },
+                {
+                    "name": "webmonarch",
+                    "size": 1
+                },
+                {
+                    "name": "kenhub",
+                    "size": 1
+                },
+                {
+                    "name": "Deepak Gulati",
+                    "size": 1
+                },
+                {
+                    "name": "Vadim Ogievetsky",
+                    "size": 2
+                },
+                {
+                    "name": "azundo",
+                    "size": 1
+                },
+                {
+                    "name": "boorad",
+                    "size": 1
+                },
+                {
+                    "name": "dustinlarimer",
+                    "size": 1
+                },
+                {
+                    "name": "johan",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jasondavies.com",
+            "children": [
+                {
+                    "name": "Jason Davies",
+                    "size": 71
+                }
+            ]
+        },
+        {
+            "name": "dimplejs.org",
+            "children": [
+                {
+                    "name": "John Kiernander",
+                    "size": 67
+                }
+            ]
+        },
+        {
+            "name": "tributary.io",
+            "children": [
+                {
+                    "name": "Erik Hazzard",
+                    "size": 2
+                },
+                {
+                    "name": "Ian Johnson",
+                    "size": 8
+                },
+                {
+                    "name": "Bruce Hubbard",
+                    "size": 1
+                },
+                {
+                    "name": "Anton Katunin",
+                    "size": 1
+                },
+                {
+                    "name": "Christophe Viau",
+                    "size": 2
+                },
+                {
+                    "name": "other61",
+                    "size": 1
+                },
+                {
+                    "name": "other62",
+                    "size": 1
+                },
+                {
+                    "name": "other63",
+                    "size": 1
+                },
+                {
+                    "name": "other64",
+                    "size": 1
+                },
+                {
+                    "name": "other65",
+                    "size": 1
+                },
+                {
+                    "name": "other66",
+                    "size": 1
+                },
+                {
+                    "name": "other67",
+                    "size": 1
+                },
+                {
+                    "name": "other68",
+                    "size": 1
+                },
+                {
+                    "name": "other69",
+                    "size": 1
+                },
+                {
+                    "name": "other70",
+                    "size": 1
+                },
+                {
+                    "name": "other71",
+                    "size": 1
+                },
+                {
+                    "name": "other72",
+                    "size": 1
+                },
+                {
+                    "name": "other73",
+                    "size": 1
+                },
+                {
+                    "name": "other74",
+                    "size": 1
+                },
+                {
+                    "name": "other75",
+                    "size": 1
+                },
+                {
+                    "name": "other76",
+                    "size": 1
+                },
+                {
+                    "name": "other77",
+                    "size": 1
+                },
+                {
+                    "name": "other78",
+                    "size": 1
+                },
+                {
+                    "name": "other79",
+                    "size": 1
+                },
+                {
+                    "name": "other80",
+                    "size": 1
+                },
+                {
+                    "name": "other81",
+                    "size": 1
+                },
+                {
+                    "name": "other82",
+                    "size": 1
+                },
+                {
+                    "name": "other83",
+                    "size": 1
+                },
+                {
+                    "name": "other84",
+                    "size": 1
+                },
+                {
+                    "name": "Dealga McArdle",
+                    "size": 4
+                }
+            ]
+        },
+        {
+            "name": "nytimes.com",
+            "children": [
+                {
+                    "name": "Shan Carter",
+                    "size": 1
+                },
+                {
+                    "name": "NYTimes",
+                    "size": 12
+                },
+                {
+                    "name": "Mike Bostock; Shan Carter; Josh Keller",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock; Matthew Ericson; David Leonhardt; Bill Marsh",
+                    "size": 1
+                },
+                {
+                    "name": "Jeremy Ashkenas",
+                    "size": 1
+                },
+                {
+                    "name": "Kevin Quealy",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock; Shan Carter; Kevin Quealy",
+                    "size": 1
+                },
+                {
+                    "name": "Shan Carter; Kevin Quealy; Joe Ward",
+                    "size": 1
+                },
+                {
+                    "name": "Jonathan Corum",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock; Kevin Quealy; Matthew Ericson",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock; Shan Carter; Amanda Cox",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jeromecukier.net",
+            "children": [
+                {
+                    "name": "other85",
+                    "size": 1
+                },
+                {
+                    "name": "other86",
+                    "size": 1
+                },
+                {
+                    "name": "other87",
+                    "size": 1
+                },
+                {
+                    "name": "other88",
+                    "size": 1
+                },
+                {
+                    "name": "Jerome Cukier",
+                    "size": 13
+                }
+            ]
+        },
+        {
+            "name": "bost.ocks.org",
+            "children": [
+                {
+                    "name": "other89",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock",
+                    "size": 16
+                }
+            ]
+        },
+        {
+            "name": "blogspot",
+            "children": [
+                {
+                    "name": "Bruce McPherson",
+                    "size": 2
+                },
+                {
+                    "name": "Tomer Doron",
+                    "size": 1
+                },
+                {
+                    "name": "Brad F. Lyon",
+                    "size": 1
+                },
+                {
+                    "name": "Jan Fajfr",
+                    "size": 1
+                },
+                {
+                    "name": "other90",
+                    "size": 1
+                },
+                {
+                    "name": "other91",
+                    "size": 1
+                },
+                {
+                    "name": "other92",
+                    "size": 1
+                },
+                {
+                    "name": "other93",
+                    "size": 1
+                },
+                {
+                    "name": "Astek",
+                    "size": 1
+                },
+                {
+                    "name": "Kenton Russel",
+                    "size": 3
+                },
+                {
+                    "name": "Andrew Davis",
+                    "size": 2
+                },
+                {
+                    "name": "Bharat Bhole",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "wordpress.com",
+            "children": [
+                {
+                    "name": "Michiel van der Blonk",
+                    "size": 1
+                },
+                {
+                    "name": "Paul Crickard",
+                    "size": 1
+                },
+                {
+                    "name": "Sven Hafner",
+                    "size": 3
+                },
+                {
+                    "name": "Ralph",
+                    "size": 1
+                },
+                {
+                    "name": "Joris Schelfaut",
+                    "size": 1
+                },
+                {
+                    "name": "other94",
+                    "size": 1
+                },
+                {
+                    "name": "other95",
+                    "size": 1
+                },
+                {
+                    "name": "other96",
+                    "size": 1
+                },
+                {
+                    "name": "Dylan Harper",
+                    "size": 1
+                },
+                {
+                    "name": "Patrick Martin",
+                    "size": 1
+                },
+                {
+                    "name": "Jerome Gagnon-Voyer",
+                    "size": 1
+                },
+                {
+                    "name": "BigSnarf",
+                    "size": 1
+                },
+                {
+                    "name": "Karl W Broman",
+                    "size": 1
+                },
+                {
+                    "name": "Ralf Klammer",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "vallandingham.me",
+            "children": [
+                {
+                    "name": "other97",
+                    "size": 1
+                },
+                {
+                    "name": "other98",
+                    "size": 1
+                },
+                {
+                    "name": "Jim Vallandingham",
+                    "size": 13
+                }
+            ]
+        },
+        {
+            "name": "jsfiddle.net",
+            "children": [
+                {
+                    "name": "MrCactu5",
+                    "size": 5
+                },
+                {
+                    "name": "HT de Beer",
+                    "size": 1
+                },
+                {
+                    "name": "anonymous",
+                    "size": 6
+                },
+                {
+                    "name": "Christophe Viau",
+                    "size": 1
+                },
+                {
+                    "name": "John Wun",
+                    "size": 1
+                },
+                {
+                    "name": "Phil Laliberte",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "herokuapp",
+            "children": [
+                {
+                    "name": "Samuel Leach",
+                    "size": 1
+                },
+                {
+                    "name": "Ari Russo",
+                    "size": 1
+                },
+                {
+                    "name": "Chris Fritz",
+                    "size": 1
+                },
+                {
+                    "name": "Nikolay Smirnov",
+                    "size": 1
+                },
+                {
+                    "name": "Tore Nauta",
+                    "size": 1
+                },
+                {
+                    "name": "other99",
+                    "size": 1
+                },
+                {
+                    "name": "other100",
+                    "size": 1
+                },
+                {
+                    "name": "other101",
+                    "size": 1
+                },
+                {
+                    "name": "other102",
+                    "size": 1
+                },
+                {
+                    "name": "other103",
+                    "size": 1
+                },
+                {
+                    "name": "other104",
+                    "size": 1
+                },
+                {
+                    "name": "Ziggy Jonsson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "prcweb",
+            "children": [
+                {
+                    "name": "other105",
+                    "size": 1
+                },
+                {
+                    "name": "other106",
+                    "size": 1
+                },
+                {
+                    "name": "other107",
+                    "size": 1
+                },
+                {
+                    "name": "Peter Cook",
+                    "size": 7
+                }
+            ]
+        },
+        {
+            "name": "youtube.com",
+            "children": [
+                {
+                    "name": "Nathan Smith",
+                    "size": 1
+                },
+                {
+                    "name": "D3vienno",
+                    "size": 1
+                },
+                {
+                    "name": "Dot Install",
+                    "size": 1
+                },
+                {
+                    "name": "other108",
+                    "size": 1
+                },
+                {
+                    "name": "other109",
+                    "size": 1
+                },
+                {
+                    "name": "other110",
+                    "size": 1
+                },
+                {
+                    "name": "S Anand",
+                    "size": 1
+                },
+                {
+                    "name": "Sameer Segal",
+                    "size": 1
+                },
+                {
+                    "name": "Brendan Kenny",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "roadtolarissa.com",
+            "children": [
+                {
+                    "name": "Adam Pearce",
+                    "size": 7
+                },
+                {
+                    "name": "other111",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cloudshapes.co.uk",
+            "children": [
+                {
+                    "name": "other112",
+                    "size": 1
+                },
+                {
+                    "name": "other113",
+                    "size": 1
+                },
+                {
+                    "name": "Roland Dunn",
+                    "size": 5
+                }
+            ]
+        },
+        {
+            "name": "visualizing.org",
+            "children": [
+                {
+                    "name": "Kyle Foreman; Peter Hamilton; Cristina Grigoruta",
+                    "size": 1
+                },
+                {
+                    "name": "Jan Willem Tulp",
+                    "size": 1
+                },
+                {
+                    "name": "Eduardo Graells; Ruth Garcia",
+                    "size": 1
+                },
+                {
+                    "name": "other114",
+                    "size": 1
+                },
+                {
+                    "name": "other115",
+                    "size": 1
+                },
+                {
+                    "name": "Artem Zubkov",
+                    "size": 1
+                },
+                {
+                    "name": "Mahir M. Yavuz",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "tips-for-excel.com",
+            "children": [
+                {
+                    "name": "other116",
+                    "size": 1
+                },
+                {
+                    "name": "other117",
+                    "size": 1
+                },
+                {
+                    "name": "other118",
+                    "size": 1
+                },
+                {
+                    "name": "other119",
+                    "size": 1
+                },
+                {
+                    "name": "other120",
+                    "size": 1
+                },
+                {
+                    "name": "other121",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "billdwhite.com",
+            "children": [
+                {
+                    "name": "Bill White",
+                    "size": 6
+                }
+            ]
+        },
+        {
+            "name": "visual.ly",
+            "children": [
+                {
+                    "name": "Jerome Cukier",
+                    "size": 1
+                },
+                {
+                    "name": "Ian Johnson",
+                    "size": 1
+                },
+                {
+                    "name": "other122",
+                    "size": 1
+                },
+                {
+                    "name": "EJ Fox",
+                    "size": 2
+                },
+                {
+                    "name": "Aleksandra Todorova",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rstudio.com",
+            "children": [
+                {
+                    "name": "other123",
+                    "size": 1
+                },
+                {
+                    "name": "other124",
+                    "size": 1
+                },
+                {
+                    "name": "Ramnath Vaidyanathan",
+                    "size": 2
+                },
+                {
+                    "name": "Alex B Brown",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "vislives.com",
+            "children": [
+                {
+                    "name": "Chris Pudney",
+                    "size": 1
+                },
+                {
+                    "name": "other125",
+                    "size": 1
+                },
+                {
+                    "name": "other126",
+                    "size": 1
+                },
+                {
+                    "name": "other127",
+                    "size": 1
+                },
+                {
+                    "name": "other128",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "diegovalle.net",
+            "children": [
+                {
+                    "name": "other129",
+                    "size": 1
+                },
+                {
+                    "name": "Diego Valle-Jones",
+                    "size": 4
+                }
+            ]
+        },
+        {
+            "name": "ramblings.mcpher.com",
+            "children": [
+                {
+                    "name": "other130",
+                    "size": 1
+                },
+                {
+                    "name": "other131",
+                    "size": 1
+                },
+                {
+                    "name": "Bruce McPherson",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "macwright.org",
+            "children": [
+                {
+                    "name": "Tom MacWright",
+                    "size": 5
+                }
+            ]
+        },
+        {
+            "name": "christophermanning.org",
+            "children": [
+                {
+                    "name": "Christopher Manning",
+                    "size": 4
+                }
+            ]
+        },
+        {
+            "name": "mgrafit.com",
+            "children": [
+                {
+                    "name": "other132",
+                    "size": 1
+                },
+                {
+                    "name": "Francois Mercier",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "vida.io",
+            "children": [
+                {
+                    "name": "Phuoc Do",
+                    "size": 3
+                },
+                {
+                    "name": "other133",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "trends.truliablog.com",
+            "children": [
+                {
+                    "name": "other134",
+                    "size": 1
+                },
+                {
+                    "name": "other135",
+                    "size": 1
+                },
+                {
+                    "name": "other136",
+                    "size": 1
+                },
+                {
+                    "name": "other137",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "appspot",
+            "children": [
+                {
+                    "name": "Healthvis",
+                    "size": 3
+                },
+                {
+                    "name": "other138",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "exposedata.com",
+            "children": [
+                {
+                    "name": "Kai Chang",
+                    "size": 3
+                },
+                {
+                    "name": "other139",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "vimeo.com",
+            "children": [
+                {
+                    "name": "Mike Dewar",
+                    "size": 1
+                },
+                {
+                    "name": "Ian Johnson",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock",
+                    "size": 1
+                },
+                {
+                    "name": "Andrew Cholakian",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bit.ly",
+            "children": [
+                {
+                    "name": "other140",
+                    "size": 1
+                },
+                {
+                    "name": "other141",
+                    "size": 1
+                },
+                {
+                    "name": "other142",
+                    "size": 1
+                },
+                {
+                    "name": "Brad F. Lyon",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nextgenetics.net",
+            "children": [
+                {
+                    "name": "Damian Kao",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "d3noob.org",
+            "children": [
+                {
+                    "name": "d3noob",
+                    "size": 2
+                },
+                {
+                    "name": "other143",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ssz.fr",
+            "children": [
+                {
+                    "name": "other144",
+                    "size": 1
+                },
+                {
+                    "name": "other145",
+                    "size": 1
+                },
+                {
+                    "name": "other146",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "shimz.me",
+            "children": [
+                {
+                    "name": "shimz",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "artzub.com",
+            "children": [
+                {
+                    "name": "Artem Zubkov",
+                    "size": 1
+                },
+                {
+                    "name": "other147",
+                    "size": 1
+                },
+                {
+                    "name": "other148",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hanhtrinhkientruc.org",
+            "children": [
+                {
+                    "name": "Trang Hoan",
+                    "size": 2
+                },
+                {
+                    "name": "Tr·ª\\u7ba7 Hoan",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "xliberation.com",
+            "children": [
+                {
+                    "name": "other149",
+                    "size": 1
+                },
+                {
+                    "name": "other150",
+                    "size": 1
+                },
+                {
+                    "name": "Bruce McPherson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "techslides.com",
+            "children": [
+                {
+                    "name": "other151",
+                    "size": 1
+                },
+                {
+                    "name": "other152",
+                    "size": 1
+                },
+                {
+                    "name": "other153",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "new-bamboo.co.uk",
+            "children": [
+                {
+                    "name": "other154",
+                    "size": 1
+                },
+                {
+                    "name": "other155",
+                    "size": 1
+                },
+                {
+                    "name": "Makoto Inoue",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ouseful.info",
+            "children": [
+                {
+                    "name": "Tony Hirst",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "pejl.svt.se",
+            "children": [
+                {
+                    "name": "Daniel Lapidus",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "benjchristensen.com",
+            "children": [
+                {
+                    "name": "other156",
+                    "size": 1
+                },
+                {
+                    "name": "other157",
+                    "size": 1
+                },
+                {
+                    "name": "Ben J. Christensen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "fleetinbeing.net",
+            "children": [
+                {
+                    "name": "other158",
+                    "size": 1
+                },
+                {
+                    "name": "other159",
+                    "size": 1
+                },
+                {
+                    "name": "Kai Chang",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "polychart.com",
+            "children": [
+                {
+                    "name": "other160",
+                    "size": 1
+                },
+                {
+                    "name": "other161",
+                    "size": 1
+                },
+                {
+                    "name": "other162",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "speakerdeck.com",
+            "children": [
+                {
+                    "name": "other163",
+                    "size": 1
+                },
+                {
+                    "name": "other164",
+                    "size": 1
+                },
+                {
+                    "name": "other165",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "theory.info",
+            "children": [
+                {
+                    "name": "other166",
+                    "size": 1
+                },
+                {
+                    "name": "other167",
+                    "size": 1
+                },
+                {
+                    "name": "other168",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "data.karmi.cz",
+            "children": [
+                {
+                    "name": "Karel Mina",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "dl.dropbox.com",
+            "children": [
+                {
+                    "name": "Dealga McArdle",
+                    "size": 1
+                },
+                {
+                    "name": "other169",
+                    "size": 1
+                },
+                {
+                    "name": "other170",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "meetup.com",
+            "children": [
+                {
+                    "name": "other171",
+                    "size": 1
+                },
+                {
+                    "name": "other172",
+                    "size": 1
+                },
+                {
+                    "name": "other173",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "mikemcdearmon.com",
+            "children": [
+                {
+                    "name": "Mike McDearmon",
+                    "size": 3
+                }
+            ]
+        },
+        {
+            "name": "sasanalysis.com",
+            "children": [
+                {
+                    "name": "other174",
+                    "size": 1
+                },
+                {
+                    "name": "other175",
+                    "size": 1
+                },
+                {
+                    "name": "other176",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "mapbox.com",
+            "children": [
+                {
+                    "name": "other177",
+                    "size": 1
+                },
+                {
+                    "name": "other178",
+                    "size": 1
+                },
+                {
+                    "name": "other179",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "mechanicalscribe.com",
+            "children": [
+                {
+                    "name": "Chris Wilson",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "vis.uell.net",
+            "children": [
+                {
+                    "name": "other180",
+                    "size": 1
+                },
+                {
+                    "name": "other181",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "stanford.edu",
+            "children": [
+                {
+                    "name": "Gary Lee; Anirudh Venkatesh",
+                    "size": 1
+                },
+                {
+                    "name": "other182",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "labratrevenge.com",
+            "children": [
+                {
+                    "name": "Justin Palmer",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "tulpinteractive.com",
+            "children": [
+                {
+                    "name": "Jan Willem Tulp",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "phrogz.net",
+            "children": [
+                {
+                    "name": "other183",
+                    "size": 1
+                },
+                {
+                    "name": "other184",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "charts.graphicbaseball.com",
+            "children": [
+                {
+                    "name": "Will Turman",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "datadrivenjournalism.net",
+            "children": [
+                {
+                    "name": "other185",
+                    "size": 1
+                },
+                {
+                    "name": "Edmund Tadros",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "drewconway.com",
+            "children": [
+                {
+                    "name": "other186",
+                    "size": 1
+                },
+                {
+                    "name": "Drew Conway",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "littleearth.ca",
+            "children": [
+                {
+                    "name": "Jamie Popkin",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "googledrive.com",
+            "children": [
+                {
+                    "name": "Johnathan Mercer; Balaji Pandian",
+                    "size": 1
+                },
+                {
+                    "name": "other187",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dewmap.com",
+            "children": [
+                {
+                    "name": "other188",
+                    "size": 1
+                },
+                {
+                    "name": "Mike Bostock",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ralphstraumann.ch",
+            "children": [
+                {
+                    "name": "Ralph Straumann",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "ustream.tv",
+            "children": [
+                {
+                    "name": "Carin Meier",
+                    "size": 1
+                },
+                {
+                    "name": "Jim McCusker",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "larsko.org",
+            "children": [
+                {
+                    "name": "Lars Kotthoff",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "janwillemtulp.com",
+            "children": [
+                {
+                    "name": "Jan Willem Tulp",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "vctr.me",
+            "children": [
+                {
+                    "name": "Victor Powell",
+                    "size": 1
+                },
+                {
+                    "name": "other189",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "luiscarli.com",
+            "children": [
+                {
+                    "name": "Luis Carli",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "markhansen.co.nz",
+            "children": [
+                {
+                    "name": "Mark Hansen",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "enja.org",
+            "children": [
+                {
+                    "name": "Ian Johnson",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "smartjava.org",
+            "children": [
+                {
+                    "name": "other190",
+                    "size": 1
+                },
+                {
+                    "name": "other191",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dashingd3js.com",
+            "children": [
+                {
+                    "name": "DashingD3js",
+                    "size": 1
+                },
+                {
+                    "name": "Dashingd3js",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "infocaptor.com",
+            "children": [
+                {
+                    "name": "other192",
+                    "size": 1
+                },
+                {
+                    "name": "other193",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "michaelporath.com",
+            "children": [
+                {
+                    "name": "Michael Porath",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "safaribooksonline.com",
+            "children": [
+                {
+                    "name": "other194",
+                    "size": 1
+                },
+                {
+                    "name": "other195",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "theoldbeggar.com",
+            "children": [
+                {
+                    "name": "Nikhil Sonnad",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "mapsnapps.com",
+            "children": [
+                {
+                    "name": "other196",
+                    "size": 1
+                },
+                {
+                    "name": "other197",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "code.hazzens.com",
+            "children": [
+                {
+                    "name": "Mikey Levine",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "maxdemarzi.com",
+            "children": [
+                {
+                    "name": "Max De Marzi",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "ggruiz.me",
+            "children": [
+                {
+                    "name": "other198",
+                    "size": 1
+                },
+                {
+                    "name": "other199",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "christopheviau.com",
+            "children": [
+                {
+                    "name": "Christophe Viau",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "lightjs.org",
+            "children": [
+                {
+                    "name": "other200",
+                    "size": 1
+                },
+                {
+                    "name": "other201",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "pixelingene.com",
+            "children": [
+                {
+                    "name": "other202",
+                    "size": 1
+                },
+                {
+                    "name": "other203",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "skyrill.com",
+            "children": [
+                {
+                    "name": "Ali Almossawi",
+                    "size": 1
+                },
+                {
+                    "name": "Skyrill.com",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sepans.com",
+            "children": [
+                {
+                    "name": "other204",
+                    "size": 1
+                },
+                {
+                    "name": "other205",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "eng.wealthfront.com",
+            "children": [
+                {
+                    "name": "Matt Baker",
+                    "size": 1
+                },
+                {
+                    "name": "Wealthfront",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "geowiki.com",
+            "children": [
+                {
+                    "name": "Richard Fairhurst",
+                    "size": 1
+                },
+                {
+                    "name": "other206",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "charlesmartinreid.com",
+            "children": [
+                {
+                    "name": "Charles Martin Reid",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "thinkdatavis.com",
+            "children": [
+                {
+                    "name": "other207",
+                    "size": 1
+                },
+                {
+                    "name": "other208",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dataviz-factory.com",
+            "children": [
+                {
+                    "name": "other209",
+                    "size": 1
+                },
+                {
+                    "name": "other210",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "futureadvisor.com",
+            "children": [
+                {
+                    "name": "Amelia Greenhall",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "vis.stanford.edu",
+            "children": [
+                {
+                    "name": "Jeff Heer",
+                    "size": 1
+                },
+                {
+                    "name": "Michael Bostock, Vadim Ogievetsky, Jeffrey Heer",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "flowingdata.com",
+            "children": [
+                {
+                    "name": "other211",
+                    "size": 1
+                },
+                {
+                    "name": "Jim Vallandingham",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ericbullington.com",
+            "children": [
+                {
+                    "name": "other212",
+                    "size": 1
+                },
+                {
+                    "name": "Eric S. Bullington",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "yuri.io",
+            "children": [
+                {
+                    "name": "Yuri Feldman",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "mashe.hawksey.info",
+            "children": [
+                {
+                    "name": "Martin Hawksey",
+                    "size": 2
+                }
+            ]
+        },
+        {
+            "name": "bitbucket.org",
+            "children": [
+                {
+                    "name": "Hernan Rojas",
+                    "size": 1
+                },
+                {
+                    "name": "David Graf",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "xn--dahlstrm-t4a.net",
+            "children": [
+                {
+                    "name": "Erik Dahlstr__m",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "csclub.uwaterloo.ca",
+            "children": [
+                {
+                    "name": "other213",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "webtasks.keck.waisman.wisc.edu",
+            "children": [
+                {
+                    "name": "Nate Vack",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "philau.willbowman.com",
+            "children": [
+                {
+                    "name": "other214",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "tympanus.net",
+            "children": [
+                {
+                    "name": "Tyler Craft",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "budget.brettmandel.com",
+            "children": [
+                {
+                    "name": "Ben Garvey",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ramjoshi.com",
+            "children": [
+                {
+                    "name": "other215",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "michaeljgleeson.com",
+            "children": [
+                {
+                    "name": "other216",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "tradearc.laserdeathstehr.com",
+            "children": [
+                {
+                    "name": "Nathan Stehr",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "labs.data-publica.com",
+            "children": [
+                {
+                    "name": "datapublica",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "lastchart.com",
+            "children": [
+                {
+                    "name": "other217",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "influencermoth.com",
+            "children": [
+                {
+                    "name": "Erik Driessen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "othellomap.nand.io",
+            "children": [
+                {
+                    "name": "Stephan Thiel",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "busrac.es",
+            "children": [
+                {
+                    "name": "other218",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "christinabergey.com",
+            "children": [
+                {
+                    "name": "other219",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nzz.ch",
+            "children": [
+                {
+                    "name": "other220",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "noahveltman.com",
+            "children": [
+                {
+                    "name": "Noah Veltman",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "skybluetrades.net",
+            "children": [
+                {
+                    "name": "Ian Ross",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "money.cnn.com",
+            "children": [
+                {
+                    "name": "other221",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "empire5.com",
+            "children": [
+                {
+                    "name": "other222",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rhokaustin.org",
+            "children": [
+                {
+                    "name": "other223",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "pasdechocolat.com",
+            "children": [
+                {
+                    "name": "Kyle Oba",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "vis.databeast.org",
+            "children": [
+                {
+                    "name": "Cosmin Cabulea",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "slodge.com",
+            "children": [
+                {
+                    "name": "Stuart Lodge",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "retrofitanalysis.org",
+            "children": [
+                {
+                    "name": "other224",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "blogs.infoecho.net",
+            "children": [
+                {
+                    "name": "other225",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "scott.j38.net",
+            "children": [
+                {
+                    "name": "other226",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "newscientist.com",
+            "children": [
+                {
+                    "name": "other227",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "redotheweb.com",
+            "children": [
+                {
+                    "name": "Fran_\\u07efis Zaninotto",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "improve.ro",
+            "children": [
+                {
+                    "name": "Harta Politicii",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dotuscomus.com",
+            "children": [
+                {
+                    "name": "Domenico Strazzullo",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ghostweather.com",
+            "children": [
+                {
+                    "name": "other228",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "goo.gl",
+            "children": [
+                {
+                    "name": "David Rio Deiros",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "livecoding.gabrielflor.it",
+            "children": [
+                {
+                    "name": "other229",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "visual-baseball.com",
+            "children": [
+                {
+                    "name": "Ken Cherven",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "vvvvjs.quasipartikel.at",
+            "children": [
+                {
+                    "name": "other230",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "computationallyendowed.com",
+            "children": [
+                {
+                    "name": "other231",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nesterko.com",
+            "children": [
+                {
+                    "name": "other232",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "neuralengr.com",
+            "children": [
+                {
+                    "name": "other233",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "peopleviz.gforge.inria.fr",
+            "children": [
+                {
+                    "name": "Jeremy Boy",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bibviz.com",
+            "children": [
+                {
+                    "name": "other234",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "lemonde.fr",
+            "children": [
+                {
+                    "name": "other235",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "gkarthik.net",
+            "children": [
+                {
+                    "name": "G. Karthik",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "simple.com",
+            "children": [
+                {
+                    "name": "other236",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "telostats.com",
+            "children": [
+                {
+                    "name": "Idan Gazit; Yuval Adam",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "marc.razoo.com",
+            "children": [
+                {
+                    "name": "other237",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jeanabbiateci.fr",
+            "children": [
+                {
+                    "name": "other238",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ui-cloud.com",
+            "children": [
+                {
+                    "name": "other239",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cedricsam.no-ip.org",
+            "children": [
+                {
+                    "name": "Cedric Sam",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "coovtech.com",
+            "children": [
+                {
+                    "name": "Billy Coover",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "grublog.grubhub.com",
+            "children": [
+                {
+                    "name": "other240",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rnstahl.net",
+            "children": [
+                {
+                    "name": "other241",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "zoomdata.com",
+            "children": [
+                {
+                    "name": "Zoomdata",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bitjuice.com.au",
+            "children": [
+                {
+                    "name": "other242",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "listen.hatnote.com",
+            "children": [
+                {
+                    "name": "other243",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "apcjones.com",
+            "children": [
+                {
+                    "name": "other244",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "halftone.co",
+            "children": [
+                {
+                    "name": "Halftone",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "faridrener.com",
+            "children": [
+                {
+                    "name": "other245",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "007.lucklaboratories.com",
+            "children": [
+                {
+                    "name": "other246",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cgmartin.com",
+            "children": [
+                {
+                    "name": "Christopher Martin",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hn.metamx.com",
+            "children": [
+                {
+                    "name": "Vadim Ogievetsky",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ncc.cchmc.org",
+            "children": [
+                {
+                    "name": "other247",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "3angular.roberryarts.com",
+            "children": [
+                {
+                    "name": "other248",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "charts.sohdoc.org",
+            "children": [
+                {
+                    "name": "other249",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "meloncholy.com",
+            "children": [
+                {
+                    "name": "other250",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "benclinkinbeard.com",
+            "children": [
+                {
+                    "name": "Ben Clinkinbeard",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "gabrielflor.it",
+            "children": [
+                {
+                    "name": "other251",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "densitydesign.org",
+            "children": [
+                {
+                    "name": "DensityDesign",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ultrasaurus.com",
+            "children": [
+                {
+                    "name": "Sarah Allen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "keminglabs.com",
+            "children": [
+                {
+                    "name": "Kevin Lynagh",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "threatwiki.thesentinelproject.org",
+            "children": [
+                {
+                    "name": "Jerome Gagnon",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "shancarter.com",
+            "children": [
+                {
+                    "name": "Shan Carter",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "collusion.toolness.org",
+            "children": [
+                {
+                    "name": "Atul Varma",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "2013.poster.thirteen23.com",
+            "children": [
+                {
+                    "name": "Adam Luikart",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "deepakg.com",
+            "children": [
+                {
+                    "name": "Deepak Gulati",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "flashbit.com:3000",
+            "children": [
+                {
+                    "name": "Mary Beth Smrtic",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "thematicmapping.org",
+            "children": [
+                {
+                    "name": "other252",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rfw.name",
+            "children": [
+                {
+                    "name": "other253",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "beautifuldata.eu",
+            "children": [
+                {
+                    "name": "Phoebe Bright; Finn Macleod",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "okfestival.org",
+            "children": [
+                {
+                    "name": "other254",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "appstorerankings.net",
+            "children": [
+                {
+                    "name": "other255",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "playground.anthonyly.com",
+            "children": [
+                {
+                    "name": "Samuel Huron; Romain Vuillemot",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cdn-smooth.ms-studiosmedia.com",
+            "children": [
+                {
+                    "name": "Mike Bostock",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datafart.com",
+            "children": [
+                {
+                    "name": "other256",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "codeproject.com",
+            "children": [
+                {
+                    "name": "Espen Harlinn",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "exploreanalytics.com",
+            "children": [
+                {
+                    "name": "other257",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "i-m-code.com",
+            "children": [
+                {
+                    "name": "other258",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cfcl.com",
+            "children": [
+                {
+                    "name": "other259",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "skedasis.com",
+            "children": [
+                {
+                    "name": "Hamilton Ulmer",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "2011.12devsofxmas.co.uk",
+            "children": [
+                {
+                    "name": "Clinton Montague",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "congress.joshreyes.com",
+            "children": [
+                {
+                    "name": "Joshua A. Reyes",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "phyzkit.net",
+            "children": [
+                {
+                    "name": "kontan",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "downtonipsum.com",
+            "children": [
+                {
+                    "name": "other260",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "interactivos.lanacion.com.ar",
+            "children": [
+                {
+                    "name": "Manuel Aristaran",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "michelepasin.org",
+            "children": [
+                {
+                    "name": "other261",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "oscarvillarreal.com",
+            "children": [
+                {
+                    "name": "Oscar Villarreal",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "thecelestialweb.com",
+            "children": [
+                {
+                    "name": "Ali Almossawi",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "events.current.com",
+            "children": [
+                {
+                    "name": "Current TV",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "addepar.com",
+            "children": [
+                {
+                    "name": "other262",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "gelicia.com",
+            "children": [
+                {
+                    "name": "other263",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "elections.nytimes.com",
+            "children": [
+                {
+                    "name": "NYTimes",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "labs.radiantmachines.com",
+            "children": [
+                {
+                    "name": "Joshua Gourneau",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "wiki.cfcl.com",
+            "children": [
+                {
+                    "name": "Rich Morin",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "skillshare.com",
+            "children": [
+                {
+                    "name": "Kenny Peng",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "medialab-prado.es",
+            "children": [
+                {
+                    "name": "other264",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "woodchanges.com",
+            "children": [
+                {
+                    "name": "Luis Carli; Rafael Passarelli",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "researchcenter.paloaltonetworks.com",
+            "children": [
+                {
+                    "name": "other265",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nationalpriorities.org",
+            "children": [
+                {
+                    "name": "other266",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "d3export.cancan.cshl.edu",
+            "children": [
+                {
+                    "name": "other267",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "weblog.bocoup.com",
+            "children": [
+                {
+                    "name": "Mike Pennisi",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "osrc.dfm.io",
+            "children": [
+                {
+                    "name": "Dan Foreman-Mackey",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "chop.leeds.ac.uk",
+            "children": [
+                {
+                    "name": "Vincent Hiribarren",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "immersion.media.mit.edu",
+            "children": [
+                {
+                    "name": "other268",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ja.d3js.info",
+            "children": [
+                {
+                    "name": "other269",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datameer.com",
+            "children": [
+                {
+                    "name": "other270",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "koalastothemax.com",
+            "children": [
+                {
+                    "name": "Vadim Ogievetsky",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "pbs.org",
+            "children": [
+                {
+                    "name": "other271",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dan.iel.fm",
+            "children": [
+                {
+                    "name": "other272",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "benh.co.uk",
+            "children": [
+                {
+                    "name": "Ben Hagan",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rockstarstatistics.com",
+            "children": [
+                {
+                    "name": "Ryan Gehring",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "graves.cl",
+            "children": [
+                {
+                    "name": "Alvaro Graves",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "khawai.com",
+            "children": [
+                {
+                    "name": "other273",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "docs.jboss.org",
+            "children": [
+                {
+                    "name": "other274",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "traffix.jitsu.com",
+            "children": [
+                {
+                    "name": "other275",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "matthewisabel.com",
+            "children": [
+                {
+                    "name": "other276",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "mapbrief.com",
+            "children": [
+                {
+                    "name": "other277",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cartodb.com",
+            "children": [
+                {
+                    "name": "CartoDB",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "freshteapot.net",
+            "children": [
+                {
+                    "name": "other278",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nlpviz.bpodgursky.com",
+            "children": [
+                {
+                    "name": "other279",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "somebits.com",
+            "children": [
+                {
+                    "name": "other280",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jeeltcraft.com",
+            "children": [
+                {
+                    "name": "other281",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "trisul.org",
+            "children": [
+                {
+                    "name": "other282",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "theartofasking.com",
+            "children": [
+                {
+                    "name": "Siamac Fazli; Bastian Venthur",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "latentflip.com",
+            "children": [
+                {
+                    "name": "other283",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "labs.wnstnsmth.net",
+            "children": [
+                {
+                    "name": "other284",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cesium.agi.com",
+            "children": [
+                {
+                    "name": "other285",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hotspots.io",
+            "children": [
+                {
+                    "name": "other286",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "n79.org",
+            "children": [
+                {
+                    "name": "Nikhil Bobb",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dccode.org",
+            "children": [
+                {
+                    "name": "other287",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "notacog.com",
+            "children": [
+                {
+                    "name": "other288",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "skydb.io",
+            "children": [
+                {
+                    "name": "Ben Johnson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "alexrothenberg.com",
+            "children": [
+                {
+                    "name": "AlexRothenberg",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bioviz.rocq.inria.fr",
+            "children": [
+                {
+                    "name": "Toby Dylan Hocking",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jcla1.com",
+            "children": [
+                {
+                    "name": "other289",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "benmcmahen.com",
+            "children": [
+                {
+                    "name": "Ben McMahen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dwtkns.com",
+            "children": [
+                {
+                    "name": "Derek Watkins",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "chart.io",
+            "children": [
+                {
+                    "name": "other290",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jeybalachandran.com",
+            "children": [
+                {
+                    "name": "Jey Balachandran",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "architects.dzone.com",
+            "children": [
+                {
+                    "name": "Swizec Teller",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "felix-kling.de",
+            "children": [
+                {
+                    "name": "Felix Kling",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "graphicbaseball.com",
+            "children": [
+                {
+                    "name": "Will Turman",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "priceonomics.com",
+            "children": [
+                {
+                    "name": "other291",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "andrewberls.com",
+            "children": [
+                {
+                    "name": "other292",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "entsphere.com",
+            "children": [
+                {
+                    "name": "daniel korenblum",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bitdeli.com",
+            "children": [
+                {
+                    "name": "other293",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "phloxblog.in",
+            "children": [
+                {
+                    "name": "other294",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hiregion.com",
+            "children": [
+                {
+                    "name": "other295",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dexvis.com",
+            "children": [
+                {
+                    "name": "Patrick Martin",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "veengle.com",
+            "children": [
+                {
+                    "name": "other296",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "lantern-ui.jit.su",
+            "children": [
+                {
+                    "name": "other297",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sulab.org",
+            "children": [
+                {
+                    "name": "other298",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "codecademy.com",
+            "children": [
+                {
+                    "name": "Jiecheng Zhao",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "quasipartikel.at",
+            "children": [
+                {
+                    "name": "other299",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "gov.uk",
+            "children": [
+                {
+                    "name": "other300",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "frakturmedia.net",
+            "children": [
+                {
+                    "name": "other301",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "stockr.com",
+            "children": [
+                {
+                    "name": "Brad Whitcomb",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "thehackernotes.com",
+            "children": [
+                {
+                    "name": "other302",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datastori.es",
+            "children": [
+                {
+                    "name": "Mike Bostock; Shan Carter",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "echen.me",
+            "children": [
+                {
+                    "name": "Edwin Chen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "names.darkgreener.com",
+            "children": [
+                {
+                    "name": "Anna Powell-Smith",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "netlab.tkk.fi",
+            "children": [
+                {
+                    "name": "Varun Singh",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "students.mimuw.edu.pl",
+            "children": [
+                {
+                    "name": "Robert Kozikowski",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "knowhuddle.com",
+            "children": [
+                {
+                    "name": "other303",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sizethreestudios.com",
+            "children": [
+                {
+                    "name": "Danny Hadley",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "meshu.io",
+            "children": [
+                {
+                    "name": "other304",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "adilapapaya.com",
+            "children": [
+                {
+                    "name": "other305",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "adobe.com",
+            "children": [
+                {
+                    "name": "Adobe Web Platform",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datavelib.com",
+            "children": [
+                {
+                    "name": "Cyril Gantzer",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ollieglass.com",
+            "children": [
+                {
+                    "name": "Ollie Glass",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "streamlinedataworks.com",
+            "children": [
+                {
+                    "name": "Anna Mehrotra",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "muertematernaenargentina.org",
+            "children": [
+                {
+                    "name": "other306",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "tw.rpi.edu",
+            "children": [
+                {
+                    "name": "Jim McCusker",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "davidmasad.com",
+            "children": [
+                {
+                    "name": "other307",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dev.geosprocket.com",
+            "children": [
+                {
+                    "name": "Bill Morris",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "news.yahoo.com",
+            "children": [
+                {
+                    "name": "Chris Wilson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "briantford.com",
+            "children": [
+                {
+                    "name": "Brian Ford",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "docs.google.com",
+            "children": [
+                {
+                    "name": "Demeter Sztanko",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "games.netherrealm.net",
+            "children": [
+                {
+                    "name": "other308",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "recursion.org",
+            "children": [
+                {
+                    "name": "Luke Francl",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "my.safaribooksonline.com",
+            "children": [
+                {
+                    "name": "other309",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "visionofhumanity.org",
+            "children": [
+                {
+                    "name": "Vision of Humanity",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "getmetrica.com",
+            "children": [
+                {
+                    "name": "Metrica",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dev.klp.org.in",
+            "children": [
+                {
+                    "name": "other310",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "wiki.smu.edu.sg",
+            "children": [
+                {
+                    "name": "other311",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "plot.io",
+            "children": [
+                {
+                    "name": "other312",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "openfrance.lightjs.org",
+            "children": [
+                {
+                    "name": "Lightjs",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "joostkiens.com",
+            "children": [
+                {
+                    "name": "other313",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "planet.jboss.org",
+            "children": [
+                {
+                    "name": "Heiko Rupp",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "mathieu-elie.net",
+            "children": [
+                {
+                    "name": "Mathieu Elie",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "blogs.law.harvard.edu",
+            "children": [
+                {
+                    "name": "other314",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "keenjar.com",
+            "children": [
+                {
+                    "name": "other315",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "catchanalyst.co.nz",
+            "children": [
+                {
+                    "name": "Jamie Popkin",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dataveyes.com",
+            "children": [
+                {
+                    "name": "Dataveyes",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "create.visual.ly",
+            "children": [
+                {
+                    "name": "other316",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "tweitgeist.colinsurprenant.com",
+            "children": [
+                {
+                    "name": "Colin Surprenant",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "livecoding.io",
+            "children": [
+                {
+                    "name": "other317",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "capitolmarkets.com",
+            "children": [
+                {
+                    "name": "other318",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "WhoDoTheyServe.com",
+            "children": [
+                {
+                    "name": "other319",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "andra.nl",
+            "children": [
+                {
+                    "name": "other320",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "vcwatershed.net",
+            "children": [
+                {
+                    "name": "other321",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dealloc.me",
+            "children": [
+                {
+                    "name": "Justin Palmer",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "socr.ucla.edu",
+            "children": [
+                {
+                    "name": "SOCR",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "wordpressyeah.com",
+            "children": [
+                {
+                    "name": "other322",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "humblesoftware.com",
+            "children": [
+                {
+                    "name": "other323",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bdon.org",
+            "children": [
+                {
+                    "name": "other324",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "fanfarefantastique.com",
+            "children": [
+                {
+                    "name": "Marc-Olivier Ricard",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ameliamango.com",
+            "children": [
+                {
+                    "name": "Amelia Mango",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "biostat.wisc.edu",
+            "children": [
+                {
+                    "name": "other325",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "the-beautiful-table.com",
+            "children": [
+                {
+                    "name": "Jonathan Ferry",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "my.infocaptor.com",
+            "children": [
+                {
+                    "name": "Nilesh Jethwa",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "codementum.org",
+            "children": [
+                {
+                    "name": "other326",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "do.minik.us",
+            "children": [
+                {
+                    "name": "other327",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "toc.oreilly.com",
+            "children": [
+                {
+                    "name": "other328",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "data-story.org",
+            "children": [
+                {
+                    "name": "Decio Battaglia; Kevin Mahoney; Xiaoying Riley",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "forrst.com",
+            "children": [
+                {
+                    "name": "other329",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hsilomedus.me",
+            "children": [
+                {
+                    "name": "Pance Cavkovski",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "thestoryoftheseason.com",
+            "children": [
+                {
+                    "name": "Anna Powell-Smith",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "wealthfront.com",
+            "children": [
+                {
+                    "name": "Jared Jacobs",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dbrgn.ch",
+            "children": [
+                {
+                    "name": "Danilo Bargen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cssdeck.com",
+            "children": [
+                {
+                    "name": "other330",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "d3-generator.com",
+            "children": [
+                {
+                    "name": "other331",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nvd3.org",
+            "children": [
+                {
+                    "name": "Bob Monteverde",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "simplystatistics.org",
+            "children": [
+                {
+                    "name": "Jeff Leek",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "lutzroeder.com",
+            "children": [
+                {
+                    "name": "Lutz Roeder",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "orbis.stanford.edu",
+            "children": [
+                {
+                    "name": "other332",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "chimera.labs.oreilly.com",
+            "children": [
+                {
+                    "name": "Scott Murray",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "web-maps.com",
+            "children": [
+                {
+                    "name": "Randy George",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sizes.darkgreener.com",
+            "children": [
+                {
+                    "name": "Anna Powell-Smith",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "stackoverflow.com",
+            "children": [
+                {
+                    "name": "other333",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "lemur.ecs.soton.ac.uk",
+            "children": [
+                {
+                    "name": "Christopher Guetteridge",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "css.dzone.com",
+            "children": [
+                {
+                    "name": "other334",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "kindred.stanford.edu",
+            "children": [
+                {
+                    "name": "other335",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "joannecheng.me",
+            "children": [
+                {
+                    "name": "other336",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "newyorker.com",
+            "children": [
+                {
+                    "name": "Larry Buchanan",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "anna.ps",
+            "children": [
+                {
+                    "name": "Anna Powell-Smith",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nu.nl",
+            "children": [
+                {
+                    "name": "other337",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "graftdata.com",
+            "children": [
+                {
+                    "name": "Andrew Thornton",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "iconomical.com",
+            "children": [
+                {
+                    "name": "David Boyce; Elizabeth Turner",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nathansuniversity.com",
+            "children": [
+                {
+                    "name": "other338",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "enjalot.com",
+            "children": [
+                {
+                    "name": "Ian Johnson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sathomas.me",
+            "children": [
+                {
+                    "name": "other339",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bim-source.com",
+            "children": [
+                {
+                    "name": "other340",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "redditinsight.com",
+            "children": [
+                {
+                    "name": "other341",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "code.leakingalpha.com",
+            "children": [
+                {
+                    "name": "other342",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "prag.ma",
+            "children": [
+                {
+                    "name": "Shawn Allen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "stowers.org",
+            "children": [
+                {
+                    "name": "other343",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "javainc.com",
+            "children": [
+                {
+                    "name": "Patrick Martin",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datavizchallenge.org",
+            "children": [
+                {
+                    "name": "Jeffrey Baumes",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cscheid.net",
+            "children": [
+                {
+                    "name": "other344",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "live.zoomdata.com",
+            "children": [
+                {
+                    "name": "other345",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "thepowerrank.com",
+            "children": [
+                {
+                    "name": "Angi Chau",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sorens.in",
+            "children": [
+                {
+                    "name": "Matthew Sorensen",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cotrino.com",
+            "children": [
+                {
+                    "name": "other346",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "horses.phoebebright.com",
+            "children": [
+                {
+                    "name": "Phoebe Bright",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "linkedjazz.org",
+            "children": [
+                {
+                    "name": "Matt Miller",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "metro.ezyang.com",
+            "children": [
+                {
+                    "name": "Edward Z. Yang",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "budzet.aws.af.cm",
+            "children": [
+                {
+                    "name": "other347",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "blogs.plos.org",
+            "children": [
+                {
+                    "name": "Martin Fenner",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "projects.flowingdata.com",
+            "children": [
+                {
+                    "name": "other348",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "joeondata.com",
+            "children": [
+                {
+                    "name": "Joe Monti",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rvl.io",
+            "children": [
+                {
+                    "name": "Anna Powell-Smith",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "benfrederickson.com",
+            "children": [
+                {
+                    "name": "Ben Frederickson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "arena.palamago.com.ar",
+            "children": [
+                {
+                    "name": "other349",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "neural-code.com",
+            "children": [
+                {
+                    "name": "Marc van Wanrooij",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dhs.stanford.edu",
+            "children": [
+                {
+                    "name": "Elijah Meeks; Maya Krishnan",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "alignedleft.com",
+            "children": [
+                {
+                    "name": "Scott Murray",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "wimdows.nl",
+            "children": [
+                {
+                    "name": "Wimdows.nl",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ufert.se",
+            "children": [
+                {
+                    "name": "Eric Seufert",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "torlaune.de",
+            "children": [
+                {
+                    "name": "other350",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "visualsedimentation.org",
+            "children": [
+                {
+                    "name": "Samuel Huron; Romain Vuillemot",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "luzid.com",
+            "children": [
+                {
+                    "name": "Martin Walter",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "scriptogr.am",
+            "children": [
+                {
+                    "name": "Amelia Greenhall",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cs.umd.edu",
+            "children": [
+                {
+                    "name": "Ben Bederson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ge.ch",
+            "children": [
+                {
+                    "name": "other351",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "kreese.net",
+            "children": [
+                {
+                    "name": "Kristopher Reese",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "pypi.python.org",
+            "children": [
+                {
+                    "name": "Eric Brehault",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hashbang.co.nz",
+            "children": [
+                {
+                    "name": "Graham Jenson",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "d3coder.com",
+            "children": [
+                {
+                    "name": "Evan Zamir",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "comeetie.fr",
+            "children": [
+                {
+                    "name": "other352",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bioinformatics.cancerresearchuk.org",
+            "children": [
+                {
+                    "name": "other353",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "hedonometer.org",
+            "children": [
+                {
+                    "name": "MITRE",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sentiment.dev.ber.to",
+            "children": [
+                {
+                    "name": "Berto Yanez",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "rjbaxley.com",
+            "children": [
+                {
+                    "name": "Bob Baxley",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "letsfreecongress.org",
+            "children": [
+                {
+                    "name": "Tony Chu",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "jerseyshots.com",
+            "children": [
+                {
+                    "name": "Jimmie Yoo",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "atomodo.com",
+            "children": [
+                {
+                    "name": "Andrew Collins",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "affinitybridge.com",
+            "children": [
+                {
+                    "name": "other354",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "torre.nl",
+            "children": [
+                {
+                    "name": "Roxana Torre",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "windhistory.com",
+            "children": [
+                {
+                    "name": "other355",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "seaoftweets.com",
+            "children": [
+                {
+                    "name": "Carlo Zapponi",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "guanxin.de",
+            "children": [
+                {
+                    "name": "Ifung Lu",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "niemanlab.org",
+            "children": [
+                {
+                    "name": "Joshua Benton",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "thudfactor.com",
+            "children": [
+                {
+                    "name": "other356",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "markmarkoh.com",
+            "children": [
+                {
+                    "name": "other357",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datacommunitydc.org",
+            "children": [
+                {
+                    "name": "Sean Murphy",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "itunes.apple.com",
+            "children": [
+                {
+                    "name": "other358",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "shop.oreilly.com",
+            "children": [
+                {
+                    "name": "Mike Dewar",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "marcinignac.com",
+            "children": [
+                {
+                    "name": "other359",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "creativebloq.com",
+            "children": [
+                {
+                    "name": "other360",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "bitaesthetics.com",
+            "children": [
+                {
+                    "name": "other361",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "drones.pitchinteractive.com",
+            "children": [
+                {
+                    "name": "Pitch Interactive",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "arlingtonvisualbudget.org",
+            "children": [
+                {
+                    "name": "other362",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "4waisenkinder.de",
+            "children": [
+                {
+                    "name": "Stefan Judis",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "plot.ly",
+            "children": [
+                {
+                    "name": "Alex Johnson; Jack Parmer",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "filosophy.org",
+            "children": [
+                {
+                    "name": "Filip Zembowicz",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "solomonkahn.com",
+            "children": [
+                {
+                    "name": "other363",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "data.jmsc.hku.hk",
+            "children": [
+                {
+                    "name": "Cedric Sam",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "joenoodles.com",
+            "children": [
+                {
+                    "name": "Joseph Nudell",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datawrapper.de",
+            "children": [
+                {
+                    "name": "Datawrapper",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "atlas.cid.harvard.edu",
+            "children": [
+                {
+                    "name": "Michele Coscia; Alexander Simoes",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "slideshare.net",
+            "children": [
+                {
+                    "name": "other364",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "christopherroach.com",
+            "children": [
+                {
+                    "name": "other365",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "dataninja.it",
+            "children": [
+                {
+                    "name": "other366",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "shapeofmylibrary.com",
+            "children": [
+                {
+                    "name": "other367",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "redblobgames.com",
+            "children": [
+                {
+                    "name": "Amit Patel",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "swizec.com",
+            "children": [
+                {
+                    "name": "other368",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "graus.nu",
+            "children": [
+                {
+                    "name": "David Graus",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "guardian.co.uk",
+            "children": [
+                {
+                    "name": "Julian Burgess",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "stephenboak.com",
+            "children": [
+                {
+                    "name": "Stephen Boak",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sci.utah.edu",
+            "children": [
+                {
+                    "name": "other369",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "color.method.ac",
+            "children": [
+                {
+                    "name": "Maria Munuera; Mark MacKay",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "sugarforge.org",
+            "children": [
+                {
+                    "name": "other370",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "mgrafit.tumblr.com",
+            "children": [
+                {
+                    "name": "other371",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "tikalk.com",
+            "children": [
+                {
+                    "name": "Udi h Bauman",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "labs.im",
+            "children": [
+                {
+                    "name": "other372",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "marcneuwirth.com",
+            "children": [
+                {
+                    "name": "Marc Neuwirth",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "g33ktalk.com",
+            "children": [
+                {
+                    "name": "other373",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "anf.ucsd.edu",
+            "children": [
+                {
+                    "name": "Rob Newman",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "verisi.com",
+            "children": [
+                {
+                    "name": "Ben Lorica",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "isbarackobamathepresident.com",
+            "children": [
+                {
+                    "name": "other374",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "datadoghq.com",
+            "children": [
+                {
+                    "name": "other375",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nickrabinowitz.com",
+            "children": [
+                {
+                    "name": "Nick Rabinowitz",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "akngs.tumblr.com",
+            "children": [
+                {
+                    "name": "Alan Kang",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "lanyrd.com",
+            "children": [
+                {
+                    "name": "other376",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "embed.ly",
+            "children": [
+                {
+                    "name": "other377",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "ofps.oreilly.com",
+            "children": [
+                {
+                    "name": "Scott Murray",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "findtheconversation.com",
+            "children": [
+                {
+                    "name": "other378",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "zacharymaril.com",
+            "children": [
+                {
+                    "name": "other379",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "nodal.me",
+            "children": [
+                {
+                    "name": "Jesse Vogt; Matt Stockton; Kris G__sser",
+                    "size": 1
+                }
+            ]
+        },
+        {
+            "name": "cartography.oregonstate.edu",
+            "children": [
+                {
+                    "name": "other380",
+                    "size": 1
+                }
+            ]
+        }
+    ]
+}

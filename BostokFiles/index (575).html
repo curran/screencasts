@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="cubehelix.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var sample = uniformRandomSampler(width, height, 10000),
+    samples = [],
+    s;
+
+while (s = sample()) samples.push(s);
+
+var voronoi = d3.geom.voronoi()
+    .clipExtent([[0, 0], [width, height]]); // TODO overdraw
+
+var color = d3.scale.cubehelix()
+    .domain([0, 200])
+    .range([d3.hsl(96, .6, 1), d3.hsl(276, .6, 0)])
+    .clamp(true);
+
+d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .selectAll("path")
+    .data(voronoi(samples))
+  .enter().append("path")
+    .style("fill", function(d) { return color(d3.geom.polygon(d).area()); })
+    .attr("d", function(d) { return "M" + d.join("L") + "Z"; });
+
+function uniformRandomSampler(width, height, numSamplesMax) {
+  var numSamples = 0;
+  return function() {
+    if (++numSamples > numSamplesMax) return;
+    return [Math.random() * width, Math.random() * height];
+  };
+}
+
+</script>

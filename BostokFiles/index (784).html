@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.brush .selection {
+  fill: none;
+}
+
+</style>
+<svg width="960" height="1452">
+  <filter id="monochrome"><feColorMatrix type="saturate" values="0"></feColorMatrix></filter>
+  <defs><image id="image" width="100%" height="100%" xlink:href="mona-lisa.jpg"></image></defs>
+  <use id="monochrome-image" filter="url(#monochrome)" xlink:href="#image"></use>
+  <use id="color-image" xlink:href="#image"></use>
+</svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var brush = d3.brush();
+
+var svg = d3.select("svg");
+
+svg.append("g")
+    .attr("class", "brush")
+    .call(brush)
+    .call(brush.move, [[307, 167], [611, 539]])
+  .select(".selection")
+    .attr("id", "brush-selection");
+
+svg.append("clipPath")
+    .attr("id", "brush-clip")
+  .append("use")
+    .attr("xlink:href", "#brush-selection");
+
+svg.select("#color-image")
+    .attr("clip-path", "url(#brush-clip)");
+
+</script>

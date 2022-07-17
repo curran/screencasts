@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<svg width="960" height="960" font-family="sans-serif" font-size="10" text-anchor="middle" fill="none" stroke="black"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/solar-calculator@0.1"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height"),
+    scale = width * 0.45;
+
+var solar = solarCalculator([-122, 37]),
+    start = new Date(Date.UTC(2014, 0, 1)),
+    end = new Date(Date.UTC(2015, 0, 1));
+
+var projection = d3.geoProjection(flippedStereographic)
+    .scale(scale)
+    .clipAngle(130)
+    .rotate([0, -90])
+    .translate([width / 2 + 0.5, height / 2 + 0.5])
+    .precision(0.1);
+
+var path = d3.geoPath(projection);
+
+svg.append("path")
+    .datum(d3.geoCircle().center([0, 90]).radius(90))
+    .attr("stroke-width", 1.5)
+    .attr("d", path);
+
+svg.append("path")
+    .datum(d3.geoGraticule())
+    .attr("stroke-width", 0.15)
+    .attr("d", path);
+
+svg.append("g")
+  .selectAll("line")
+  .data(d3.range(360))
+  .enter().append("line")
+    .each(function(d) {
+      var p0 = projection([d, 0]),
+          p1 = projection([d, d % 10 ? -1 : -2]);
+
+      d3.select(this)
+          .attr("x1", p0[0])
+          .attr("y1", p0[1])
+          .attr("x2", p1[0])
+          .attr("y2", p1[1]);
+    });
+
+svg.append("g")
+    .attr("fill", "black")
+    .attr("stroke", "none")
+  .selectAll("text")
+  .data(d3.range(0, 360, 10))
+  .enter().append("text")
+    .each(function(d) {
+      var p = projection([d, -4]);
+
+      d3.select(this)
+          .attr("x", p[0])
+          .attr("y", p[1]);
+    })
+    .attr("dy", "0.35em")
+    .text(function(d) { return d === 0 ? "N" : d === 90 ? "E" : d === 180 ? "S" : d === 270 ? "W" : d + "°"; })
+  .data(d3.range(0, 360, 90), function(d) { return d; })
+    .attr("font-weight", "bold")
+    .attr("font-size", 14);
+
+svg.append("g")
+    .attr("fill", "black")
+    .attr("stroke", "none")
+  .selectAll("text")
+  .data(d3.range(10, 91, 10))
+  .enter().append("text")
+    .each(function(d) {
+      var p = projection([0, d]);
+
+      d3.select(this)
+          .attr("x", p[0])
+          .attr("y", p[1]);
+    })
+    .attr("dy", "0.35em")
+    .text(function(d) { return d + "°"; });
+
+svg.append("g")
+    .attr("stroke", "red")
+    .attr("stroke-width", 2)
+  .selectAll("path")
+  .data(d3.range(24))
+  .enter().append("path")
+    .datum(function(h) {
+      return {
+        type: "LineString",
+        coordinates: d3.utcDays(start, end).map(function(d) {
+          return solar.position(d3.utcHour.offset(d, h));
+        })
+      };
+    })
+    .attr("d", path);
+
+function flippedStereographic(x, y)  {
+  var cx = Math.cos(x), cy = Math.cos(y), k = 1 / (1 + cx * cy);
+  return [k * cy * Math.sin(x), -k * Math.sin(y)];
+}
+
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: black;
+  stroke: red;
+  stroke-linejoin: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
+
+var g = svg.append("g")
+    .call(twizzle, 20000);
+
+var path = g.append("path")
+    .attr("d", d3.svg.symbol().type("cross").size(50000))
+    .call(plonk, 2000);
+
+function twizzle(selection, duration) {
+  selection.transition()
+      .duration(duration)
+      .attrTween("transform", function() {
+        return d3.interpolateString("rotate(0)", "rotate(720)");
+      });
+
+  setTimeout(function() { twizzle(selection, duration); }, (Math.random() + 1) * duration);
+}
+
+function plonk(selection, duration) {
+  selection.transition()
+      .duration(duration)
+      .style("stroke-width", "30px")
+    .transition()
+      .style("stroke-width", "0px");
+
+  setTimeout(function() { plonk(selection, duration); }, (Math.random() + 2) * duration);
+}
+
+</script>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.loading {
+  text-align: center;
+  margin: 80px;
+}
+
+div {
+  position: absolute;
+  font: 10px sans-serif;
+  background: #fff;
+  padding: 10px;
+  left: 0;
+  bottom: 0;
+}
+
+a {
+  color: #777;
+}
+
+path {
+  stroke: black;
+  stroke-linejoin: round;
+  stroke-width: 0.25px;
+}
+
+</style>
+<p class="loading">Loading 3MB TopoJSON…</p>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+d3.json("/ZJONSSON/raw/4686541/flakar.json", function(error, topology) {
+  if (error) throw error;
+
+  var projection = d3.geo.mercator()
+      .center([-21.9333, 64.1333])
+      .scale((1 << 16) / 2 / Math.PI);
+
+  var path = d3.geo.path()
+      .projection(projection);
+
+  var color = d3.scale.linear()
+      .domain([0, 900, 1100])
+      .range(["green", "yellow", "white"]);
+
+  var zoom = d3.behavior.zoom()
+      .scaleExtent([1 / 4, 4])
+      .on("zoom", zoomed);
+
+  var svg = d3.select("body").append("svg")
+      .call(zoom)
+    .append("g");
+
+  var contour = svg.selectAll("path")
+      .data(topojson.feature(topology, topology.objects.flakar).features)
+    .enter().append("path")
+      .style("fill",function(d) { return color(d.properties.Z); });
+
+  d3.select(window).on("resize", resized);
+  d3.select(".loading").remove();
+
+  resized();
+
+  function zoomed() {
+    svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+  }
+
+  function resized() {
+    var width = window.innerWidth, height = window.innerHeight;
+    projection.translate([100, height - 100]);
+    svg.attr("width", width).attr("height", height);
+    contour.attr("d", path);
+  }
+});
+
+</script>
+
+<div>Underlying data © <a href="http://www.lmi.is">National Land Survey of Iceland</a> under the following <a href="http://www.lmi.is/wp-content/uploads/2013/01/GeneralTermsNLSI.pdf">Terms of Use</a>.</div>

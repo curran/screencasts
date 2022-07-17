@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var projection = d3.geoConicConformal();
+
+var path = d3.geoPath()
+    .projection(projection);
+
+svg.append("path")
+    .attr("id", "graticule")
+    .attr("fill", "none")
+    .attr("stroke", "#777")
+    .attr("stroke-width", 0.5)
+    .attr("stroke-opacity", 0.5)
+    .attr("d", path(d3.geoGraticule10()));
+
+svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "#000")
+    .attr("d", path({type: "Sphere"}));
+
+d3.json("https://d3js.org/world-50m.v1.json", function(error, world) {
+  if (error) throw error;
+
+  svg.insert("path", "#graticule")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("fill", "#222")
+      .attr("d", path);
+
+  svg.insert("path", "#graticule")
+      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+      .attr("fill", "none")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 0.5)
+      .attr("d", path);
+});
+
+</script>

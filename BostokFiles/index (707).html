@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: 0;
+}
+
+div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: solid 1px #fff;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v4.0.0-alpha.22.min.js"></script>
+<script>
+
+var z = 20,
+    x = 960 / z,
+    y = 500 / z;
+
+d3.select("body").selectAll("div")
+    .data(d3.range(x * y))
+  .enter().append("div")
+    .style("transform", function(d) { return "translate(" + (d % x) * z + "px, " + Math.floor(d / x) * z + "px)"; })
+    .style("background-color", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
+    .on("mouseover", mouseover);
+
+function mouseover(d) {
+  d3.select(this)
+      .style("pointer-events", "none")
+      .raise()
+    .transition()
+      .duration(750)
+      .style("transform", "translate(480px, 240px) scale(20) rotate(180deg)")
+    .transition()
+      .delay(1500)
+      .style("transform", "translate(480px, 240px) scale(0.01)")
+      .remove();
+}
+
+</script>

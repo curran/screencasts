@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var δτ = 0.003,
+    ρ = 28,
+    σ = 10,
+    β = 8 / 3,
+    x0 = .5,
+    y0 = .5,
+    z0 = 10;
+
+var width = 960,
+    height = 500;
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var color = d3.scale.linear()
+    .domain([0, 20, 30, 45])
+    .range(["yellow", "orange", "brown", "purple"])
+    .interpolate(d3.interpolateHcl);
+
+var context = canvas.node().getContext("2d");
+
+context.globalCompositeOperation = "lighter";
+context.translate(width / 2, height / 2);
+context.scale(12, 8);
+context.lineWidth = .25;
+
+d3.select("canvas").on("mousemove", function() {
+  var m = d3.mouse(canvas.node());
+  x0 = (m[0] - width / 2) / 12;
+  y0 = (m[1] - height / 2) / 8;
+  z0 = 10;
+});
+
+d3.timer(function() {
+  var x = x0 + (Math.random() - .5) * 4,
+      y = y0 + (Math.random() - .5) * 4,
+      z = z0 + (Math.random() - .5) * 4,
+      n = Math.random() * 30 | 0,
+      t1 = Math.random() * 500;
+
+  d3.timer(function(t0) {
+    for (var i = 0; i < n; ++i) {
+      context.strokeStyle = color(z);
+      context.beginPath();
+      context.moveTo(x, y);
+      x += δτ * σ * (y - x);
+      y += δτ * (x * (ρ - z) - y);
+      z += δτ * (x * y - β * z);
+      context.lineTo(x, y);
+      context.stroke();
+    }
+    return t0 > t1;
+  });
+
+  context.save();
+  context.setTransform(1, 0, 0, 1, 0, 0);
+  context.globalCompositeOperation = "source-atop";
+  context.fillStyle = "rgba(0,0,0,.03)";
+  context.fillRect(0, 0, width, height);
+  context.restore();
+});
+
+</script>

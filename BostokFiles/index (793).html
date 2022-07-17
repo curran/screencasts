@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 250, right: 40, bottom: 250, left: 40},
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom;
+
+d3.json("https://unpkg.com/d3-time-format@2/locale/ru-RU.json", function(error, locale) {
+  if (error) throw error;
+
+  d3.timeFormatDefaultLocale(locale);
+
+  var x = d3.scaleTime()
+      .domain([new Date(2000, 0, 1), new Date(2001, 0, 1)])
+      .range([0, width]);
+
+  svg.append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .call(d3.axisBottom(x));
+});
+
+</script>

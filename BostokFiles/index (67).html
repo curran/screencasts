@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: auto;
+  width: 960px;
+}
+
+path {
+  fill: #ccc;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var svg = d3.select("body").append("svg")
+    .attr("width", 960)
+    .attr("height", 500)
+  .append("g")
+    .attr("transform", "translate(480,250)");
+
+var rect = svg.append("path")
+    .attr("d", rightRoundedRect(-240, -120, 480, 240, 20));
+
+// Returns path data for a rectangle with rounded right corners.
+// Note: it’s probably easier to use a <rect> element with rx and ry attributes!
+// The top-left corner is ⟨x,y⟩.
+function rightRoundedRect(x, y, width, height, radius) {
+  return "M" + x + "," + y
+       + "h" + (width - radius)
+       + "a" + radius + "," + radius + " 0 0 1 " + radius + "," + radius
+       + "v" + (height - 2 * radius)
+       + "a" + radius + "," + radius + " 0 0 1 " + -radius + "," + radius
+       + "h" + (radius - width)
+       + "z";
+}
+
+</script>

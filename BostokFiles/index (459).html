@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<canvas width="960" height="500"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/topojson-client@2"></script>
+<script src="https://unpkg.com/topojson-simplify@2"></script>
+<script>
+
+var canvas = d3.select("canvas"),
+    context = canvas.node().getContext("2d"),
+    width = canvas.property("width"),
+    height = canvas.property("height");
+
+var land,
+    borders;
+
+var minZ, // minimum area threshold for simplification
+    transform = d3.geoIdentity().clipExtent([[0, 0], [width, height]]),
+    simplify = d3.geoTransform({point: function(x, y, z) { if (z >= minZ) this.stream.point(x, y); }});
+
+var zoom = d3.zoom()
+    .scaleExtent([1 / (1 << 5), 1 << 2])
+    .on("zoom", zoomed);
+
+context.fillStyle = "#bbb";
+context.strokeStyle = "#fff";
+context.lineJoin = "round";
+context.lineCap = "round";
+
+var path = d3.geoPath()
+    .projection({stream: function(s) { return simplify.stream(transform.stream(s)); }})
+    .context(context);
+
+d3.json("us-states.json", function(error, us) {
+  if (error) throw error;
+
+  topojson.presimplify(us);
+  land = topojson.feature(us, us.objects.states);
+  borders = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+
+  // An arbitrary scale and center point to set the initial view.
+  // This projection is baked into the TopoJSON file,
+  // but is used here to compute the desired zoom translate.
+  var scale = 0.05, point = d3.geoMercator()
+      .translate([0, 0])
+      .scale(4000)
+      ([-75.959, 38.250]);
+
+  canvas
+      .call(zoom)
+      .call(zoom.transform, d3.zoomIdentity
+          .translate(width / 2, height / 2)
+          .scale(scale)
+          .translate(-point[0], -point[1]));
+});
+
+function zoomed(d) {
+  var t = d3.event.transform;
+  minZ = 1 / (t.k * t.k);
+  transform.translate([t.x, t.y]).scale(t.k);
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  path(land);
+  context.fill();
+  context.beginPath();
+  path(borders);
+  context.stroke();
+}
+
+</script>

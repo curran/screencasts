@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.tract {
+  fill: #eee;
+}
+
+.tract:hover {
+  fill: orange;
+}
+
+.tract-border {
+  fill: none;
+  stroke: #777;
+  pointer-events: none;
+}
+
+</style>
+<svg width="960" height="1200"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+d3.json("nj-tracts.json", function(error, nj) {
+  if (error) throw error;
+
+  var land = topojson.feature(nj, {
+    type: "GeometryCollection",
+    geometries: nj.objects.tracts.geometries.filter(function(d) {
+      return (d.id / 10000 | 0) % 100 !== 99;
+    })
+  });
+
+  // EPSG:32111
+  var path = d3.geoPath()
+      .projection(d3.geoTransverseMercator()
+          .rotate([74 + 30 / 60, -38 - 50 / 60])
+          .fitExtent([[20, 20], [940, 1180]], land));
+
+  svg.selectAll("path")
+    .data(land.features)
+    .enter().append("path")
+      .attr("class", "tract")
+      .attr("d", path)
+    .append("title")
+      .text(function(d) { return d.id; });
+
+  svg.append("path")
+      .datum(topojson.mesh(nj, nj.objects.tracts, function(a, b) { return a !== b; }))
+      .attr("class", "tract-border")
+      .attr("d", path);
+});
+
+</script>

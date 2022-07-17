@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    id = 0;
+
+var voronoi = d3.geom.voronoi()
+    .clipExtent([[-1, -1], [width + 1, height + 1]]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+d3.tsv("shibe.tsv", function(error, vertices) {
+  if (error) throw error;
+
+  var shibe = new Image;
+  shibe.src = "shibe.jpg";
+  shibe.onload = loaded;
+
+  function loaded() {
+    canvas.on("mousemove", mousemoved);
+    render();
+  }
+
+  function mousemoved() {
+    vertices[0] = d3.mouse(this);
+    render();
+  }
+
+  function render() {
+    var cells = voronoi(vertices);
+
+    cells.forEach(function(cell) {
+      context.save();
+      path(cell);
+      context.clip();
+      context.drawImage(shibe, cell.point[0] - 90, cell.point[1] - 115);
+      context.stroke();
+      context.restore();
+    });
+  }
+});
+
+function path(cell) {
+  context.beginPath();
+  context.moveTo(cell[0][0], cell[0][1]);
+  for (var i = 1, n = cell.length; i < n; ++i) context.lineTo(cell[i][0], cell[i][1]);
+  context.closePath();
+}
+
+</script>

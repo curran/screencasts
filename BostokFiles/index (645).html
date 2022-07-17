@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: 0;
+}
+
+</style>
+<body>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-timer.v1.min.js"></script>
+<script src="https://d3js.org/d3-voronoi.v1.min.js"></script>
+<script>
+
+var canvas = document.body.appendChild(document.createElement("canvas")),
+    width,
+    height,
+    context;
+
+var n = 400,
+    particles = new Array(n),
+    voronoi = d3.voronoi();
+
+init();
+
+d3.timer(function(elapsed) {
+  for (var i = 0; i < n; ++i) {
+    var p = particles[i];
+    p[0] += p.vx; if (p[0] < 0) p[0] += width; else if (p[0] > width) p[0] -= width;
+    p[1] += p.vy; if (p[1] < 0) p[1] += height; else if (p[1] > height) p[1] -= height;
+    p.vx += 0.2 * (Math.random() - .5) - 0.01 * p.vx;
+    p.vy += 0.2 * (Math.random() - .5) - 0.01 * p.vy;
+  }
+
+  var cells = voronoi.polygons(particles);
+
+  context.beginPath();
+  cells.forEach(drawCell);
+  context.globalAlpha = 0.2;
+  context.strokeStyle = "#000";
+  context.lineWidth = 3;
+  context.stroke();
+
+  context.globalAlpha = 1.0;
+  context.lineWidth = 1;
+  cells.forEach(function(cell) {
+    context.beginPath();
+    drawCell(cell);
+    var c = d3.hcl(d3.lab(90, (cell.data[0] - width / 2) / width * 120, (cell.data[1] - height / 2) / width * 120));
+    c.h += elapsed * 0.1;
+    context.strokeStyle = c + "";
+    context.stroke();
+  });
+});
+
+function init() {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+  voronoi.size([width, height]);
+  context = canvas.getContext("2d");
+  for (var i = 0; i < n; ++i) {
+    particles[i] = {
+      0: Math.random() * width,
+      1: Math.random() * height,
+      vx: 0,
+      vy: 0
+    };
+  }
+}
+
+function drawCell(cell) {
+  if (!cell[0]) return;
+  context.moveTo(cell[0][0], cell[0][1]);
+  for (var i = 1, n = cell.length; i < n; ++i) context.lineTo(cell[i][0], cell[i][1]);
+  context.closePath();
+}
+
+window.addEventListener("resize", init);
+
+</script>

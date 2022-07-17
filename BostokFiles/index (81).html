@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Map Projections</title>
+<style>
+
+svg {
+  font: 10px sans-serif;
+}
+
+.background path {
+  fill: none;
+  stroke: none;
+  stroke-width: 20px;
+  pointer-events: stroke;
+}
+
+.foreground path {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.axis .title {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.label {
+  -webkit-transition: fill 125ms linear;
+}
+
+.active .label:not(.inactive) {
+  font-weight: bold;
+}
+
+.label.inactive {
+  fill: #ccc;
+}
+
+.foreground path.inactive {
+  stroke: #ccc;
+  stroke-opacity: .5;
+  stroke-width: 1px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 30, right: 40, bottom: 20, left: 200},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var dimensions = [
+  {
+    name: "name",
+    scale: d3.scale.ordinal().rangePoints([0, height]),
+    type: String
+  },
+  {
+    name: "Acc. 40º 150%",
+    scale: d3.scale.linear().range([0, height]),
+    type: Number
+  },
+  {
+    name: "Scale",
+    scale: d3.scale.linear().range([height, 0]),
+    type: Number
+  },
+  {
+    name: "Areal",
+    scale: d3.scale.sqrt().range([height, 0]),
+    type: Number
+  },
+  {
+    name: "Angular",
+    scale: d3.scale.linear().range([height, 0]),
+    type: Number
+  }
+];
+
+var x = d3.scale.ordinal()
+    .domain(dimensions.map(function(d) { return d.name; }))
+    .rangePoints([0, width]);
+
+var line = d3.svg.line()
+    .defined(function(d) { return !isNaN(d[1]); });
+
+var yAxis = d3.svg.axis()
+    .orient("left");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var dimension = svg.selectAll(".dimension")
+    .data(dimensions)
+  .enter().append("g")
+    .attr("class", "dimension")
+    .attr("transform", function(d) { return "translate(" + x(d.name) + ")"; });
+
+d3.tsv("projections.tsv", function(error, data) {
+  if (error) throw error;
+
+  dimensions.forEach(function(dimension) {
+    dimension.scale.domain(dimension.type === Number
+        ? d3.extent(data, function(d) { return +d[dimension.name]; })
+        : data.map(function(d) { return d[dimension.name]; }).sort());
+  });
+
+  svg.append("g")
+      .attr("class", "background")
+    .selectAll("path")
+      .data(data)
+    .enter().append("path")
+      .attr("d", draw);
+
+  svg.append("g")
+      .attr("class", "foreground")
+    .selectAll("path")
+      .data(data)
+    .enter().append("path")
+      .attr("d", draw);
+
+  dimension.append("g")
+      .attr("class", "axis")
+      .each(function(d) { d3.select(this).call(yAxis.scale(d.scale)); })
+    .append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "middle")
+      .attr("y", -9)
+      .text(function(d) { return d.name; });
+
+  // Rebind the axis data to simplify mouseover.
+  svg.select(".axis").selectAll("text:not(.title)")
+      .attr("class", "label")
+      .data(data, function(d) { return d.name || d; });
+
+  var projection = svg.selectAll(".axis text,.background path,.foreground path")
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout);
+
+  function mouseover(d) {
+    svg.classed("active", true);
+    projection.classed("inactive", function(p) { return p !== d; });
+    projection.filter(function(p) { return p === d; }).each(moveToFront);
+  }
+
+  function mouseout(d) {
+    svg.classed("active", false);
+    projection.classed("inactive", false);
+  }
+
+  function moveToFront() {
+    this.parentNode.appendChild(this);
+  }
+});
+
+function draw(d) {
+  return line(dimensions.map(function(dimension) {
+    return [x(dimension.name), dimension.scale(d[dimension.name])];
+  }));
+}
+
+</script>

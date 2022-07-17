@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5
+}
+
+.land {
+  fill: #ddd;
+}
+
+.countries {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 640;
+
+// http://en.wikipedia.org/wiki/ISO_3166-1_numeric
+var ids = {840: 1, 484: 1, 124: 1, 630: 1};
+
+var projection = d3.geo.airy()
+    .rotate([105, -45])
+    .center([-3, 5])
+    .scale(560)
+    .translate([width / 2, height / 2])
+    .precision(.1)
+    .clipAngle(70);
+
+// Compute radius from viewport height. TODO Make automatic.
+projection
+    .radius(projection.invert([width / 2, 0])[1] - projection.invert([width / 2, height])[1]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, {type: "GeometryCollection", geometries: world.objects.countries.geometries.filter(function(d) { return d.id in ids; })}))
+      .attr("class", "countries")
+      .attr("d", path);
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+      .attr("class", "boundary")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.koch {
+  fill: #eee;
+  stroke: #000;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var area = 1, simplify = d3.geo.transform({
+  point: function(x, y, z) {
+    if (z >= area) this.stream.point(x, y);
+  }
+});
+
+var x = d3.scale.sqrt()
+    .domain([0, 1e4])
+    .range([0, width]);
+
+var path = d3.geo.path()
+    .projection(simplify);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("class", "overlay")
+    .attr("width", width)
+    .attr("height", height)
+    .on("mousemove", mousemoved);
+
+d3.json("snowflake.json", function(error, topo) {
+  if (error) throw error;
+
+  svg.insert("path", ".overlay")
+      .datum(topojson.feature(topojson.presimplify(topo), topo.objects.snowflake))
+      .attr("class", "koch")
+      .attr("d", path);
+});
+
+function mousemoved() {
+  area = x.invert(d3.mouse(this)[0]);
+  svg.select(".koch").attr("d", path);
+}
+
+</script>

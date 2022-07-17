@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  padding: 10px 0;
+}
+
+svg {
+  float: left;
+}
+
+.line {
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+}
+
+.line--inactive {
+  stroke: #ddd;
+  stroke-width: 1px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var n = 200,
+    array = d3.shuffle(d3.range(n)),
+    arrays = mergesort(array.slice());
+
+var margin = {top: 6, right: 30, bottom: 6, left: 30},
+    width = 960 - margin.left - margin.right,
+    height = 50 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(n))
+    .rangePoints([0, width]);
+
+var a = d3.scale.linear()
+    .domain([0, n - 1])
+    .range([-45, 45]);
+
+var svg = d3.select("body").selectAll("svg")
+    .data(arrays)
+  .enter().append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "line")
+  .selectAll("line")
+    .data(function(d) { return d; })
+  .enter().append("line")
+    .attr("transform", function(d, i) { return "translate(" + x(i) + "," + height + ")rotate(" + a(d) + ")"; })
+    .attr("y2", -height);
+
+function mergesort(array) {
+  var arrays = [array.slice()],
+      n = array.length,
+      array0 = array,
+      array1 = new Array(n);
+
+  for (var m = 1; m < n; m <<= 1) {
+    for (var i = 0; i < n; i += (m << 1)) {
+      merge(i, Math.min(i + m, n), Math.min(i + (m << 1), n));
+    }
+    arrays.push(array1.slice());
+    array = array0, array0 = array1, array1 = array;
+  }
+
+  function merge(left, right, end) {
+    for (var i0 = left, i1 = right, j = left; j < end; ++j) {
+      array1[j] = array0[i0 < right && (i1 >= end || array0[i0] <= array0[i1]) ? i0++ : i1++];
+    }
+  }
+
+  return arrays;
+}
+
+d3.select(self.frameElement).style("height", (height + margin.top + margin.bottom) * arrays.length + 20 + "px");
+
+</script>

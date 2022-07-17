@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+text {
+  font: 11px sans-serif;
+  text-anchor: middle;
+}
+
+circle {
+  fill: black;
+  stroke: white;
+}
+
+path {
+  fill: none;
+  stroke: #333;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+</style>
+<svg width="960" height="300">
+  <g transform="translate(210,120)">
+    <path d="M-60,-30L0,0L60,-30"/>
+    <path d="M-60,30L0,0L60,30"/>
+    <g transform="translate(-60,-30)"><text y="-8">A</text><circle r="3.5"/></g>
+    <g><text y="-8">B</text><circle r="3.5"/></g>
+    <g transform="translate(60,-30)"><text y="-8">C</text><circle r="3.5"/></g>
+    <g transform="translate(-60,30)"><text y="-8">D</text><circle r="3.5"/></g>
+    <g transform="translate(60,30)"><text y="-8">E</text><circle r="3.5"/></g>
+  </g>
+  <g transform="translate(480,120)">
+    <path d="M-60,0L0,0L60,-30"/>
+    <path d="M-60,0L0,0L60,30"/>
+    <g transform="translate(-60,0)"><text y="-8">A</text><circle r="3.5"/></g>
+    <g><text y="-8">B</text><circle r="3.5"/></g>
+    <g transform="translate(60,-30)"><text y="-8">C</text><circle r="3.5"/></g>
+    <g transform="translate(60,30)"><text y="-8">D</text><circle r="3.5"/></g>
+  </g>
+  <g transform="translate(750,120)">
+    <path d="M-60,-30L0,0L60,0"/>
+    <path d="M-60,30L0,0L60,0"/>
+    <g transform="translate(-60,-30)"><text y="-8">A</text><circle r="3.5"/></g>
+    <g transform="translate(-60,30)"><text y="-8">D</text><circle r="3.5"/></g>
+    <g><text y="-8">B</text><circle r="3.5"/></g>
+    <g transform="translate(60,0)"><text y="-8">C</text><circle r="3.5"/></g>
+  </g>
+</svg>

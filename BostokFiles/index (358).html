@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.land {
+  fill: #ddd;
+}
+
+.boundary {
+  fill: none;
+  stroke: #999;
+}
+
+</style>
+<svg width="960" height="800"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var path = d3.geoPath()
+    .projection(matrix(1, 0, 0, -1, 0, height));
+
+d3.json("ca.json", function(error, ca) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.feature(ca, ca.objects.counties))
+      .attr("class", "land")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(ca, ca.objects.counties, function(a, b) { return a !== b; }))
+      .attr("class", "boundary")
+      .attr("d", path);
+});
+
+// https://en.wikipedia.org/wiki/Transformation_matrix#Affine_transformations
+function matrix(a, b, c, d, tx, ty) {
+  return d3.geoTransform({
+    point: function(x, y) {
+      this.stream.point(a * x + b * y + tx, c * x + d * y + ty);
+    }
+  });
+}
+
+</script>

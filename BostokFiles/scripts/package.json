@@ -1,0 +1,14 @@
+{
+  "name": "d3-custom-example",
+  "version": "0.0.1",
+  "scripts": {
+    "prepublish": "rollup -c -f umd -n d3 -o d3.js -- index.js && uglifyjs d3.js -c -m -o d3.min.js"
+  },
+  "devDependencies": {
+    "d3-selection": "1",
+    "d3-transition": "1",
+    "rollup": "0.41",
+    "rollup-plugin-node-resolve": "2",
+    "uglify-js": "2"
+  }
+}

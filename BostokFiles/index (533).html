@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.ramp {
+  position: absolute;
+}
+
+.ramp div {
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+
+.ramp[name='Reversed'] div {
+  color: #fff;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="cubehelix.js"></script>
+<script>
+
+var ramps = [
+  {
+    name: "Default",
+    color: d3.scale.cubehelix()
+  },
+  {
+    name: "Reversed",
+    color: d3.scale.cubehelix()
+        .domain([1, 0])
+  },
+  {
+    name: "Hue [276°, 96°]",
+    color: d3.scale.cubehelix()
+        .range([d3.hsl(276, .6, 0), d3.hsl(96, .6, 1)])
+  },
+  {
+    name: "Hue [-120°, 60°]",
+    color: d3.scale.cubehelix()
+        .range([d3.hsl(-120, .6, 0), d3.hsl(60, .6, 1)])
+  },
+  {
+    name: "Hue [-40°, 60°, 160]",
+    color: d3.scale.cubehelix()
+        .domain([0, .5, 1])
+        .range([d3.hsl(-40, .6, .3), d3.hsl(60, .6, 1), d3.hsl(160, .6, .3)])
+  },
+  {
+    name: "Rainbow",
+    color: d3.scale.cubehelix()
+        .range([d3.hsl(270, .75, .35), d3.hsl(70, 1.5, .8)])
+  }
+];
+
+var y = d3.scale.ordinal()
+    .domain(ramps.map(function(d) { return d.name; }))
+    .rangeRoundBands([0, 500], .1);
+
+var margin = y.range()[0],
+    width = 960 - margin - margin,
+    height = y.rangeBand();
+
+var ramp = d3.select("body").selectAll(".ramp")
+    .data(ramps)
+  .enter().append("div")
+    .attr("class", "ramp")
+    .attr("name", function(d) { return d.name; })
+    .style("width", width + "px")
+    .style("height", height + "px")
+    .style("left", margin + "px")
+    .style("top", function(d) { return y(d.name) + "px"; });
+
+var canvas = ramp.append("canvas")
+    .attr("width", width)
+    .attr("height", 1)
+    .style("width", width + "px")
+    .style("height", height + "px")
+    .each(function(d) {
+      var context = this.getContext("2d"),
+          image = context.createImageData(width, 1);
+      for (var i = 0, j = -1, c; i < width; ++i) {
+        c = d3.rgb(d.color(i / (width - 1)));
+        image.data[++j] = c.r;
+        image.data[++j] = c.g;
+        image.data[++j] = c.b;
+        image.data[++j] = 255;
+      }
+      context.putImageData(image, 0, 0);
+    });
+
+ramp.append("div")
+    .style("line-height", height + "px")
+    .text(function(d) { return d.name; });
+
+</script>

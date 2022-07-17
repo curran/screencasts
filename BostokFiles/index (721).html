@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+text {
+  font: 10px sans-serif;
+}
+
+tspan:last-child {
+  font-size: 9px;
+  fill-opacity: 0.8;
+}
+
+</style>
+<svg width="960" height="1060"></svg>
+<script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var format = d3.format(",d");
+
+var color = d3.scaleRainbow();
+
+var stratify = d3.stratify()
+    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+var treemap = d3.treemap()
+    .size([width, height])
+    .round(true)
+    .padding(1);
+
+d3.csv("flare.csv", function(error, data) {
+  if (error) throw error;
+
+  var sum = 0;
+
+  var root = stratify(data)
+      .sum(function(d) { return d.value; })
+      .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+
+  treemap(root);
+
+  color.domain([0, root.value]);
+
+  var cell = svg.selectAll("g")
+    .data(root.leaves())
+    .enter().append("g")
+      .attr("transform", function(d) { return "translate(" + d.x0 + "," + d.y0 + ")"; });
+
+  cell.append("rect")
+      .attr("id", function(d) { return "rect-" + d.id; })
+      .attr("width", function(d) { return d.x1 - d.x0; })
+      .attr("height", function(d) { return d.y1 - d.y0; })
+      .style("fill", function(d) { return color(sum += d.value); });
+
+  cell.append("clipPath")
+      .attr("id", function(d) { return "clip-" + d.id; })
+    .append("use")
+      .attr("xlink:href", function(d) { return "#rect-" + d.id + ""; });
+
+  cell.append("text")
+      .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
+    .selectAll("tspan")
+      .data(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1).split(/(?=[A-Z][^A-Z])/g).concat(format(d.value)); })
+    .enter().append("tspan")
+      .attr("x", 4)
+      .attr("y", function(d, i) { return 13 + i * 10; })
+      .text(function(d) { return d; });
+
+  cell.append("title")
+      .text(function(d) { return d.id + "\n" + format(d.value); });
+});
+
+</script>

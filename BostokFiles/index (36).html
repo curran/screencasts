@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+h1 {
+  background: white;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+</style>
+<h1>CLICK HERE</h1>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.select("h1").on("click", function() {
+  d3.select(this)
+      .style("background", "white")
+    .transition()
+      .duration(1000)
+      .ease(mirror("cubic-in-out"))
+      .style("background", "red");
+});
+
+function mirror(f) {
+  if (typeof f !== "function") f = d3.ease.apply(d3, arguments);
+  return function(t) {
+    return t < .5 ? f(2 * t) : f(2 - 2 * t);
+  };
+}
+
+</script>

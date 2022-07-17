@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+#chart .background {
+  fill: none;
+  pointer-events: all;
+}
+
+#chart text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  pointer-events: none;
+}
+
+#chart path {
+  fill: #eee;
+  stroke: #000;
+  pointer-events: none;
+}
+
+</style>
+<div id="chart"></div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="readme-simplify.js"></script>
+<script>
+
+var width = 960,
+    height = 600,
+    minArea = 1,
+    formatArea = d3.format(".2r"),
+    formatPercent = d3.format(".2%");
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var shape = svg.append("path");
+
+var text = svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", height / 2)
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle");
+
+var path = d3.geo.path()
+    .projection(null);
+
+var simplify = d3.simplify()
+    .projection(d3.geo.albersUsa()
+      .scale(1280)
+      .translate([width / 2, height / 2]));
+
+d3.json("/mbostock/raw/4090846/us-land.json", function(error, us) {
+  if (error) throw error;
+
+  us = topojson.feature(us, us.objects.land).geometry;
+
+  var m = us.coordinates.reduce(function(m, polygon) {
+    return m + polygon.reduce(function(m, lineString) {
+      return m + lineString.length;
+    }, 0);
+  }, 0);
+
+  simplify(us);
+
+  animation();
+
+  function animation() {
+    svg.transition()
+        .duration(7500)
+        .tween("precision", function() {
+          var area = d3.interpolate(.1, 100);
+          return function(t) {
+            minArea = area(t);
+            render();
+          };
+        })
+      .transition()
+        .duration(7500)
+        .tween("precision", function() {
+          var area = d3.interpolate(100, .1);
+          return function(t) {
+            minArea = area(t);
+            render();
+          };
+        })
+      .transition()
+        .duration(2500)
+        .each("end", animation);
+  }
+
+  function render() {
+    var n = 0;
+
+    shape.attr("d", path({
+      type: "MultiPolygon",
+      coordinates: us.coordinates.map(function(polygon) {
+        return polygon.map(function(lineString) {
+          return lineString.filter(function(point) {
+            return point[2] >= minArea && ++n;
+          });
+        });
+      })
+    }));
+
+    text.text(formatArea(minArea) + "px² / " + formatPercent(n / m));
+  }
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

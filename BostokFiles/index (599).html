@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+#line {
+  stroke: #777;
+  stroke-width: 1.5px;
+  marker: url(#dot);
+}
+
+#offset-circle,
+#parallel-offset-line,
+#perpendicular-offset-line {
+  fill: none;
+  stroke: #777;
+  stroke-dasharray: 2,2;
+}
+
+#outer-circle {
+  fill: none;
+  stroke: #777;
+  stroke-width: 1.5px;
+}
+
+#corner-circle {
+  fill: none;
+  stroke: #700;
+  stroke-width: 1.5px;
+}
+
+#corner-circle-origin {
+  fill: #700;
+}
+
+</style>
+<svg width="960" height="500">
+  <g transform="translate(300,420)">
+    <defs>
+      <marker id="dot" refX="5" refY="5" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse">
+        <circle cx="5" cy="5" r="3.5" style="fill:#000;"></circle>
+      </marker>
+    </defs>
+  </g>
+</svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var p1 = [100 - 100, 100 - 480],
+    p0 = [140 - 100, 420 - 480],
+    r1 = 380,
+    rc = 80;
+
+var g = d3.select("g");
+
+g.append("circle")
+    .attr("id", "outer-circle")
+    .attr("r", r1);
+
+g.append("circle")
+    .attr("id", "outer-circle-origin")
+    .attr("r", 2.5);
+
+g.append("circle")
+    .attr("id", "offset-circle")
+    .attr("r", r1 - rc);
+
+// Compute perpendicular offset line of length rc.
+var x01 = p0[0] - p1[0],
+    y01 = p0[1] - p1[1],
+    d01 = Math.sqrt(x01 * x01 + y01 * y01),
+    lo = rc / d01,
+    ox = lo * y01,
+    oy = -lo * x01;
+
+var p2 = [(p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2];
+
+g.append("line")
+    .attr("id", "perpendicular-offset-line")
+    .attr("x1", p2[0])
+    .attr("y1", p2[1])
+    .attr("x2", p2[0] + ox)
+    .attr("y2", p2[1] + oy);
+
+g.append("line")
+    .attr("id", "parallel-offset-line")
+    .attr("x1", p0[0] + ox)
+    .attr("y1", p0[1] + oy)
+    .attr("x2", p1[0] + ox)
+    .attr("y2", p1[1] + oy);
+
+g.append("line")
+    .attr("id", "line")
+    .attr("x1", p0[0])
+    .attr("y1", p0[1])
+    .attr("x2", p1[0])
+    .attr("y2", p1[1]);
+
+// http://mathworld.wolfram.com/Circle-LineIntersection.html
+var x1 = p0[0] + ox,
+    y1 = p0[1] + oy,
+    x2 = p1[0] + ox,
+    y2 = p1[1] + oy,
+    dx = x2 - x1,
+    dy = y2 - y1,
+    dr = Math.sqrt(dx * dx + dy * dy),
+    r = r1 - rc,
+    D = x1 * y2 - x2 * y1,
+    Δ = r * r * dr * dr - D * D,
+    cx = (D * dy - (dy < 0 ? -1 : 1) * dx * Math.sqrt(Δ)) / (dr * dr),
+    cy = (-D * dx - Math.abs(dy) * Math.sqrt(Δ)) / (dr * dr);
+
+g.append("circle")
+    .attr("id", "corner-circle")
+    .attr("r", rc)
+    .attr("cx", cx)
+    .attr("cy", cy);
+
+g.append("circle")
+    .attr("id", "corner-circle-origin")
+    .attr("r", 2.5)
+    .attr("cx", cx)
+    .attr("cy", cy);
+
+g.append("circle")
+    .attr("id", "perpendicular-offset-line-tangent")
+    .attr("r", 3.5)
+    .attr("cx", cx - ox)
+    .attr("cy", cy - oy);
+
+g.append("circle")
+    .attr("id", "outer-circle-tangent")
+    .attr("r", 3.5)
+    .attr("cx", cx * r1 / r)
+    .attr("cy", cy * r1 / r);
+
+</script>

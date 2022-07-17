@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.sphere,
+.graticule {
+  fill: none;
+  stroke: #aaa;
+}
+
+.sphere {
+  stroke-width: 1.5px;
+}
+
+.point circle,
+.equator {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px;
+}
+
+.resample circle {
+  fill: none;
+  stroke: black;
+  stroke-width: 2px;
+}
+
+.resample line {
+  fill: none;
+  stroke: black;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.equirectangular()
+    .scale(145)
+    .rotate([0, 0, 89])
+    .translate([width / 2, height / 2])
+    .precision(.3);
+
+var coordinates = [[-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0]],
+    resampled = coordinates;
+
+var stages = d3.range(8).map(function() {
+  var result = resample(resampled);
+  resampled = result.after;
+  result.before = result.before.map(projection);
+  result.after = result.after.map(projection);
+  resampled.forEach(function(d, i) { result.after[i].resampled = d.resampled; });
+  return result;
+});
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+svg.append("path")
+    .datum({type: "Sphere"})
+    .attr("class", "sphere")
+    .attr("d", path);
+
+var equator = svg.append("path")
+    .attr("class", "equator");
+
+var point = svg.append("g")
+    .attr("class", "point")
+  .selectAll("g");
+
+animation();
+
+function animation() {
+  var transition = svg,
+      start = Date.now();
+
+  point = point.remove().data([]);
+
+  stages.forEach(function(stage, i) {
+    setTimeout(function() {
+      equator
+          .attr("d", "M" + stage.before.join("L"))
+        .transition()
+          .delay(500)
+          .duration(500)
+          .attr("d", "M" + stage.after.join("L"));
+
+      point = point.data(stage.after, function(d) { return d; });
+
+      point.exit().remove();
+
+      var pointEnter = point.enter().append("g");
+
+      point.classed("resample", function(d) { return d.resampled; });
+
+      pointEnter.append("circle")
+          .attr("transform", function(d) { return "translate(" + d + ")"; })
+          .attr("r", 0)
+        .transition()
+          .attr("r", 4.5);
+
+      pointEnter.filter(function(d) { return d.resampled; }).append("line")
+          .attr("x1", function(d) { return d[0]; })
+          .attr("y1", function(d) { return d[1]; })
+          .attr("x2", function(d) { return d[0]; })
+          .attr("y2", function(d) { return d[1] + 1e-3; }) // force caps
+        .transition()
+          .duration(500)
+          .attr("x2", function(d) { return d.resampled[0]; })
+          .attr("y2", function(d) { return d.resampled[1]; })
+        .transition()
+          .attr("x2", function(d) { return d[0]; })
+          .attr("y2", function(d) { return d[1] + 1e-3; }); // force caps
+    }, i * 1250);
+  });
+
+  setTimeout(animation, stages.length * 1250);
+}
+
+function resample(coordinates) {
+  var i = 0, n = coordinates.length, before = [], after = [];
+  while (++i < n) {
+    var c0 = coordinates[i - 1].slice(),
+        c1 = coordinates[i].slice(),
+        p0 = projection(c0),
+        p1 = projection(c1),
+        x10 = p1[0] - p0[0],
+        y10 = p1[1] - p0[1],
+        d1 = x10 * x10 + y10 * y10;
+    before.push(c0);
+    after.push(c0);
+    if (d1 > 4 * .1) { // linear distance check
+      var c2 = d3.geo.interpolate(c0, c1)(.5),
+          p2 = projection(c2),
+          x20 = p2[0] - p0[0],
+          y20 = p2[1] - p0[1],
+          dz = y10 * x20 - x10 * y20;
+      if (dz * dz / d1 > .1) { // perpendicular distance check
+        var t = (x20 * x10 + y20 * y10) / d1;
+        before.push(projection.invert(c2.resampled = [p0[0] + t * x10, p0[1] + t * y10]));
+        after.push(c2);
+      }
+    }
+  }
+  if (n) before.push(c1), after.push(c1);
+  return {before: before, after: after};
+}
+
+</script>

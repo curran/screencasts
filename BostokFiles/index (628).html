@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="d3.min.js"></script>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    width = canvas.width,
+    height = canvas.height,
+    context = canvas.getContext("2d"),
+    image = context.createImageData(width, height),
+    hue,
+    y = -1,
+    i = -1;
+
+while (++y < height) {
+  for (var x = 0, c; x < width; ++x) {
+    c = d3.hcl(360 * y / (height - 1), 50, 100 * (1 - x / (width - 1))).rgb();
+    image.data[++i] = c.r;
+    image.data[++i] = c.g;
+    image.data[++i] = c.b;
+    image.data[++i] = 255;
+  }
+}
+
+context.putImageData(image, 0, 0);
+
+</script>

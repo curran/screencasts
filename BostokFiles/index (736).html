@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<div id="progress"></div>
+<canvas width="960" height="960"></canvas>
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script>
+
+var nodes = d3.range(1000).map(function(i) {
+  return {
+    index: i
+  };
+});
+
+var links = d3.range(nodes.length - 1).map(function(i) {
+  return {
+    source: Math.floor(Math.sqrt(i)),
+    target: i + 1
+  };
+});
+
+var meter = document.querySelector("#progress"),
+    canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height;
+
+var worker = new Worker("worker.js");
+
+worker.postMessage({
+  nodes: nodes,
+  links: links
+});
+
+worker.onmessage = function(event) {
+  switch (event.data.type) {
+    case "tick": return ticked(event.data);
+    case "end": return ended(event.data);
+  }
+};
+
+function ticked(data) {
+  var progress = data.progress;
+
+  meter.style.width = 100 * progress + "%";
+}
+
+function ended(data) {
+  var nodes = data.nodes,
+      links = data.links;
+
+  meter.style.display = "none";
+
+  context.clearRect(0, 0, width, height);
+  context.save();
+  context.translate(width / 2, height / 2);
+
+  context.beginPath();
+  links.forEach(drawLink);
+  context.strokeStyle = "#aaa";
+  context.stroke();
+
+  context.beginPath();
+  nodes.forEach(drawNode);
+  context.fill();
+  context.strokeStyle = "#fff";
+  context.stroke();
+
+  context.restore();
+}
+
+function drawLink(d) {
+  context.moveTo(d.source.x, d.source.y);
+  context.lineTo(d.target.x, d.target.y);
+}
+
+function drawNode(d) {
+  context.moveTo(d.x + 3, d.y);
+  context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+}
+
+</script>
+<style>
+
+#progress {
+  position: fixed;
+  top: 0;
+  left: -6px;
+  width: 0%;
+  height: 2px;
+  background: red;
+}
+
+#progress:before,
+#progress:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  opacity: 0.6;
+  box-shadow: red 1px 0 6px 1px;
+  border-radius: 100%;
+}
+
+#progress:before {
+  width: 20px;
+  right: 0;
+  clip: rect(-6px, 22px, 14px, 10px);
+}
+
+#progress:after {
+  width: 180px;
+  right: -80px;
+  clip: rect(-6px, 90px, 14px, -6px);
+}
+
+</style>

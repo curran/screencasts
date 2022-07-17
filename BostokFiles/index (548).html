@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var N = 1 << 0,
+    S = 1 << 1,
+    W = 1 << 2,
+    E = 1 << 3;
+
+var cellSize = 4,
+    cellSpacing = 4,
+    cellWidth = Math.floor((width - cellSpacing) / (cellSize + cellSpacing)),
+    cellHeight = Math.floor((height - cellSpacing) / (cellSize + cellSpacing)),
+    marginLeft = Math.floor((width - cellWidth * cellSize - (cellWidth + 1) * cellSpacing) / 2) + cellSpacing + cellSize / 2 + .5,
+    marginTop = Math.floor((height - cellHeight * cellSize - (cellHeight + 1) * cellSpacing) / 2) + cellSpacing + cellSize / 2 + .5,
+    root = generateTree(cellWidth, cellHeight); // each cell’s edge bits
+
+var tree = d3.layout.tree()
+    .size([height - 2 * marginTop, width - 2 * marginLeft]);
+
+var nodes = tree.nodes(root),
+    links = tree.links(nodes);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+context.translate(marginLeft, marginTop);
+context.strokeStyle = "#fff";
+context.lineWidth = 2.5;
+
+nodes.forEach(function(d) {
+  var i = d.index;
+  d[0] = (cellWidth - i % cellWidth - 1) * (cellSize + cellSpacing);
+  d[1] = (i / cellWidth | 0) * (cellSize + cellSpacing);
+});
+
+links.sort(function(a, b) {
+  return b.source.depth - a.source.depth;
+});
+
+d3.selectAll(nodes).transition()
+    .duration(2500)
+    .delay(function() { return this.depth * 50; })
+    .ease("quad-in-out")
+    .tween("position", function() {
+      var d = this, i = d3.interpolate([d[0], d[1]], [d.y, d.x]);
+      return function(t) { var p = i(t); d[0] = p[0]; d[1] = p[1]; };
+    });
+
+d3.timer(function() {
+  context.clearRect(-1, -1, width + 1, height + 1);
+  context.beginPath();
+  links.forEach(function(d) {
+    context.moveTo(d.source[0], d.source[1]);
+    context.lineTo(d.target[0], d.target[1]);
+  });
+  context.stroke();
+  return !links[0].target.__transition__;
+});
+
+function generateTree(width, height) {
+  var cells = generateMaze(width, height), // each cell’s edge bits
+      visited = d3.range(width * height).map(function() { return false; }),
+      root = {index: cells.length - 1, children: []},
+      frontier = [root],
+      parent,
+      child,
+      childIndex,
+      cell;
+
+  while ((parent = frontier.pop()) != null) {
+    cell = cells[parent.index];
+    if (cell & E && !visited[childIndex = parent.index + 1]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+    if (cell & W && !visited[childIndex = parent.index - 1]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+    if (cell & S && !visited[childIndex = parent.index + width]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+    if (cell & N && !visited[childIndex = parent.index - width]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+  }
+
+  return root;
+}
+
+function generateMaze(width, height) {
+  var cells = new Array(width * height), // each cell’s edge bits
+      remaining = d3.range(width * height), // cell indexes to visit
+      previous = new Array(width * height); // current random walk
+
+  // Add the starting cell.
+  var start = remaining.pop();
+  cells[start] = 0;
+
+  // While there are remaining cells,
+  // add a loop-erased random walk to the maze.
+  while (!loopErasedRandomWalk());
+
+  return cells;
+
+  function loopErasedRandomWalk() {
+    var i0,
+        i1,
+        x0,
+        y0;
+
+    // Pick a location that’s not yet in the maze (if any).
+    do if ((i0 = remaining.pop()) == null) return true;
+    while (cells[i0] >= 0);
+
+    // Perform a random walk starting at this location,
+    previous[i0] = i0;
+    while (true) {
+      x0 = i0 % width;
+      y0 = i0 / width | 0;
+
+      // picking a legal random direction at each step.
+      i1 = Math.random() * 4 | 0;
+      if (i1 === 0) { if (y0 <= 0) continue; --y0, i1 = i0 - width; }
+      else if (i1 === 1) { if (y0 >= height - 1) continue; ++y0, i1 = i0 + width; }
+      else if (i1 === 2) { if (x0 <= 0) continue; --x0, i1 = i0 - 1; }
+      else { if (x0 >= width - 1) continue; ++x0, i1 = i0 + 1; }
+
+      // If this new cell was visited previously during this walk,
+      // erase the loop, rewinding the path to its earlier state.
+      if (previous[i1] >= 0) eraseWalk(i0, i1);
+
+      // Otherwise, just add it to the walk.
+      else previous[i1] = i0;
+
+      // If this cell is part of the maze, we’re done walking.
+      if (cells[i1] >= 0) {
+
+        // Add the random walk to the maze by backtracking to the starting cell.
+        // Also erase this walk’s history to not interfere with subsequent walks.
+        while ((i0 = previous[i1]) !== i1) {
+          if (i1 === i0 + 1) cells[i0] |= E, cells[i1] |= W;
+          else if (i1 === i0 - 1) cells[i0] |= W, cells[i1] |= E;
+          else if (i1 === i0 + width) cells[i0] |= S, cells[i1] |= N;
+          else cells[i0] |= N, cells[i1] |= S;
+          previous[i1] = NaN;
+          i1 = i0;
+        }
+
+        previous[i1] = NaN;
+        return;
+      }
+
+      i0 = i1;
+    }
+  }
+
+  function eraseWalk(i0, i2) {
+    var i1;
+    do i1 = previous[i0], previous[i0] = NaN, i0 = i1; while (i1 !== i2);
+  }
+}
+
+</script>

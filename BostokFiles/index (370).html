@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: none;
+  stroke-linejoin: round;
+}
+
+.sphere,
+.graticule {
+  stroke: #aaa;
+}
+
+.equator {
+  stroke: red;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 580,
+    scale1 = 145,
+    scale2 = 85;
+
+var projection = d3.geo.equirectangular()
+    .scale(scale1)
+    .translate([width / 2, height / 2])
+    .precision(.3);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g");
+
+svg.append("path")
+    .datum({type: "Sphere"})
+    .attr("class", "sphere")
+    .attr("d", path);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+svg.append("path")
+    .datum({type: "LineString", coordinates: [[-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0]]})
+    .attr("class", "equator")
+    .attr("d", path);
+
+var feature = svg.selectAll("path");
+
+animation();
+
+function animation() {
+  svg.transition()
+      .duration(3750)
+      .each("start", function() {
+        projection.scale(scale1);
+        svg.attr("transform", null);
+      })
+      .tween("projection", function() {
+        return function(_) {
+          t = _;
+          projection.rotate([0, 0, t * 89]);
+          feature.attr("d", path);
+        };
+      })
+    .transition()
+      .duration(3750)
+      .tween("projection", function() {
+        return function(_) {
+          t = _;
+          projection.scale(scale2 * t + scale1 * (1 - t));
+          svg.attr("transform", "rotate(" + t * 90 + " " + width / 2 + "," + height / 2 + ")");
+          feature.attr("d", path);
+        };
+      })
+    .transition()
+      .duration(2500)
+      .each("end", animation);
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

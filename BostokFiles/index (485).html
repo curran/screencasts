@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+#item-table {
+  width: 100%;
+  text-align: left;
+}
+
+</style>
+<table id="item-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="item">
+      <td class="name"></td>
+      <td class="cost"></td>
+      <td class="count"></td>
+    </tr>
+  </tbody>
+</table>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var itemTemplate = d3.select(".item").remove().node();
+
+var formatCost = d3.format("$,.2f"),
+    formatCount = d3.format(",d");
+
+d3.tsv("items.tsv", type, function(error, items) {
+  var item = d3.select("#item-table tbody").selectAll(".item")
+        .data(items)
+      .enter().append(function() { return itemTemplate.cloneNode(true); });
+
+  item.select(".name").text(function(d) { return d.name; });
+  item.select(".cost").text(function(d) { return formatCost(d.cost); });
+  item.select(".count").text(function(d) { return formatCount(d.count); });
+});
+
+function type(d) {
+  d.cost = +d.cost;
+  d.count = +d.count;
+  return d;
+}
+
+</script>

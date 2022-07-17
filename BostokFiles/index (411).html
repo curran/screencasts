@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+// This projection is baked into the TopoJSON file,
+// but is used here to compute the desired zoom translate.
+var projection = d3.geo.albersUsa();
+
+var sf = projection([-122.417, 37.775]),
+    center = projection.translate();
+
+var scale,
+    translate,
+    area; // minimum area threshold
+
+var clip = d3.geo.clipExtent()
+    .extent([[0, 0], [width, height]]);
+
+var simplify = d3.geo.transform({
+  point: function(x, y, z) {
+    if (z >= area) this.stream.point(x * scale + translate[0], y * scale + translate[1]);
+  }
+});
+
+var zoom = d3.behavior.zoom()
+    .size([width, height])
+    .on("zoom", zoomed);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection({stream: function(s) { return simplify.stream(clip.stream(s)); }})
+    .context(context);
+
+d3.json("ophz.json", function(error, ophz) {
+  if (error) throw error;
+
+  canvas
+      .datum(topojson.mesh(topojson.presimplify(ophz)))
+      .call(zoomTo(center, 1).event)
+    .transition()
+      .duration(2500)
+      .each(jump);
+});
+
+function zoomTo(point, scale) {
+  return zoom
+      .translate([width / 2 - point[0] * scale, height / 2 - point[1] * scale])
+      .scale(scale);
+}
+
+function zoomed(d) {
+  translate = zoom.translate();
+  scale = zoom.scale();
+  area = 4 / scale / scale;
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  path(d);
+  context.stroke();
+}
+
+function jump() {
+  var t = d3.select(this);
+  (function repeat() {
+    t = t.transition()
+        .call(zoomTo(sf, 4).event)
+      .transition()
+        .call(zoomTo(center, 1).event)
+        .each("end", repeat);
+  })();
+}
+
+</script>

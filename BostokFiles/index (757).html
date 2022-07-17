@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var points = d3.range(2000).map(phyllotaxis(10));
+
+var circle = svg.selectAll("circle")
+    .data(points)
+  .enter().append("circle")
+    .attr("transform", function(d) { return "translate(" + d[0] + "," + d[1] + ")"; })
+    .attr("r", 2.5);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .call(d3.zoom()
+        .scaleExtent([1 / 2, 4])
+        .on("zoom", zoomed));
+
+function zoomed() {
+  var transform = d3.event.transform;
+  circle.attr("transform", function(d) {
+    return "translate(" + transform.applyX(d[0]) + "," + transform.applyY(d[1]) + ")";
+  });
+}
+
+function phyllotaxis(radius) {
+  var theta = Math.PI * (3 - Math.sqrt(5));
+  return function(i) {
+    var r = radius * Math.sqrt(i), a = theta * i;
+    return [
+      width / 2 + r * Math.cos(a),
+      height / 2 + r * Math.sin(a)
+    ];
+  };
+}
+
+</script>

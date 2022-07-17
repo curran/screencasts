@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  width: 960px;
+  height: 500px;
+  position: relative;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+}
+
+line {
+  stroke: #aaa;
+  shape-rendering: crispEdges;
+}
+
+#acceleration {
+  position: absolute;
+  bottom: 27px;
+  right: 50px;
+}
+
+#acceleration input {
+  width: 140px;
+}
+
+#acceleration span {
+  position: relative;
+  top: -3px;
+}
+
+#acceleration output {
+  display: inline-block;
+  width: 3.5em;
+}
+
+</style>
+<body>
+<div id="acceleration">
+  <input type="range" min="0" max="1" step=".01" value=".55">
+  <span><i>a</i> = <output name="acceleration"></output></span>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 40, right: 340, bottom: 40, left: 200},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var color = d3.scale.category20c();
+
+var formatNumber = d3.format(".4f");
+
+var x = d3.scale.linear()
+    .domain([0, 1])
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([0, 1])
+    .range([height, 0]);
+
+var continuousLine = (function() {
+  var samples = d3.range(0, 1 + 1e-6, 2 / width);
+
+  var discreteLine = d3.svg.line()
+      .x(function(d, i) { return x(samples[i]); })
+      .y(function(d) { return y(d); });
+
+  return function(f) {
+    return discreteLine(samples.map(f));
+  };
+})();
+
+var ease;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.svg.axis()
+      .scale(x)
+      .orient("bottom"))
+    .append("text")
+      .attr("x", width)
+      .attr("y", -3)
+      .attr("dy", "-.35em")
+      .style("font-weight", "bold")
+      .style("text-anchor", "middle")
+      .text("time");
+
+svg.append("g")
+    .attr("class", "axis axis--y")
+    .call(d3.svg.axis()
+      .scale(y)
+      .orient("left"))
+    .append("text")
+      .attr("x", 6)
+      .attr("dy", ".35em")
+      .style("font-weight", "bold")
+      .text("ease(time)");
+
+var lineEase = svg.append("path")
+    .attr("class", "line")
+    .style("stroke", "#000");
+
+var lineAccelerate = svg.append("path")
+    .attr("class", "line")
+    .style("stroke", "brown")
+    .style("stroke-width", "2px")
+    .style("stroke-dasharray", "2,5");
+
+var lineCoast = svg.append("path")
+    .attr("class", "line")
+    .style("stroke", "steelblue")
+    .style("stroke-width", "2px")
+    .style("stroke-dasharray", "2,5");
+
+var timeReference = svg.append("line").attr("y1", height),
+    easeReference = svg.append("line");
+
+var circle = svg.append("circle")
+    .attr("r", 4.5)
+    .attr("cx", 0)
+    .attr("cy", height);
+
+var output = d3.select("output");
+
+var inputScale = d3.scale.pow()
+    .exponent(4)
+    .domain([0, 1])
+    .range([1, 10]);
+
+var input = d3.select("input")
+    .on("input", function() { reset(inputScale(this.value)); })
+    .each(function() { reset(inputScale(this.value)); });
+
+!function loop() {
+  circle.transition()
+      .ease("linear")
+      .duration(5000)
+      .tween("transform", function() {
+        return function(t) {
+          circle.attr("cx", x(t)).attr("cy", y(ease(t)));
+          timeReference.attr("x1", x(t)).attr("x2", x(t)).attr("y2", y(ease(t)));
+          easeReference.attr("x2", x(t)).attr("y1", y(ease(t))).attr("y2", y(ease(t)));
+        };
+      })
+      .each("end", loop);
+}();
+
+function reset(acceleration) {
+  output.text(formatNumber(acceleration));
+  ease = easeAccelerateThenCoast(acceleration);
+  lineEase.attr("d", continuousLine(ease));
+  lineAccelerate.attr("d", continuousLine(function(x) { return ease.acceleration * x * x; }));
+  lineCoast.attr("d", continuousLine(function(x) { return ease.speed * x - ease.speed + 1; }));
+}
+
+// Constant acceleration followed by constant speed.
+// If acceleration = 1, this is the same as quadratic easing.
+// If acceleration = Infinity, this is the same as linear easing.
+function easeAccelerateThenCoast(acceleration) {
+  if (acceleration < 1) throw new Error("unpossible");
+  if (!isFinite(ease.acceleration = acceleration)) return d3.ease("linear");
+  var speed = ease.speed = 2 * (acceleration - Math.sqrt((acceleration - 1) * acceleration)),
+      t0 = ease.t0 = speed / 2 / acceleration;
+
+  function ease(t) {
+    return t < t0 ? acceleration * t * t : speed * t - speed + 1;
+  }
+
+  return ease;
+}
+
+</script>

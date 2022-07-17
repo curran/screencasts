@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="500">
+  <g>
+    <image xlink:href="circle-limit-iv.jpg" x="455" y="225" width="50" height="50"></image>
+  </g>
+</svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var zoom = d3.zoom().on("zoom", zoomed),
+    svg = d3.select("svg").call(zoom),
+    g = svg.select("g"),
+    image = g.select("image"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height"),
+    x0 = +image.attr("x"),
+    y0 = +image.attr("y"),
+    x1 = +image.attr("width") + x0,
+    y1 = +image.attr("height") + y0;
+
+// Don’t allow the zoomed area to be bigger than the viewport.
+zoom.scaleExtent([1, Math.min(width / (x1 - x0), height / (y1 - y0))]);
+
+function zoomed() {
+  var t = d3.event.transform;
+  if (t.invertX(0) > x0) t.x = -x0 * t.k;
+  else if (t.invertX(width) < x1) t.x = width - x1 * t.k;
+  if (t.invertY(0) > y0) t.y = -y0 * t.k;
+  else if (t.invertY(height) < y1) t.y = height - y1 * t.k;
+  g.attr("transform", t);
+}
+
+</script>

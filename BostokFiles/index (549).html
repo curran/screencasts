@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  padding: 10px 0;
+}
+
+svg {
+  float: left;
+}
+
+.line {
+  stroke: #000;
+  stroke-linecap: round;
+}
+
+.line--pivot {
+  stroke: #f00;
+  stroke-width: 3px;
+}
+
+.line--inactive {
+  stroke: #ddd;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var n = 200,
+    array = d3.shuffle(d3.range(n)),
+    levels = quicksort(array);
+
+var margin = {top: 2, right: 20, bottom: 2, left: 20},
+    width = 960 - margin.left - margin.right,
+    height = 30 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(n))
+    .rangePoints([0, width]);
+
+var a = d3.scale.linear()
+    .domain([0, n - 1])
+    .range([-45, 45]);
+
+var svg = d3.select("body").selectAll("svg")
+    .data(levels)
+  .enter().append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "line")
+  .selectAll("line")
+    .data(function(d) { return d; })
+  .enter().append("line")
+    .attr("transform", function(d, i) { return "translate(" + x(i) + "," + height + ")rotate(" + a(d == null ? i : d) + ")"; })
+    .attr("class", function(d, i) { return d == null ? "line--inactive" : i in this.parentNode.__data__.pivots ? "line--pivot" : null; })
+    .attr("y2", -height);
+
+function quicksort(array) {
+  var levels = [];
+
+  function partition(left, right, pivot) {
+    var v = array[pivot];
+    swap(pivot, --right);
+    for (var i = left; i < right; ++i) if (array[i] <= v) swap(i, left++);
+    swap(left, right);
+    return left;
+  }
+
+  function swap(i, j) {
+    var t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+  }
+
+  function recurse(left, right, depth) {
+    var pivot = (left + right) >> 1;
+
+    if (!levels[depth]) levels[depth] = new Array(array.length), levels[depth].pivots = {};
+    for (var i = left; i < right; ++i) levels[depth][i] = array[i];
+    levels[depth].pivots[pivot] = 1;
+
+    pivot = partition(left, right, pivot);
+    if (left < pivot - 1) recurse(left, pivot, depth + 1);
+    if (pivot + 1 < right - 1) recurse(pivot + 1, right, depth + 1);
+  }
+
+  if (array.length > 1) recurse(0, array.length, 0);
+  return levels;
+}
+
+d3.select(self.frameElement).style("height", (height + margin.top + margin.bottom) * levels.length + 20 + "px");
+
+</script>

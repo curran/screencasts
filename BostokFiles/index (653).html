@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.circle {
+  fill-opacity: .5;
+}
+
+.ring {
+  fill: none;
+  stroke: #000;
+  pointer-events: none;
+}
+
+.ring-inner {
+  stroke-width: 5px;
+  stroke-opacity: .25;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+function apolloniusCircle(x1, y1, r1, x2, y2, r2, x3, y3, r3) {
+
+  // The quadratic equation (1):
+  //
+  //          0 = (x - x1)² + (y - y1)² - (r ± r1)²
+  //          0 = (x - x2)² + (y - y2)² - (r ± r2)²
+  //          0 = (x - x3)² + (y - y3)² - (r ± r3)²
+  //
+  // Use a negative radius to choose a different circle.
+  // We must rewrite this in standard form Ar² + Br + C = 0 to solve for r.
+  // Per http://mathworld.wolfram.com/ApolloniusProblem.html
+
+  var a2 = 2 * (x1 - x2),
+      b2 = 2 * (y1 - y2),
+      c2 = 2 * (r2 - r1),
+      d2 = x1 * x1 + y1 * y1 - r1 * r1 - x2 * x2 - y2 * y2 + r2 * r2,
+      a3 = 2 * (x1 - x3),
+      b3 = 2 * (y1 - y3),
+      c3 = 2 * (r3 - r1),
+      d3 = x1 * x1 + y1 * y1 - r1 * r1 - x3 * x3 - y3 * y3 + r3 * r3;
+
+  // Giving:
+  //
+  //          x = (b2 * d3 - b3 * d2 + (b3 * c2 - b2 * c3) * r) / (a3 * b2 - a2 * b3)
+  //          y = (a3 * d2 - a2 * d3 + (a2 * c3 - a3 * c2) * r) / (a3 * b2 - a2 * b3)
+  //
+  // Expand x - x1, substituting definition of x in terms of r.
+  //
+  //     x - x1 = (b2 * d3 - b3 * d2 + (b3 * c2 - b2 * c3) * r) / (a3 * b2 - a2 * b3) - x1
+  //            = (b2 * d3 - b3 * d2) / (a3 * b2 - a2 * b3) + (b3 * c2 - b2 * c3) / (a3 * b2 - a2 * b3) * r - x1
+  //            = bd / ab + bc / ab * r - x1
+  //            = xa + xb * r
+  //
+  // Where:
+
+  var ab = a3 * b2 - a2 * b3,
+      xa = (b2 * d3 - b3 * d2) / ab - x1,
+      xb = (b3 * c2 - b2 * c3) / ab;
+
+  // Likewise expand y - y1, substituting definition of y in terms of r.
+  //
+  //     y - y1 = (a3 * d2 - a2 * d3 + (a2 * c3 - a3 * c2) * r) / (a3 * b2 - a2 * b3) - y1
+  //            = (a3 * d2 - a2 * d3) / (a3 * b2 - a2 * b3) + (a2 * c3 - a3 * c2) / (a3 * b2 - a2 * b3) * r - y1
+  //            = ad / ab + ac / ab * r - y1
+  //            = ya + yb * r
+  //
+  // Where:
+
+  var ya = (a3 * d2 - a2 * d3) / ab - y1,
+      yb = (a2 * c3 - a3 * c2) / ab;
+
+  // Expand (x - x1)², (y - y1)² and (r - r1)²:
+  //
+  //  (x - x1)² = xb * xb * r² + 2 * xa * xb * r + xa * xa
+  //  (y - y1)² = yb * yb * r² + 2 * ya * yb * r + ya * ya
+  //  (r - r1)² = r² - 2 * r1 * r + r1 * r1.
+  //
+  // Substitute back into quadratic equation (1):
+  //
+  //          0 = xb * xb * r² + yb * yb * r² - r²
+  //              + 2 * xa * xb * r + 2 * ya * yb * r + 2 * r1 * r
+  //              + xa * xa + ya * ya - r1 * r1
+  //
+  // Rewrite in standard form Ar² + Br + C = 0,
+  // then plug into the quadratic formula to solve for r, x and y.
+
+  var A = xb * xb + yb * yb - 1,
+      B = 2 * (xa * xb + ya * yb + r1),
+      C = xa * xa + ya * ya - r1 * r1,
+      r = A ? (-B - Math.sqrt(B * B - 4 * A * C)) / (2 * A) : (-C / B);
+  return r > 0 ? {x: xa + xb * r + x1, y: ya + yb * r + y1, r: r} : null;
+}
+
+var c1 = {x: 380, y: 250, r: 80},
+    c2 = {x: 600, y: 100, r: 20},
+    c3 = {x: 600, y: 300, r: 120};
+
+var svg = d3.select("svg");
+
+var circle = svg.selectAll(".circle")
+    .data([c1, c2, c3])
+  .enter().append("g")
+    .attr("class", "circle")
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+    .call(d3.behavior.drag()
+        .origin(function(d) { return d; })
+        .on("dragstart", dragstarted)
+        .on("drag", dragged));
+
+circle.append("circle")
+    .attr("r", function(d) { return d.r; });
+
+var ring = svg.append("g")
+    .attr("class", "ring");
+
+ring.append("circle")
+    .attr("class", "ring-outer");
+
+ring.append("circle")
+    .attr("class", "ring-inner");
+
+update();
+
+function dragstarted(d) {
+  this.parentNode.appendChild(this);
+}
+
+function dragged(d) {
+  d3.select(this).attr("transform", "translate(" + (d.x = d3.event.x) + "," + (d.y = d3.event.y) + ")");
+  update();
+}
+
+function update() {
+  var c = apolloniusCircle(c1.x, c1.y, c1.r, c2.x, c2.y, c2.r, c3.x, c3.y, c3.r);
+  if (c) {
+    ring.style("display", null).attr("transform", "translate(" + c.x + "," + c.y + ")");
+    ring.select(".ring-inner").attr("r", c.r - 3);
+    ring.select(".ring-outer").attr("r", c.r);
+  } else {
+    ring.style("display", "none");
+  }
+}
+
+</script>

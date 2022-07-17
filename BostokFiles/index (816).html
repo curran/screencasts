@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<canvas width="960" height="480" style="background-image:url(cloud-fraction.png);background-size:cover;"></canvas>
+<script src="https://unpkg.com/d3-contour@1"></script>
+<script src="https://unpkg.com/d3-geo@1"></script>
+<script src="https://unpkg.com/d3-timer@1"></script>
+<script src="stack-blur.js"></script>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d");
+
+context.lineWidth = 2;
+context.lineJoin = "round";
+context.strokeStyle = "magenta";
+
+image("cloud-fraction.png").then(function(image) {
+  var m = image.height,
+      n = image.width,
+      values = new Array(n * m),
+      contours = d3.contours().size([n, m]),
+      projection = d3.geoIdentity().scale(canvas.width / n),
+      path = d3.geoPath(projection, context);
+
+  StackBlur.R(image, 3);
+
+  for (var j = 0, k = 0; j < m; ++j) {
+    for (var i = 0; i < n; ++i, ++k) {
+      values[k] = image.data[(k << 2)] / 255;
+    }
+  }
+
+  d3.timer(function(t) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    path(contours.thresholds([(t % 5000) / 5000])(values)[0]);
+    context.stroke();
+  });
+});
+
+function image(url) {
+  return new Promise(function(resolve) {
+    var image = new Image;
+    image.src = url;
+    image.onload = function() {
+      var canvas = document.createElement("canvas");
+      canvas.width = image.width;
+      canvas.height = image.height;
+      var context = canvas.getContext("2d");
+      context.drawImage(image, 0, 0);
+      resolve(context.getImageData(0, 0, image.width, image.height));
+    };
+  });
+}
+
+</script>

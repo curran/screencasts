@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.point {
+  fill: #000;
+  stroke: #fff;
+}
+
+.edge {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .4;
+}
+
+.face {
+  fill: #eee;
+  fill-rule: nonzero;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var velocity = [.018, .006];
+
+var projection = d3.geo.orthographic()
+    .scale(240);
+
+var path = d3.geo.path()
+    .projection({
+      stream: function(out) {
+        return {
+          point: function(x, y) { var p = projection([x, y]); out.point(p[0], p[1]); },
+          lineStart: function() { out.lineStart(); },
+          lineEnd: function() { out.lineEnd(); },
+          polygonStart: function() { out.polygonStart(); },
+          polygonEnd: function() { out.polygonEnd(); }
+        };
+      }
+    });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var face = svg.selectAll(".face")
+    .data(icosahedron_faces)
+  .enter().append("path")
+    .attr("class", "face");
+
+var edge = svg.append("path")
+    .datum(icosahedron_edges)
+    .attr("class", "edge");
+
+var point = svg.append("path")
+    .datum(icosahedron_points)
+    .attr("class", "point");
+
+d3.timer(function(elapsed) {
+  projection.rotate([elapsed * velocity[0], elapsed * velocity[1]]);
+  point.attr("d", path);
+  edge.attr("d", path);
+  face.attr("d", path);
+});
+
+function icosahedron_points() {
+  var points = [],
+      y = Math.atan2(1, 2) * 180 / Math.PI;
+  points.push([0, -90]);
+  for (var x = 0; x < 360; x += 36) {
+    points.push([x, -y], [x += 36, y]);
+  }
+  points.push([0, 90]);
+  return {type: "MultiPoint", coordinates: points};
+}
+
+function icosahedron_edges() {
+  var edges = [],
+      y = Math.atan2(1, 2) * 180 / Math.PI;
+  for (var x = 0; x < 360; x += 72) {
+    edges.push([[x +  0, -90], [x +  0,  -y]]);
+    edges.push([[x +  0,  -y], [x + 72,  -y]]);
+    edges.push([[x + 36,   y], [x - 36,   y]]);
+    edges.push([[x + 36,   y], [x +  0,  -y]]);
+    edges.push([[x - 36,   y], [x +  0,  -y]]);
+    edges.push([[x + 36,  90], [x + 36,   y]]);
+  }
+  return {type: "MultiLineString", coordinates: edges};
+}
+
+function icosahedron_faces() {
+  var faces = [],
+      y = Math.atan2(1, 2) * 180 / Math.PI;
+  for (var x = 0; x < 360; x += 72) {
+    faces.push([[[x +  0, -90], [x +  0,  -y], [x + 72,  -y], [x +  0, -90]]]);
+    faces.push([[[x +  0,  -y], [x + 72,  -y], [x + 36,   y], [x +  0,  -y]]]);
+    faces.push([[[x + 36,   y], [x +  0,  -y], [x - 36,   y], [x + 36,   y]]]);
+    faces.push([[[x - 36,  90], [x - 36,   y], [x + 36,   y], [x + 36,  90]]]);
+  }
+  return faces.map(function(face) {
+    return {type: "Polygon", coordinates: face};
+  });
+}
+
+</script>

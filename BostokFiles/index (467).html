@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis--y path {
+  display: none;
+}
+
+.cities {
+  fill: none;
+  stroke: #777;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-opacity: .15;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var months,
+    monthFormat = d3.time.format("%Y-%m");
+
+var margin = {top: 20, right: 30, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.value); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("unemployment.tsv", type, function(error, cities) {
+  x.domain(d3.extent(months));
+  y.domain([0, d3.max(cities, function(c) { return d3.max(c.values, function(d) { return d.value; }); })]);
+
+  svg.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.svg.axis()
+        .scale(x)
+        .orient("bottom"));
+
+  svg.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(10, "%"))
+    .append("text")
+      .attr("x", 4)
+      .attr("y", 7)
+      .attr("dy", ".35em")
+      .style("font-weight", "bold")
+      .text("Unemployment Rate");
+
+  svg.append("g")
+      .attr("class", "cities")
+    .selectAll("path")
+      .data(cities)
+    .enter().append("path")
+      .attr("d", function(d) { return line(d.values); });
+});
+
+function type(d, i) {
+  if (!i) months = Object.keys(d).map(monthFormat.parse).filter(Number);
+  return {
+    name: d.name,
+    values: months.map(function(m) {
+      return {
+        date: m,
+        value: d[monthFormat(m)] / 100
+      };
+    })
+  };
+}
+
+</script>

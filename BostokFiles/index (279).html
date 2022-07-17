@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.node .selected {
+  stroke: red;
+}
+
+.link {
+  stroke: #999;
+}
+
+</style>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("graph.json", function(error, graph) {
+  if (error) throw error;
+
+  graph.links.forEach(function(d) {
+    d.source = graph.nodes[d.source];
+    d.target = graph.nodes[d.target];
+  });
+
+  var link = svg.append("g")
+      .attr("class", "link")
+    .selectAll("line")
+    .data(graph.links)
+    .enter().append("line")
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  var node = svg.append("g")
+      .attr("class", "node")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter().append("circle")
+      .attr("r", 4)
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+
+  var brush = svg.append("g")
+      .attr("class", "brush")
+      .call(d3.brush()
+        .extent([[0, 0], [width, height]])
+        .on("start brush end", brushed));
+
+  function brushed() {
+    var selection = d3.event.selection;
+    node.classed("selected", selection && function(d) {
+      return selection[0][0] <= d.x && d.x < selection[1][0]
+          && selection[0][1] <= d.y && d.y < selection[1][1];
+    });
+  }
+});
+
+</script>

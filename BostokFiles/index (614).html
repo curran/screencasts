@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+rect {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: .7px;
+}
+
+</style>
+<svg width="960" height="500">
+  <defs>
+    <clipPath id="clip-upper">
+      <rect width="960" height="250" x="-480" y="-250"></rect>
+    </clipPath>
+    <clipPath id="clip-lower">
+      <rect width="960" height="250" x="-480" y="0"></rect>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-upper)" transform="translate(480,250)"></g>
+  <g clip-path="url(#clip-lower)" transform="translate(480,250)"></g>
+</svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    circleRadius = 180,
+    squareCount = 200,
+    squareSize = 78,
+    speed = .08;
+
+var square = d3.selectAll("g")
+  .append("g")
+    .attr("transform", function(d, i) { return i ? "rotate(180)" : null; })
+  .selectAll("rect")
+    .data(d3.range(squareCount))
+  .enter().append("rect")
+    .datum(function(i) { return i / squareCount; })
+    .attr({width: squareSize, height: squareSize, x: -squareSize / 2, y: -squareSize / 2});
+
+d3.timer(function(elapsed) {
+  square
+      .attr("transform", function(t) { return "rotate(" + (t * 360) + ")translate(0," + circleRadius + ")rotate(" + (t * 360 + elapsed * speed) + ")"; });
+});
+
+</script>

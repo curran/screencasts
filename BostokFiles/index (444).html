@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body style="background:brown;">
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.select("body").transition()
+    .duration(750)
+    .call(styleTween, "background", "steelblue")
+  .transition()
+    .call(styleTween, "background", "black");
+
+function styleTween(transition, name, value) {
+  transition.styleTween(name, function() {
+    return d3.interpolate(this.style[name], value);
+  });
+}
+
+</script>

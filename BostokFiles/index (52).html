@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+circle {
+  fill-opacity: .1;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+// Setting two constant attributes.
+var svg = d3.select("body").append("svg")
+    .attr({width: width, height: height});
+
+// Setting three attributes as functions of data.
+svg.selectAll("circle")
+    .data(d3.range(10))
+  .enter().append("circle")
+    .attr({
+      cx: function() { return Math.random() * width; },
+      cy: function() { return Math.random() * height; },
+      r: function() { return 100 + Math.random() * 100; }
+    });
+
+// Setting attributes and styles.
+svg.append("text")
+    .attr({x: width / 2, y: height / 2, dy: ".35em"})
+    .style({"text-anchor": "middle"})
+    .text("Hello, multi-value maps!");
+
+</script>

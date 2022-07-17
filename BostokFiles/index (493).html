@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<svg width="960" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var path = d3.geoPath();
+
+var color = d3.scaleOrdinal()
+    .domain(d3.range(9))
+    .range(["#081d58", "#253494", "#225ea8", "#1d91c0", "#41b6c4", "#7fcdbb", "#c7e9b4", "#edf8b1", "#ffffd9"]);
+
+d3.queue()
+    .defer(d3.json, "https://d3js.org/us-10m.v1.json")
+    .defer(d3.tsv, "coastal-counties.tsv")
+    .await(ready);
+
+function ready(error, us, coastals) {
+  if (error) throw error;
+
+  var counties = topojson.feature(us, us.objects.counties),
+      neighbors = topojson.neighbors(us.objects.counties.geometries),
+      coastals = d3.set(coastals.map(function(d) { return d.id; })),
+      nexts = [],
+      nexts2 = [],
+      distance = 0;
+
+  counties.features.forEach(function(county, i) {
+    if (coastals.has(county.id)) nexts.push(county);
+    county.distance = Infinity;
+    county.neighbors = neighbors[i].map(function(j) { return counties.features[j]; });
+  });
+
+  while (nexts.length) {
+    nexts.forEach(function(county) {
+      if (county.distance > distance) {
+        county.distance = distance;
+        county.neighbors.forEach(function(neighbor) { nexts2.push(neighbor); });
+      }
+    });
+    nexts = nexts2, nexts2 = [], ++distance;
+  }
+
+  svg.append("g")
+      .attr("fill", "#ccc")
+    .selectAll("path")
+    .data(counties.features)
+    .enter().append("path")
+      .style("fill", function(d) { return color(Math.min(8, d.distance)); })
+      .attr("d", path);
+
+  svg.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "#ccc")
+      .attr("stroke-width", 0.5)
+      .attr("stroke-linejoin", "round")
+      .attr("d", path(topojson.mesh(us, us.objects.counties, function(a, b) { return a !== b; })));
+}
+
+</script>

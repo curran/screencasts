@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #ccc;
+  width: 960px;
+  height: 500px;
+}
+
+.palette {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 4px 0 4px 6px;
+  padding: 4px;
+  background: #fff;
+  border: solid 1px #aaa;
+}
+
+.swatch {
+  display: block;
+  vertical-align: middle;
+  width: 37px;
+  height: 22px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="colorbrewer.min.js"></script>
+<script>
+
+d3.select("body")
+  .selectAll(".palette")
+    .data(d3.entries(colorbrewer))
+  .enter().append("span")
+    .attr("class", "palette")
+    .attr("title", function(d) { return d.key; })
+    .on("click", function(d) { console.log(d3.values(d.value).map(JSON.stringify).join("\n")); })
+  .selectAll(".swatch")
+    .data(function(d) { return d.value[d3.keys(d.value).map(Number).sort(d3.descending)[0]]; })
+  .enter().append("span")
+    .attr("class", "swatch")
+    .style("background-color", function(d) { return d; });
+
+</script>

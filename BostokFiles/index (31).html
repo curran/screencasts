@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: none;
+  stroke: #000;
+}
+
+circle {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="geodesic.js" charset="utf-8"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var velocity = [-.003, .003];
+
+var projection = d3.geo.orthographic()
+    .clipAngle(90)
+    .scale(240);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var feature = svg.append("path")
+    .datum(d3.geodesic.multipolygon(1));
+
+svg.append("circle")
+    .attr("r", 240)
+    .attr("cx", width / 2)
+    .attr("cy", height / 2);
+
+d3.timer(function(elapsed) {
+  projection.rotate([elapsed * velocity[0], elapsed * velocity[1]]);
+  feature.attr("d", path);
+});
+
+</script>

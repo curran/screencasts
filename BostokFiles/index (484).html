@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+html,
+body {
+  position: relative;
+  height: 100%;
+  margin: 0;
+}
+
+svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+</style>
+<body>
+<svg width="100" height="150" viewBox="0 50 100 100" preserveAspectRatio="none">
+  <defs>
+    <radialGradient id="gradient" cx="100%" cy="100%" r="100%">
+      <stop offset="0%" stop-color="#fefdfe"/>
+      <stop offset="25%" stop-color="#f8cdda"/>
+      <stop offset="85%" stop-color="#1d2b64"/>
+      <stop offset="100%" stop-color="#0e153a"/>
+    </radialGradient>
+  </defs>
+  <rect width="100" height="150" fill="url(#gradient)"/>
+</svg>

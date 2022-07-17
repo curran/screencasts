@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var N = 1 << 0,
+    S = 1 << 1,
+    W = 1 << 2,
+    E = 1 << 3;
+
+var cellSize = 4,
+    cellSpacing = 4,
+    cellWidth = Math.floor((width - cellSpacing) / (cellSize + cellSpacing)),
+    cellHeight = Math.floor((height - cellSpacing) / (cellSize + cellSpacing)),
+    cells = generateMaze(cellWidth, cellHeight), // each cell’s edge bits
+    parent = new Array(cellHeight * cellWidth), // path tracking
+    minScore = Infinity,
+    minIndex = (cellHeight - 1) * cellWidth,
+    goalX = cellWidth - 1,
+    goalY = 0,
+    frontier = minHeap(function(a, b) { return score(a) - score(b); });
+
+frontier.push(minIndex);
+parent[minIndex] = null;
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+context.translate(
+  Math.round((width - cellWidth * cellSize - (cellWidth + 1) * cellSpacing) / 2),
+  Math.round((height - cellHeight * cellSize - (cellHeight + 1) * cellSpacing) / 2)
+);
+
+context.fillStyle = "#fff";
+for (var y = 0, i = 0; y < cellHeight; ++y) {
+  for (var x = 0; x < cellWidth; ++x, ++i) {
+    fillCell(i);
+    if (cells[i] & S) fillSouth(i);
+    if (cells[i] & E) fillEast(i);
+  }
+}
+
+context.fillStyle = "#777";
+d3.timer(function() {
+  for (var i = 0; i < 10; ++i) {
+    if (exploreFrontier()) {
+      return true;
+    }
+  }
+});
+
+function exploreFrontier() {
+  var i0 = frontier.pop(),
+      i1,
+      s0 = score(i0);
+
+  fillCell(i0);
+
+  if (s0 < minScore) {
+    fillPath(minIndex);
+    context.fillStyle = "magenta";
+    minScore = s0, minIndex = i0;
+    fillPath(minIndex);
+    context.fillStyle = "#777";
+    if (!s0) return true;
+  }
+
+  if (cells[i0] & E && isNaN(parent[i1 = i0 + 1])) parent[i1] = i0, fillEast(i0), frontier.push(i1);
+  if (cells[i0] & W && isNaN(parent[i1 = i0 - 1])) parent[i1] = i0, fillEast(i1), frontier.push(i1);
+  if (cells[i0] & S && isNaN(parent[i1 = i0 + cellWidth])) parent[i1] = i0, fillSouth(i0), frontier.push(i1);
+  if (cells[i0] & N && isNaN(parent[i1 = i0 - cellWidth])) parent[i1] = i0, fillSouth(i1), frontier.push(i1);
+}
+
+function fillPath(i1) {
+  while (true) {
+    fillCell(i1);
+    var i0 = parent[i1];
+    if (i0 == null) break;
+    (Math.abs(i0 - i1) === 1 ? fillEast : fillSouth)(Math.min(i0, i1));
+    i1 = i0;
+  }
+}
+
+function score(i) {
+  var x = goalX - (i % cellWidth), y = goalY - (i / cellWidth | 0);
+  return x * x + y * y;
+}
+
+function fillCell(i) {
+  var x = i % cellWidth, y = i / cellWidth | 0;
+  context.fillRect(x * cellSize + (x + 1) * cellSpacing, y * cellSize + (y + 1) * cellSpacing, cellSize, cellSize);
+}
+
+function fillEast(i) {
+  var x = i % cellWidth, y = i / cellWidth | 0;
+  context.fillRect((x + 1) * (cellSize + cellSpacing), y * cellSize + (y + 1) * cellSpacing, cellSpacing, cellSize);
+}
+
+function fillSouth(i) {
+  var x = i % cellWidth, y = i / cellWidth | 0;
+  context.fillRect(x * cellSize + (x + 1) * cellSpacing, (y + 1) * (cellSize + cellSpacing), cellSize, cellSpacing);
+}
+
+function generateMaze(width, height) {
+  var cells = new Array(width * height), // each cell’s edge bits
+      remaining = d3.range(width * height), // cell indexes to visit
+      previous = new Array(width * height); // current random walk
+
+  // Add the starting cell.
+  var start = remaining.pop();
+  cells[start] = 0;
+
+  // While there are remaining cells,
+  // add a loop-erased random walk to the maze.
+  while (!loopErasedRandomWalk());
+
+  return cells;
+
+  function loopErasedRandomWalk() {
+    var direction,
+        index0,
+        index1,
+        i,
+        j;
+
+    // Pick a location that’s not yet in the maze (if any).
+    do if ((index0 = remaining.pop()) == null) return true;
+    while (cells[index0] >= 0);
+
+    // Perform a random walk starting at this location,
+    previous[index0] = index0;
+    while (true) {
+      i = index0 % width;
+      j = index0 / width | 0;
+
+      // picking a legal random direction at each step.
+      direction = Math.random() * 4 | 0;
+      if (direction === 0) { if (j <= 0) continue; --j; }
+      else if (direction === 1) { if (j >= height - 1) continue; ++j; }
+      else if (direction === 2) { if (i <= 0) continue; --i; }
+      else { if (i >= width - 1) continue; ++i; }
+
+      // If this new cell was visited previously during this walk,
+      // erase the loop, rewinding the path to its earlier state.
+      // Otherwise, just add it to the walk.
+      index1 = j * width + i;
+      if (previous[index1] >= 0) eraseWalk(index0, index1);
+      else previous[index1] = index0;
+      index0 = index1;
+
+      // If this cell is part of the maze, we’re done walking.
+      if (cells[index1] >= 0) {
+
+        // Add the random walk to the maze by backtracking to the starting cell.
+        // Also erase this walk’s history to not interfere with subsequent walks.
+        while ((index0 = previous[index1]) !== index1) {
+          direction = index1 - index0;
+          if (direction === 1) cells[index0] |= E, cells[index1] |= W;
+          else if (direction === -1) cells[index0] |= W, cells[index1] |= E;
+          else if (direction < 0) cells[index0] |= N, cells[index1] |= S;
+          else cells[index0] |= S, cells[index1] |= N;
+          previous[index1] = NaN;
+          index1 = index0;
+        }
+
+        previous[index1] = NaN;
+        return;
+      }
+    }
+  }
+
+  function eraseWalk(index0, index1) {
+    var index;
+    while ((index = previous[index0]) !== index1) previous[index0] = NaN, index0 = index;
+    previous[index0] = NaN;
+  }
+}
+
+function minHeap(compare) {
+  var heap = {},
+      array = [],
+      size = 0;
+
+  heap.empty = function() {
+    return !size;
+  };
+
+  heap.push = function(value) {
+    up(array[size] = value, size++);
+    return size;
+  };
+
+  heap.pop = function() {
+    if (size <= 0) return;
+    var removed = array[0], value;
+    if (--size > 0) value = array[size], down(array[0] = value, 0);
+    return removed;
+  };
+
+  function up(value, i) {
+    while (i > 0) {
+      var j = ((i + 1) >> 1) - 1,
+          parent = array[j];
+      if (compare(value, parent) >= 0) break;
+      array[i] = parent;
+      array[i = j] = value;
+    }
+  }
+
+  function down(value, i) {
+    while (true) {
+      var r = (i + 1) << 1,
+          l = r - 1,
+          j = i,
+          child = array[j];
+      if (l < size && compare(array[l], child) < 0) child = array[j = l];
+      if (r < size && compare(array[r], child) < 0) child = array[j = r];
+      if (j === i) break;
+      array[i] = child;
+      array[i = j] = value;
+    }
+  }
+
+  return heap;
+}
+
+function popRandom(array) {
+  if (!array.length) return;
+  var n = array.length, i = Math.random() * n | 0, t;
+  t = array[i], array[i] = array[n - 1], array[n - 1] = t;
+  return array.pop();
+}
+
+</script>

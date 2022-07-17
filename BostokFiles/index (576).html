@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.space {
+  position: absolute;
+}
+
+.space canvas {
+  float: left;
+}
+
+.space div {
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="cubehelix.min.js"></script>
+<script>
+
+var spaces = [
+  {
+    name: "Rainbow (HSL)",
+    color: function(t) {
+      return d3.hsl(t * 360, 1, .5);
+    }
+  },
+  {
+    name: "Rainbow (HCL)",
+    color: function(t) {
+      return d3.hcl(t * 360, 100, 55);
+    }
+  },
+  {
+    name: "Rainbow (Cubehelix)",
+    color: d3.scale.cubehelix()
+        .domain([0, .5, 1])
+        .range([
+          d3.hsl(-100, 0.75, 0.35),
+          d3.hsl(  80, 1.50, 0.80),
+          d3.hsl( 260, 0.75, 0.35)
+        ])
+  }
+];
+
+var y = d3.scale.ordinal()
+    .domain(spaces.map(function(d) { return d.name; }))
+    .rangeRoundBands([0, 500], .04);
+
+var margin = y.range()[0],
+    width = 960 - margin - margin,
+    height = y.rangeBand();
+
+var space = d3.select("body").selectAll(".space")
+    .data(spaces)
+  .enter().append("div")
+    .attr("class", "space")
+    .style("width", width + "px")
+    .style("height", height + "px")
+    .style("left", margin + "px")
+    .style("top", function(d) { return y(d.name) + "px"; });
+
+space.append("canvas")
+    .attr("width", width)
+    .attr("height", 1)
+    .style("width", width + "px")
+    .style("height", height / 2 + "px")
+    .each(render(function(color) { return color; }));
+
+space.append("canvas")
+    .attr("width", width)
+    .attr("height", 1)
+    .style("width", width + "px")
+    .style("height", height / 2 + "px")
+    .each(render(function(color) { color = d3.hcl(color); color.c = 0; return color; }));
+
+space.append("div")
+    .style("line-height", height / 2 + "px")
+    .text(function(d) { return d.name; });
+
+function render(color) {
+  return function(d) {
+    var context = this.getContext("2d"),
+        image = context.createImageData(width, 1);
+    for (var i = 0, j = -1, c; i < width; ++i) {
+      c = d3.rgb(color.call(this, d.color(i / width)));
+      image.data[++j] = c.r;
+      image.data[++j] = c.g;
+      image.data[++j] = c.b;
+      image.data[++j] = 255;
+    }
+    context.putImageData(image, 0, 0);
+  };
+}
+
+</script>

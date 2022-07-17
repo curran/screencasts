@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+div {
+  border: solid 1px #000;
+  background: #eee;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  width: 240px;
+}
+
+.active {
+  background: lightcoral;
+}
+
+</style>
+<div>drag me</div>
+<div>drag me too</div>
+<div>then drag me</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.selectAll("div").on("mousedown", function() {
+  var div = d3.select(this)
+      .classed("active", true);
+
+  var w = d3.select(window)
+      .on("mousemove", mousemove)
+      .on("mouseup", mouseup);
+
+  d3.event.preventDefault(); // disable text dragging
+
+  function mousemove() {
+    div.text(d3.mouse(div.node()));
+  }
+
+  function mouseup() {
+    div.classed("active", false);
+    w.on("mousemove", null).on("mouseup", null);
+  }
+});
+
+</script>

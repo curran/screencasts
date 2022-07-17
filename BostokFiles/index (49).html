@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var color = d3.scale.linear()
+    .domain([0, 255])
+    .range(["hsl(0,80%,50%)", "hsl(360,80%,50%)"])
+    .interpolate(d3.interpolateString);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+getImage("readme.png", function(error, image) {
+  if (error) throw error;
+  context.drawImage(image, 0, 0, width, height);
+  image = context.getImageData(0, 0, width, height);
+
+  // Rescale the colors.
+  for (var c, i = 0, n = width * height * 4, d = image.data; i < n; i += 4) {
+    c = d3.rgb(color(d[i]));
+    d[i + 0] = c.r;
+    d[i + 1] = c.g;
+    d[i + 2] = c.b;
+  }
+
+  context.putImageData(image, 0, 0);
+});
+
+function getImage(path, callback) {
+  var image = new Image;
+  image.onload = function() { callback(null, image); };
+  image.onerror = callback;
+  image.src = path;
+}
+
+</script>

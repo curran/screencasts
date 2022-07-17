@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: 0;
+}
+
+svg {
+  font: 10px sans-serif;
+  border: solid 1px #ccc;
+  margin-bottom: 10px;
+}
+
+</style>
+<svg style="position:absolute;top:-1000px;">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#000"></path>
+    </marker>
+  </defs>
+</svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var A = {type: "Polygon", coordinates: [[[0, 0], [10, 0], [10, 10], [0, 10], [0, 0]]]},
+    B = {type: "Polygon", coordinates: [A.coordinates[0].slice().reverse()]};
+
+</script>
+<script>
+
+var path = d3.geoPath(d3.geoOrthographic().rotate([-20, -20]).precision(0.1));
+
+var svg = d3.select("body").selectAll()
+  .data([A, B])
+  .enter().append("svg")
+    .attr("width", 958)
+    .attr("height", 500);
+
+svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "#000")
+    .attr("d", path(d3.geoGraticule10()));
+
+svg.append("path")
+    .attr("fill", "red")
+    .attr("fill-opacity", 0.5)
+    .attr("d", path);
+
+svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "#000")
+    .attr("marker-mid", "url(#arrow)")
+    .attr("marker-end", "url(#arrow)")
+    .attr("d", function(d) { return path({type: "LineString", coordinates: d.coordinates[0]}); });
+
+svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "#000")
+    .attr("d", path({type: "Sphere"}));
+
+svg.append("text")
+    .attr("x", 10)
+    .attr("y", 10)
+    .attr("dy", "0.71em")
+    .text(function(d) { return "ring = " + JSON.stringify(d.coordinates[0]); });
+
+svg.append("text")
+    .attr("x", 10)
+    .attr("y", 10)
+    .attr("dy", "2em")
+    .text(function(d) { return "area = " + d3.geoArea(d); });
+
+</script>
+<script>
+
+var path = d3.geoPath(d3.geoIdentity().translate([480 - 50, 250 - 50]).scale(10));
+
+var svg = d3.select("body").selectAll()
+  .data([A, B])
+  .enter().append("svg")
+    .attr("width", 958)
+    .attr("height", 500);
+
+svg.append("path")
+    .attr("fill", "red")
+    .attr("fill-opacity", 0.5)
+    .attr("d", path);
+
+svg.append("path")
+    .attr("fill", "none")
+    .attr("stroke", "#000")
+    .attr("marker-mid", "url(#arrow)")
+    .attr("marker-end", "url(#arrow)")
+    .attr("d", function(d) { return path({type: "LineString", coordinates: d.coordinates[0]}); });
+
+svg.append("text")
+    .attr("x", 10)
+    .attr("y", 10)
+    .attr("dy", "0.71em")
+    .text(function(d) { return "ring = " + JSON.stringify(d.coordinates[0]); });
+
+svg.append("text")
+    .attr("x", 10)
+    .attr("y", 10)
+    .attr("dy", "2em")
+    .text(function(d) { return "area = " + path.area(d); });
+
+</script>

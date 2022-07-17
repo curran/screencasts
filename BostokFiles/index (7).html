@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>W3C Validation Errors</title>
+<style>
+
+text {
+  font: 10px sans-serif;
+}
+
+rect.value {
+  fill: #aaa;
+}
+
+rect.value:hover {
+  fill: steelblue;
+}
+
+text.name {
+  fill: black;
+  text-shadow: 0 1px 1px #fff;
+  pointer-events: none;
+}
+
+.axis {
+  shape-rendering: crispEdges;
+}
+
+.axis path {
+  fill: none;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.x.axis line {
+  stroke: #fff;
+  stroke-opacity: .8;
+}
+
+.y.axis line {
+  stroke: black;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 30, right: 10, bottom: 10, left: 30},
+    width = 960 - margin.left - margin.right,
+    height = 1950 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.ordinal()
+    .rangeRoundBands([0, height], .1);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("errors.json", function(error, errors) {
+  if (error) throw error;
+
+  errors.sort(function(a, b) { return b.value - a.value; });
+
+  // Set the scale domain.
+  x.domain([0, d3.max(errors, function(d) { return d.value; })]);
+  y.domain(d3.range(errors.length));
+
+  svg.selectAll(".value")
+      .data(errors)
+    .enter().append("rect")
+      .attr("class", "value")
+      .attr("y", function(d, i) { return y(i); })
+      .attr("width", function(d) { return x(d.value); })
+      .attr("height", y.rangeBand());
+
+  svg.append("g")
+      .attr("class", "x axis")
+    .call(d3.svg.axis()
+      .scale(x)
+      .orient("top")
+      .ticks(12)
+      .tickSize(-height));
+
+  svg.selectAll(".name")
+      .data(errors)
+    .enter().append("text")
+      .attr("class", "name")
+      .attr("x", 6)
+      .attr("y", function(d, i) { return y(i) + y.rangeBand() / 2; })
+      .attr("dx", -3)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.name; });
+
+  svg.append("g")
+      .attr("class", "y axis")
+    .append("line")
+      .attr("y2", height);
+});
+
+</script>

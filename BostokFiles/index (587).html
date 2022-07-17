@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.segment {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+}
+
+.segment--test {
+  stroke: blue;
+}
+
+.segment--intersect {
+  stroke: red;
+  stroke-width: 5px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.extent {
+  fill: none;
+  stroke: #aaa;
+  shape-rendering: crispEdges;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="tree.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    intersections = [];
+
+var topology = {
+  arcs: [
+    d3.range(40, width - 40 + 1, 30).map(function(x) {
+      return [x, (Math.sin(x / 200)) * 200 + height / 2];
+    })
+  ]
+};
+
+var path = d3.geo.path()
+    .projection(null);
+
+var svg = d3.select("svg")
+    .on("mousemove", mousemoved);
+
+var test = svg.append("path")
+    .datum([[width / 2, height / 2], [width / 2, height / 2]])
+    .attr("class", "segment segment--test")
+    .attr("d", function(d) { return path({type: "LineString", coordinates: d}); });
+
+svg.append("rect")
+    .attr("class", "overlay")
+    .attr("width", "100%")
+    .attr("height", "100%");
+
+var segment = svg.append("g").selectAll(".segment")
+    .data(d3.merge(topology.arcs.map(function(arc) { return d3.pairs(arc); })))
+  .enter().append("path")
+    .each(function(d) { d[0].node = this; }) // TODO better two-way binding
+    .attr("class", "segment")
+    .attr("d", function(d) { return path({type: "LineString", coordinates: d}); });
+
+var root = tree(topology);
+
+function mousemoved() {
+  var d = test.datum();
+
+  d[1] = d3.mouse(this);
+  test.attr("d", path({type: "LineString", coordinates: d}));
+
+  intersections.forEach(function(i) {
+    d3.select(i.coordinates[0].node)
+        .classed("segment--intersect", false);
+  });
+
+  intersections = root.intersections(d[0], d[1]); // TODO better API
+
+  intersections.forEach(function(i) {
+    d3.select(i.coordinates[0].node)
+        .classed("segment--intersect", true);
+  });
+}
+
+(function visit(node) {
+  svg.insert("path", "*")
+      .attr("class", "extent")
+      .attr("d", path({type: "Polygon", coordinates: [[
+        [Math.round(node.extent[0][0]), Math.round(node.extent[0][1])],
+        [Math.round(node.extent[1][0]), Math.round(node.extent[0][1])],
+        [Math.round(node.extent[1][0]), Math.round(node.extent[1][1])],
+        [Math.round(node.extent[0][0]), Math.round(node.extent[1][1])],
+        [Math.round(node.extent[0][0]), Math.round(node.extent[0][1])]
+      ]]})).node();
+  if (node.children) node.children.forEach(visit);
+})(root);
+
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<style>
+
+#test {
+  max-width: 480px;
+  width: 50%;
+  margin: auto;
+  background: #ccc;
+}
+
+</style>
+<div id="test"></div>
+<script type="module">
+
+import {Runtime, Inspector, Library} from "https://unpkg.com/@observablehq/notebook-runtime?module";
+import notebook from "https://api.observablehq.com/d/bb5d3924d2e12f45.js?key=2e01d2649e1b85fa";
+
+const test = document.querySelector("#test");
+
+const stdlib = new Library;
+
+const library = Object.assign({}, stdlib, {width});
+
+function width() {
+  return stdlib.Generators.observe(notify => {
+    let width = notify(test.clientWidth);
+
+    function resized() {
+      let width1 = test.clientWidth;
+      if (width1 !== width) notify(width = width1);
+    }
+
+    window.addEventListener("resize", resized);
+    return () => window.removeEventListener("resize", resized);
+  });
+}
+
+Runtime.load(notebook, library, cell => {
+  if (cell.name === "test") {
+    return new Inspector(test);
+  }
+});
+
+</script>

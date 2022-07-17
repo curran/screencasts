@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.municipalities {
+  fill: #222;
+}
+
+.municipalities :hover {
+  fill: orange;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+  pointer-events: none;
+}
+
+.municipality-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-opacity: .25;
+  stroke-width: .5px;
+  pointer-events: none;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 628;
+
+var projection = d3.geo.conicConformal()
+    .rotate([102, 0])
+    .center([0, 24])
+    .parallels([17.5, 29.5])
+    .scale(1850)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("mx.json", function(error, mx) {
+  if (error) throw error;
+
+  svg.append("g")
+      .attr("class", "municipalities")
+    .selectAll("path")
+      .data(topojson.feature(mx, mx.objects.municipalities).features)
+    .enter().append("path")
+      .attr("d", path)
+    .append("title")
+      .text(function(d) { return d.properties.name; });
+
+  svg.append("path")
+      .datum(topojson.mesh(mx, mx.objects.municipalities, function(a, b) { return a.properties.state !== b.properties.state; }))
+      .attr("class", "state-boundary")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(mx, mx.objects.municipalities, function(a, b) { return a.properties.state === b.properties.state && a !== b; }))
+      .attr("class", "municipality-boundary")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

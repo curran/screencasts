@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Zoom + Pan</title>
+<style>
+
+body {
+  position: relative;
+  width: 960px;
+}
+
+svg {
+  font: 10px sans-serif;
+  shape-rendering: crispEdges;
+}
+
+rect {
+  fill: #ddd;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #fff;
+}
+
+.buttons {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+</style>
+<div class="buttons">
+  <button data-zoom="+1">Zoom In</button>
+  <button data-zoom="-1">Zoom Out</button>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .domain([-width / 2, width / 2])
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([-height / 2, height / 2])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickSize(-height);
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(5)
+    .tickSize(-width);
+
+var zoom = d3.behavior.zoom()
+    .x(x)
+    .y(y)
+    .scaleExtent([1, 10])
+    .center([width / 2, height / 2])
+    .size([width, height])
+    .on("zoom", zoomed);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .call(zoom);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+d3.selectAll("button[data-zoom]")
+    .on("click", clicked);
+
+function zoomed() {
+  svg.select(".x.axis").call(xAxis);
+  svg.select(".y.axis").call(yAxis);
+}
+
+function clicked() {
+  svg.call(zoom.event); // https://github.com/mbostock/d3/issues/2387
+
+  // Record the coordinates (in data space) of the center (in screen space).
+  var center0 = zoom.center(), translate0 = zoom.translate(), coordinates0 = coordinates(center0);
+  zoom.scale(zoom.scale() * Math.pow(2, +this.getAttribute("data-zoom")));
+
+  // Translate back to the center.
+  var center1 = point(coordinates0);
+  zoom.translate([translate0[0] + center0[0] - center1[0], translate0[1] + center0[1] - center1[1]]);
+
+  svg.transition().duration(750).call(zoom.event);
+}
+
+function coordinates(point) {
+  var scale = zoom.scale(), translate = zoom.translate();
+  return [(point[0] - translate[0]) / scale, (point[1] - translate[1]) / scale];
+}
+
+function point(coordinates) {
+  var scale = zoom.scale(), translate = zoom.translate();
+  return [coordinates[0] * scale + translate[0], coordinates[1] * scale + translate[1]];
+}
+
+</script>

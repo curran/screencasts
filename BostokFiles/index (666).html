@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+rect {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+</style>
+<svg width="960" height="500">
+  <rect width="400" height="400" x="280" y="50"/>
+  <g transform="translate(480,250)">
+    <path id="symbol"/>
+  </g>
+</svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var path = d3.select("path"),
+    rect = d3.select("rect"),
+    width = +rect.attr("width"),
+    height = +rect.attr("height");
+
+var symbol = d3.svg.symbol(),
+    symbolIndex = -1,
+    symbolTypes = d3.svg.symbolTypes;
+
+setInterval(function() {
+  symbolIndex = (symbolIndex + 1) % symbolTypes.length;
+  symbol.type(symbolTypes[symbolIndex]);
+  path.attr("d", symbol.size(64));
+
+  var box = path.node().getBBox(),
+      error = Math.min(width / box.width, height / box.height);
+
+  path.transition().duration(1500).attr("d", symbol.size(error * error * 64));
+}, 2000);
+
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<style>
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+svg {
+  position: absolute;
+}
+
+rect {
+  fill: white;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = self.frameElement ? 960 : innerWidth,
+    height = self.frameElement ? 500 : innerHeight;
+
+var data = d3.range(20).map(function() { return [Math.random() * width, Math.random() * height]; });
+
+var color = d3.scale.category10();
+
+var zoom = d3.behavior.zoom()
+    .on("zoom", zoomed);
+
+var svg = d3.select("body")
+    .on("touchstart", nozoom)
+    .on("touchmove", nozoom)
+  .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g")
+    .call(zoom);
+
+g.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .on("click", clicked);
+
+var view = g.append("g")
+    .attr("class", "view");
+
+view.selectAll("circle")
+    .data(data)
+  .enter().append("circle")
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
+    .attr("r", 32)
+    .style("fill", function(d, i) { return color(i); });
+
+function zoomed() {
+  view.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+}
+
+function clicked(d, i) {
+  if (d3.event.defaultPrevented) return; // zoomed
+
+  d3.select(this).transition()
+      .style("fill", "black")
+    .transition()
+      .style("fill", "white");
+}
+
+function nozoom() {
+  d3.event.preventDefault();
+}
+
+</script>

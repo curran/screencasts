@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+td {
+  border: solid 1px #ccc;
+  padding: 10px;
+}
+
+table {
+  margin: 10px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+</style>
+<body>
+<script src="d3-selection.min.js"></script>
+<script>
+
+d3.select("body")
+  .append("table")
+  .selectAll("tr")
+    .data(["y" + 0, "y" + 1, "y" + 2])
+  .enter().append("tr")
+  .selectAll("td")
+    .data(["x" + 0, "x" + 1, "x" + 2])
+  .enter().append("td")
+    .text(function(x, i, y, j) { return [x, y]; });
+
+</script>

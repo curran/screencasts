@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 580,
+    velocity = .003,
+    time = Date.now();
+
+var position = d3.scale.ordinal()
+    .domain([0, 1])
+    .rangePoints([0, width * .87], .8);
+
+var projections = [
+  d3.geo.equirectangular()
+      .scale(85)
+      .translate([position(0), height / 2])
+      .precision(.3),
+  d3.geo.mercator()
+      .scale(85)
+      .translate([position(1), height / 2])
+      .precision(.3)
+];
+
+var sphere = {type: "Sphere"},
+    graticule = d3.geo.graticule()();
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+context.strokeStyle = "#aaa";
+
+var path = d3.geo.path()
+    .context(context);
+
+d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
+  if (error) throw error;
+
+  var land = topojson.feature(world, world.objects.land);
+
+  d3.timer(function() {
+    var dt = Date.now() - time;
+    projections[0].rotate([velocity * dt, 0, 90]);
+    projections[1].rotate([velocity * dt, 0, 90]);
+    render();
+  });
+
+  function render() {
+    context.clearRect(0, 0, width, height);
+    projections.forEach(function(projection) {
+      var translate = projection.translate();
+      context.save();
+      context.translate(translate[0], translate[1]);
+      context.rotate(Math.PI / 2);
+      context.translate(-translate[0], -translate[1]);
+
+      path.projection(projection);
+
+      context.beginPath();
+      path(sphere);
+      context.stroke();
+
+      context.beginPath();
+      path(graticule);
+      context.stroke();
+
+      context.beginPath();
+      path(land);
+      context.fill();
+
+      context.restore();
+    });
+  }
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

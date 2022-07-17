@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  stroke-linejoin: round;
+}
+
+.land {
+  fill: #ddd;
+}
+
+.states {
+  fill: none;
+  stroke: #fff;
+}
+
+.voronoi {
+  fill: none;
+  stroke: red;
+  stroke-width: 0.5px;
+}
+
+</style>
+<svg width="960" height="600"></svg>
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var projection = d3.geoAlbers()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geoPath()
+    .projection(projection)
+    .pointRadius(1.5);
+
+d3.queue()
+    .defer(d3.json, "/mbostock/raw/4090846/us.json")
+    .defer(d3.tsv, "airports.tsv")
+    .await(ready);
+
+function ready(error, us, airports) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "states")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum({type: "MultiPoint", coordinates: airports})
+      .attr("class", "points")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(d3.voronoi()
+          .extent([[-1, -1], [width + 1, height + 1]])
+          .polygons(airports.map(projection)))
+      .attr("class", "voronoi")
+      .attr("d", function(d) {
+        return "M" + d
+            .filter(function(d) { return d != null; })
+            .map(function(d) { return d.join("L"); })
+            .join("ZM") + "Z";
+      });
+}
+
+</script>

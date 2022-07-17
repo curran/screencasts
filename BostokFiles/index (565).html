@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.point {
+  fill: #000;
+}
+
+.candidate .point {
+  fill: #aaa;
+  transition: fill 250ms linear;
+}
+
+.candidate .search {
+  fill: none;
+  stroke: #aaa;
+  transition: stroke 250ms linear, stroke-width 250ms linear;
+}
+
+.candidate--best .point {
+  fill: #f00;
+}
+
+.candidate--best .search {
+  stroke: #f00;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var k = 10; // number of candidates to consider per circle
+
+var quadtree = d3.geom.quadtree()
+    .extent([[0, 0], [width, height]])
+    ([[Math.random() * width, Math.random() * height]]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var gCandidate = svg.append("g")
+    .attr("class", "candidate");
+
+var gPoint = svg.append("g")
+    .attr("class", "point");
+
+gPoint.append("circle")
+    .attr("r", 3.5)
+    .attr("cx", quadtree.point[0])
+    .attr("cy", quadtree.point[1]);
+
+(function nextPoint() {
+  var i = 0,
+      maxDistance = -Infinity,
+      bestCandidate = null;
+
+  (function nextCandidate() {
+    if (++i > k) {
+      gCandidate.selectAll("*").transition()
+          .style("opacity", 0)
+          .remove();
+
+      gPoint.append("circle")
+          .attr("r", 3.5)
+          .attr("cx", bestCandidate.__data__[0])
+          .attr("cy", bestCandidate.__data__[1]);
+
+      quadtree.add(bestCandidate.__data__);
+
+      return nextPoint();
+    }
+
+    var x = Math.random() * width,
+        y = Math.random() * height,
+        closest = search(x, y),
+        dx = closest[0] - x,
+        dy = closest[1] - y,
+        distance = Math.sqrt(dx * dx + dy * dy);
+
+    var g = gCandidate.insert("g", "*")
+        .datum([x, y])
+        .attr("class", "candidate--current");
+
+    g.append("circle")
+        .attr("class", "point")
+        .attr("r", 3.5)
+        .attr("cx", x)
+        .attr("cy", y);
+
+    g.append("circle")
+        .attr("class", "search")
+        .attr("r", 2.5)
+        .attr("cx", x)
+        .attr("cy", y);
+
+    g.append("line")
+        .attr("class", "search")
+        .attr("x1", x)
+        .attr("y1", y)
+        .attr("x2", x)
+        .attr("y2", y);
+
+    var t = g.transition()
+        .duration(500)
+        .each("end", function() {
+          if (distance > maxDistance) {
+            d3.select(bestCandidate).attr("class", null);
+            d3.select(this.parentNode.appendChild(this)).attr("class", "candidate--best");
+            bestCandidate = this;
+            maxDistance = distance;
+          } else {
+            d3.select(this).attr("class", null);
+          }
+          nextCandidate();
+        });
+
+    t.select("circle.search")
+        .attr("r", distance);
+
+    t.select("line.search")
+        .attr("x2", closest[0])
+        .attr("y2", closest[1]);
+  })();
+
+})();
+
+// Find the closest node to the specified point.
+function search(x, y) {
+  var x0 = 0,
+      y0 = 0,
+      x3 = width,
+      y3 = width,
+      minDistance2 = Infinity,
+      closestPoint;
+
+  (function find(node, x1, y1, x2, y2) {
+    var point;
+
+    // stop searching if this cell can’t contain a closer node
+    if (x1 > x3 || y1 > y3 || x2 < x0 || y2 < y0) return;
+
+    // visit this point
+    if (point = node.point) {
+      var dx = x - point[0],
+          dy = y - point[1],
+          distance2 = dx * dx + dy * dy;
+      if (distance2 < minDistance2) {
+        var distance = Math.sqrt(minDistance2 = distance2);
+        x0 = x - distance, y0 = y - distance;
+        x3 = x + distance, y3 = y + distance;
+        closestPoint = point;
+      }
+    }
+
+    // bisect the current node
+    var children = node.nodes,
+        xm = (x1 + x2) * .5,
+        ym = (y1 + y2) * .5,
+        right = x > xm,
+        below = y > ym;
+
+    // visit closest cell first
+    if (node = children[below << 1 | right]) find(node, right ? xm : x1, below ? ym : y1, right ? x2 : xm, below ? y2 : ym);
+    if (node = children[below << 1 | !right]) find(node, right ? x1 : xm, below ? ym : y1, right ? xm : x2, below ? y2 : ym);
+    if (node = children[!below << 1 | right]) find(node, right ? xm : x1, below ? y1 : ym, right ? x2 : xm, below ? ym : y2);
+    if (node = children[!below << 1 | !right]) find(node, right ? x1 : xm, below ? y1 : ym, right ? xm : x2, below ? ym : y2);
+  })(quadtree, x0, y0, x3, y3);
+
+  return closestPoint;
+}
+
+</script>

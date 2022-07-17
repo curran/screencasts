@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var radius = height / 2 - 5,
+    scale = radius * 2 / Math.PI,
+    offset = radius * 4,
+    velocity = .1;
+
+var projection = d3.geo.equirectangular()
+    .scale(scale)
+    .precision(0);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection(projection)
+    .context(context);
+
+d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
+  if (error) throw error;
+
+  var land = topojson.feature(world, world.objects.land);
+
+  d3.timer(function(elapsed) {
+    context.clearRect(0, 0, width, height);
+    context.save();
+
+    context.beginPath();
+    context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
+    context.clip();
+
+    var x = velocity * elapsed % offset;
+    if (x > offset / 2) x -= offset;
+
+    projection.translate([x, height / 2]);
+    context.beginPath();
+    path(land);
+    context.fill();
+
+    projection.translate([x + offset, height / 2]);
+    context.beginPath();
+    path(land);
+    context.fill();
+
+    context.restore();
+
+    context.beginPath();
+    context.arc(width / 2, height / 2, radius, 0, 2 * Math.PI, true);
+    context.lineWidth = 2.5;
+    context.stroke();
+  });
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

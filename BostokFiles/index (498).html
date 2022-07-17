@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<svg width="960" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var path = d3.geoPath();
+
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+  if (error) throw error;
+
+  var features = topojson.feature(us, us.objects.counties).features,
+      neighbors = topojson.neighbors(us.objects.counties.geometries);
+
+  features.forEach(function(feature, i) {
+    feature.centroid = path.centroid(feature);
+    if (feature.centroid.some(isNaN)) feature.centroid = null; // off the map
+    feature.neighbors = feature.centroid ? neighbors[i]
+        .filter(function(j) { return j < i && features[j].centroid; })
+        .map(function(j) { return features[j]; }) : [];
+  });
+
+  svg.append("path")
+      .attr("fill", "#ddd")
+      .attr("d", path(topojson.feature(us, us.objects.nation)));
+
+  svg.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "#fff")
+      .attr("stroke-linejoin", "round")
+      .attr("d", path(topojson.mesh(us, us.objects.counties, function(a, b) { return a !== b; })));
+
+  svg.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "#000")
+      .attr("stroke-linejoin", "round")
+      .attr("d", d3.merge(features.map(edges))
+          .map(function(edge) { return "M" + edge[0] + "L" + edge[1]; })
+          .join(""));
+
+  function edges(feature) {
+    return feature.neighbors.map(function(neighbor) {
+      return [feature.centroid, neighbor.centroid];
+    });
+  }
+});
+
+</script>

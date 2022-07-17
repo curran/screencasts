@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 40, right: 20, bottom: 20, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var randomX = d3.randomNormal(width / 2, 80),
+    randomY = d3.randomNormal(height / 2, 80),
+    points = d3.range(10000).map(function() { return [randomX(), randomY()]; });
+
+var hexbin = d3_hexbin.hexbin()
+    .extent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]])
+    .radius(10);
+
+var bins = hexbin(points);
+
+var color = d3.scaleSequential(d3.interpolateMagma)
+    .domain([d3.max(bins, function(d) { return d.length; }), 0]);
+
+g.append("g")
+    .attr("fill", "none")
+    .attr("stroke", "#fff")
+    .attr("stroke-opacity", 0.5)
+  .selectAll("path")
+  .data(bins)
+  .enter().append("path")
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+    .attr("fill", function(d) { return color(d.length); })
+    .attr("d", hexbin.hexagon());
+
+g.append("g")
+    .call(d3.axisTop(d3.scaleIdentity().domain([0, width])));
+
+g.append("g")
+    .call(d3.axisLeft(d3.scaleIdentity().domain([0, height])));
+
+</script>

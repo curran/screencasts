@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.land {
+  fill: #eee;
+}
+
+.border--counties {
+  fill: none;
+  stroke: #fff;
+}
+
+.land--counties {
+  fill-opacity: .2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var color = d3.scale.category10();
+
+var projection = d3.geo.albersUsa()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(us, us.objects.counties, function(a, b) { return a !== b; }))
+      .attr("class", "border border--counties")
+      .attr("d", path);
+
+  (function transition() {
+    var g = svg.append("g")
+        .datum(topojson.merge(us, us.objects.counties.geometries.filter(function() { return Math.random() > .5; })))
+        .attr("class", "land--counties")
+        .style("opacity", 0);
+
+    g.selectAll("path")
+        .data(function(d) { return d.coordinates; })
+      .enter().append("path")
+        .datum(function(d) { return {type: "Polygon", coordinates: d}; })
+        .style("fill", function(d, i) { return color(i); })
+        .style("stroke", function(d, i) { return d3.lab(color(i)).darker(); })
+        .attr("d", path);
+
+    g.transition()
+        .duration(750)
+        .style("opacity", 1)
+      .transition()
+        .duration(2500)
+      .transition()
+        .duration(750)
+        .style("opacity", 0)
+        .each("end", transition)
+        .remove();
+  })();
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

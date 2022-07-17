@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<svg width="960" height="600" stroke-linejoin="round" stroke-linecap="round">
+  <defs>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+    </filter>
+  </defs>
+</svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg");
+
+var defs = svg.select("defs");
+
+var path = d3.geoPath();
+
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+  if (error) throw error;
+
+  defs.append("path")
+      .attr("id", "nation")
+      .attr("d", path(topojson.feature(us, us.objects.nation)));
+
+  svg.append("use")
+      .attr("xlink:href", "#nation")
+      .attr("fill-opacity", 0.2)
+      .attr("filter", "url(#blur)");
+
+  svg.append("use")
+      .attr("xlink:href", "#nation")
+      .attr("fill", "#fff");
+
+  svg.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "#777")
+      .attr("stroke-width", 0.35)
+      .attr("d", path(topojson.mesh(us, us.objects.counties, function(a, b) { return (a.id / 1000 | 0) === (b.id / 1000 | 0); })));
+
+  svg.append("path")
+      .attr("fill", "none")
+      .attr("stroke", "#777")
+      .attr("stroke-width", 0.70)
+      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+});
+
+</script>

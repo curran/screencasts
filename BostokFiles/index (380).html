@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var rotation = d3.geo.rotation([0, 0]);
+
+var λ = d3.scale.linear()
+    .domain([100, width - 100])
+    .range([-180, 180]);
+
+var φ = d3.scale.linear()
+    .domain([100, height - 100])
+    .range([90, -90]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection(conicEqualArea(150, [width * .5, height * .69]))
+    .context(context);
+
+d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
+  if (error) throw error;
+
+  var land = topojson.feature(world, world.objects.land),
+      sphere = {type: "Sphere"},
+      touch = "ontouchstart" in window;
+
+  canvas.on(touch ? "touchmove" : "mousemove", move);
+
+  draw();
+
+  function move() {
+    var p = touch ? d3.touches(this)[0] : d3.mouse(this);
+    rotation = d3.geo.rotation([λ(p[0]), φ(p[1])]);
+    draw();
+    d3.event.preventDefault();
+  }
+
+  function draw() {
+    context.clearRect(0, 0, width, height);
+    context.beginPath();
+    path(land);
+    context.fill();
+  }
+});
+
+function conicEqualArea(scale, translate) {
+  var projection = d3.geo.conicEqualArea.raw(0, Math.PI / 3);
+  return {
+    stream: function(output) {
+      return {
+        point: function(x, y) {
+          xy = rotation([x, y]);
+          xy = [xy[0] * Math.PI / 180, xy[1] * Math.PI / 180];
+          xy = projection(xy[0], xy[1]);
+          output.point(xy[0] * scale + translate[0], translate[1] - xy[1] * scale);
+        },
+        sphere: function() { output.sphere(); },
+        lineStart: function() { output.lineStart(); },
+        lineEnd: function() { output.lineEnd(); },
+        polygonStart: function() { output.polygonStart(); },
+        polygonEnd: function() { output.polygonEnd(); }
+      };
+    }
+  };
+}
+
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var canvas = d3.select("canvas"),
+    context = canvas.node().getContext("2d"),
+    width = canvas.property("width"),
+    height = canvas.property("height"),
+    radius = 2.5,
+    transform = d3.zoomIdentity;
+
+var points = d3.range(2000).map(phyllotaxis(10));
+
+canvas
+    .call(d3.drag().subject(dragsubject).on("drag", dragged))
+    .call(d3.zoom().scaleExtent([1 / 2, 8]).on("zoom", zoomed))
+    .call(render);
+
+function zoomed() {
+  transform = d3.event.transform;
+  render();
+}
+
+function dragsubject() {
+  var i,
+      x = transform.invertX(d3.event.x),
+      y = transform.invertY(d3.event.y),
+      dx,
+      dy;
+
+  for (i = points.length - 1; i >= 0; --i) {
+    point = points[i];
+    dx = x - point[0];
+    dy = y - point[1];
+    if (dx * dx + dy * dy < radius * radius) {
+      point.x = transform.applyX(point[0]);
+      point.y = transform.applyY(point[1]);
+      return point;
+    }
+  }
+}
+
+function dragged() {
+  d3.event.subject[0] = transform.invertX(d3.event.x);
+  d3.event.subject[1] = transform.invertY(d3.event.y);
+  render();
+}
+
+function render() {
+  context.save();
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  context.translate(transform.x, transform.y);
+  context.scale(transform.k, transform.k);
+  points.forEach(drawPoint);
+  context.fill();
+  context.restore();
+}
+
+function drawPoint(point) {
+  context.moveTo(point[0] + radius, point[1]);
+  context.arc(point[0], point[1], radius, 0, 2 * Math.PI);
+}
+
+function phyllotaxis(radius) {
+  var theta = Math.PI * (3 - Math.sqrt(5));
+  return function(i) {
+    var r = radius * Math.sqrt(i), a = theta * i;
+    return [
+      width / 2 + r * Math.cos(a),
+      height / 2 + r * Math.sin(a)
+    ];
+  };
+}
+
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.land {
+  fill: #ddd;
+}
+
+.border {
+  fill: none;
+  stroke: #fff;
+}
+
+.graph {
+  fill: none;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/queue.v1.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.albersUsa()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+    .defer(d3.json, "/mbostock/raw/4090846/us.json")
+    .defer(d3.json, "/mbostock/raw/4090846/us-congress-113.json")
+    .await(ready);
+
+function ready(error, us, congress) {
+  if (error) throw error;
+
+  var geometryCollection = congress.objects.districts,
+      featureCollection = topojson.feature(congress, geometryCollection),
+      features = featureCollection.features,
+      neighbors = topojson.neighbors(geometryCollection.geometries);
+
+  features.forEach(function(feature, i) {
+    feature.centroid = path.centroid(feature);
+    if (feature.centroid.some(isNaN)) feature.centroid = null; // off the map
+    feature.neighbors = feature.centroid ? neighbors[i]
+        .filter(function(j) { return j < i && features[j].centroid; })
+        .map(function(j) { return features[j]; }) : [];
+  });
+
+  svg.append("path")
+      .attr("class", "land")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("d", path);
+
+  svg.append("path")
+      .attr("class", "border")
+      .datum(topojson.mesh(congress, geometryCollection, function(a, b) { return a !== b; }))
+      .attr("d", path);
+
+  svg.append("path")
+      .attr("class", "graph")
+      .datum(d3.merge(features.map(function(a) { return a.neighbors.map(function(b) { return [a, b]; }); })))
+      .attr("d", function(d) { return d.map(function(l) { return "M" + l[0].centroid + "L" + l[1].centroid; }).join(""); });
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="d3.js"></script>
+<script>
+
+var canvas = d3.select("canvas"),
+    canvasNode = canvas.node(),
+    context = canvasNode.getContext("2d");
+
+var width = canvasNode.width,
+    height = canvasNode.height,
+    distance = 1.4,
+    scale = 500;
+
+var graticule = d3.geo.graticule()(),
+    sphere = {type: "Sphere"};
+
+d3.timer(function(elapsed) {
+  context.clearRect(0, 0, width, height);
+  context.save();
+
+  var tilt = (-89 + Math.abs((elapsed / 30) % 358 - 179)) * Math.PI / 180,
+      alpha = Math.acos(distance * Math.cos(tilt) * .99);
+
+  var render = d3.geo.pipeline()
+      .source(d3.geo.jsonSource)
+      .pipe(d3.geo.rotate, 0, 0, elapsed / 3000)
+      .pipe(d3.geo.clipCircle, Math.acos(1 / distance) - 1e-6);
+
+  if (alpha) render
+      .pipe(d3.geo.rotate, 0, Math.PI + tilt, 0)
+      .pipe(d3.geo.clipCircle, Math.PI - alpha)
+      .pipe(d3.geo.rotate, 0, -Math.PI - tilt, 0);
+
+  render = render
+      .pipe(d3.geo.project, d3.geo.satellite(distance, tilt), .5 / scale)
+      .sink(d3.geom.contextSink, context);
+
+  context.translate(width / 2, height / 2);
+  context.scale(scale, -scale);
+  context.lineWidth = 1 / scale;
+
+  context.beginPath();
+  render(graticule);
+  context.stroke();
+
+  context.beginPath();
+  render(sphere);
+  context.lineWidth = 2 / scale;
+  context.stroke();
+
+  context.restore();
+});
+
+</script>

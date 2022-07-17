@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.buttons {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.buttons label {
+  margin-left: 20px;
+}
+
+circle {
+  fill-opacity: .2;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+</style>
+<div class="buttons">
+  <button class="button button--position">Toggle Position</button>
+  <button class="button button--size">Toggle Size</button>
+  <button class="button button--all">Toggle Both</button>
+  <label>
+    <input type="checkbox" checked> Named Transitions
+  </label>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    togglePosition = false,
+    toggleSize = false;
+
+var n = 40;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(n))
+    .rangeRoundPoints([0, width]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var circle = svg.selectAll("circle")
+    .data(x.domain())
+  .enter().append("circle")
+    .attr("cx", x)
+    .attr("cy", height - 100)
+    .attr("r", 10)
+    .style("fill", "#000");
+
+var checkbox = d3.select("input[type=checkbox]");
+
+d3.selectAll(".button--all,.button--position").on("click.position", function() {
+  circle.transition(checkbox.property("checked") ? "position" : null)
+      .delay(function(d, i) { return i * 50; })
+      .duration(750)
+      .attr("cy", (togglePosition = !togglePosition) ? 100 : height - 100);
+});
+
+d3.selectAll(".button--all,.button--size").on("click.size", function() {
+  circle.transition(checkbox.property("checked") ? "size" : null)
+      .delay(function(d, i) { return (n - 1 - i) * 50; })
+      .duration(750)
+      .attr("r", (toggleSize = !toggleSize) ? 50 : 10);
+});
+
+</script>

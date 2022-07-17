@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.source line {
+  stroke: steelblue;
+  stroke-opacity: .3;
+}
+
+.target line {
+  stroke: #000;
+  stroke-opacity: .5;
+}
+
+circle {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+  pointer-events: all;
+  cursor: move;
+}
+
+circle.dragging {
+  stroke: red;
+}
+
+textarea {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 120px;
+  height: 40px;
+}
+
+</style>
+<textarea></textarea>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 60.5, right: 180, bottom: 60, left: 180.5},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var sourcePoints = [
+  [    0, height],
+  [width,      0],
+  [width, height]
+];
+
+var targetPoints = [
+  [    0, height],
+  [width,      0],
+  [width, height]
+];
+
+var drag = d3.behavior.drag()
+    .origin(function(d) { return {x: d[0], y: d[1]}; })
+    .on("dragstart", dragstarted)
+    .on("drag", dragged)
+    .on("dragend", dragended);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var textarea = d3.select("textarea");
+
+svg.append("g")
+    .attr("class", "source")
+  .selectAll("line")
+    .data(d3.range(0, width + 1, 20).map(function(x) { return [[x, 0], [x, height]]; })
+      .concat(d3.range(0, height + 1, 20).map(function(y) { return [[0, y], [width, y]]; })))
+  .enter().append("line")
+    .attr("x1", function(d) { var p = d[0]; return p[0]; })
+    .attr("y1", function(d) { var p = d[0]; return p[1]; })
+    .attr("x2", function(d) { var p = d[1]; return p[0]; })
+    .attr("y2", function(d) { var p = d[1]; return p[1]; });
+
+var line = svg.append("g")
+    .attr("class", "target")
+  .selectAll("line")
+    .data(d3.range(0, width + 1, 20).map(function(x) { return [[x, 0], [x, height]]; })
+      .concat(d3.range(0, height + 1, 20).map(function(y) { return [[0, y], [width, y]]; })))
+  .enter().append("line");
+
+var point = svg.append("g").selectAll("circle")
+    .data(targetPoints)
+  .enter().append("circle")
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
+    .attr("r", 10)
+    .call(drag);
+
+redraw();
+
+function dragstarted() {
+  d3.select("body").style("cursor", "move");
+  d3.select(this).classed("dragging", true);
+}
+
+function dragged(d) {
+  d[0] = Math.max(-margin.left, Math.min(width + margin.right, d3.event.x));
+  d[1] = Math.max(-margin.top, Math.min(height + margin.bottom, d3.event.y));
+  d3.select(this).attr("transform", "translate(" + d + ")");
+  redraw();
+}
+
+function dragended() {
+  d3.select("body").style("cursor", null);
+  d3.select(this).classed("dragging", false);
+}
+
+function redraw() {
+  var m = affineTransformation(sourcePoints, targetPoints);
+
+  line
+      .attr("x1", function(d) { var p = d[0]; return p[0] * m[0] + p[1] * m[2] + m[4]; })
+      .attr("y1", function(d) { var p = d[0]; return p[0] * m[1] + p[1] * m[3] + m[5]; })
+      .attr("x2", function(d) { var p = d[1]; return p[0] * m[0] + p[1] * m[2] + m[4]; })
+      .attr("y2", function(d) { var p = d[1]; return p[0] * m[1] + p[1] * m[3] + m[5]; });
+
+  textarea
+      .property("value", JSON.stringify(m));
+}
+
+function affineTransformation(q, p) {
+  var n = q.length, matrix = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0]
+  ];
+
+  for (var j = 0; j < 2; ++j) {
+    for (var k = 0; k < 2; ++k) {
+      for (var i = 0; i < n; ++i) {
+        matrix[k][j + 3] += q[i][k] * p[i][j];
+      }
+    }
+    for (var i = 0; i < n; ++i) {
+      matrix[k][j + 3] += p[i][j];
+    }
+  }
+
+  for (var k = 0; k < n; ++k) {
+    for (var i = 0; i < 2; ++i) {
+      for (var j = 0; j < 2; ++j) {
+        matrix[i][j] += q[k][i] * q[k][j];
+      }
+      matrix[i][j] += q[k][i];
+    }
+    for (var j = 0; j < 2; ++j) {
+      matrix[i][j] += q[k][j];
+    }
+    ++matrix[i][j];
+  }
+
+  gaussJordan(matrix);
+
+  return [
+    matrix[0][3],
+    matrix[0][4],
+    matrix[1][3],
+    matrix[1][4],
+    matrix[2][3],
+    matrix[2][4]
+  ];
+}
+
+function gaussJordan(matrix) {
+  var height = matrix.length,
+      width = matrix[0].length;
+
+  for (var y = 0; y < height; ++y) {
+    for (var pivot = y, t, y2 = y + 1; y2 < height; ++y2) {
+      if (Math.abs(matrix[y2][y]) > Math.abs(matrix[pivot][y])) {
+        pivot = y2;
+      }
+    }
+
+    t = matrix[y], matrix[y] = matrix[pivot], matrix[pivot] = t;
+    for (var y2 = y + 1; y2 < height; ++y2) {
+      for (var c = matrix[y2][y] / matrix[y][y], x = y; x < width; ++x) {
+        matrix[y2][x] -= matrix[y][x] * c;
+      }
+    }
+  }
+
+  for (var y = height - 1; y >= 0; --y) {
+    for (var c = matrix[y][y], y2 = 0; y2 < y; ++y2) {
+      for (var x = width - 1; x >= y; --x) {
+        matrix[y2][x] -= matrix[y][x] * matrix[y2][y] / c;
+      }
+    }
+
+    matrix[y][y] /= c;
+    for (var x = height; x < width; ++x) {
+      matrix[y][x] /= c;
+    }
+  }
+}
+
+</script>

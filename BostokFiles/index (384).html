@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+div {
+  background: white;
+  border: solid 1px #ccc;
+  padding: 20px;
+  margin: 20px;
+}
+
+</style>
+<div>update</div>
+<div>exit</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var duration = 750;
+
+var div = d3.select("body").selectAll("div")
+    .data(["enter", "update"], function(d) { return d || this.textContent; });
+
+// 1. exit
+var exitTransition = d3.transition().duration(750).each(function() {
+  div.exit()
+      .style("background", "red")
+    .transition()
+      .style("opacity", 0)
+      .remove();
+});
+
+// 2. update
+var updateTransition = exitTransition.transition().each(function() {
+  div.transition()
+      .style("background", "orange");
+});
+
+// 3. enter
+var enterTransition = updateTransition.transition().each(function() {
+  div.enter().append("div")
+      .text(function(d) { return d; })
+      .style("opacity", 0)
+    .transition()
+      .style("background", "green")
+      .style("opacity", 1);
+});
+
+</script>

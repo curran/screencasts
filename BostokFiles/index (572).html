@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.grid {
+  stroke: #000;
+  stroke-opacity: .15;
+  shape-rendering: crispEdges;
+}
+
+.exclusion {
+  fill: #ccc;
+}
+
+.candidate-connection,
+.candidate {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.candidate-annulus {
+  fill: #000;
+  fill-opacity: .25;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.sample--active {
+  fill: #f00;
+  stroke: #f00;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var k = 30, // maximum number of samples before rejection
+    radius = 50,
+    radius2 = radius * radius,
+    R = 3 * radius2,
+    cellSize = radius * Math.SQRT1_2,
+    gridWidth = Math.ceil(width / cellSize),
+    gridHeight = Math.ceil(height / cellSize),
+    grid = new Array(gridWidth * gridHeight),
+    queue = [],
+    queueSize = 0;
+
+var arcEmptyAnnulus = d3.svg.arc()
+    .innerRadius(radius)
+    .outerRadius(radius)
+    .startAngle(0)
+    .endAngle(2 * Math.PI)();
+
+var arcAnnulus = d3.svg.arc()
+    .innerRadius(radius)
+    .outerRadius(radius * 2)
+    .startAngle(0)
+    .endAngle(2 * Math.PI)();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var gExclusion = svg.append("g")
+    .attr("class", "exclusion");
+
+svg.append("path")
+    .attr("class", "grid")
+    .attr("d", d3.range(cellSize, width, cellSize)
+        .map(function(x) { return "M" + Math.round(x) + ",0V" + height; })
+        .join("")
+      + d3.range(cellSize, height, cellSize)
+        .map(function(y) { return "M0," + Math.round(y) + "H" + width; })
+        .join(""));
+
+var searchAnnulus = svg.append("path")
+    .attr("class", "candidate-annulus");
+
+var gConnection = svg.append("g")
+    .attr("class", "candidate-connection");
+
+var gSample = svg.append("g")
+    .attr("class", "sample");
+
+var gCandidate = svg.append("g")
+    .attr("class", "candidate");
+
+sample(Math.random() * width, Math.random() * height);
+
+setTimeout(function selectActive() {
+  var i = Math.random() * queueSize | 0,
+      s = queue[i],
+      j = 0;
+
+  gCandidate
+      .style("opacity", null);
+
+  gConnection
+      .style("opacity", null);
+
+  searchAnnulus
+      .style("opacity", null)
+      .style("stroke-opacity", 0)
+      .attr("transform", "translate(" + s + ")")
+      .attr("d", arcEmptyAnnulus)
+    .transition()
+      .attr("d", arcAnnulus)
+      .style("stroke-opacity", 1)
+      .each("end", generateCandidate);
+
+  var sampleActive = gSample.selectAll("circle")
+    .filter(function(d) { return d === s; });
+
+  function generateCandidate() {
+    if (++j > k) return rejectActive();
+
+    var a = 2 * Math.PI * Math.random(),
+        r = Math.sqrt(Math.random() * R + radius2),
+        x = s[0] + r * Math.cos(a),
+        y = s[1] + r * Math.sin(a);
+
+    // Reject candidates that are outside the allowed extent.
+    if (0 > x || x >= width || 0 > y || y >= height) return generateCandidate();
+
+    // If this is an acceptable candidate, create a new sample;
+    // otherwise, generate a new candidate.
+    gCandidate.append("circle")
+        .attr("r", 1e-6)
+        .attr("cx", x)
+        .attr("cy", y)
+      .transition()
+        .attr("r", 3.75)
+        .each("end", far(x, y) ? acceptCandidate : generateCandidate);
+
+    function acceptCandidate() {
+      removeCandidates()
+          .each("end", queueSize ? selectActive : null);
+
+      sample(x, y);
+    }
+  }
+
+  function rejectActive() {
+    queue[i] = queue[--queueSize];
+    queue.length = queueSize;
+
+    removeCandidates()
+        .each("end", queueSize ? selectActive : null);
+
+    sampleActive
+        .classed("sample--active", false);
+  }
+
+  function removeCandidates() {
+    gCandidate.transition()
+        .style("opacity", 0)
+      .selectAll("circle")
+        .remove();
+
+    gConnection.transition()
+        .style("opacity", 0)
+      .selectAll("line")
+        .remove();
+
+    return searchAnnulus.transition()
+        .style("opacity", 0);
+  }
+}, 250);
+
+function far(x, y) {
+  var i = x / cellSize | 0,
+      j = y / cellSize | 0,
+      i0 = Math.max(i - 2, 0),
+      j0 = Math.max(j - 2, 0),
+      i1 = Math.min(i + 3, gridWidth),
+      j1 = Math.min(j + 3, gridHeight);
+
+  for (j = j0; j < j1; ++j) {
+    var o = j * gridWidth;
+    for (i = i0; i < i1; ++i) {
+      if (s = grid[o + i]) {
+        var s,
+            dx = s[0] - x,
+            dy = s[1] - y;
+        if (dx * dx + dy * dy < radius2) {
+          gConnection.append("line")
+              .attr("x1", x)
+              .attr("y1", y)
+              .attr("x2", x)
+              .attr("y2", y)
+            .transition()
+              .attr("x2", s[0])
+              .attr("y2", s[1]);
+
+          return false;
+        }
+      }
+    }
+  }
+
+  return true;
+}
+
+function sample(x, y) {
+  var s = [x, y];
+
+  gExclusion.append("circle")
+      .attr("r", 1e-6)
+      .attr("cx", x)
+      .attr("cy", y)
+    .transition()
+      .attr("r", radius);
+
+  gSample.append("circle")
+      .datum(s)
+      .attr("class", "sample--active")
+      .attr("r", 1e-6)
+      .attr("cx", x)
+      .attr("cy", y)
+    .transition()
+      .attr("r", 3);
+
+  queue.push(s);
+  grid[gridWidth * (y / cellSize | 0) + (x / cellSize | 0)] = s;
+  ++queueSize;
+  return s;
+}
+
+</script>

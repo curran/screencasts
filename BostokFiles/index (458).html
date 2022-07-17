@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  padding: 40px;
+}
+
+div {
+  background: steelblue;
+  font-family: sans-serif;
+  color: white;
+  padding: 4px;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 0 #000;
+  overflow: hidden;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/queue.v1.min.js"></script>
+<script>
+
+var count = 0,
+    duration = d3.random.normal(5000, 500),
+    parallelism = 6;
+
+var q = queue(parallelism + 1);
+
+q.defer(function sentinel() {}); // run forever
+
+d3.range(10).forEach(repeat); // a few initial tasks
+
+function repeat() {
+  q.defer(function(callback) {
+    d3.select("body").append("div")
+        .style("width", "0px")
+        .text(++count)
+      .transition()
+        .duration(duration())
+        .style("width", "480px")
+      .transition()
+        .duration(250)
+        .style("margin-top", function() { return -this.clientHeight + "px"; })
+        .style("opacity", 0)
+        .each("end", function() { callback(null); })
+        .remove();
+
+    setTimeout(repeat, duration());
+  });
+}
+
+</script>

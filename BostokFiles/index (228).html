@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Q-Q Plots</title>
+<style>
+
+body {
+  font: 10px sans-serif;
+  width: 960px;
+  height: 310px;
+}
+
+.qq .box,
+.qq .tick line,
+.qq .quantile,
+.qq .diagonal {
+  stroke: #aaa;
+  fill: none;
+}
+
+.qq .quantile {
+  stroke: #000;
+}
+
+.qq g + g .y.tick {
+  display: none;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="d3.qq.min.js"></script>
+<script>
+
+var width = 270,
+    height = 270,
+    margin = {top: 20, right: 10, bottom: 20, left: 35},
+    n = 10000; // number of samples to generate
+
+var chart = d3.qq()
+    .width(width)
+    .height(height)
+    .domain([-.1, 1.1])
+    .tickFormat(function(d) { return ~~(d * 100); });
+
+var vis = d3.select("body").append("svg")
+    .attr("width", (width + margin.right + margin.left) * 3)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("turkers.json", function(error, turkers) {
+  if (error) throw error;
+
+  var tm = mean(turkers),
+      td = Math.sqrt(variance(turkers)),
+      dd = [
+        [0.10306430789206111, 0.0036139086950272735, 0.30498647327844536],
+        [0.5924252668569606, 0.0462763685758622, 0.4340870312025223],
+        [0.9847627827855167, 2.352350767874714e-4, 0.2609264955190324]
+      ];
+
+  var g = vis.selectAll("g")
+      .data([{
+        x: d3.range(n).map(Math.random),
+        y: turkers,
+        label: "Uniform Distribution"
+      }, {
+        x: d3.range(n).map(normal1(tm, td)),
+        y: turkers,
+        label: "Gaussian (Normal) Distribution"
+      }, {
+        x: d3.range(n).map(normal3(dd)),
+        y: turkers,
+        label: "Mixture of 3 Gaussians"
+      }])
+    .enter().append("g")
+      .attr("class", "qq")
+      .attr("transform", function(d, i) { return "translate(" + (width + margin.right + margin.left) * i + ")"; });
+
+  g.append("rect")
+      .attr("class", "box")
+      .attr("width", width)
+      .attr("height", height);
+
+  g.call(chart);
+
+  g.append("text")
+      .attr("dy", "1.3em")
+      .attr("dx", ".6em")
+      .text(function(d) { return d.label; });
+
+  chart.duration(1000);
+
+  window.transition = function() {
+    g.datum(randomize).call(chart);
+  };
+});
+
+function randomize(d) {
+  d.y = d3.range(n).map(Math.random);
+  return d;
+}
+
+// Sample from a normal distribution with mean 0, stddev 1.
+function normal() {
+  var x = 0, y = 0, rds, c;
+  do {
+    x = Math.random() * 2 - 1;
+    y = Math.random() * 2 - 1;
+    rds = x * x + y * y;
+  } while (rds == 0 || rds > 1);
+  c = Math.sqrt(-2 * Math.log(rds) / rds); // Box-Muller transform
+  return x * c; // throw away extra sample y * c
+}
+
+// Simple 1D Gaussian (normal) distribution
+function normal1(mean, deviation) {
+  return function() {
+    return mean + deviation * normal();
+  };
+}
+
+// Gaussian Mixture Model (k=3) fit using E-M algorithm
+function normal3(dd) {
+  return function() {
+    var r = Math.random(),
+        i = r < dd[0][2] ? 0 : r < dd[0][2] + dd[1][2] ? 1 : 2,
+        d = dd[i];
+    return d[0] + Math.sqrt(d[1]) * normal();
+  }
+}
+
+// Welford's algorithm.
+function mean(x) {
+  var n = x.length;
+  if (n === 0) return NaN;
+  var m = 0,
+      i = -1;
+  while (++i < n) m += (x[i] - m) / (i + 1);
+  return m;
+}
+
+// Unbiased estimate of a sample's variance.
+// Also known as the sample variance, where the denominator is n - 1.
+function variance(x) {
+  var n = x.length;
+  if (n < 1) return NaN;
+  if (n === 1) return 0;
+  var m = mean(x),
+      i = -1,
+      s = 0;
+  while (++i < n) {
+    var v = x[i] - m;
+    s += v * v;
+  }
+  return s / (n - 1);
+}
+
+</script>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="d3.js"></script>
+<script src="topojson.js"></script>
+<script>
+
+var canvas = d3.select("canvas"),
+    canvasNode = canvas.node(),
+    context = canvasNode.getContext("2d");
+
+var width = canvasNode.width,
+    height = canvasNode.height,
+    scale = width * .6;
+
+var π = Math.PI,
+    τ = 2 * π,
+    halfπ = π / 2,
+    asin = function(x) { return x > 1 ? halfπ : x < -1 ? -halfπ : Math.asin(x); },
+    atan2 = Math.atan2;
+
+d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
+  if (error) throw error;
+
+  var sketch = d3.geo.pipeline()
+      .source(d3.geo.jsonSource)
+      .pipe(resample, .020)
+      .pipe(jitter, .004)
+      .pipe(smooth, .005)
+      .sink(d3.geo.jsonSink);
+
+  var land = topojson.feature(world, world.objects.land),
+      lands = {type: "GeometryCollection", geometries: [sketch(land), sketch(land), sketch(land)]};
+
+  d3.timer(function(elapsed) {
+    context.clearRect(0, 0, width, height);
+    context.save();
+    context.translate(width / 2, height * 1.2);
+    context.scale(scale, -scale);
+
+    context.beginPath();
+    d3.geo.pipeline()
+        .source(d3.geo.jsonSource)
+        .pipe(d3.geo.rotate, elapsed * .00005, -.7, .26)
+        .pipe(d3.geo.clipCircle, Math.PI / 2)
+        .pipe(d3.geo.project, d3.geo.orthographic)
+        .sink(d3.geom.contextSink, context)
+        (lands);
+    context.lineWidth = 1 / scale;
+    context.globalAlpha = .5;
+    context.strokeStyle = "#000";
+    context.stroke();
+
+    context.restore();
+  });
+});
+
+function haversin(θ) {
+  return (θ = Math.sin(θ / 2)) * θ;
+}
+
+function interpolateArc(λ0, φ0, λ1, φ1) {
+  var cφ0 = Math.cos(φ0),
+      sφ0 = Math.sin(φ0),
+      cφ1 = Math.cos(φ1),
+      sφ1 = Math.sin(φ1),
+      kλ0 = cφ0 * Math.cos(λ0),
+      kφ0 = cφ0 * Math.sin(λ0),
+      kλ1 = cφ1 * Math.cos(λ1),
+      kφ1 = cφ1 * Math.sin(λ1),
+      d = 2 * Math.asin(Math.sqrt(haversin(φ1 - φ0) + cφ0 * cφ1 * haversin(λ1 - λ0))),
+      k = 1 / Math.sin(d);
+
+  var interpolate = d ? function(t) {
+    var B = Math.sin(t *= d) * k,
+        A = Math.sin(d - t) * k,
+        x = A * kλ0 + B * kλ1,
+        y = A * kφ0 + B * kφ1,
+        z = A * sφ0 + B * sφ1;
+    return [
+      atan2(y, x),
+      atan2(z, Math.sqrt(x * x + y * y))
+    ];
+  } : function() {
+    return [λ0, φ0];
+  };
+
+  interpolate.distance = d;
+
+  return interpolate;
+}
+
+function resample(δ, sink) {
+  var λ00,
+      φ00,
+      λ0,
+      φ0;
+
+  function lineStart() {
+    θ = 0;
+    resample.point = lineFirstPoint;
+    sink.lineStart();
+  }
+
+  function lineFirstPoint(λ, φ) {
+    λ00 = λ0 = λ, φ00 = φ0 = φ;
+    resample.point = linePoint;
+  }
+
+  function linePoint(λ1, φ1) {
+    sink.point(λ0, φ0);
+    var a = interpolateArc(λ0, φ0, λ0 = λ1, φ0 = φ1),
+        n = Math.floor(a.distance / δ) + 1;
+    for (var i = 1, p; i < n; ++i) p = a(i / n), sink.point(p[0], p[1]);
+  }
+
+  function lineEnd() {
+    linePoint(λ00, φ00);
+    sink.lineEnd();
+    λ00 = φ00 = λ0 = φ0 = undefined;
+    resample.point = null;
+  }
+
+  var resample = {
+    sphere: function() { sink.sphere(); },
+    polygonStart: function() { sink.polygonStart(); },
+    polygonEnd: function() { sink.polygonEnd(); },
+    lineStart: lineStart,
+    lineEnd: lineEnd,
+    point: null
+  };
+
+  return resample;
+}
+
+function jitter(δ, sink) {
+  var random = d3.random.normal(0, δ);
+
+  return {
+    sphere: function() { sink.sphere(); },
+    polygonStart: function() { sink.polygonStart(); },
+    polygonEnd: function() { sink.polygonEnd(); },
+    lineStart: function() { sink.lineStart(); },
+    lineEnd: function() { sink.lineEnd(); },
+    point: function(λ, φ) {
+      var p = rotation(random(), random())(λ, φ);
+      sink.point(p[0], p[1]);
+    }
+  };
+}
+
+function rotation(δλ, δφ) {
+  var cosδφ = Math.cos(δφ),
+      sinδφ = Math.sin(δφ);
+  return function(λ, φ) {
+    λ += δλ; if (λ > π) λ -= τ; else if (λ < -π) λ += τ;
+    var cosφ = Math.cos(φ),
+        x = Math.cos(λ) * cosφ,
+        y = Math.sin(λ) * cosφ,
+        z = Math.sin(φ);
+    return [atan2(y, x * cosδφ - z * sinδφ), asin(z * cosδφ + x * sinδφ)];
+  };
+}
+
+function inverseRotation(δλ, δφ) {
+  var cosδφ = Math.cos(δφ),
+      sinδφ = Math.sin(δφ);
+  return function(λ, φ) {
+    var cosφ = Math.cos(φ),
+        x = Math.cos(λ) * cosφ,
+        y = Math.sin(λ) * cosφ,
+        z = Math.sin(φ);
+    λ = atan2(y, x * cosδφ + z * sinδφ) - δλ;
+    if (λ > π) λ -= τ; else if (λ < -π) λ += τ;
+    return [λ, asin(z * cosδφ - x * sinδφ)];
+  };
+}
+
+function smooth(δ, sink) {
+  var θ,
+      λ00,
+      φ00,
+      λ01,
+      φ01,
+      λ02,
+      φ02,
+      λ0,
+      φ0,
+      λ1,
+      φ1,
+      λ2,
+      φ2;
+
+  function lineStart() {
+    θ = 0;
+    smooth.point = lineFirstPoint;
+    sink.lineStart();
+  }
+
+  function lineFirstPoint(λ, φ) {
+    λ00 = λ0 = λ, φ00 = φ0 = φ;
+    smooth.point = lineSecondPoint;
+  }
+
+  function lineSecondPoint(λ, φ) {
+    λ01 = λ1 = λ, φ01 = φ1 = φ;
+    smooth.point = lineThirdPoint;
+  }
+
+  function lineThirdPoint(λ, φ) {
+    λ02 = λ2 = λ, φ02 = φ2 = φ;
+    smooth.point = linePoint;
+  }
+
+  function linePoint(λ3, φ3) {
+    var segment = interpolateArc(λ1, φ1, λ2, φ2),
+        origin = segment(.5),
+        n = Math.ceil(segment.distance / δ),
+        r = rotation(-origin[0], -origin[1]),
+        ri = inverseRotation(-origin[0], -origin[1]),
+        p0 = r(λ0, φ0),
+        p1 = r(λ1, φ1),
+        p2 = r(λ2, φ2),
+        p3 = r(λ3, φ3);
+    for (var i = 0; i < n; ++i) {
+      var t = i / n,
+          k0 = (1 - t) * (1 - t) * (1 - t) / 6,
+          k1 = (3 * t * t * t - 6 * t * t + 4) / 6,
+          k2 = (-3 * t * t * t + 3 * t * t + 3 * t + 1) / 6,
+          k3 = t * t * t / 6,
+          x = k0 * p0[0] + k1 * p1[0] + k2 * p2[0] + k3 * p3[0],
+          y = k0 * p0[1] + k1 * p1[1] + k2 * p2[1] + k3 * p3[1],
+          p = ri(x, y);
+      sink.point(p[0], p[1]);
+    }
+    λ0 = λ1, φ0 = φ1, λ1 = λ2, φ1 = φ2, λ2 = λ3, φ2 = φ3;
+  }
+
+  function lineEnd() {
+    if (!isNaN(λ02) && !isNaN(φ02)) { // skip polygons with 3 or fewer points
+      linePoint(λ00, φ00);
+      linePoint(λ01, φ01);
+      linePoint(λ02, φ02);
+    }
+    sink.lineEnd();
+    λ00 = φ00 = λ01 = φ01 = λ02 = φ02 = λ0 = φ0 = λ1 = φ1 = λ2 = φ2 = undefined;
+    smooth.point = null;
+  }
+
+  var smooth = {
+    sphere: function() { sink.sphere(); },
+    polygonStart: function() { sink.polygonStart(); },
+    polygonEnd: function() { sink.polygonEnd(); },
+    lineStart: lineStart,
+    lineEnd: lineEnd,
+    point: null
+  };
+
+  return smooth;
+}
+
+</script>

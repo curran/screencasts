@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+canvas {
+  background: #eee;
+}
+
+</style>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<body>
+<script>
+
+var width = 960,
+    height = 960;
+
+var zoom = d3.behavior.zoom()
+    .translate([0, 0])
+    .scale(1)
+    .scaleExtent([1, 8]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+context.lineJoin = "round";
+context.lineCap = "round";
+context.strokeStyle = "#fff";
+
+var path = d3.geo.path()
+    .projection(null)
+    .context(context);
+
+d3.json("world.json", function(error, world) {
+  if (error) throw error;
+
+  var sphere = topojson.feature(world, world.objects.sphere),
+      land = topojson.feature(world, world.objects.land),
+      boundary = topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; });
+
+  canvas
+      .call(zoom.on("zoom", zoomed))
+      .call(zoom.event);
+
+  function zoomed() {
+    var t = zoom.translate(),
+        s = zoom.scale();
+
+    context.clearRect(0, 0, width, height);
+
+    context.save();
+    context.translate(t[0], t[1]);
+    context.scale(s, s);
+    context.lineWidth = 1 / s;
+
+    context.beginPath();
+    path(sphere);
+    context.fillStyle = "#fff";
+    context.fill();
+
+    context.beginPath();
+    path(land);
+    context.fillStyle = "#000";
+    context.fill();
+
+    context.beginPath();
+    path(boundary);
+    context.stroke();
+
+    context.restore();
+  }
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

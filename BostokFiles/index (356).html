@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+rect {
+  fill: none;
+  pointer-events: all;
+}
+
+.sphere {
+  fill: none;
+  stroke: #ccc;
+  shape-rendering: crispEdges;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-opacity: .2;
+}
+
+.mesh {
+  fill: none;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="albers-usa-pr.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = albersUsaPr()
+    .scale(1070)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var graticule = d3.geo.graticule()
+    .step([2, 2]);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum({type: "Sphere"})
+    .attr("class", "sphere")
+    .attr("d", path);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+svg.on("mousemove", function() {
+  console.log(projection.invert(d3.mouse(this)));
+});
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.mesh(us))
+      .attr("class", "mesh")
+      .attr("d", path);
+});
+
+</script>

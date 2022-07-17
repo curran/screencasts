@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 700;
+
+var path = d3.geo.path()
+    .projection(null);
+
+var color = d3.scale.threshold()
+    .domain([1, 10, 50, 100, 500, 1000, 2000, 5000])
+    .range(["#fff7ec", "#fee8c8", "#fdd49e", "#fdbb84", "#fc8d59", "#ef6548", "#d7301f", "#b30000", "#7f0000"]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("ny.json", function(error, ny) {
+  if (error) throw error;
+
+  // group tracts by color for faster rendering
+  svg.append("g")
+      .attr("class", "tract")
+    .selectAll("path")
+      .data(d3.nest()
+        .key(function(d) { return color(d.properties.population / d.properties.area * 2.58999e6); }) // convert square meters to square miles
+        .entries(ny.objects.tracts.geometries))
+    .enter().append("path")
+      .style("fill", function(d) { return d.key; })
+      .attr("d", function(d) { return path(topojson.merge(ny, d.values)); });
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

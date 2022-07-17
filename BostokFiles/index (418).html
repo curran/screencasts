@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.mesh {
+  fill: none;
+  stroke: #333;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.junction {
+  fill: black;
+  stroke: white;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var path = d3.geo.path()
+    .projection(null);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.mesh(us))
+      .attr("class", "mesh")
+      .attr("d", path);
+
+  var junctionByPoint = d3.map(),
+      arcCountsByPoint = d3.map();
+
+  us.arcs.forEach(function(arc) {
+    var start = arc[0],
+        startCount = arcCountsByPoint.get(start) || 0,
+        end = arc.reduce(function(p, v) { return [p[0] + v[0], p[1] + v[1]]; }),
+        endCount = arcCountsByPoint.get(end) || 0;
+    if (arcCountsByPoint.set(start, startCount + 1) > 1) junctionByPoint.set(start, start);
+    if (arcCountsByPoint.set(end, endCount + 1) > 1) junctionByPoint.set(end, end);
+  });
+
+  svg.selectAll(".junction")
+      .data(junctionByPoint.values())
+    .enter().append("circle")
+      .attr("class", "junction")
+      .attr("transform", function(d) { return "translate(" + transform(d) + ")"; })
+      .attr("r", 2.5);
+
+  function transform(point) {
+    return [
+      point[0] * us.transform.scale[0] + us.transform.translate[0],
+      point[1] * us.transform.scale[1] + us.transform.translate[1]
+    ];
+  }
+});
+
+</script>

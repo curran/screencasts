@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+#n {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#n input {
+  width: 200px;
+}
+
+#grid {
+  margin: 10px;
+  margin-top: 60px;
+}
+
+.box-view {
+  width: 20px; height: 20px;
+  float: left;
+  position: relative;
+  margin: 8px;
+}
+
+.box {
+  border-radius: 100px;
+  width: 20px; height: 10px;
+  padding: 5px 0;
+  color: #fff;
+  font: 10px/10px Arial;
+  text-align: center;
+  position: absolute;
+}
+
+</style>
+<div id="n">
+  <input type="range" min="1" max="1000" value="100">
+  <output name="n"></output>
+</div>
+<div id="grid">
+  <div class="box-view">
+    <div class="box"></div>
+  </div>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var boxViewTemplate = d3.select(".box-view").remove().node(),
+    boxView = d3.select("#grid").selectAll(".box-view"),
+    box = boxView.select(".box");
+
+var output = d3.select("output"),
+    input = d3.select("input").on("change", changed).each(changed),
+    count = 0;
+
+d3.timer(function() {
+  ++count;
+
+  box
+      .style("top", Math.sin(count / 10) * 10 + "px")
+      .style("left", Math.cos(count / 10) * 10 + "px")
+      .style("background-color", "rgb(0,0," + count % 255 + ")")
+      .text(count % 100);
+});
+
+function changed() {
+  var n = +this.value;
+  output.text(n);
+  boxView = boxView.data(d3.range(n));
+  boxView.exit().remove();
+  boxView.enter().append(function() { return boxViewTemplate.cloneNode(true); });
+  box = boxView.select(".box");
+}
+
+</script>

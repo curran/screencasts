@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var delta = 0.001,
+    i = 0, j,
+    n = 2000, // Total number of random points.
+    k = 20; // Number of points to replace per frame.
+
+var rx = d3.randomNormal(width / 2, 80),
+    ry = d3.randomNormal(height / 2, 80),
+    points = d3.range(n).map(function() { return [rx(), ry()]; });
+
+var color = d3.scaleSequential(d3.interpolateLab("white", "steelblue"))
+    .domain([0, 20]);
+
+var hexbin = d3.hexbin()
+    .radius(20)
+    .extent([[0, 0], [width, height]]);
+
+var hexagon = svg.selectAll("path")
+  .data(hexbin(points))
+  .enter().append("path")
+    .attr("d", hexbin.hexagon(19.5))
+    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+    .attr("fill", function(d) { return color(d.length); });
+
+d3.timer(function(elapsed) {
+  rx = d3.randomNormal(width / 2 + 80 * Math.cos(elapsed * delta), 80),
+  ry = d3.randomNormal(height / 2 + 80 * Math.sin(elapsed * delta), 80);
+  for (j = 0; j < k; ++j, i = (i + 1) % n) points[i][0] = rx(), points[i][1] = ry();
+
+  hexagon = hexagon
+    .data(hexbin(points), function(d) { return d.x + "," + d.y; });
+
+  hexagon.exit().remove();
+
+  hexagon = hexagon.enter().append("path")
+      .attr("d", hexbin.hexagon(19.5))
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+    .merge(hexagon)
+      .attr("fill", function(d) { return color(d.length); });
+});
+
+</script>

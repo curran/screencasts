@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.line {
+  stroke: #000;
+  stroke-width: 1.5px;
+  stroke-linecap: round;
+}
+
+.line--inactive {
+  stroke: #ddd;
+  stroke-width: 1px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var n = 200,
+    array = d3.range(n),
+    swaps = shuffle(array.slice()).reverse();
+
+var margin = {top: 230, right: 40, bottom: 230, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(n))
+    .rangePoints([0, width]);
+
+var a = d3.scale.linear()
+    .domain([0, n - 1])
+    .range([-45, 45]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var line = svg.append("g")
+    .attr("class", "line")
+  .selectAll("line")
+    .data(array)
+  .enter().append("line")
+    .attr("transform", transform)
+    .attr("class", "line--inactive")
+    .attr("y2", -height);
+
+var transition = d3.transition()
+    .duration(150)
+    .each("start", function start() {
+      var swap = swaps.pop(),
+          i = swap[0],
+          j = swap[1],
+          li = line[0][i],
+          lj = line[0][j];
+      line[0][i] = lj;
+      line[0][j] = li;
+      d3.select(lj).attr("class", null);
+      transition.each(function() { line.transition().attr("transform", transform); });
+      if (swaps.length) transition = transition.transition().each("start", start);
+    });
+
+function transform(d, i) {
+  return "translate(" + x(i) + "," + height + ")rotate(" + a(d) + ")";
+}
+
+function shuffle(array) {
+  var swaps = [],
+      m = array.length,
+      t,
+      i;
+
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+    swaps.push([m, i]);
+  }
+
+  return swaps;
+}
+
+</script>

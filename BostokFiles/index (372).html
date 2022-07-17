@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    graticulePrecision = 1;
+
+var buffer, bufferContext = {
+  moveTo: function(x, y) { buffer.push([x, y]); },
+  lineTo: function(x, y) { buffer.push([x, y]); },
+  closePath: function() {}
+};
+
+var projection = d3.geo.equirectangular()
+    .rotate([0, 0, 89])
+    .translate([width / 2, height / 2])
+    .scale(145)
+    .precision(.3)
+    .clipExtent([[-1, -1], [width + 1, height + 1]]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d"),
+    path = d3.geo.path().projection(projection).context(context),
+    graticule = d3.geo.graticule()(),
+    sphere = {type: "Sphere"},
+    equator = {type: "LineString", coordinates: [[-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0]]};
+
+animation();
+
+function animation() {
+  canvas.transition()
+      .duration(7500)
+      .tween("projection", function() {
+        var scale = d3.interpolate(145, 145 * 32),
+            translate = d3.interpolate([width / 2, height / 2], [1076, -6457]);
+        return function(t) {
+          projection.scale(scale(t)).translate(translate(t));
+          render();
+        };
+      })
+    .transition()
+      .duration(7500)
+      .tween("projection", function() {
+        var scale = d3.interpolate(145 * 32, 145),
+            translate = d3.interpolate([1076, -6457], [width / 2, height / 2]);
+        return function(t) {
+          projection.scale(scale(t)).translate(translate(t));
+          render();
+        };
+      })
+    .transition()
+      .duration(2500)
+      .each("end", animation);
+}
+
+function render() {
+  context.clearRect(0, 0, width, height);
+
+  if (d3.event) projection
+      .translate(d3.event.translate)
+      .scale(d3.event.scale);
+
+  context.strokeStyle = "#aaa";
+  context.lineWidth = 1;
+  context.beginPath();
+  path(graticule);
+  context.stroke();
+
+  context.lineWidth = 2;
+  context.beginPath();
+  path(sphere);
+  context.stroke();
+
+  context.strokeStyle = "red";
+  context.beginPath();
+  path(equator);
+  context.stroke();
+
+  // Override the path context to extract the resampled points.
+  buffer = [];
+  path.context(bufferContext);
+  path(equator);
+  buffer.forEach(function(d) {
+    context.beginPath();
+    context.arc(d[0], d[1], 4.5, 0, 2 * Math.PI, false);
+    context.stroke();
+  });
+  path.context(context);
+
+  context.restore();
+}
+
+</script>

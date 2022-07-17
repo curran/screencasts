@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  position: relative;
+  width: 960px;
+  height: 500px;
+}
+
+#background {
+  width: 960px;
+  height: 500px;
+  background: url(mosque.jpg);
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.line {
+  stroke: cyan;
+  stroke-width: 1.5px;
+  stroke-linecap: square;
+}
+
+.handle {
+  fill: none;
+  pointer-events: all;
+  stroke: #fff;
+  stroke-width: 2px;
+  cursor: move;
+}
+
+#buttons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+button {
+  display: block;
+  width: 10em;
+}
+
+button:focus {
+  outline: none;
+}
+
+</style>
+<div id="background"></div>
+<div id="buttons">
+  <button data-targets="[[492,329],[542,330],[569,434],[424,424]]">Floor</button>
+  <button data-targets="[[-28,287],[74,288],[72,413],[-31,404]]">Near Wall</button>
+  <button data-targets="[[-194,282],[-95,282],[-100,354],[-200,365]]">Far Wall</button>
+  <button data-targets="[[0,0],[400,0],[400,400],[0,400]]">Reset</button>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="numeric-solve.min.js"></script>
+<script>
+
+var margin = {top: 50, right: 280, bottom: 50, left: 280},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var sourcePoints = [[0, 0], [width, 0], [width, height], [0, height]],
+    targetPoints = [[0, 0], [width, 0], [width, height], [0, height]];
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var line = svg.selectAll(".line")
+    .data(d3.range(0, width + 1, 40).map(function(x) { return [[x, 0], [x, height]]; })
+      .concat(d3.range(0, height + 1, 40).map(function(y) { return [[0, y], [width, y]]; })))
+  .enter().append("path")
+    .attr("class", "line line--x");
+
+var handle = svg.selectAll(".handle")
+    .data(targetPoints)
+  .enter().append("circle")
+    .attr("class", "handle")
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
+    .attr("r", 7)
+    .call(d3.behavior.drag()
+      .origin(function(d) { return {x: d[0], y: d[1]}; })
+      .on("drag", dragged));
+
+d3.selectAll("button")
+    .datum(function(d) { return JSON.parse(this.getAttribute("data-targets")); })
+    .on("click", clicked)
+    .call(transformed);
+
+function clicked(d) {
+  d3.transition()
+      .duration(750)
+      .tween("points", function() {
+        var i = d3.interpolate(targetPoints, d);
+        return function(t) {
+          handle.data(targetPoints = i(t)).attr("transform", function(d) { return "translate(" + d + ")"; });
+          transformed();
+        };
+      });
+}
+
+function dragged(d) {
+  d3.select(this).attr("transform", "translate(" + (d[0] = d3.event.x) + "," + (d[1] = d3.event.y) + ")");
+  transformed();
+}
+
+function transformed() {
+  for (var a = [], b = [], i = 0, n = sourcePoints.length; i < n; ++i) {
+    var s = sourcePoints[i], t = targetPoints[i];
+    a.push([s[0], s[1], 1, 0, 0, 0, -s[0] * t[0], -s[1] * t[0]]), b.push(t[0]);
+    a.push([0, 0, 0, s[0], s[1], 1, -s[0] * t[1], -s[1] * t[1]]), b.push(t[1]);
+  }
+
+  var X = solve(a, b, true), matrix = [
+    X[0], X[3], 0, X[6],
+    X[1], X[4], 0, X[7],
+       0,    0, 1,    0,
+    X[2], X[5], 0,    1
+  ].map(function(x) {
+    return d3.round(x, 6);
+  });
+
+  line.attr("d", function(d) {
+    return "M" + project(matrix, d[0]) + "L" + project(matrix, d[1]);
+  });
+}
+
+// Given a 4x4 perspective transformation matrix, and a 2D point (a 2x1 vector),
+// applies the transformation matrix by converting the point to homogeneous
+// coordinates at z=0, post-multiplying, and then applying a perspective divide.
+function project(matrix, point) {
+  point = multiply(matrix, [point[0], point[1], 0, 1]);
+  return [point[0] / point[3], point[1] / point[3]];
+}
+
+// Post-multiply a 4x4 matrix in column-major order by a 4x1 column vector:
+// [ m0 m4 m8  m12 ]   [ v0 ]   [ x ]
+// [ m1 m5 m9  m13 ] * [ v1 ] = [ y ]
+// [ m2 m6 m10 m14 ]   [ v2 ]   [ z ]
+// [ m3 m7 m11 m15 ]   [ v3 ]   [ w ]
+function multiply(matrix, vector) {
+  return [
+    matrix[0] * vector[0] + matrix[4] * vector[1] + matrix[8 ] * vector[2] + matrix[12] * vector[3],
+    matrix[1] * vector[0] + matrix[5] * vector[1] + matrix[9 ] * vector[2] + matrix[13] * vector[3],
+    matrix[2] * vector[0] + matrix[6] * vector[1] + matrix[10] * vector[2] + matrix[14] * vector[3],
+    matrix[3] * vector[0] + matrix[7] * vector[1] + matrix[11] * vector[2] + matrix[15] * vector[3]
+  ];
+}
+
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="960"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://unpkg.com/topojson-client@2"></script>
+<script>
+
+var width = 960,
+    height = 960,
+    speed = 1e-2;
+
+var projection = d3.geoTransverseMercator()
+    .scale((width + 1) / 2 / Math.PI)
+    .translate([width / 2, height / 2])
+    .precision(0.5);
+
+var canvas = d3.select("canvas"),
+    context = canvas.node().getContext("2d"),
+    path = d3.geoPath(projection, context);
+
+d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, topo) {
+  if (error) throw error;
+
+  var graticule = d3.geoGraticule10(),
+      land = topojson.feature(topo, topo.objects.land),
+      borders = topojson.mesh(topo, topo.objects.countries, function(a, b) { return a !== b; });
+
+  d3.timer(function(elapsed) {
+    projection.rotate([speed * elapsed, 0]);
+
+    context.clearRect(0, 0, width, height);
+
+    context.beginPath();
+    path(land);
+    context.fillStyle = "#222";
+    context.fill();
+
+    context.beginPath();
+    path(borders);
+    context.lineWidth = 0.5;
+    context.strokeStyle = "#fff";
+    context.stroke();
+
+    context.beginPath();
+    path(graticule);
+    context.lineWidth = 0.5;
+    context.strokeStyle = "rgba(119,119,119,.5)";
+    context.stroke();
+  });
+});
+
+</script>

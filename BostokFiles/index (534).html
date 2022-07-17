@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+canvas {
+  width: 960px;
+  height: 500px;
+}
+
+</style>
+<canvas width="960" height="1">
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="cubehelix.js"></script>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    width = canvas.width,
+    color = d3.scale.cubehelix().domain([0, width - 1]),
+    context = canvas.getContext("2d"),
+    image = context.createImageData(width, 1);
+
+for (var i = 0, j = -1, c; i < width; ++i) {
+  c = d3.rgb(color(i));
+  image.data[++j] = c.r;
+  image.data[++j] = c.g;
+  image.data[++j] = c.b;
+  image.data[++j] = 255;
+}
+
+context.putImageData(image, 0, 0);
+
+</script>

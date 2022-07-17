@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var domain0 = [+new Date(2000, 0, 1), +new Date(2003, 0, 1)],
+    domain1 = [+new Date(2000, 1, 1), +new Date(2000, 1, 2)];
+
+var x = d3.time.scale.utc()
+    .domain(domain0)
+    .range([0, width]);
+
+var xAxis = d3.svg.axis()
+    .scale(x);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(0,200)");
+
+var gAxis = svg.append("g")
+    .attr("class", "x axis")
+    .call(xAxis);
+
+transition();
+setInterval(transition, 10000);
+
+function transition() {
+  gAxis.transition().duration(8500).tween("axis", function(d, i) {
+    var i = d3.interpolate(domain0, domain1);
+    return function(t) {
+      x.domain(i(t));
+      gAxis.call(xAxis);
+    }
+  });
+}
+
+</script>

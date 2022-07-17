@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+svg {
+  float: left;
+}
+
+circle {
+  fill: none;
+  stroke: #f00;
+  stroke-width: 1.5px;
+}
+
+</style>
+<div style="width:700px;margin:200px auto;display:block;">
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolCircle"/><circle r="28"></circle></g></svg>
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolCross"/><circle r="35"></circle></g></svg>
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolDiamond"/><circle r="46"></circle></g></svg>
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolSquare"/><circle r="36"></circle></g></svg>
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolStar"/><circle r="47"></circle></g></svg>
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolTriangle"/><circle r="44"></circle></g></svg>
+  <svg width="100" height="100"><g transform="translate(50,50)"><path data-type="symbolWye"/><circle r="37"></circle></g></svg>
+</div>
+<script src="https://d3js.org/d3-path.v1.min.js"></script>
+<script src="https://d3js.org/d3-shape.v1.min.js"></script>
+<script src="https://d3js.org/d3-selection.v1.min.js"></script>
+<script src="https://d3js.org/d3-timer.v1.min.js"></script>
+<script>
+
+var symbol = d3.symbol().size(2500);
+
+var path = d3.selectAll("path")
+    .datum(function(d) { return d3[this.getAttribute("data-type")]; });
+
+d3.timer(function(elapsed) {
+  path
+      .attr("d", function(d) { return symbol.type(d)(); })
+      .attr("transform", function(d) { return "rotate(" + elapsed / 20 + ")"; });
+});
+
+</script>

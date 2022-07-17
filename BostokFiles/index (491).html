@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script>
+
+var callbacks = [];
+
+requestAnimationFrame = function(callback) {
+  callbacks.push(callback);
+};
+
+flushAnimationFrames = function() {
+  var now = Date.now;
+  Date.now = function() { return Infinity; };
+  callbacks.forEach(function(callback) { try { callback(); } catch (e) { console.error(e); } });
+  callbacks = [];
+  Date.now = now;
+};
+
+</script>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.select("body").transition()
+    .duration(5000)
+    .style("background", "red");
+
+flushAnimationFrames();
+
+</script>

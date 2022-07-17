@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.feature--canton {
+  fill: #bbb;
+}
+
+.feature--lake {
+  fill: steelblue;
+  fill-opacity: .8;
+}
+
+.feature :hover {
+  fill: orange;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var color = d3.scale.category20c();
+
+var path = d3.geo.path()
+    .projection(null);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("ch.json", function(error, ch) {
+  if (error) throw error;
+
+  svg.append("g")
+      .attr("class", "feature feature--canton")
+    .selectAll("path")
+      .data(topojson.feature(ch, ch.objects.cantons).features)
+    .enter().append("path")
+      .attr("d", path);
+
+  svg.append("g")
+      .attr("class", "feature feature--lake")
+    .selectAll("path")
+      .data(topojson.feature(ch, ch.objects.lakes).features)
+    .enter().append("path")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(ch, ch.objects.cantons, function(a, b) { return a !== b; }))
+      .attr("class", "boundary boundary--cantons")
+      .style("stroke-width", "1px")
+      .attr("d", path);
+});
+
+</script>

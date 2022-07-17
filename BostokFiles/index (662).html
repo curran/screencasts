@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.fill {
+  fill: #ccc;
+}
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 20px;
+}
+
+</style>
+<svg width="960" height="500" viewBox="-10 -10 116 111">
+  <defs>
+    <path id="dee" d="M0,0h7.75a45.5,45.5 0 1 1 0,91h-7.75v-20h7.75a25.5,25.5 0 1 0 0,-51h-7.75z"/>
+    <path id="three" d="M36.2510,0h32a27.75,27.75 0 0 1 21.331,45.5a27.75,27.75 0 0 1 -21.331,45.5h-32a53.6895,53.6895 0 0 0 18.7464,-20h13.2526a7.75,7.75 0 1 0 0,-15.5h-7.75a53.6895,53.6895 0 0 0 0,-20h7.75a7.75,7.75 0 1 0 0,-15.5h-13.2526a53.6895,53.6895 0 0 0 -18.7464,-20z"/>
+    <clipPath id="clip-three">
+      <use xlink:href="#three"/>
+    </clipPath>
+  </defs>
+  <use class="fill" xlink:href="#dee"/>
+  <use class="fill" xlink:href="#three"/>
+  <path class="stroke" style="display:none;" d="M0,10h7.75a35.5,35.5 0 1 1 0,71h-7.75"/>
+  <path class="stroke" style="display:none;" clip-path="url(#clip-three)" d="M36.2510,10h32a17.75,17.75 0 0 1 0,35.5h-7.75h7.75a17.75,17.75 0 0 1 0,35.5h-32"/>
+</svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.select(this)
+    .on("touchstart", animate)
+    .on("click", animate)
+    .on("load", animate);
+
+function animate() {
+  var delay = 0,
+      stroke = d3.selectAll(".stroke");
+
+  // First cancel any active or scheduled transitions.
+  stroke.interrupt().transition();
+
+  // Then schedule the new transition.
+  stroke.transition().each(function() {
+    var length = this.getTotalLength(),
+        duration = length * 20;
+
+    d3.select(this)
+        .style("display", null)
+        .style("stroke-dasharray", "0," + length)
+      .transition()
+        .delay(delay)
+        .duration(duration)
+        .style("stroke-dasharray", length + "," + length);
+
+    delay += duration;
+  });
+}
+
+</script>

@@ -1,0 +1,62 @@
+{
+  "name": "Carnivora",
+  "children": [
+    {
+      "name": "Felidae",
+      "children": [
+        {
+          "name": "Felis",
+          "children": [
+            {
+              "name": "catus",
+              "type": "domesticated"
+            }
+          ]
+        },
+        {
+          "name": "Panthera",
+          "children": [
+            {
+              "name": "tigris",
+              "type": "wild"
+            },
+            {
+              "name": "leo",
+              "type": "wild"
+            },
+            {
+              "name": "onca",
+              "type": "wild"
+            },
+            {
+              "name": "pardus",
+              "type": "wild"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Canidae",
+      "children": [
+        {
+          "name": "Canis",
+          "children": [
+            {
+              "name": "lupus",
+              "type": "domesticated"
+            },
+            {
+              "name": "latrans",
+              "type": "wild"
+            },
+            {
+              "name": "aureus",
+              "type": "wild"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

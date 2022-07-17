@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+  margin: 3px;
+  position: relative;
+}
+
+.node {
+  position: absolute;
+  overflow: hidden;
+  padding: 3px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  box-sizing: border-box;
+}
+
+.node--internal {
+  font-weight: bold;
+}
+
+.node--hover {
+  padding: 2px;
+  border: solid 1px #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
+<script>
+
+var width = 960,
+    height = 1060,
+    offset = 3;
+
+var format = d3.format(",d");
+
+var color = d3.scaleMagma()
+    .domain([-4, 4]);
+
+var stratify = d3.stratify()
+    .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
+
+var treemap = d3.treemap()
+    .size([width, height])
+    .paddingInner(1)
+    .paddingOuter(offset)
+    .paddingTop(function(d) { return d.depth < 3 ? 19 : offset; })
+    .round(true);
+
+d3.csv("flare.csv", function(error, data) {
+  if (error) throw error;
+
+  var root = stratify(data)
+      .sum(function(d) { return d.value; })
+      .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+
+  cascade(treemap(root));
+
+  d3.select("body")
+    .selectAll(".node")
+    .data(root.descendants())
+    .enter().append("div")
+      .attr("class", function(d) { return "node" + (d.children ? " node--internal" : " node--left"); })
+      .attr("title", function(d) { return d.id + "\n" + format(d.value); })
+      .style("left", function(d) { return d.x0 + "px"; })
+      .style("top", function(d) { return d.y0 + "px"; })
+      .style("width", function(d) { return d.x1 - d.x0 + "px"; })
+      .style("height", function(d) { return d.y1 - d.y0 + "px"; })
+      .style("background", function(d) { return color(d.depth); })
+      .each(function(d) { d.node = this; })
+      .on("mouseover", hovered(true))
+      .on("mouseout", hovered(false))
+      .text(function(d) { return d.id.substring(d.id.lastIndexOf(".") + 1).split(/(?=[A-Z][^A-Z])/g).join("\u200b"); });
+});
+
+function cascade(root) {
+  return root.eachAfter(function(d) {
+    if (d.children) {
+      d.heightRight = 1 + d3.max(d.children, function(c) { return c.x1 === d.x1 - offset ? c.heightRight : NaN; });
+      d.heightBottom = 1 + d3.max(d.children, function(c) { return c.y1 === d.y1 - offset  ? c.heightBottom : NaN; });
+    } else {
+      d.heightRight =
+      d.heightBottom = 0;
+    }
+  }).eachBefore(function(d) {
+    d.x1 -= 2 * offset * d.heightRight;
+    d.y1 -= 2 * offset * d.heightBottom;
+  });
+}
+
+function hovered(hover) {
+  return function(d) {
+    d3.selectAll(d.ancestors().map(function(d) { return d.node; }))
+        .classed("node--hover", hover);
+  };
+}
+
+</script>

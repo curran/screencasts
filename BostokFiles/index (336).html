@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec2 a_position;
+attribute vec4 a_color;
+
+varying lowp vec4 v_color;
+
+void main(void) {
+  gl_Position = vec4(a_position, 0.0, 1.0);
+  v_color = a_color;
+}
+
+</script>
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+varying lowp vec4 v_color;
+
+void main(void) {
+  gl_FragColor = v_color;
+}
+
+</script>
+<script>
+
+// Select the canvas from the document.
+var canvas = document.querySelector("canvas");
+
+// Create the WebGL context, with fallback for experimental support.
+var context = canvas.getContext("webgl")
+    || canvas.getContext("experimental-webgl");
+
+// Compile the vertex shader.
+var vertexShader = context.createShader(context.VERTEX_SHADER);
+context.shaderSource(vertexShader, document.querySelector("#vertex-shader").textContent);
+context.compileShader(vertexShader);
+if (!context.getShaderParameter(vertexShader, context.COMPILE_STATUS)) throw new Error(context.getShaderInfoLog(vertexShader));
+
+// Compile the fragment shader.
+var fragmentShader = context.createShader(context.FRAGMENT_SHADER);
+context.shaderSource(fragmentShader, document.querySelector("#fragment-shader").textContent);
+context.compileShader(fragmentShader);
+if (!context.getShaderParameter(fragmentShader, context.COMPILE_STATUS)) throw new Error(context.getShaderInfoLog(fragmentShader));
+
+// Link and use the program.
+var program = context.createProgram();
+context.attachShader(program, vertexShader);
+context.attachShader(program, fragmentShader);
+context.linkProgram(program);
+if (!context.getProgramParameter(program, context.LINK_STATUS)) throw new Error(context.getProgramInfoLog(program));
+context.useProgram(program);
+
+// Define the positions (as vec2) of the square that covers the canvas.
+var positionBuffer = context.createBuffer();
+context.bindBuffer(context.ARRAY_BUFFER, positionBuffer);
+context.bufferData(context.ARRAY_BUFFER, new Float32Array([
+    -1.0, -1.0,
+    +1.0, -1.0,
+    +1.0, +1.0,
+    -1.0, +1.0
+  ]), context.STATIC_DRAW);
+
+// Bind the position buffer to the position attribute.
+var positionAttribute = context.getAttribLocation(program, "a_position");
+context.enableVertexAttribArray(positionAttribute);
+context.vertexAttribPointer(positionAttribute, 2, context.FLOAT, false, 0, 0);
+
+// Define the colors (as RGBA vec4) for each vertex in the square.
+var colorBuffer = context.createBuffer();
+context.bindBuffer(context.ARRAY_BUFFER, colorBuffer);
+context.bufferData(context.ARRAY_BUFFER, new Float32Array([
+    1.0, 1.0, 0.0, 1.0,
+    0.0, 0.0, 1.0, 1.0,
+    0.0, 1.0, 1.0, 1.0,
+    1.0, 0.0, 1.0, 1.0
+  ]), context.STATIC_DRAW);
+
+// Bind the color buffer to the color attribute.
+var colorAttribute = context.getAttribLocation(program, "a_color");
+context.enableVertexAttribArray(colorAttribute);
+context.vertexAttribPointer(colorAttribute, 4, context.FLOAT, false, 0, 0);
+
+// Draw the square!
+context.drawArrays(context.TRIANGLE_FAN, 0, 4);
+
+</script>

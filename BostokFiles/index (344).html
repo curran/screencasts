@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-opacity: .5;
+  stroke-width: .5px;
+}
+
+.land {
+  fill: #222;
+  fill-opacity: .2;
+}
+
+.us {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.division {
+  fill-opacity: .5;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.division-label {
+  font: 16px sans-serif;
+  text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff, 1px 0 0 #fff;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.mercator()
+    .center([0, 52])
+    .scale(320)
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule()
+    .step([5, 5]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  projection.rotate([120, 0]); // don’t rotate graticule
+
+  var y1 = projection([0, 50])[1], // if (latitude > 50°) alaska
+      x2 = projection([-140, 0])[0], // else if (longitude < 140°) hawaii
+      y3 = projection([0, 21])[1]; // else if (latitude < 21°) puerto rico
+
+  var division = svg.insert("g", ".graticule")
+      .attr("class", "division");
+
+  // alaska
+  division.append("rect")
+      .attr("width", width)
+      .attr("height", y1)
+      .style("fill", "#aec7e8");
+
+  // hawaii
+  division.append("rect")
+      .attr("width", x2)
+      .attr("y", y1)
+      .attr("height", height - y1)
+      .style("fill", "#ffbb78");
+
+  // puerto rico
+  division.append("rect")
+      .attr("x", x2)
+      .attr("width", width - x2)
+      .attr("y", y3)
+      .attr("height", height - y3)
+      .style("fill", "#98df8a");
+
+  division.append("line")
+      .attr("x1", x2)
+      .attr("x2", width)
+      .attr("y1", y3)
+      .attr("y2", y3)
+      .style("stroke", "#2ca02c");
+
+  division.append("line")
+      .attr("x1", x2)
+      .attr("x2", x2)
+      .attr("y1", y1)
+      .attr("y2", height)
+      .style("stroke", "#ff7f0e");
+
+  division.append("line")
+      .attr("x2", width)
+      .attr("y1", y1)
+      .attr("y2", y1)
+      .style("stroke", "#1f77b4");
+
+  var label = svg.append("g")
+      .attr("class", "division-label");
+
+  label.append("text")
+      .attr("x", 6)
+      .attr("y", 6)
+      .attr("dy", ".75em")
+      .text("1. If latitude >50°, Alaska.");
+
+  label.append("text")
+      .attr("x", 6)
+      .attr("y", y1 + 6)
+      .attr("dy", ".75em")
+      .text("2. Else if longitude <-140°, Hawaii.");
+
+  label.append("text")
+      .attr("x", x2 + 6)
+      .attr("y", y3 + 6)
+      .attr("dy", ".75em")
+      .text("3. Else if latitude <-21°, Puerto Rico.");
+
+  label.append("text")
+      .attr("x", x2 + 6)
+      .attr("y", y1 + 6)
+      .attr("dy", ".75em")
+      .text("4. Else lower 48.");
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, {type: "GeometryCollection", geometries: world.objects.countries.geometries.filter(function(d) { return d.id === 840 || d.id === 630; })}))
+      .attr("class", "us")
+      .attr("d", path);
+});
+
+function parallel(φ, λ0, λ1) {
+  return d3.range(λ0, λ1, λ1 > λ0 ? 1 : -1).map(function(λ) {
+    return [λ, φ];
+  });
+}
+
+</script>

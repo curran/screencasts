@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="610"></svg>
+<script src="https://unpkg.com/d3@5"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+d3.json("https://raw.githubusercontent.com/gist/mbostock/4090846/raw/07e73f3c2d21558489604a0bc434b3a5cf41a867/us.json").then(function(us) {
+
+  var conus = topojson.feature(us, {
+    type: "GeometryCollection",
+    geometries: us.objects.states.geometries.filter(function(d) {
+      return d.id !== 2 // AK
+        && d.id !== 15 // HI
+        && d.id < 60; // outlying areas
+    })
+  });
+
+  // ESRI:102004
+  var path = d3.geoPath()
+      .projection(d3.geoConicConformal()
+          .parallels([33, 45])
+          .rotate([96, 0])
+          .center([0, -39])
+          .fitSize([width, height], conus));
+
+  svg.append("path")
+      .datum(conus)
+      .attr("d", path);
+});
+
+</script>

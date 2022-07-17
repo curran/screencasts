@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="d3.min.js"></script>
+<script>
+
+var points = [
+  [  0,   0],
+  [ 90,   0],
+  [180,  15],
+  [270,  73],
+  [360, 293],
+  [450, 308],
+  [540, 323],
+  [630, 367],
+  [720, 411],
+  [810, 425],
+  [900, 425]
+];
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d");
+
+var margin = {top: 30, right: 30, bottom: 30, left: 30},
+    width = canvas.width - margin.left - margin.right,
+    height = canvas.height - margin.top - margin.bottom,
+    radius = 3.5;
+
+var color = d3.scale.category10()
+    .domain([
+      "cubic",
+      "catmull-rom:0.0",
+      "catmull-rom:0.5",
+      "catmull-rom:1.0"
+    ]);
+
+var line = d3.shape.line()
+    .context(context);
+
+context.translate(margin.left, margin.top);
+
+// Axes
+context.moveTo(0.5, height + 0.5);
+context.lineTo(0.5, 0.5);
+context.moveTo(0.5, height + 0.5);
+context.lineTo(width + 0.5, height + 0.5);
+context.stroke();
+
+// Points
+points.forEach(function(d) {
+  context.beginPath();
+  context.moveTo(d[0] + radius, d[1]);
+  context.arc(d[0], d[1], radius, 0, 2 * Math.PI, true);
+  context.fill();
+});
+
+// Splines
+color.domain().forEach(function(i) {
+  var parts = i.split(":"), name = parts[0], value = +parts[1];
+  context.beginPath();
+  line.interpolate(name, value)(points);
+  context.lineWidth = 1.5;
+  context.strokeStyle = color(i);
+  context.stroke();
+});
+
+</script>

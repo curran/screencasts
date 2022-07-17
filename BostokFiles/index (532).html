@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+  pointer-events: all;
+}
+
+path:hover {
+  fill: orange;
+}
+
+</style>
+<body>
+<canvas width="960" height="960"></canvas>
+<script src="//d3js.org/d3-voronoi.v0.3.min.js"></script>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    width = canvas.width,
+    height = canvas.height,
+    context = canvas.getContext("2d");
+
+var spacing = 6,
+    radius = Math.sqrt(width * width + height * height) / 3 + spacing,
+    theta = Math.PI * (3 - Math.sqrt(5)),
+    sites = [];
+
+for (var i = 0, r, a, x, y; (r = spacing * Math.sqrt(i)) < radius; ++i) {
+  x = width / 2 + r * Math.cos(a = i * theta);
+  if (-spacing > x || x > width + spacing) continue;
+  y = height / 2 + r * Math.sin(a);
+  if (-spacing > y || y > height + spacing) continue;
+  sites.push([x, y]);
+}
+
+var cells = d3_voronoi.voronoi()
+    .extent([[-1, -1], [width + 1, height + 1]])
+    .polygons(sites);
+
+context.beginPath();
+cells.forEach(function(cell) { drawPolygon(cell); });
+context.lineWidth = 0.5;
+context.stroke();
+
+sites.forEach(function(site) { drawPoint(site); });
+
+function drawPoint(point) {
+  context.fillRect(Math.floor(point[0]), Math.floor(point[1]), 1, 1);
+}
+
+function drawPolygon(points) {
+  context.moveTo(points[0][0], points[0][1]);
+  for (var i = 1, n = points.length; i < n; ++i) context.lineTo(points[i][0], points[i][1]);
+  context.closePath();
+}
+
+</script>

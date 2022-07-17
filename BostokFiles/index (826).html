@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<div id="test"></div>
+<script type="module">
+
+import {Runtime, Inspector, Library} from "https://unpkg.com/@observablehq/notebook-runtime?module";
+import notebook from "https://api.observablehq.com/d/f523a66288d9ab04.js?key=e76719d4648ff9ff";
+
+const test = document.querySelector("#test");
+
+const main = {
+  id: "main",
+  modules: [
+    {
+      id: "main",
+      variables: notebook.modules[0].variables.map(v => {
+        return v.name === "subject"
+            ? Object.assign(v, {value: "Success"})
+            : v;
+      })
+    }
+  ]
+};
+
+Runtime.load(main, cell => {
+  if (cell.name === "greeting") {
+    return new Inspector(test);
+  }
+});
+
+</script>

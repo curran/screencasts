@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+#base-path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+#marker-path {
+  fill: none;
+  stroke: none;
+  stroke-width: 1.5px;
+  marker-mid: url(#marker);
+}
+
+</style>
+<svg width="960" height="500">
+  <marker id="marker"
+      viewBox="0 0 6 6"
+      refY="3"
+      markerWidth="7"
+      markerHeight="7"
+      orient="auto">
+    <path d="M0,3v-3l6,3l-6,3z"></path>
+  </marker>
+  <path id="base-path"></path>
+  <path id="marker-path"></path>
+</svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var z = 0.5;
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var x = d3.scale.linear()
+    .domain([-1.3, 1.3])
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([-1.3, 1.3])
+    .range([0, height]);
+
+var line = d3.svg.line()
+    .interpolate("basis");
+
+var basePath = d3.select("#base-path"),
+    markerPath = d3.select("#marker-path");
+
+d3.timer(function() {
+  if ((z += 0.001) > 2) z = 0.5;
+  var path = line(d3.range(0, 12 + .1, .2).map(function(t) { return [x(Math.cos(t * z)), y(Math.sin(t))]; }));
+  basePath.attr("d", path);
+  markerPath.attr("d", path).attr("d", resample(20));
+});
+
+// Uniform sampling based on specified pixel distance.
+function resample(dx) {
+  return function() {
+    var path = this,
+        l = path.getTotalLength(),
+        t = [0], i = 0, dt = dx / l;
+    while ((i += dt) < 1) t.push(i);
+    t.push(1);
+    return line(t.map(function(t) {
+      var p = path.getPointAtLength(t * l);
+      return [p.x, p.y];
+    }));
+  };
+}
+
+</script>

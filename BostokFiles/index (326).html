@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var δτ = 0.003,
+    ρ = 28,
+    σ = 10,
+    β = 8 / 3,
+    x = .5,
+    y = .5,
+    z = 10,
+    n = 30;
+
+var width = 960,
+    height = 500;
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var color = d3.scale.linear()
+    .domain([0, 20, 30, 50])
+    .range(["yellow", "orange", "brown", "purple"])
+    .interpolate(d3.interpolateHcl);
+
+var context = canvas.node().getContext("2d");
+
+context.lineWidth = .2;
+context.fillStyle = "rgba(0,0,0,.03)";
+
+d3.timer(function() {
+  context.save();
+  context.globalCompositeOperation = "lighter";
+  context.translate(width / 2, height / 2);
+  context.scale(12, 14);
+  context.rotate(30);
+  for (var i = 0; i < n; ++i) {
+    context.strokeStyle = color(z);
+    context.beginPath();
+    context.moveTo(x, y);
+    x += δτ * σ * (y - x);
+    y += δτ * (x * (ρ - z) - y);
+    z += δτ * (x * y - β * z);
+    context.lineTo(x, y);
+    context.stroke();
+  }
+  context.restore();
+});
+
+setInterval(function() {
+  context.fillRect(0, 0, width, height);
+}, 100);
+
+</script>

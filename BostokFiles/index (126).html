@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+svg {
+  float: left;
+  margin: 10px 0 0 10px;
+}
+
+path {
+  fill-opacity: .2;
+  stroke: #000;
+}
+
+circle {
+  stroke: #fff;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 85,
+    height = 85;
+
+var voronoi = d3.geom.voronoi()
+    .clipExtent([[.5, .5], [width - .5, height - .5]]);
+
+var color = d3.scale.category10();
+
+var p0 = [20, 20],
+    p1 = [width - 20, 20],
+    p2 = [20, height - 20],
+    p3 = [width - 20, height - 20],
+    p4 = [width / 2, height / 2],
+    p5 = [width / 2, 20],
+    p6 = [width / 2, height - 20],
+    p7 = [20, height / 2],
+    p8 = [width - 20, height / 2];
+
+var svg = d3.select("body").selectAll("svg")
+    .data([
+      [p0], // single point
+      [p0, p1], // separating vertical line (|)
+      [p1, p0], // separating vertical line (|)
+      [p0, p2], // separating horizontal line (-)
+      [p2, p0], // separating horizontal line (-)
+      [p0, p3], // separating diagonal line (/)
+      [p3, p0], // separating diagonal line (/)
+      [p1, p2], // separating diagonal line (\)
+      [p2, p1], // separating diagonal line (\)
+      [p0, p3, p4], // collinear, separating diagonal lines (/)
+      [p0, p4, p3], // collinear, separating diagonal lines (/)
+      [p3, p0, p4], // collinear, separating diagonal lines (/)
+      [p3, p4, p0], // collinear, separating diagonal lines (/)
+      [p4, p0, p3], // collinear, separating diagonal lines (/)
+      [p4, p3, p0], // collinear, separating diagonal lines (/)
+      [p1, p2, p4], // collinear, separating diagonal lines (\)
+      [p1, p4, p2], // collinear, separating diagonal lines (\)
+      [p2, p1, p4], // collinear, separating diagonal lines (\)
+      [p2, p4, p1], // collinear, separating diagonal lines (\)
+      [p4, p1, p2], // collinear, separating diagonal lines (\)
+      [p4, p2, p1], // collinear, separating diagonal lines (\)
+      [p5, p4, p6], // collinear, separating horizontal lines (-)
+      [p5, p6, p4], // collinear, separating horizontal lines (-)
+      [p4, p5, p6], // collinear, separating horizontal lines (-)
+      [p4, p6, p5], // collinear, separating horizontal lines (-)
+      [p6, p4, p5], // collinear, separating horizontal lines (-)
+      [p6, p5, p4], // collinear, separating horizontal lines (-)
+      [p4, p7, p8], // collinear, separating vertical lines (|)
+      [p4, p8, p7], // collinear, separating vertical lines (|)
+      [p7, p4, p8], // collinear, separating vertical lines (|)
+      [p7, p8, p4], // collinear, separating vertical lines (|)
+      [p8, p4, p7], // collinear, separating vertical lines (|)
+      [p8, p7, p4], // collinear, separating vertical lines (|)
+      [p0, p1, p2, p3] // squares
+    ])
+  .enter().append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.selectAll("g")
+    .data(function(points) { return points; })
+  .enter().append("g")
+    .style("fill", function(point, i) { return color(i); });
+
+g.append("path")
+    .data(voronoi)
+    .attr("d", function(polygon) { return "M" + polygon.join("L") + "Z"; });
+
+g.append("circle")
+    .attr("r", 2.5)
+    .attr("transform", function(point) { return "translate(" + point + ")"; });
+
+</script>

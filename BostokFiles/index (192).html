@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: .5;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="d3.geo.tile.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.mercator()
+    .center([-96, 38.3])
+    .scale(890);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var tile = d3.geo.tile()
+    .scale(projection.scale() * 2 * Math.PI)
+    .translate(projection([0, 0]))
+    .zoomDelta((window.devicePixelRatio || 1) - .5);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, topology) {
+  if (error) throw error;
+
+  var tiles = tile();
+
+  var defs = svg.append("defs");
+
+  defs.append("path")
+      .attr("id", "land")
+      .datum(topojson.feature(topology, topology.objects.land))
+      .attr("d", path);
+
+  defs.append("clipPath")
+      .attr("id", "clip")
+    .append("use")
+      .attr("xlink:href", "#land");
+
+  svg.append("g")
+      .attr("clip-path", "url(#clip)")
+    .selectAll("image")
+      .data(tiles)
+    .enter().append("image")
+      .attr("xlink:href", function(d) { return "http://" + ["a", "b", "c", "d"][Math.random() * 4 | 0] + ".tiles.mapbox.com/v3/mapbox.natural-earth-2/" + d[2] + "/" + d[0] + "/" + d[1] + ".png"; })
+      .attr("width", Math.round(tiles.scale))
+      .attr("height", Math.round(tiles.scale))
+      .attr("x", function(d) { return Math.round((d[0] + tiles.translate[0]) * tiles.scale); })
+      .attr("y", function(d) { return Math.round((d[1] + tiles.translate[1]) * tiles.scale); });
+
+  svg.append("use")
+      .attr("xlink:href", "#land")
+      .attr("class", "stroke");
+});
+
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.lot {
+  fill: lightgray;
+  stroke: black;
+}
+
+</style>
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var x = d3.scaleLinear()
+    .range([0, width]);
+
+var y = d3.scaleLinear()
+    .range([0, height]);
+
+var projection = d3.geoTransform({
+  point: function(px, py) {
+    this.stream.point(x(px), y(py));
+  }
+});
+
+var path = d3.geoPath()
+    .projection(projection);
+
+d3.json("geo.json", function(error, geo) {
+  if (error) throw error;
+
+  x.domain(d3.extent(geo.features, function(d) { return d.properties.Easting; }));
+  y.domain(d3.extent(geo.features, function(d) { return d.properties.Northing; }));
+
+  svg.append("path")
+      .datum(geo)
+      .attr("class", "lot")
+      .attr("d", path);
+});
+
+</script>

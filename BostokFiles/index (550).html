@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  padding: 10px 0;
+}
+
+svg {
+  float: left;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.line {
+  stroke: #000;
+  stroke-linecap: round;
+}
+
+.line--pivot {
+  stroke-width: 3px;
+}
+
+.line--inactive {
+  stroke: #ccc;
+}
+
+.line--left.line--swap {
+  stroke: #ff7f0e;
+  stroke-width: 2px;
+}
+
+.line--right.line--swap {
+  stroke: #2ca02c;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var n = 200,
+    array = d3.shuffle(d3.range(n)),
+    arrays = quicksort(array);
+
+var margin = {top: 2, right: 20, bottom: 2, left: 20},
+    width = 960 - margin.left - margin.right,
+    height = 20 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(n))
+    .rangePoints([0, width]);
+
+var a = d3.scale.linear()
+    .domain([0, n - 1])
+    .range([-45, 45]);
+
+var svg = d3.select("body").selectAll("svg")
+    .data(arrays)
+  .enter().append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "line")
+  .selectAll("line")
+    .data(function(d) { return d.array; })
+  .enter().append("line")
+    .attr("transform", function(d, i) { return "translate(" + x(i) + "," + height + ")rotate(" + a(d) + ")"; })
+    .attr("class", function(d, i) {
+      var p = this.parentNode.__data__;
+      return p.pivot === i ? "line--pivot"
+        : p.left <= i && i < p.pivot ? ("line--active line--left" + (p.array[p.pivot] < d ? " line--swap" : ""))
+        : p.pivot < i && i < p.right ? ("line--active line--right" + (d < p.array[p.pivot] ? " line--swap" : ""))
+        : "line--inactive"; })
+    .attr("y2", -height);
+
+svg.append("rect")
+    .attr("class", "overlay")
+    .attr("width", width)
+    .attr("height", height)
+    .on("mouseover", mouseover)
+    .on("mouseout", mouseout);
+
+function mouseover(p) {
+  d3.select(this.parentNode).selectAll("line").transition()
+      .attr("transform", function(d, i) { return "translate(" + x(i) + "," + height + ")rotate(" + a(d - p.array[p.pivot] + n / 2) + ")"; });
+}
+
+function mouseout(p) {
+  d3.select(this.parentNode).selectAll("line").transition()
+      .delay(125)
+      .attr("transform", function(d, i) { return "translate(" + x(i) + "," + height + ")rotate(" + a(d) + ")"; });
+}
+
+function quicksort(array) {
+  var results = [];
+
+  function partition(left, right, pivot) {
+    var v = array[pivot];
+    swap(pivot, --right);
+    for (var i = left; i < right; ++i) if (array[i] <= v) swap(i, left++);
+    swap(left, right);
+    return left;
+  }
+
+  function swap(i, j) {
+    var t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+  }
+
+  function recurse(left, right) {
+    if (left < right - 1) {
+      var pivot = (left + right) >> 1;
+      results.push({
+        left: left,
+        right: right,
+        pivot: pivot,
+        array: array.slice()
+      });
+      pivot = partition(left, right, pivot);
+      recurse(left, pivot);
+      recurse(pivot + 1, right);
+    }
+  }
+
+  recurse(0, array.length);
+  return results;
+}
+
+d3.select(self.frameElement).style("height", (height + margin.top + margin.bottom) * arrays.length + 20 + "px");
+
+</script>

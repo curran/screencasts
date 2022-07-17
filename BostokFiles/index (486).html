@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+  margin: 0;
+  text-anchor: end;
+}
+
+.line {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+.area {
+  fill: #e7e7e7;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v4.0.0-alpha.44.min.js"></script>
+<script>
+
+var margin = {top: 8, right: 10, bottom: 2, left: 10},
+    width = 960 - margin.left - margin.right,
+    height = 69 - margin.top - margin.bottom;
+
+var parseDate = d3.timeParse("%b %Y");
+
+var x = d3.scaleTime()
+    .range([0, width]);
+
+d3.tsv("stocks.tsv", type, function(error, data) {
+  if (error) throw error;
+
+  var symbols = d3.nest()
+      .key(function(d) { return d.symbol; })
+      .entries(data);
+
+  x.domain([
+    d3.min(symbols, function(symbol) { return symbol.values[0].date; }),
+    d3.max(symbols, function(symbol) { return symbol.values[symbol.values.length - 1].date; })
+  ]);
+
+  var svg = d3.select("body").selectAll("svg")
+      .data(symbols)
+    .enter().append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .each(multiple);
+
+  svg.append("text")
+      .attr("x", width - 6)
+      .attr("y", height - 6)
+      .text(function(d) { return d.key; });
+});
+
+function multiple(symbol) {
+  var svg = d3.select(this);
+
+  var y = d3.scaleLinear()
+      .domain([0, d3.max(symbol.values, function(d) { return d.price; })])
+      .range([height, 0]);
+
+  var area = d3.area()
+      .x(function(d) { return x(d.date); })
+      .y0(height)
+      .y1(function(d) { return y(d.price); });
+
+  var line = d3.line()
+      .x(function(d) { return x(d.date); })
+      .y(function(d) { return y(d.price); });
+
+  svg.append("path")
+      .attr("class", "area")
+      .attr("d", area(symbol.values));
+
+  svg.append("path")
+      .attr("class", "line")
+      .attr("d", line(symbol.values));
+}
+
+function type(d) {
+  d.price = +d.price;
+  d.date = parseDate(d.date);
+  return d;
+}
+
+</script>

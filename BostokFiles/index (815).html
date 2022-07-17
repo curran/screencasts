@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<svg width="960" height="500"></svg>
+<script src="https://unpkg.com/d3-array@1"></script>
+<script src="https://unpkg.com/d3-contour@1"></script>
+<script src="https://unpkg.com/d3-collection@1"></script>
+<script src="https://unpkg.com/d3-color@1"></script>
+<script src="https://unpkg.com/d3-dispatch@1"></script>
+<script src="https://unpkg.com/d3-geo@1"></script>
+<script src="https://unpkg.com/d3-geo-projection@2"></script>
+<script src="https://unpkg.com/d3-interpolate@1"></script>
+<script src="https://unpkg.com/d3-request@1"></script>
+<script src="https://unpkg.com/d3-selection@1"></script>
+<script src="https://unpkg.com/d3-scale@1"></script>
+<script src="https://unpkg.com/geotiff@0.4/dist/geotiff.browserify.min.js"></script>
+<script>
+
+d3.request("sfctmp.tiff").responseType("arraybuffer").get(function(error, request) {
+  if (error) throw error;
+
+  var tiff = GeoTIFF.parse(request.response),
+      image = tiff.getImage(),
+      m = image.getHeight(),
+      n = image.getWidth(),
+      values = rotate(image.readRasters()[0]);
+
+  var color = d3.scaleSequential(d3.interpolateMagma)
+      .domain(d3.extent(values));
+
+  var projection = d3.geoNaturalEarth()
+      .precision(0.1);
+
+  var path = d3.geoPath(projection);
+
+  var contours = d3.contours()
+      .size([n, m]);
+
+  d3.select("svg")
+      .attr("stroke", "#000")
+      .attr("stroke-width", 0.5)
+      .attr("stroke-linejoin", "round")
+    .selectAll("path")
+    .data(contours(values).map(invert))
+    .enter().append("path")
+      .attr("fill", function(d) { return color(d.value); })
+      .attr("d", path);
+
+  // Rotate a GeoTIFF’s longitude from [0, 360] to [-180, +180].
+  function rotate(values) {
+    var l = n >> 1;
+    for (var j = 0, k = 0; j < m; ++j, k += n) {
+      values.subarray(k, k + l).reverse();
+      values.subarray(k + l, k + n).reverse();
+      values.subarray(k, k + n).reverse();
+    }
+    return values;
+  }
+
+  // Invert the pixel coordinates to [longitude, latitude]. This assumes the
+  // source GeoTIFF is in equirectangular coordinates.
+  //
+  // Note that inverting the projection breaks the polygon ring associations:
+  // holes are no longer inside their exterior rings. Fortunately, since the
+  // winding order of the rings is consistent and we’re now in spherical
+  // coordinates, we can just merge everything into a single polygon!
+  function invert(d) {
+    var shared = {};
+
+    var p = {
+      type: "Polygon",
+      coordinates: d3.merge(d.coordinates.map(function(polygon) {
+        return polygon.map(function(ring) {
+          return ring.map(function(point) {
+            return [point[0] / n * 360 - 180, 90 - point[1] / m * 180];
+          }).reverse();
+        });
+      }))
+    };
+
+    // Record the y-intersections with the antimeridian.
+    p.coordinates.forEach(function(ring) {
+      ring.forEach(function(p) {
+        if (p[0] === -180) shared[p[1]] |= 1;
+        else if (p[0] === 180) shared[p[1]] |= 2;
+      });
+    });
+
+    // Offset any unshared antimeridian points to prevent their stitching.
+    p.coordinates.forEach(function(ring) {
+      ring.forEach(function(p) {
+        if ((p[0] === -180 || p[0] === 180) && shared[p[1]] !== 3) {
+          p[0] = p[0] === -180 ? -179.9995 : 179.9995;
+        }
+      });
+    });
+
+    p = d3.geoStitch(p);
+
+    // If the MultiPolygon is empty, treat it as the Sphere.
+    return p.coordinates.length
+        ? {type: "Polygon", coordinates: p.coordinates, value: d.value}
+        : {type: "Sphere", value: d.value};
+  }
+});
+
+</script>

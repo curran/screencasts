@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.voronoi path {
+  fill: none;
+  pointer-events: all;
+  stroke: #000;
+  stroke-opacity: .15;
+}
+
+.voronoi circle {
+  fill: red;
+  display: none;
+}
+
+.voronoi :hover circle {
+  display: inline;
+}
+
+.voronoi :hover path {
+  stroke: red;
+  stroke-opacity: 1;
+}
+
+#subdivision {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#subdivision input {
+  width: 200px;
+}
+
+</style>
+<div id="subdivision">
+  <input type="range" min="1.5" max="100">
+  <output name="subdivision"></output>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var points = [[474,276],[586,393],[378,388],[338,323],[341,138],[547,252],[589,148],[346,227],[365,108],[562,62]];
+
+var width = 960,
+    height = 500;
+
+var x = d3.scale.pow()
+    .exponent(3);
+
+var formatPrecision = d3.format(".2f");
+
+var voronoi = d3.geom.voronoi()
+    .clipExtent([[-2, -2], [width + 2, height + 2]]);
+
+var line = d3.svg.line()
+    .interpolate("cardinal");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var path = svg.append("path")
+    .datum(points)
+    .attr("class", "line")
+    .attr("d", line);
+
+var cell = svg.append("g")
+    .attr("class", "voronoi")
+  .selectAll("g");
+
+var output = d3.select("output");
+
+var input = d3.select("input")
+    .each(function() { var d = [+this.min, +this.max]; x.domain(d).range(d); resample(x(this.value = x.invert(8))); })
+    .on("input", function() { resample(x(+this.value)); });
+
+function resample(precision) {
+  output.text(formatPrecision(precision));
+  cell = cell.data(voronoi(sample(path.node(), precision)));
+  cell.exit().remove();
+  var cellEnter = cell.enter().append("g");
+  cellEnter.append("circle").attr("r", 3.5);
+  cellEnter.append("path");
+  cell.select("circle").attr("transform", function(d) { return "translate(" + d.point + ")"; });
+  cell.select("path").attr("d", function(d) { return "M" + d.join("L") + "Z"; });
+}
+
+function sample(pathNode, precision) {
+  var pathLength = pathNode.getTotalLength(),
+      samples = [];
+  for (var sample, sampleLength = 0; sampleLength <= pathLength; sampleLength += precision) {
+    sample = pathNode.getPointAtLength(sampleLength);
+    samples.push([sample.x, sample.y]);
+  }
+  return samples;
+}
+
+</script>

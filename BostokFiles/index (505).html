@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.state {
+  display: inline-block;
+  padding: 1em;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 48,
+    height = 48;
+
+var path = d3.geo.path()
+    .projection(null);
+
+d3.json("state-icons.json", function(error, states) {
+  if (error) throw error;
+
+  d3.select("body").selectAll(".state")
+      .data(d3.entries(states))
+    .enter().append("div")
+      .attr("class", "state")
+      .text(function(d) { return d.key; })
+    .append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    .append("path")
+      .datum(function(d) { return topojson.feature(d.value, d.value.objects.icon); })
+      .attr("d", path);
+});
+
+</script>

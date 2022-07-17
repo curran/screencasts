@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+canvas {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+// This projection is baked into the TopoJSON file,
+// but is used here to compute the desired zoom translate.
+var projection = d3.geo.mercator()
+    .translate([0, 0])
+    .scale(4000);
+
+var zoom = d3.scale.linear()
+  .domain([0, width / 2, width])
+  .range([
+    projection([-122.417, 37.775]).concat(width / 6),
+    projection([-90.0500, 29.9667]).concat(width / 3),
+    projection([-74.0064, 40.7142]).concat(width / 4)
+  ])
+  .interpolate(d3.interpolateZoom);
+
+var scale,
+    translate,
+    area; // minimum area threshold for simplification
+
+var clip = d3.geo.clipExtent()
+    .extent([[0, 0], [width, height]]);
+
+var simplify = d3.geo.transform({
+  point: function(x, y, z) {
+    if (z >= area) this.stream.point(x * scale + translate[0], y * scale + translate[1]);
+  }
+});
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height)
+    .on("mousemove", mousemoved)
+    .on("touchmove", touchmoved);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection({stream: function(s) { return simplify.stream(clip.stream(s)); }})
+    .context(context);
+
+d3.json("us-states.json", function(error, json) {
+  if (error) throw error;
+
+  canvas.datum(topojson.mesh(topojson.presimplify(json)));
+  render(0);
+});
+
+function touchmoved() {
+  render(d3.touches(this)[0][0]);
+  d3.event.preventDefault();
+}
+
+function mousemoved() {
+  render(d3.mouse(this)[0]);
+}
+
+function render(x) {
+  var point = zoom(x);
+  scale = width / point[2];
+  translate = [width / 2 - point[0] * scale, height / 2 - point[1] * scale];
+  area = 1 / scale / scale;
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  canvas.each(path);
+  context.stroke();
+}
+
+</script>

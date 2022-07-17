@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/queue.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var dz = 2,
+    z = 5 + dz,
+    x = d3.range(5 << dz, 10 << dz),
+    y = d3.range(11 << dz, 15 << dz);
+
+var projection = d3.geo.albers()
+    .scale(1285)
+    .translate([width / 2, height / 2]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection(projection)
+    .context(context);
+
+var q = queue(6);
+
+x.forEach(function(x) {
+  y.forEach(function(y) {
+    q.defer(renderTile, x, y, z);
+  });
+});
+
+function renderTile(x, y, z, callback) {
+  d3.json("http://www.somebits.com:8001/rivers/" + z + "/" + x + "/" + y + ".json", function(error, json) {
+    context.beginPath();
+    path(json);
+    context.stroke();
+    callback(null);
+  });
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

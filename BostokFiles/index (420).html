@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.mesh {
+  fill: none;
+  stroke: #333;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.play circle {
+  fill: white;
+  stroke: black;
+  stroke-width: 3px;
+}
+
+.play:hover path {
+  fill: red;
+}
+
+.play.mousedown circle {
+  fill: red;
+}
+
+.play.mousedown path {
+  fill: white;
+}
+
+.play rect {
+  fill: none;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.ring {
+  fill: none;
+  stroke: red;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var path = d3.geo.path()
+    .projection(null);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.mesh(us))
+      .attr("class", "mesh")
+      .attr("d", path);
+
+  var play = svg.append("g")
+      .attr("class", "play");
+
+  play.append("circle")
+      .attr("r", 45)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+  play.append("path")
+      .attr("d", "M-22,-30l60,30l-60,30z")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(.7)");
+
+  play.append("rect")
+      .attr("width", width)
+      .attr("height", height)
+      .on("mousedown", function() {
+        play.classed("mousedown", true);
+        d3.select(window).on("mouseup", function() { play.classed("mousedown", false); });
+      })
+      .on("click", function() {
+        resetAll();
+        animation();
+      });
+
+  function resetAll() {
+    play.style("display", null);
+  }
+
+  function animation() {
+    play.style("display", "none");
+
+    var rings = d3.merge(topojson.feature(us, us.objects.states).features.map(function(d) {
+      return d.geometry.type === "Polygon"
+          ? d.geometry.coordinates
+          : d3.merge(d.geometry.coordinates);
+    }));
+
+    var interval = setInterval(function() {
+      var ring = rings.pop();
+      if (!ring) return clearInterval(interval), void setTimeout(resetAll, 750);
+      svg.append("path")
+          .datum({type: "Polygon", coordinates: [ring]})
+          .attr("class", "ring")
+          .attr("d", path)
+        .transition()
+          .duration(500)
+          .style("stroke-opacity", 0)
+          .remove();
+    }, 100);
+  }
+});
+
+</script>

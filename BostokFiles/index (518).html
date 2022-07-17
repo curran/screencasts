@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  position: relative;
+  width: 960px;
+  height: 500px;
+}
+
+button {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  margin-top: -1.75em;
+  margin-left: -6em;
+  width: 12em;
+  padding: 1em 2em;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  border: solid 2px #fff;
+  font: 16px "Helvetica Neue", sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  text-shadow: 0 1px 0 #000;
+  background: #444;
+}
+
+button:active {
+  background: #222;
+}
+
+</style>
+<button>Stop The Music</button>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    size = 80;
+
+var color = d3.scale.ordinal()
+    .range(["#333", "brown", "white", "green", "steelblue"]);
+
+var button = d3.select("button")
+    .on("click", click);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(-40,-30)");
+
+var rect = svg.selectAll("rect")
+    .data(d3.merge(d3.range(0, width + size, size).map(function(x) {
+      return d3.range(0, height + size, size).map(function(y) {
+        return [x, y];
+      });
+    })))
+  .enter().append("rect")
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
+    .attr("width", size)
+    .attr("height", size)
+    .style("stroke", "black")
+    .style("stroke-width", "2px")
+    .style("fill", "#000")
+    .on("click", pulse);
+
+rect.transition()
+    .duration(0)
+    .delay(function(d, i) { return i * 5; })
+    .each(pulse);
+
+function pulse() {
+  var rect = d3.select(this);
+  (function loop() {
+    rect = rect.transition()
+        .duration(750)
+        .style("fill", color(Math.random() * 5 | 0))
+        .each("end", function() { if (this.__transition__.count < 2) loop(); });
+  })();
+}
+
+function click() {
+  rect.transition()
+      .duration(750)
+      .delay(function(d, i) { return i * 5; })
+      .style("fill", "#333");
+}
+
+</script>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.node .selected {
+  stroke: red;
+}
+
+.link {
+  stroke: #999;
+}
+
+.brush .extent {
+  fill-opacity: .1;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    shiftKey;
+
+var svg = d3.select("body")
+    .attr("tabindex", 1)
+    .on("keydown.brush", keyflip)
+    .on("keyup.brush", keyflip)
+    .each(function() { this.focus(); })
+  .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("graph.json", function(error, graph) {
+
+  graph.links.forEach(function(d) {
+    d.source = graph.nodes[d.source];
+    d.target = graph.nodes[d.target];
+  });
+
+  var link = svg.append("g")
+      .attr("class", "link")
+    .selectAll("line")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  var brush = svg.append("g")
+      .datum(function() { return {selected: false, previouslySelected: false}; })
+      .attr("class", "brush")
+      .call(d3.svg.brush()
+        .x(d3.scale.identity().domain([0, width]))
+        .y(d3.scale.identity().domain([0, height]))
+        .on("brushstart", function(d) {
+          node.each(function(d) { d.previouslySelected = shiftKey && d.selected; });
+        })
+        .on("brush", function() {
+          var extent = d3.event.target.extent();
+          node.classed("selected", function(d) {
+            return d.selected = d.previouslySelected ^
+                (extent[0][0] <= d.x && d.x < extent[1][0]
+                && extent[0][1] <= d.y && d.y < extent[1][1]);
+          });
+        })
+        .on("brushend", function() {
+          d3.event.target.clear();
+          d3.select(this).call(d3.event.target);
+        }));
+
+  var node = svg.append("g")
+      .attr("class", "node")
+    .selectAll("circle")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("r", 4)
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })
+      .on("mousedown", function(d) {
+        if (shiftKey) d3.select(this).classed("selected", d.selected = !d.selected);
+        else node.classed("selected", function(p) { return p.selected = d === p; });
+      });
+});
+
+function keyflip() {
+  shiftKey = d3.event.shiftKey || d3.event.metaKey;
+}
+
+</script>

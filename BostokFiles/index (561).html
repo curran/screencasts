@@ -1,0 +1,167 @@
+ <!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #000;
+}
+
+.line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.line-halo {
+  stroke-linecap: butt;
+  stroke-width: 8px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="cubehelix.js"></script>
+<script>
+
+var n = 100,
+    array = d3.shuffle(d3.range(n)),
+    swaps = quicksort(array.slice()),
+    elements = array.map(function(v, i) { return {value: v, indexes: [{time: 0, index: i}]}; });
+
+var color = d3.scale.cubehelix()
+    .domain([0, n / 2, n - 1])
+    .range([d3.hsl(-40, 1, .4), d3.hsl(60, 1, 1), d3.hsl(160, 1, .4)]);
+
+swaps.forEach(function(s, t) {
+  var i = s[0], j = s[1];
+  elements[i].indexes.push({time: t + 1, index: j});
+  elements[j].indexes.push({time: t + 1, index: i});
+  t = elements[i], elements[i] = elements[j], elements[j] = t;
+});
+
+elements.forEach(function(e) {
+  e.indexes.push({time: swaps.length + 1, index: e.indexes[e.indexes.length - 1].index});
+});
+
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    rowHeight = 20,
+    strokeWidth = 6,
+    width = 960 - margin.left - margin.right,
+    height = (swaps.length + .5) * rowHeight;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(n))
+    .rangePoints([0, width]);
+
+var lineStraight = d3.svg.line()
+    .interpolate(interpolateLineStraight)
+    .x(function(d) { return x(d.index); })
+    .y(function(d) { return rowHeight * d.time; });
+
+var lineSwap = d3.svg.line()
+    .interpolate(interpolateLineSwap)
+    .x(function(d) { return x(d.index); })
+    .y(function(d) { return rowHeight * d.time; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "line line--straight")
+  .selectAll("path")
+    .data(elements)
+  .enter().append("path")
+    .style("stroke", function(d) { return color(d.value); })
+    .attr("d", function(d) { return lineStraight(d.indexes); });
+
+svg.append("g")
+    .attr("class", "line line--swap")
+  .selectAll("path")
+    .data(d3.merge(elements
+      .map(function(e) {
+        var swaps = d3.pairs(e.indexes).slice(0, -1);
+        swaps.forEach(function(s) { s.value = e.value; });
+        return swaps;
+      })))
+  .enter().append("path")
+    .style("stroke", function(d) { return color(d.value); })
+    .attr("d", function(d) { return lineSwap(d); })
+  .select(function() { return this.parentNode.insertBefore(this.cloneNode(false), this); })
+    .attr("class", "line-halo")
+    .style("stroke", null)
+    .style("stroke-dasharray", function() {
+      var l = this.getTotalLength();
+      return "0," + strokeWidth / 2 + "," + (l - strokeWidth) + "," + strokeWidth / 2;
+    });
+
+function interpolateLineStraight(points) {
+  var p0 = points[0],
+      x0 = p0[0],
+      y0 = p0[1],
+      path = [p0];
+  for (var i = 1, n = points.length, p1, x1, y1; i < n; ++i) {
+    p1 = points[i];
+    x1 = p1[0];
+    y1 = p1[1];
+    path.push("V", y1 - rowHeight / 2, "M", p1);
+    x0 = x1;
+    y0 = y1;
+  }
+  return path.join("");
+}
+
+function interpolateLineSwap(points) {
+  var p0 = points[0],
+      x0 = p0[0],
+      y0 = p0[1],
+      path = [p0];
+  for (var i = 1, n = points.length, p1, x1, y1; i < n; ++i) {
+    p1 = points[i];
+    x1 = p1[0];
+    y1 = p1[1];
+    path.push("M", x0, ",", y1 - rowHeight / 2, "L", p1);
+    x0 = x1;
+    y0 = y1;
+  }
+  return path.join("");
+}
+
+function quicksort(array) {
+  var swaps = [];
+
+  function partition(left, right, pivot) {
+    var v = array[pivot];
+    swap(pivot, --right);
+    for (var i = left; i < right; ++i) if (array[i] <= v) swap(i, left++);
+    swap(left, right);
+    return left;
+  }
+
+  function swap(i, j) {
+    if (i === j) return;
+    var t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+    swaps.push([i, j]);
+  }
+
+  function recurse(left, right) {
+    if (left < right - 1) {
+      var pivot = partition(left, right, (left + right) >> 1);
+      recurse(left, pivot);
+      recurse(pivot + 1, right);
+    }
+  }
+
+  recurse(0, array.length);
+  return swaps;
+}
+
+d3.select(self.frameElement).style("height", height + margin.top + margin.bottom + "px");
+
+</script>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #fcfcfa;
+}
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: #fff;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.night {
+  stroke: steelblue;
+  fill: steelblue;
+  fill-opacity: .3;
+}
+
+text {
+  font-family: Menlo, monospace;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 570;
+
+var π = Math.PI,
+    radians = π / 180,
+    degrees = 180 / π;
+
+var formatDate = d3.time.format.utc("%b. %d, %Y"),
+    formatTime = d3.time.format.utc("%X UTC");
+
+var circle = d3.geo.circle()
+    .angle(90);
+
+var projection = d3.geo.kavrayskiy7()
+    .scale(170)
+    .translate([width / 2, height / 2])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("defs").append("path")
+    .datum({type: "Sphere"})
+    .attr("id", "sphere")
+    .attr("d", path);
+
+svg.append("use")
+    .attr("class", "stroke")
+    .attr("xlink:href", "#sphere");
+
+svg.append("use")
+    .attr("class", "fill")
+    .attr("xlink:href", "#sphere");
+
+var g = svg.append("g");
+
+g.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  var dayOffset = 0;
+
+  var date = svg.append("text")
+      .attr("dy", "-1.35em");
+
+  var time = svg.append("text");
+
+  svg.selectAll("text")
+      .attr("x", 16)
+      .attr("y", height - 16);
+
+  g.insert("path", ".graticule")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  g.insert("path", ".graticule")
+      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+      .attr("class", "boundary")
+      .attr("d", path);
+
+  var night = svg.append("path")
+      .attr("class", "night");
+
+  d3.timer(function() {
+    var now = new Date(Date.now() + dayOffset);
+    date.text(formatDate(now));
+    time.text(formatTime(now));
+    night.datum(circle.origin(antipode(solarPosition(now)))).attr("d", path);
+    dayOffset += 864e5;
+  });
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+function antipode(position) {
+  return [position[0] + 180, -position[1]];
+}
+
+function solarPosition(time) {
+  var centuries = (time - Date.UTC(2000, 0, 1, 12)) / 864e5 / 36525, // since J2000
+      longitude = (d3.time.day.utc.floor(time) - time) / 864e5 * 360 - 180;
+  return [
+    longitude - equationOfTime(centuries) * degrees,
+    solarDeclination(centuries) * degrees
+  ];
+}
+
+// Equations based on NOAA’s Solar Calculator; all angles in radians.
+// http://www.esrl.noaa.gov/gmd/grad/solcalc/
+
+function equationOfTime(centuries) {
+  var e = eccentricityEarthOrbit(centuries),
+      m = solarGeometricMeanAnomaly(centuries),
+      l = solarGeometricMeanLongitude(centuries),
+      y = Math.tan(obliquityCorrection(centuries) / 2);
+  y *= y;
+  return y * Math.sin(2 * l)
+      - 2 * e * Math.sin(m)
+      + 4 * e * y * Math.sin(m) * Math.cos(2 * l)
+      - 0.5 * y * y * Math.sin(4 * l)
+      - 1.25 * e * e * Math.sin(2 * m);
+}
+
+function solarDeclination(centuries) {
+  return Math.asin(Math.sin(obliquityCorrection(centuries)) * Math.sin(solarApparentLongitude(centuries)));
+}
+
+function solarApparentLongitude(centuries) {
+  return solarTrueLongitude(centuries) - (0.00569 + 0.00478 * Math.sin((125.04 - 1934.136 * centuries) * radians)) * radians;
+}
+
+function solarTrueLongitude(centuries) {
+  return solarGeometricMeanLongitude(centuries) + solarEquationOfCenter(centuries);
+}
+
+function solarGeometricMeanAnomaly(centuries) {
+  return (357.52911 + centuries * (35999.05029 - 0.0001537 * centuries)) * radians;
+}
+
+function solarGeometricMeanLongitude(centuries) {
+  var l = (280.46646 + centuries * (36000.76983 + centuries * 0.0003032)) % 360;
+  return (l < 0 ? l + 360 : l) / 180 * π;
+}
+
+function solarEquationOfCenter(centuries) {
+  var m = solarGeometricMeanAnomaly(centuries);
+  return (Math.sin(m) * (1.914602 - centuries * (0.004817 + 0.000014 * centuries))
+      + Math.sin(m + m) * (0.019993 - 0.000101 * centuries)
+      + Math.sin(m + m + m) * 0.000289) * radians;
+}
+
+function obliquityCorrection(centuries) {
+  return meanObliquityOfEcliptic(centuries) + 0.00256 * Math.cos((125.04 - 1934.136 * centuries) * radians) * radians;
+}
+
+function meanObliquityOfEcliptic(centuries) {
+  return (23 + (26 + (21.448 - centuries * (46.8150 + centuries * (0.00059 - centuries * 0.001813))) / 60) / 60) * radians;
+}
+
+function eccentricityEarthOrbit(centuries) {
+  return 0.016708634 - centuries * (0.000042037 + 0.0000001267 * centuries);
+}
+
+</script>

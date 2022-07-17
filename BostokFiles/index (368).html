@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: none;
+  stroke-linejoin: round;
+}
+
+.sphere,
+.graticule {
+  stroke: #aaa;
+}
+
+.equator {
+  stroke: red;
+  stroke-width: 2px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = interpolatedProjection(
+    d3.geo.orthographic()
+        .rotate([10, -10])
+        .center([-10, 10])
+        .scale(240)
+        .translate([width / 2, height / 2]),
+    d3.geo.equirectangular()
+        .scale(145)
+        .translate([width / 2, height / 2]));
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum({type: "Sphere"})
+    .attr("class", "sphere")
+    .attr("d", path);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+svg.append("path")
+    .datum({type: "LineString", coordinates: [[-180, 0], [-90, 0], [0, 0], [90, 0], [180, 0]]})
+    .attr("class", "equator")
+    .attr("d", path);
+
+var feature = svg.selectAll("path");
+
+animation();
+
+function animation() {
+  svg.transition()
+      .duration(7500)
+      .tween("projection", function() {
+        return function(_) {
+          projection.alpha(_);
+          feature.attr("d", path);
+        };
+      })
+    .transition()
+      .duration(2500)
+      .each("end", animation);
+}
+
+function interpolatedProjection(a, b) {
+  var projection = d3.geo.projection(raw).scale(1),
+      center = projection.center,
+      translate = projection.translate,
+      α;
+
+  function raw(λ, φ) {
+    var pa = a([λ *= 180 / Math.PI, φ *= 180 / Math.PI]), pb = b([λ, φ]);
+    return [(1 - α) * pa[0] + α * pb[0], (α - 1) * pa[1] - α * pb[1]];
+  }
+
+  projection.alpha = function(_) {
+    if (!arguments.length) return α;
+    α = +_;
+    var ca = a.center(), cb = b.center(),
+        ta = a.translate(), tb = b.translate();
+    center([(1 - α) * ca[0] + α * cb[0], (1 - α) * ca[1] + α * cb[1]]);
+    translate([(1 - α) * ta[0] + α * tb[0], (1 - α) * ta[1] + α * tb[1]]);
+    return projection;
+  };
+
+  delete projection.scale;
+  delete projection.translate;
+  delete projection.center;
+  return projection.alpha(0);
+}
+
+</script>

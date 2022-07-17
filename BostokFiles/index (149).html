@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var x = d3.scale.ordinal()
+    .domain([0, 1, 2])
+    .rangePoints([0, width], 1);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var circle = svg.selectAll("circle")
+    .data([0, 1])
+  .enter().append("circle")
+    .attr("r", height / 4)
+    .attr("cx", x)
+    .attr("cy", height / 2);
+
+setTimeout(function() {
+  circle = circle.data([1, 2], function(d) { return d; });
+
+  // Since this is created before enter.append, it only applies to updating nodes.
+  circle.transition()
+      .duration(750)
+      .attr("r", height / 3)
+      .style("fill", "orange");
+
+  circle.enter().append("circle")
+      .attr("r", height / 4)
+      .attr("cx", x)
+      .attr("cy", height / 2)
+      .style("fill", "green");
+
+  circle.exit().transition()
+      .duration(750)
+      .style("fill", "red")
+      .attr("r", 1e-6)
+      .remove();
+
+}, 1000);
+
+</script>

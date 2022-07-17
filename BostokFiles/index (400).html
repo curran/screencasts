@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis line {
+  fill: none;
+  stroke: #ddd;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: -5, right: -5, bottom: -5, left: -5},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 10])
+    .on("zoom", zoomed);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
+    .on("mousedown", mousedowned)
+    .call(zoom);
+
+svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .style("fill", "none")
+    .style("pointer-events", "all");
+
+var container = svg.append("g");
+
+container.append("g")
+    .attr("class", "axis axis--x")
+  .selectAll("line")
+    .data(d3.range(20.5, width - 10, 10))
+  .enter().append("line")
+    .attr("x1", function(d) { return d; })
+    .attr("y1", 20.5)
+    .attr("x2", function(d) { return d; })
+    .attr("y2", height - 19.5);
+
+container.append("g")
+    .attr("class", "axis axis--y")
+  .selectAll("line")
+    .data(d3.range(20.5, height - 10, 10))
+  .enter().append("line")
+    .attr("x1", 20.5)
+    .attr("y1", function(d) { return d; })
+    .attr("x2", width - 19.5)
+    .attr("y2", function(d) { return d; });
+
+function zoomed() {
+  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
+
+function mousedowned() {
+  var stop = d3.event.button || d3.event.ctrlKey;
+  if (stop) d3.event.stopImmediatePropagation(); // stop zoom
+
+  svg.append("circle")
+      .attr("transform", "translate(" + d3.mouse(this) + ")")
+      .attr("r", 1e-6)
+      .style("fill", "none")
+      .style("stroke", stop ? "red" : "green")
+      .style("stroke-width", "3px")
+      .style("stroke-opacity", 1)
+    .transition()
+      .ease(Math.sqrt)
+      .duration(500)
+      .attr("r", 12)
+      .style("stroke-opacity", 0);
+}
+
+</script>

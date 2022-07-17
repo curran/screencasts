@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<div id="chart"></div>
+<script type="module">
+
+import {Runtime, Inspector} from "https://unpkg.com/@observablehq/notebook-runtime@1?module";
+import notebook from "./d3-hierarchical-edge-bundling-ii.js";
+
+Runtime.load(notebook, variable => {
+  if (variable.name === "chart") {
+    return new Inspector(document.querySelector("#chart"));
+  }
+});
+
+</script>

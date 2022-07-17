@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<canvas style="width:960px;"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-hsv.v0.1.min.js"></script>
+<script>
+
+var i0 = d3.interpolateHsvLong(d3.hsv(120, 1, 0.65), d3.hsv(60, 1, 0.90)),
+    i1 = d3.interpolateHsvLong(d3.hsv(60, 1, 0.90), d3.hsv(0, 0, 0.95)),
+    interpolateTerrain = function(t) { return t < 0.5 ? i0(t * 2) : i1((t - 0.5) * 2); },
+    color = d3.scaleSequential(interpolateTerrain).domain([90, 190]);
+
+d3.json("volcano.json", function(error, volcano) {
+  if (error) throw error;
+
+  var n = volcano.width,
+      m = volcano.height;
+
+  var canvas = d3.select("canvas")
+      .attr("width", n)
+      .attr("height", m);
+
+  var context = canvas.node().getContext("2d"),
+      image = context.createImageData(n, m);
+
+  for (var j = 0, k = 0, l = 0; j < m; ++j) {
+    for (var i = 0; i < n; ++i, ++k, l += 4) {
+      var c = d3.rgb(color(volcano.values[k]));
+      image.data[l + 0] = c.r;
+      image.data[l + 1] = c.g;
+      image.data[l + 2] = c.b;
+      image.data[l + 3] = 255;
+    }
+  }
+
+  context.putImageData(image, 0, 0);
+});
+
+</script>

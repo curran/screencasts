@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  position: relative;
+  height: 500px;
+}
+
+#info {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5;
+}
+
+.land {
+  fill: #333;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+}
+
+.brush .extent {
+  fill: red;
+  fill-opacity: .1;
+  stroke: red;
+}
+
+</style>
+<div id="info"></div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    formatNumber = d3.format(".3r");
+
+var projection = d3.geo.azimuthalEqualArea()
+    .rotate([100, -45])
+    .scale(1050)
+    .translate([width / 2, height / 2 - 110]);
+
+var extent = te(projection);
+
+var brush = d3.svg.brush()
+    .x(d3.scale.linear().domain([extent[0], extent[2]]).range([0, width]))
+    .y(d3.scale.linear().domain([extent[1], extent[3]]).range([height, 0]))
+    .extent([[-2030000, -1250000], [-1300000, -40400]])
+    .on("brush", brushed);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule()
+    .extent([[-140, 20], [-60, 60]])
+    .step([2, 2]);
+
+var info = d3.select("#info");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "state-boundary")
+      .attr("d", path);
+
+  svg.append("g")
+      .attr("class", "brush")
+      .call(brush)
+      .call(brushed);
+});
+
+function brushed() {
+  var e = brush.extent();
+  info.text(formatNumber(e[0][0])
+      + " " + formatNumber(e[0][1])
+      + " " + formatNumber(e[1][0])
+      + " " + formatNumber(e[1][1]));
+}
+
+function te(projection) {
+  var radius = 6370997,
+      scale = projection.scale(),
+      rotate = projection.rotate(),
+      translate = projection.translate(),
+      offset = projection.rotate([0, 0]).translate([0, 0])([0, 0]);
+
+  projection.rotate(rotate).translate(translate);
+
+  return [
+    Math.round((-offset[0] - translate[0]) / scale * radius),
+    Math.round((offset[1] + translate[1] - height) / scale * radius),
+    Math.round((-offset[0] - translate[0] + width) / scale * radius),
+    Math.round((offset[1] + translate[1]) / scale * radius)
+  ];
+}
+
+</script>

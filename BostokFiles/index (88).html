@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+
+table {
+  border-collapse: collapse;
+  font: 10px sans-serif;
+  width: 720px;
+}
+
+th {
+  font-weight: normal;
+  text-align: right;
+  padding-right: 6px;
+  min-width: 43px;
+}
+
+thead td {
+  cursor: s-resize;
+}
+
+tbody tr:first-child td {
+  padding-top: 2px;
+}
+
+tbody td {
+  padding: 0;
+  border-left: solid 1px #000;
+}
+
+tbody rect {
+  fill: steelblue;
+}
+
+tbody tr:hover rect {
+  fill: brown;
+}
+
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>State</th>
+      <td><5</td>
+      <td>5-13</td>
+      <td>14-17</td>
+      <td>18-24</td>
+      <td>≥16</td>
+      <td>≥18</td>
+      <td>15-44</td>
+      <td>45-64</td>
+      <td>≥65</td>
+      <td>≥85</td>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.csv("states.csv", function(error, states) {
+  if (error) throw error;
+
+  var ages = d3.keys(states[0]).filter(function(key) {
+    return key != "State" && key != "Total";
+  });
+
+  d3.selectAll("thead td").data(ages).on("click", function(k) {
+    tr.sort(function(a, b) { return (b[k] / b.Total) - (a[k] / a.Total); });
+  });
+
+  var tr = d3.select("tbody").selectAll("tr")
+      .data(states)
+    .enter().append("tr");
+
+  tr.append("th")
+      .text(function(d) { return d.State; });
+
+  tr.selectAll("td")
+      .data(function(d) { return ages.map(function(k) { return d[k] / d.Total; }); })
+    .enter().append("td").append("svg")
+      .attr("width", 71)
+      .attr("height", 12)
+    .append("rect")
+      .attr("height", 12)
+      .attr("width", function(d) { return d * 71; });
+});
+
+</script>

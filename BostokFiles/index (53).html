@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 1em;
+  text-align: center;
+}
+
+</style>
+<h1></h1>
+<script src="d3.v2.min.js"></script>
+<script>
+
+var format = d3.time.format("%c");
+
+var h1 = d3.select("h1");
+
+setInterval(function() {
+  h1.text(format(new Date));
+}, 1000);
+
+</script>

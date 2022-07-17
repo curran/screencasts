@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var N = 1 << 0,
+    S = 1 << 1,
+    W = 1 << 2,
+    E = 1 << 3;
+
+var root = generateTree(40, 40);
+
+var tree = d3.layout.tree()
+    .size([height, width]);
+
+var nodes = tree.nodes(root),
+    links = tree.links(nodes);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.selectAll(".link")
+    .data(links)
+  .enter().append("path")
+    .attr("class", "link")
+    .attr("d", function(d) { return "M" + d.source.y + "," + d.source.x + "L" + d.target.y + "," + d.target.x; });
+
+function generateTree(width, height) {
+  var cells = generateMaze(width, height), // each cell’s edge bits
+      visited = d3.range(width * height).map(function() { return false; }),
+      root = {index: cells.length - 1, children: []},
+      frontier = [root],
+      parent,
+      child,
+      childIndex,
+      cell;
+
+  while ((parent = frontier.pop()) != null) {
+    cell = cells[parent.index];
+    if (cell & E && !visited[childIndex = parent.index + 1]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+    if (cell & W && !visited[childIndex = parent.index - 1]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+    if (cell & S && !visited[childIndex = parent.index + width]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+    if (cell & N && !visited[childIndex = parent.index - width]) visited[childIndex] = true, child = {index: childIndex, children: []}, parent.children.push(child), frontier.push(child);
+  }
+
+  return root;
+}
+
+function generateMaze(width, height) {
+  var cells = new Array(width * height), // each cell’s edge bits
+      frontier = [];
+
+  var start = (height - 1) * width;
+  cells[start] = 0;
+  frontier.push({index: start, direction: N});
+  frontier.push({index: start, direction: E});
+  shuffle(frontier, 0, 2);
+  while (!exploreFrontier());
+  return cells;
+
+  function exploreFrontier() {
+    if ((edge = frontier.pop()) == null) return true;
+
+    var edge,
+        i0 = edge.index,
+        d0 = edge.direction,
+        i1 = i0 + (d0 === N ? -width : d0 === S ? width : d0 === W ? -1 : +1),
+        x0 = i0 % width,
+        y0 = i0 / width | 0,
+        x1,
+        y1,
+        d1,
+        open = cells[i1] == null; // opposite not yet part of the maze
+
+    if (d0 === N) x1 = x0, y1 = y0 - 1, d1 = S;
+    else if (d0 === S) x1 = x0, y1 = y0 + 1, d1 = N;
+    else if (d0 === W) x1 = x0 - 1, y1 = y0, d1 = E;
+    else x1 = x0 + 1, y1 = y0, d1 = W;
+
+    if (open) {
+      cells[i0] |= d0, cells[i1] |= d1;
+
+      var m = 0;
+      if (y1 > 0 && cells[i1 - width] == null) frontier.push({index: i1, direction: N}), ++m;
+      if (y1 < height - 1 && cells[i1 + width] == null) frontier.push({index: i1, direction: S}), ++m;
+      if (x1 > 0 && cells[i1 - 1] == null) frontier.push({index: i1, direction: W}), ++m;
+      if (x1 < width - 1 && cells[i1 + 1] == null) frontier.push({index: i1, direction: E}), ++m;
+      shuffle(frontier, frontier.length - m, frontier.length);
+    }
+  }
+
+  function shuffle(array, i0, i1) {
+    var m = i1 - i0, t, i, j;
+    while (m) {
+      i = Math.random() * m-- | 0;
+      t = array[m + i0], array[m + i0] = array[i + i0], array[i + i0] = t;
+    }
+    return array;
+  }
+}
+
+</script>

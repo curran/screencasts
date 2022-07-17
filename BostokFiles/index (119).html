@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.graticule {
+  fill: none;
+  stroke: #777;
+}
+
+.boundary {
+  fill: #ccc;
+  fill-opacity: .8;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 960;
+
+var projection = d3.geo.satellite()
+    .distance(1.1)
+    .scale(5500)
+    .rotate([76.00, -34.50, 32.12])
+    .center([-2, 5])
+    .tilt(25)
+    .clipAngle(Math.acos(1 / 1.1) * 180 / Math.PI - 1e-6)
+    .precision(.1);
+
+var graticule = d3.geo.graticule()
+    .extent([[-93, 27], [-47 + 1e-6, 57 + 1e-6]])
+    .step([3, 3]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/us-land.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("class", "boundary")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.tract {
+  fill: #ccc;
+}
+
+.tract:hover {
+  fill: orange;
+}
+
+.tract-border {
+  fill: none;
+  stroke: #333;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 700;
+
+var path = d3.geo.path()
+    .projection(null);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("ny.json", function(error, ny) {
+  if (error) throw error;
+
+  var tracts = ny.objects.tracts;
+
+  // strip water counties
+  tracts.geometries = tracts.geometries
+    .filter(function(d) { return (d.id / 10000 | 0) !== 99; });
+
+  svg.append("g")
+    .selectAll("path")
+      .data(topojson.feature(ny, tracts).features)
+    .enter().append("path")
+      .attr("class", "tract")
+      .attr("d", path)
+    .append("title")
+      .text(function(d, i) { return d.id; });
+
+  svg.append("path")
+      .attr("class", "tract-border")
+      .datum(topojson.mesh(ny, tracts, function(a, b) { return a !== b; }))
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

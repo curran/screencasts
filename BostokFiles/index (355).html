@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #fcfcfa;
+}
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: #fff;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+  stroke-opacity: .5
+}
+
+.land {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 900;
+
+var projection = d3.geo.chamberlin()
+    .points([[0, 22], [45, 22], [22.5, -22]])
+    .center([-2.5, -1.5])
+    .scale(510)
+    .translate([width / 2, height / 2])
+    .precision(.1)
+    .clipAngle(70);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule()
+    .extent([[-30, -40], [70, 50]]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var defs = svg.append("defs");
+
+defs.append("path")
+    .attr("id", "outline")
+    .datum(graticule.outline)
+    .attr("d", path);
+
+defs.append("clipPath")
+    .attr("id", "clip")
+  .append("use")
+    .attr("xlink:href", "#outline");
+
+svg.append("use")
+    .attr("class", "stroke")
+    .attr("xlink:href", "#outline");
+
+svg.append("use")
+    .attr("class", "fill")
+    .attr("xlink:href", "#outline");
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  var g = svg.insert("g", ".graticule")
+      .attr("clip-path", "url(#clip)");
+
+  g.append("path")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+
+  g.append("path")
+      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+      .attr("class", "boundary")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var sample = uniformRandomSampler(width, height, 10000),
+    samples = [],
+    s;
+
+while (s = sample()) samples.push(s);
+
+var voronoi = d3.geom.voronoi()
+    .clipExtent([[0, 0], [width, height]]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var image = new Image;
+image.src = "starry-night.jpg";
+image.onload = start;
+
+function start() {
+  context.drawImage(image, 0, 0);
+  image = context.getImageData(0, 0, width, height);
+  voronoi(samples).forEach(function(cell) {
+    var x = Math.floor(cell.point[0]),
+        y = Math.floor(cell.point[1]),
+        i = (y * width + x) << 2;
+    context.fillStyle = d3.rgb(image.data[i + 0], image.data[i + 1], image.data[i + 2]) + "";
+    context.beginPath();
+    context.moveTo(cell[0][0], cell[0][1]);
+    for (var i = 1, n = cell.length; i < n; ++i) context.lineTo(cell[i][0], cell[i][1]);
+    context.closePath();
+    context.fill();
+  });
+}
+
+function uniformRandomSampler(width, height, numSamplesMax) {
+  var numSamples = 0;
+  return function() {
+    if (++numSamples > numSamplesMax) return;
+    return [Math.random() * width, Math.random() * height];
+  };
+}
+
+</script>

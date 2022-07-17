@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: -5, right: -5, bottom: -5, left: -5},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var zoom = d3.behavior.zoom()
+    .center([width / 2, height / 2])
+    .scaleExtent([1, 10])
+    .on("zoom", zoomed);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
+    .call(zoom);
+
+var rect = svg.append("rect")
+    .attr("width", width)
+    .attr("height", height)
+    .style("fill", "white")
+    .style("pointer-events", "all");
+
+var container = svg.append("g");
+
+container.append("g")
+    .attr("class", "axis")
+  .selectAll("circle")
+    .data(d3.range(10, width, 10))
+  .enter().append("circle")
+    .attr("cx", width / 2)
+    .attr("cy", height / 2)
+    .attr("r", function(d) { return d; });
+
+var center = svg.append("circle")
+    .style("fill", "red")
+    .attr("cx", width / 2)
+    .attr("cy", height / 2)
+    .attr("r", 10);
+
+function zoomed() {
+  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
+
+</script>

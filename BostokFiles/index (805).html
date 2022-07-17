@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<svg width="960" height="600" fill="none" stroke-linejoin="round" stroke-linecap="round"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg");
+
+var path = d3.geoPath();
+
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("g")
+      .attr("fill", "#000")
+    .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+      .attr("d", path)
+    .append("title")
+      .text(function(d) { return d.id; });
+
+  svg.append("path")
+      .attr("stroke", "#fff")
+      .attr("stroke-width", 0.5)
+      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+
+  // California-Nevada border
+  svg.append("path")
+      .attr("stroke", "cyan")
+      .attr("stroke-width", 2.5)
+      .attr("d", path(topojson.mesh(us, us.objects.states, border("06", "32"))));
+
+  // California-Arizona border
+  svg.append("path")
+      .attr("stroke", "magenta")
+      .attr("stroke-width", 2.5)
+      .attr("d", path(topojson.mesh(us, us.objects.states, border("06", "04"))));
+
+  // California-Oregon border
+  svg.append("path")
+      .attr("stroke", "yellow")
+      .attr("stroke-width", 2.5)
+      .attr("d", path(topojson.mesh(us, us.objects.states, border("06", "41"))));
+});
+
+function border(id0, id1) {
+  return function(a, b) {
+    return a.id === id0 && b.id === id1
+        || a.id === id1 && b.id === id0;
+  };
+}
+
+</script>

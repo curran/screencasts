@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis path {
+  display: none;
+}
+
+.axis--y-inside line {
+  stroke: #fff;
+  stroke-opacity: 1;
+}
+
+.axis--y-inside .tick:first-of-type line {
+  stroke: #000;
+}
+
+.axis--y-inside text {
+  display: none;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.title {
+  font-weight: bold;
+}
+
+rect {
+  fill: steelblue;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(9))
+    .rangeRoundBands([0, width], .1);
+
+var y0 = d3.scale.ordinal()
+    .domain(["randomized-depth-first-traversal", "random-traversal", "prims-algorithm", "wilsons-algorithm"])
+    .rangeRoundBands([0, height], .15, 0);
+
+var y1 = d3.scale.linear()
+    .domain([0, .65])
+    .range([y0.rangeBand(), 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y1)
+    .orient("left")
+    .ticks(4, "%");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+var multiple = svg.selectAll(".multiple")
+    .data(y0.domain().map(function(d) { return {name: d}; }))
+  .enter().append("g")
+    .attr("class", "multiple")
+    .attr("transform", function(d) { return "translate(0," + y0(d.name) + ")"; });
+
+multiple.append("g")
+    .attr("class", "axis axis--y axis--y-inside")
+    .call(yAxis.tickSize(-width));
+
+multiple.append("g")
+    .attr("class", "axis axis--y axis--y-outside")
+    .call(yAxis.tickSize(6));
+
+multiple.append("text")
+    .attr("class", "title")
+    .attr("transform", "translate(" + (width - 6) + "," + (y0.rangeBand() - 6) + ")")
+    .style("text-anchor", "end")
+    .text(function(d) { return d.name.replace(/-/g, " "); });
+
+svg.select(".axis--y-outside").append("text")
+    .attr("x", 3)
+    .attr("y", y1(y1.ticks(4).pop()))
+    .attr("dy", ".35em")
+    .attr("class", "title")
+    .text("Probability");
+
+d3.tsv("histogram.tsv", function(error, data) {
+  if (error) throw error;
+
+  multiple
+      .data(data, function(d) { return d.name; })
+    .selectAll("rect")
+      .data(function(d) { return x.domain().map(function(i) { return {key: i, value: +d[i]}; }); })
+    .enter().insert("rect", "*")
+      .attr("width", x.rangeBand())
+      .attr("x", function(d) { return x(d.key); })
+      .attr("y", function(d) { return y1(d.value); })
+      .attr("height", function(d) { return y0.rangeBand() - y1(d.value); });
+});
+
+</script>

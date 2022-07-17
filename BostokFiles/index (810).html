@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="481"></svg>
+<script src="https://unpkg.com/d3-array@1"></script>
+<script src="https://unpkg.com/d3-contour@1"></script>
+<script src="https://unpkg.com/d3-collection@1"></script>
+<script src="https://unpkg.com/d3-color@1"></script>
+<script src="https://unpkg.com/d3-dispatch@1"></script>
+<script src="https://unpkg.com/d3-geo@1"></script>
+<script src="https://unpkg.com/d3-interpolate@1"></script>
+<script src="https://unpkg.com/d3-request@1"></script>
+<script src="https://unpkg.com/d3-selection@1"></script>
+<script src="https://unpkg.com/d3-scale@1"></script>
+<script src="https://unpkg.com/geotiff@0.4/dist/geotiff.browserify.min.js"></script>
+<script>
+
+d3.request("sfctmp.tiff").responseType("arraybuffer").get(function(error, request) {
+  if (error) throw error;
+
+  var tiff = GeoTIFF.parse(request.response),
+      image = tiff.getImage(),
+      values = image.readRasters()[0],
+      m = image.getHeight(),
+      n = image.getWidth();
+
+  var color = d3.scaleSequential(d3.interpolateMagma)
+      .domain(d3.extent(values));
+
+  var contours = d3.contours()
+      .size([n, m])
+      .smooth(false)
+      .thresholds(20);
+
+  d3.select("svg")
+      .attr("viewBox", [0, 0, n, m])
+    .selectAll("path")
+    .data(contours(values))
+    .enter().append("path")
+      .attr("d", d3.geoPath())
+      .attr("fill", function(d) { return color(d.value); });
+});
+
+</script>

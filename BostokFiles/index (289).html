@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+#land {
+  fill: none;
+  stroke: #000;
+  stroke-linejoin: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.azimuthalEqualArea()
+    .scale(width)
+    .translate([33.5, 262.5])
+    .rotate([100, -45])
+    .center([-17.6076, -4.7913]) // rotated [-122.4183, 37.7750]
+    .scale(1297);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  var defs = svg.append("defs");
+
+  defs.append("path")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("id", "land")
+      .attr("d", path);
+
+  svg.append("clipPath")
+      .attr("id", "clip")
+    .append("use")
+      .attr("xlink:href", "#land");
+
+  svg.append("image")
+      .attr("clip-path", "url(#clip)")
+      .attr("xlink:href", "shaded-relief.png")
+      .attr("width", width)
+      .attr("height", height);
+
+  svg.append("use")
+      .attr("xlink:href", "#land");
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

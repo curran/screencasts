@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #fcfcfa;
+}
+
+.land {
+  fill: #fff;
+}
+
+.coast-buffers {
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.state-borders {
+  fill: none;
+  stroke: #ccc;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var color = d3.scale.ordinal()
+    .domain(d3.range(90, 0, -10))
+    .range(["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"]);
+
+var projection = d3.geo.albersUsa()
+    .translate([width / 2, height / 2])
+    .scale(1280);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  var defs = svg.append("defs");
+
+  defs.append("path")
+      .datum(topojson.feature(us, us.objects.land))
+      .attr("id", "land")
+      .attr("d", path);
+
+  defs.append("clipPath")
+      .attr("id", "clip-land")
+    .append("use")
+      .attr("xlink:href", "#land");
+
+  svg.append("use")
+      .attr("class", "land")
+      .attr("xlink:href", "#land");
+
+  svg.append("g")
+      .attr("class", "coast-buffers")
+      .attr("clip-path", "url(#clip-land)")
+    .selectAll("use")
+      .data(color.domain())
+    .enter().append("use")
+      .style("stroke", color)
+      .style("stroke-width", function(d) { return d + "px"; })
+      .attr("xlink:href", "#land");
+
+  svg.append("path")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "state-borders")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

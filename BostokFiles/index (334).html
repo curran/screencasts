@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.bar {
+  fill: steelblue;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  display: none;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var m = 256,
+    bins = d3.range(m).map(function() { return 0; });
+
+var margin = {top: 20, right: 30, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .domain(d3.range(m))
+    .rangeBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickSize(4, 0);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "bar")
+  .selectAll("rect")
+    .data(bins)
+  .enter().append("rect")
+    .attr("y", height)
+    .attr("width", x.rangeBand())
+    .attr("x", function(d, i) { return x(i); });
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+var bars = svg.selectAll(".bar rect")[0].map(d3.select);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  var collection = topojson.feature(us, us.objects.counties), points = [];
+
+  collection.features.forEach(function(f) {
+    var g = f.geometry;
+    if (g) switch (g.type) {
+      case "MultiPolygon": g.coordinates.forEach(polygon); break;
+      case "Polygon": g.coordinates.forEach(ring); break;
+    }
+  });
+
+  function polygon(coordinates) {
+    coordinates.forEach(ring);
+  }
+
+  function ring(coordinates) {
+    coordinates.forEach(point);
+  }
+
+  function point(coordinates) {
+    points.push(coordinates);
+  }
+
+  y.domain([0, points.length / m * 2]);
+
+  d3.timer(function() {
+    for (var k = 0, p; k < 100; ++k) {
+      if (!(p = points.pop())) return true;
+      var i = Math.abs(hash2(p[0], p[1]) % m), j = ++bins[i];
+      bars[i].attr("y", y(j)).attr("height", height - y(j));
+    }
+  });
+});
+
+var buffer = new ArrayBuffer(8),
+    floats = new Float64Array(buffer),
+    ints = new Int32Array(buffer);
+
+function hash1(x) {
+  floats[0] = x;
+  x = ints[1] ^ ints[0];
+  x ^= (x >>> 20) ^ (x >>> 12);
+  x ^= (x >>> 7) ^ (x >>> 4);
+  return x;
+}
+
+function hash2(x, y) {
+  return (hash1(x) + 31 * hash1(y)) | 0;
+}
+
+</script>

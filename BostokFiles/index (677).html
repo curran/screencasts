@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="//d3js.org/d3-random.v0.1.min.js"></script>
+<script src="//d3js.org/d3-polygon.v0.1.min.js"></script>
+<script>
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d");
+
+var width = canvas.width,
+    height = canvas.height;
+
+var randomX = d3_random.normal(width / 2, 60),
+    randomY = d3_random.normal(height / 2, 60),
+    points = new Array(100);
+
+for (var i = 0, n = points.length; i < n; ++i) points[i] = [randomX(), randomY()];
+
+render();
+
+window.addEventListener("mousemove", function(event) {
+  var rect = canvas.getBoundingClientRect(),
+      x = event.clientX - rect.left - canvas.clientLeft,
+      y = event.clientY - rect.top - canvas.clientTop;
+
+  points[0][0] = x;
+  points[0][1] = y;
+  render();
+});
+
+function render() {
+  context.clearRect(0, 0, width, height);
+
+  var hull = d3_polygon.hull(points);
+  context.beginPath();
+  context.moveTo(hull[0][0], hull[0][1]);
+  for (var i = 1, n = hull.length; i < n; ++i) {
+    context.lineTo(hull[i][0], hull[i][1]);
+  }
+  context.closePath();
+  context.fillStyle = "steelblue";
+  context.fill();
+  context.lineWidth = 15;
+  context.lineJoin = "round";
+  context.strokeStyle = "steelblue";
+  context.stroke();
+
+  context.beginPath();
+  for (var i = 0, n = points.length; i < n; ++i) {
+    context.moveTo(points[i][0] + 2.5, points[i][1]);
+    context.arc(points[i][0], points[i][1], 2.5, 0, 2 * Math.PI);
+  }
+  context.fillStyle = "white";
+  context.fill();
+  context.lineWidth = 1.5;
+  context.strokeStyle = "black";
+  context.stroke();
+}
+
+</script>

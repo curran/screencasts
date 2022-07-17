@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: auto;
+  padding: 10px;
+  width: 537px;
+}
+
+svg {
+  background: url(readme.png) no-repeat;
+  border: solid 1px #000;
+}
+
+.graticule {
+  fill: none;
+  stroke: red;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script>
+
+var width = 537,
+    height = 737;
+
+var projection = d3.geo.satellite()
+    .distance(1.025)
+    .scale(38800)
+    .rotate([74, -41.5, 212])
+    .tilt(55);
+
+// The reference 74ºW, 41ºN is at 181px, 710px.
+var offset = projection.translate([-181, -710])([-74, 41]);
+projection.translate([-offset[0], -offset[1]]);
+
+var graticule = d3.geo.graticule()
+    .extent([[-74 - 15, 41 - 15], [-74 + 1e-6, 41 + 1e-6]])
+    .step([1, 1]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.select(self.frameElement).style("height", height + 20 + "px");
+
+</script>

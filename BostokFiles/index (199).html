@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.canton {
+  fill: #bbb;
+}
+
+.canton-boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.albers()
+    .rotate([0, 0])
+    .center([8.3, 46.8])
+    .scale(16000)
+    .translate([width / 2, height / 2])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("readme-swiss.json", function(error, swiss) {
+  if (error) throw error;
+
+  var cantons = topojson.feature(swiss, swiss.objects.cantons);
+
+  svg.append("path")
+      .datum(cantons)
+      .attr("class", "canton")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(swiss, swiss.objects.cantons, function(a, b) { return a !== b; }))
+      .attr("class", "canton-boundary")
+      .attr("d", path);
+
+  svg.selectAll("text")
+      .data(cantons.features)
+    .enter().append("text")
+      .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.properties.name; });
+});
+
+</script>

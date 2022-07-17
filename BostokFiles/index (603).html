@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.sector,
+.circle {
+  fill: none;
+  stroke: #666;
+}
+
+.wedge {
+  fill: #ddd;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    sectorRadius = 400;
+
+var arc = d3.svg.arc()
+    .innerRadius(0);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + (sectorRadius + (height - sectorRadius) / 2) + ")");
+
+var sector = svg.append("path").attr("class", "sector"),
+    wedge = svg.append("path").attr("class", "wedge"),
+    circle = svg.append("circle").attr("class", "circle");
+
+var ease = d3.ease("cubic-in-out"),
+    duration = 7500;
+
+d3.timer(function(elapsed) {
+  var t = ease(1 - Math.abs((elapsed % duration) / duration - .5) * 2),
+      startAngle = -Math.PI / 3 * t - .1,
+      endAngle = -startAngle,
+      circleRadius = sectorRadius / (1 / Math.sin((endAngle - startAngle) / 2) + 1),
+      p0 = [0, 0],
+      p1 = [sectorRadius * Math.cos(startAngle - Math.PI / 2), sectorRadius * Math.sin(startAngle - Math.PI / 2)],
+      p2 = [sectorRadius * Math.cos(endAngle - Math.PI / 2), sectorRadius * Math.sin(endAngle - Math.PI / 2)],
+      t1 = cornerTangents(p0, p1, sectorRadius, circleRadius, 1),
+      t2 = cornerTangents(p0, p2, sectorRadius, circleRadius, 1);
+
+  sector.attr("d", arc
+      .outerRadius(sectorRadius)
+      .startAngle(startAngle)
+      .endAngle(endAngle));
+
+  wedge.attr("d", "M" + p0
+      + "L" + t1[0]
+      + "A" + circleRadius + "," + circleRadius + " 0 1,1 " + t2[0]
+      + "Z");
+
+  circle
+      .attr("cy", circleRadius - sectorRadius)
+      .attr("r", circleRadius);
+});
+
+function cornerTangents(p0, p1, r1, rc, cw) {
+  var x01 = p0[0] - p1[0],
+      y01 = p0[1] - p1[1],
+      lo = (cw ? rc : -rc) / Math.sqrt(x01 * x01 + y01 * y01),
+      ox = lo * y01,
+      oy = -lo * x01,
+      x1 = p0[0] + ox,
+      y1 = p0[1] + oy,
+      x2 = p1[0] + ox,
+      y2 = p1[1] + oy,
+      x3 = (x1 + x2) / 2,
+      y3 = (y1 + y2) / 2,
+      dx = x2 - x1,
+      dy = y2 - y1,
+      d2 = dx * dx + dy * dy,
+      r = r1 - rc,
+      D = x1 * y2 - x2 * y1,
+      d = (dy < 0 ? -1 : 1) * Math.sqrt(r * r * d2 - D * D),
+      cx0 = (D * dy - dx * d) / d2,
+      cy0 = (-D * dx - dy * d) / d2,
+      cx1 = (D * dy + dx * d) / d2,
+      cy1 = (-D * dx + dy * d) / d2,
+      dx0 = cx0 - x3,
+      dy0 = cy0 - y3,
+      dx1 = cx1 - x3,
+      dy1 = cy1 - y3;
+
+  // Pick the closer of the two intersection points.
+  // TODO Is there a faster way to determine which intersection to use?
+  if (dx0 * dx0 + dy0 * dy0 > dx1 * dx1 + dy1 * dy1) cx0 = cx1, cy0 = cy1;
+
+  return [
+    [cx0 - ox, cy0 - oy],
+    [cx0 * r1 / r, cy0 * r1 / r]
+  ];
+}
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var epoch = new Date(Date.UTC(2015, 11, 4, 12, 36, 47, 121));
+
+var pad = d3.format("02d");
+
+var margin = {top: 250, right: 40, bottom: 250, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.time.scale.utc()
+    .domain([d3.time.minute.utc.offset(epoch, -1), d3.time.minute.utc.offset(epoch, +5)])
+    .range([0, width]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom")
+    .tickFormat(formatRelativeTime)
+    .tickValues(d3.time.scale.utc() // Compute ticks relative to epoch.
+        .domain(x.domain().map(toRelative))
+        .ticks(10)
+        .map(toAbsolute));
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "axis")
+    .call(xAxis);
+
+// Format an absolute time relative to the epoch (e.g., thirty seconds after the
+// epoch is formatted as "T+0:30").
+function formatRelativeTime(absolute) {
+  var delta = absolute - epoch;
+  if (!delta) return "T";
+  var milliseconds = Math.abs(delta);
+  return "T" + (delta < 0 ? "-" : "+")
+      + Math.floor(milliseconds / 6e4) + ":"
+      + pad(Math.floor(milliseconds % 6e4 / 1e3));
+}
+
+// Convert an absolute time to a time relative to the epoch.
+function toRelative(absolute) {
+  return new Date(absolute - epoch);
+}
+
+// Convert a time relative to the epoch to an absolute time.
+function toAbsolute(relative) {
+  return new Date(+relative + +epoch);
+}
+
+</script>

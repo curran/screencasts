@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+</style>
+<canvas></canvas>
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec2 a_position;
+
+void main(void) {
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}
+
+</script>
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+uniform sampler2D u_image;
+uniform vec2 u_translate;
+uniform float u_scale;
+uniform vec2 u_rotate;
+
+const float c_pi = 3.14159265358979323846264;
+const float c_halfPi = c_pi * 0.5;
+const float c_twoPi = c_pi * 2.0;
+
+float cosphi0 = cos(u_rotate.y);
+float sinphi0 = sin(u_rotate.y);
+
+void main(void) {
+  float x = (gl_FragCoord.x - u_translate.x) / u_scale;
+  float y = (u_translate.y - gl_FragCoord.y) / u_scale;
+
+  // inverse stereographic projection
+  float rho = sqrt(x * x + y * y);
+  float c = 2.0 * atan(rho);
+  float sinc = sin(c);
+  float cosc = cos(c);
+  float lambda = atan(x * sinc, rho * cosc);
+  float phi = asin(y * sinc / rho);
+
+  // inverse rotation
+  float cosphi = cos(phi);
+  float x1 = cos(lambda) * cosphi;
+  float y1 = sin(lambda) * cosphi;
+  float z1 = sin(phi);
+  lambda = atan(y1, x1 * cosphi0 + z1 * sinphi0) + u_rotate.x;
+  phi = asin(z1 * cosphi0 - x1 * sinphi0);
+
+  gl_FragColor = texture2D(u_image, vec2((lambda + c_pi) / c_twoPi, (phi + c_halfPi) / c_pi));
+}
+
+</script>
+<script>
+
+// Select the canvas from the document.
+var canvas = document.querySelector("canvas");
+
+// Create the WebGL context, with fallback for experimental support.
+var context = canvas.getContext("webgl")
+    || canvas.getContext("experimental-webgl");
+
+// Compile the vertex shader.
+var vertexShader = context.createShader(context.VERTEX_SHADER);
+context.shaderSource(vertexShader, document.querySelector("#vertex-shader").textContent);
+context.compileShader(vertexShader);
+if (!context.getShaderParameter(vertexShader, context.COMPILE_STATUS)) throw new Error(context.getShaderInfoLog(vertexShader));
+
+// Compile the fragment shader.
+var fragmentShader = context.createShader(context.FRAGMENT_SHADER);
+context.shaderSource(fragmentShader, document.querySelector("#fragment-shader").textContent);
+context.compileShader(fragmentShader);
+if (!context.getShaderParameter(fragmentShader, context.COMPILE_STATUS)) throw new Error(context.getShaderInfoLog(fragmentShader));
+
+// Link and use the program.
+var program = context.createProgram();
+context.attachShader(program, vertexShader);
+context.attachShader(program, fragmentShader);
+context.linkProgram(program);
+if (!context.getProgramParameter(program, context.LINK_STATUS)) throw new Error(context.getProgramInfoLog(program));
+context.useProgram(program);
+
+// Define the positions (as vec2) of the square that covers the canvas.
+var positionBuffer = context.createBuffer();
+context.bindBuffer(context.ARRAY_BUFFER, positionBuffer);
+context.bufferData(context.ARRAY_BUFFER, new Float32Array([
+    -1.0, -1.0,
+    +1.0, -1.0,
+    +1.0, +1.0,
+    -1.0, +1.0
+  ]), context.STATIC_DRAW);
+
+// Bind the position buffer to the position attribute.
+var positionAttribute = context.getAttribLocation(program, "a_position");
+context.enableVertexAttribArray(positionAttribute);
+context.vertexAttribPointer(positionAttribute, 2, context.FLOAT, false, 0, 0);
+
+// Extract the projection parameters.
+var translateUniform = context.getUniformLocation(program, "u_translate"),
+    scaleUniform = context.getUniformLocation(program, "u_scale"),
+    rotateUniform = context.getUniformLocation(program, "u_rotate");
+
+// Load the reference image.
+var image = new Image;
+image.src = "milky-way.jpg";
+image.onload = readySoon;
+self.onresize = resize;
+
+// Hack to ensure correct inference of window dimensions.
+function readySoon() {
+  setTimeout(function() {
+    resize();
+    ready();
+  }, 10);
+}
+
+function resize() {
+  var width = Math.max(960, self.innerWidth),
+      height = Math.max(500, self.innerHeight);
+  canvas.setAttribute("width", width);
+  canvas.setAttribute("height", height);
+  context.uniform2f(translateUniform, width / 2, height / 2);
+  context.uniform1f(scaleUniform, 500);
+  context.viewport(0, 0, width, height);
+}
+
+function ready() {
+
+  // Create a texture and a mipmap for accurate minification.
+  var texture = context.createTexture();
+  context.bindTexture(context.TEXTURE_2D, texture);
+  context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MAG_FILTER, context.LINEAR);
+  context.texParameteri(context.TEXTURE_2D, context.TEXTURE_MIN_FILTER, context.LINEAR_MIPMAP_LINEAR);
+  context.texImage2D(context.TEXTURE_2D, 0, context.RGBA, context.RGBA, context.UNSIGNED_BYTE, image);
+  context.generateMipmap(context.TEXTURE_2D);
+
+  // The current rotation and speed.
+  var rotate = [0, 0],
+      speed = [-.001, .0004];
+
+  redraw();
+
+  // Rotate and redraw!
+  function redraw() {
+    rotate[0] += speed[0], rotate[1] += speed[1];
+    context.uniform2fv(rotateUniform, rotate);
+    context.bindTexture(context.TEXTURE_2D, texture); // XXX Safari
+    context.drawArrays(context.TRIANGLE_FAN, 0, 4);
+    requestAnimationFrame(redraw);
+  }
+}
+
+// A polyfill for requestAnimationFrame.
+if (!self.requestAnimationFrame) requestAnimationFrame =
+    self.webkitRequestAnimationFrame
+    || self.mozRequestAnimationFrame
+    || self.msRequestAnimationFrame
+    || self.oRequestAnimationFrame
+    || function(f) { setTimeout(f, 17); };
+
+</script>

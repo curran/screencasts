@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var k = 20, // number of candidates to consider per point
+    m = 10, // initial number of points to add per frame
+    n = 2500, // remaining number of points to add
+    newPoint = bestPointGenerator(32),
+    points = [];
+
+var canvas = d3.select("canvas").node(),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height;
+
+var voronoi = d3.voronoi()
+    .extent([[-1, -1], [width + 1, height + 1]]);
+
+context.strokeStyle = "#000";
+context.fillStyle = "#fff";
+
+var timer = d3.timer(function() {
+  var n0 = points.length;
+
+  for (var i = 0; i < m && --n >= 0; ++i) {
+    points.push(newPoint(k));
+
+    // As we add more circles, gradually reduce circles per frame.
+    if (m > 1) m *= 0.998;
+  }
+
+  var cells = voronoi.polygons(points);
+
+  for (var n1 = points.length, cell; n0 < n1; ++n0) {
+    cell = cells[n0];
+    context.beginPath();
+    context.moveTo(cell[0][0], cell[0][1]);
+    for (var i = 1, l = cell.length; i < l; ++i) context.lineTo(cell[i][0], cell[i][1]);
+    context.closePath();
+    context.fill();
+    context.stroke();
+  }
+
+  if (!n) timer.stop();
+});
+
+function bestPointGenerator(searchRadius) {
+  var quadtree = d3.quadtree().extent([[0, 0], [width, height]]);
+  return function(k) {
+    var x, y, z2 = 0;
+    for (var i = 0; i < k; ++i) {
+      var cx = Math.random() * width,
+          cy = Math.random() * height,
+          p = quadtree.find(cx, cy, searchRadius),
+          dx = p ? cx - p[0] : Infinity,
+          dy = p ? cy - p[1] : Infinity,
+          d2 = dx * dx + dy * dy;
+      if (d2 > z2) x = cx, y = cy, z2 = d2;
+    }
+    return quadtree.add(p = [x, y]), p;
+  };
+}
+
+</script>

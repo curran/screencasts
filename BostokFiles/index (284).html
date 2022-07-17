@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.graticule {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: .5px;
+}
+
+.land {
+  fill: #ccc;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.conicConformal()
+    .scale(600)
+    .rotate([-105, 0])
+    .center([0, 65])
+    .parallels([30, 62]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule()
+    .extent([[105 - 87, 40], [105 + 87 + 1e-6, 82 + 1e-6]])
+    .step([2, 2]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  var russia = world.objects.countries.geometries.filter(function(d) { return d.id == 643; })[0];
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, russia))
+      .attr("class", "land")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

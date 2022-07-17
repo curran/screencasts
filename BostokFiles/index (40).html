@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var force = d3.layout.force()
+    .size([width, height]);
+
+d3.json("graph.json", function(error, graph) {
+  if (error) throw error;
+
+  var context = canvas.node().getContext("2d");
+
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .on("tick", tick)
+      .start();
+
+  function tick() {
+    context.clearRect(0, 0, width, height);
+
+    // draw links
+    context.strokeStyle = "#ccc";
+    context.beginPath();
+    graph.links.forEach(function(d) {
+      context.moveTo(d.source.x, d.source.y);
+      context.lineTo(d.target.x, d.target.y);
+    });
+    context.stroke();
+
+    // draw nodes
+    context.fillStyle = "steelblue";
+    context.beginPath();
+    graph.nodes.forEach(function(d) {
+      context.moveTo(d.x, d.y);
+      context.arc(d.x, d.y, 4.5, 0, 2 * Math.PI);
+    });
+    context.fill();
+  }
+});
+
+</script>

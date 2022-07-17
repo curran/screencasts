@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+#c .tick:last-of-type text {
+  display: none;
+}
+
+.channel canvas {
+  float: left;
+  margin: 40px 30px 0 30px;
+  width: 900px;
+  height: 90px;
+}
+
+</style>
+<div class="channel" id="h">
+  <canvas width="900" height="1"></canvas>
+  <svg width="960" height="20"><g class="axis" transform="translate(30,.5)"></g></svg>
+</div>
+<div class="channel" id="c">
+  <canvas width="900" height="1"></canvas>
+  <svg width="960" height="20"><g class="axis" transform="translate(30,.5)"></g></svg>
+</div>
+<div class="channel" id="l">
+  <canvas width="900" height="1"></canvas>
+  <svg width="960" height="20"><g class="axis" transform="translate(30,.5)"></g></svg>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var white = d3.rgb("white"),
+    black = d3.rgb("black"),
+    width = d3.select("canvas").property("width");
+
+var channels = {
+  h: {scale: d3.scale.linear().domain([0, 360]).range([0, width]), x: width / 2},
+  c: {scale: d3.scale.linear().domain([0, 100]).range([0, width]), x: width / 2},
+  l: {scale: d3.scale.linear().domain([0, 150]).range([0, width]), x: width / 2}
+};
+
+var channel = d3.selectAll(".channel")
+    .data(d3.entries(channels));
+
+channel.select(".axis")
+    .each(function(d) { d3.select(this).call(d3.svg.axis().scale(d.value.scale).orient("bottom")); })
+  .append("text")
+    .attr("x", width)
+    .attr("y", 9)
+    .attr("dy", ".72em")
+    .style("text-anchor", "middle")
+    .style("text-transform", "uppercase")
+    .text(function(d) { return d.key; });
+
+var canvas = channel.select("canvas")
+    .call(d3.behavior.drag().on("drag", dragged))
+    .each(render);
+
+function dragged(d) {
+  d.value.x = Math.max(0, Math.min(this.width - 1, d3.mouse(this)[0]));
+  canvas.each(render);
+}
+
+function render(d) {
+  var width = this.width,
+      context = this.getContext("2d"),
+      image = context.createImageData(width, 1),
+      i = -1;
+
+  var current = d3.hcl(
+    channels.h.scale.invert(channels.h.x),
+    channels.c.scale.invert(channels.c.x),
+    channels.l.scale.invert(channels.l.x)
+  );
+
+  for (var x = 0, v, c; x < width; ++x) {
+    if (x === d.value.x) {
+      c = white;
+    } else if (x === d.value.x - 1) {
+      c = black;
+    } else {
+      current[d.key] = d.value.scale.invert(x);
+      c = d3.rgb(current);
+    }
+    image.data[++i] = c.r;
+    image.data[++i] = c.g;
+    image.data[++i] = c.b;
+    image.data[++i] = 255;
+  }
+
+  context.putImageData(image, 0, 0);
+}
+
+</script>

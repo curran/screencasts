@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.line {
+  fill: none;
+  stroke: #696969;
+  stroke-width: 1.5px;
+}
+
+svg:not(:hover) .focus {
+  display: none;
+}
+
+.focus line {
+  stroke: red;
+  shape-rendering: crispEdges;
+}
+
+.focus circle {
+  fill: #fff;
+  fill-opacity: .5;
+  stroke: red;
+  stroke-width: 1.5px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
+}
+
+.y.axis line {
+  stroke: #ccc;
+  stroke-dasharray: 2,3;
+}
+
+.x.axis line + text {
+  stroke: #fff;
+  stroke-width: 4px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 20, right: 40, bottom: 20, left: 10},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var format = d3.format("+.1f");
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([-1, 1])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("right")
+    .tickSize(-width)
+    .tickFormat(format)
+    .tickPadding(6);
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d[0]); })
+    .y(function(d) { return y(d[1]); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("offsets.json", function(error, offsets) {
+  if (error) throw error;
+
+  var start = Date.UTC(1973, 0, 2),
+      step = 1000 * 60 * 60 * 24;
+
+  offsets = offsets.map(function(t, i) { return [new Date(start + i * step), t]; });
+  x.domain([start, start + (offsets.length - 1) * step]);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate(" + width + ",0)")
+      .call(yAxis);
+
+  svg.append("path")
+      .datum(offsets)
+      .attr("class", "line")
+      .attr("d", line);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + y(0) + ")")
+      .call(xAxis)
+    .selectAll("text")
+    .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); });
+
+  var focus = svg.append("g")
+      .attr("class", "focus");
+
+  focus.append("line")
+      .attr("class", "x")
+      .attr("y1", y(0) - 6)
+      .attr("y2", y(0) + 6);
+
+  focus.append("line")
+      .attr("class", "y")
+      .attr("x1", width - 6)
+      .attr("x2", width + 6);
+
+  focus.append("circle")
+      .attr("r", 3.5);
+
+  svg.append("rect")
+      .attr("class", "overlay")
+      .attr("width", width)
+      .attr("height", height)
+      .on("mousemove", mousemove);
+
+  function mousemove() {
+    var d = offsets[Math.round((x.invert(d3.mouse(this)[0]) - start) / step)];
+    focus.select("circle").attr("transform", "translate(" + x(d[0]) + "," + y(d[1]) + ")");
+    focus.select(".x").attr("transform", "translate(" + x(d[0]) + ",0)");
+    focus.select(".y").attr("transform", "translate(0," + y(d[1]) + ")");
+    svg.selectAll(".x.axis path").style("fill-opacity", Math.random()); // XXX Chrome redraw bug
+  }
+});
+
+</script>

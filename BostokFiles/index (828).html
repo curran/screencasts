@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<p id="greeting"></p>
+<script type="module">
+
+import {Runtime, Inspector, Library} from "https://unpkg.com/@observablehq/notebook-runtime?module";
+import notebook from "https://api.observablehq.com/d/6c9b7fd62ca784c0.js";
+
+// Rewrite the notebook to redefine the “subject” cell in the main module.
+const override = {
+  id: notebook.id,
+  modules: notebook.modules.map(module => {
+    if (module.id !== notebook.id) return module;
+    return {
+      id: module.id,
+      variables: module.variables.map(variable => {
+        if (variable.name !== "subject") return variable;
+        return {
+          name: variable.name,
+          inputs: [],
+          value: () => "Fred"
+        };
+      })
+    };
+  })
+};
+
+Runtime.load(override, new Library, cell => {
+  if (cell.name === "greeting") {
+    return new Inspector(document.querySelector("#greeting"));
+  }
+});
+
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="500"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var canvas = d3.select("canvas"),
+    context = canvas.node().getContext("2d"),
+    width = canvas.property("width"),
+    height = canvas.property("height"),
+    radius = 2.5;
+
+var points = d3.range(2000).map(phyllotaxis(10));
+
+canvas.call(d3.zoom()
+    .scaleExtent([1 / 2, 4])
+    .on("zoom", zoomed));
+
+drawPoints(d3.zoomIdentity);
+
+function zoomed() {
+  context.clearRect(0, 0, width, height);
+  drawPoints(d3.event.transform);
+}
+
+function drawPoints(transform) {
+  context.beginPath();
+  points.map(transform.apply, transform).forEach(drawPoint);
+  context.fill();
+}
+
+function drawPoint(point) {
+  context.moveTo(point[0] + radius, point[1]);
+  context.arc(point[0], point[1], radius, 0, 2 * Math.PI);
+}
+
+function phyllotaxis(radius) {
+  var theta = Math.PI * (3 - Math.sqrt(5));
+  return function(i) {
+    var r = radius * Math.sqrt(i), a = theta * i;
+    return [
+      width / 2 + r * Math.cos(a),
+      height / 2 + r * Math.sin(a)
+    ];
+  };
+}
+
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.space {
+  position: absolute;
+}
+
+.space div {
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var spaces = [
+  {
+    name: "Rainbow (HSL)",
+    color: function(t) {
+      return d3.hsl(t * 360, 1, .5);
+    }
+  },
+  {
+    name: "Luminance",
+    color: function(t) {
+      var c = d3.hcl(d3.hsl(t * 360, 1, .5));
+      c.c = 0;
+      return c;
+    }
+  }
+];
+
+var y = d3.scale.ordinal()
+    .domain(spaces.map(function(d) { return d.name; }))
+    .rangeRoundBands([0, 500], .1);
+
+var margin = y.range()[0],
+    width = 960 - margin - margin,
+    height = y.rangeBand();
+
+var space = d3.select("body").selectAll(".space")
+    .data(spaces)
+  .enter().append("div")
+    .attr("class", "space")
+    .style("width", width + "px")
+    .style("height", height + "px")
+    .style("left", margin + "px")
+    .style("top", function(d) { return y(d.name) + "px"; });
+
+var canvas = space.append("canvas")
+    .attr("width", width)
+    .attr("height", 1)
+    .style("width", width + "px")
+    .style("height", height + "px")
+    .each(function(d) {
+      var context = this.getContext("2d"),
+          image = context.createImageData(width, 1);
+      for (var i = 0, j = -1, c; i < width; ++i) {
+        c = d3.rgb(d.color(i / width));
+        image.data[++j] = c.r;
+        image.data[++j] = c.g;
+        image.data[++j] = c.b;
+        image.data[++j] = 255;
+      }
+      context.putImageData(image, 0, 0);
+    });
+
+space.append("div")
+    .style("line-height", height + "px")
+    .text(function(d) { return d.name; });
+
+</script>

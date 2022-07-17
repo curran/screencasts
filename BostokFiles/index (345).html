@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="800"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var canvas = d3.select("canvas").node(),
+    context = canvas.getContext("2d"),
+    path = d3.geoPath().projection(null).context(context);
+
+d3.json("ca.json", function(error, ca) {
+  if (error) throw error;
+
+  context.beginPath();
+  path(topojson.feature(ca, ca.objects.counties));
+  context.fillStyle = "#ddd";
+  context.fill();
+
+  context.beginPath();
+  path(topojson.mesh(ca, ca.objects.counties, function(a, b) { return a !== b; }));
+  context.strokeStyle = "#999";
+  context.stroke();
+});
+
+</script>

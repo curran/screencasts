@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 480;
+
+var projection = equirectangularFisheye()
+    .scale(153)
+    .translate([width / 2, height / 2])
+    .precision(0);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+context.lineWidth = .5;
+
+var path = d3.geo.path()
+    .projection(projection)
+    .context(context);
+
+d3.json("/mbostock/raw/4090846/world-110m.json", function(error, world) {
+  if (error) throw error;
+
+  var graticule = d3.geo.graticule()(),
+      land = topojson.feature(world, world.objects.land),
+      boundary = topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; });
+
+  canvas
+      .on("ontouchmove" in window ? "touchmove" : "mousemove", moved);
+
+  render();
+
+  function moved() {
+    var m = d3.mouse(this);
+
+    // After changing the focus, ensure the focus is centered at the mouse.
+    projection
+        .focus([(m[0] / width - .5) * 360, (.5 - m[1] / height) * 180])
+        .center(projection.focus())
+        .translate(m);
+
+    render();
+
+    d3.event.preventDefault();
+  }
+
+  function render() {
+    context.clearRect(0, 0, width, height);
+
+    context.beginPath();
+    path(land);
+    context.globalAlpha = 1;
+    context.fillStyle = "#222";
+    context.fill();
+
+    context.beginPath();
+    path(boundary);
+    context.strokeStyle = "#fff";
+    context.stroke();
+
+    context.beginPath();
+    path(graticule);
+    context.globalAlpha = .5;
+    context.strokeStyle = "#777";
+    context.stroke();
+  }
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+function equirectangularFisheye() {
+  var distortion = 3,
+      focus = [0, 0],
+      π = Math.PI,
+      m = d3.geo.projectionMutator(raw),
+      p = m(distortion, focus);
+
+  function raw(distortion, focus) {
+    var fx = fisheye(distortion, focus[0], -π, +π),
+        fy = fisheye(distortion, focus[1], -π / 2, +π / 2);
+    return function(x, y) {
+      return [fx(x), fy(y)];
+    };
+  }
+
+  p.distortion = function(_) {
+    return arguments.length
+        ? m(distortion = +_, focus)
+        : distortion;
+  };
+
+  p.focus = function(_) {
+    return arguments.length
+        ? m(distortion, focus = [_[0] * π / 180, _[1] * π / 180])
+        : [focus[0] * 180 / π, focus[1] * 180 / π];
+  };
+
+  return p;
+}
+
+function fisheye(distortion, focus, min, max) {
+  return function(x) {
+    var offset = (x < focus ? focus - min : max - focus) || (max - min);
+    return (x < focus ? -1 : +1) * offset * (distortion + 1) / (distortion + (offset / Math.abs(x - focus))) + focus;
+  };
+}
+
+</script>

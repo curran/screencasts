@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="500"></svg>
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 20, right: 0, bottom: 20, left: 0},
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var x = d3.scalePoint()
+    .domain([0, 1, 2])
+    .range([0, width])
+    .padding(1);
+
+var y = d3.scaleLinear()
+    .domain([-1e6, 2e6])
+    .range([height, 0]);
+
+g.append("g")
+    .attr("transform", "translate(" + x(0) + ",0)")
+    .attr("class", "axis")
+    .call(d3.axisLeft(y)
+        .ticks(20, "s"));
+
+g.append("g")
+    .attr("transform", "translate(" + x(1) + ",0)")
+    .attr("class", "axis")
+    .call(d3.axisLeft(y)
+        .ticks(20)
+        .tickFormat(d3.format(".0s")));
+
+g.append("g")
+    .attr("transform", "translate(" + x(2) + ",0)")
+    .attr("class", "axis")
+    .call(d3.axisLeft(y)
+        .ticks(20)
+        .tickFormat(d3.formatPrefix(".1", 1e6)));
+
+</script>

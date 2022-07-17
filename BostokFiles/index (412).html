@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var chesapeake = [-75.959, 38.250];
+
+var scale,
+    translate,
+    visibleArea, // minimum area threshold for points inside viewport
+    invisibleArea; // minimum area threshold for points outside viewport
+
+var simplify = d3.geo.transform({
+  point: function(x, y, z) {
+    if (z < visibleArea) return;
+    x = x * scale + translate[0];
+    y = y * scale + translate[1];
+    if (x >= 0 && x <= width && y >= 0 && y <= height || z >= invisibleArea) this.stream.point(x, y);
+  }
+});
+
+var zoom = d3.behavior.zoom()
+    .size([width, height])
+    .on("zoom", zoomed);
+
+// This projection is baked into the TopoJSON file,
+// but is used here to compute the desired zoom translate.
+var projection = d3.geo.mercator()
+    .translate([0, 0])
+    .scale(4000);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection(simplify)
+    .context(context);
+
+d3.json("us-states.json", function(error, json) {
+  if (error) throw error;
+
+  canvas
+      .datum(topojson.mesh(topojson.presimplify(json)))
+      .call(zoomTo(chesapeake, 0.05).event)
+    .transition()
+      .duration(5000)
+      .each(jump);
+});
+
+function zoomTo(location, scale) {
+  var point = projection(location);
+  return zoom
+      .translate([width / 2 - point[0] * scale, height / 2 - point[1] * scale])
+      .scale(scale);
+}
+
+function zoomed(d) {
+  translate = zoom.translate();
+  scale = zoom.scale();
+  visibleArea = 1 / scale / scale;
+  invisibleArea = 200 * visibleArea;
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  path(d);
+  context.stroke();
+}
+
+function jump() {
+  var t = d3.select(this);
+  (function repeat() {
+    t = t.transition()
+        .call(zoomTo(chesapeake, 1.25).event)
+      .transition()
+        .call(zoomTo(chesapeake, 0.05).event)
+        .each("end", repeat);
+  })();
+}
+
+</script>

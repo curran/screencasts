@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+svg,
+canvas {
+  position: absolute;
+}
+
+</style>
+<svg width="960" height="600"></svg>
+<canvas width="960" height="600"></canvas>
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script>
+
+var random = d3.randomNormal(0, 0.2),
+    sqrt3 = Math.sqrt(3),
+    points0 = d3.range(300).map(function() { return [random() + sqrt3, random() + 1]; }),
+    points1 = d3.range(300).map(function() { return [random() - sqrt3, random() + 1]; }),
+    points2 = d3.range(300).map(function() { return [random(), random() - 1]; }),
+    pointsets = [points0, points1, points2],
+    points = d3.merge([points0, points1, points2]),
+    index = -1;
+
+var context = d3.select("canvas").node().getContext("2d"),
+    svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var k = height / width,
+    x = d3.scaleLinear().domain([-4.5, 4.5]).range([0, width]),
+    y = d3.scaleLinear().domain([-4.5 * k, 4.5 * k]).range([height, 0]),
+    z = d3.schemeCategory10;
+
+var xAxis = d3.axisTop(x).ticks(12),
+    yAxis = d3.axisRight(y).ticks(12 * height / width);
+
+var zoom = d3.zoom()
+    .on("zoom", zoomed);
+
+var gx = svg.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + (height - 10) + ")")
+    .call(xAxis);
+
+var gy = svg.append("g")
+    .attr("class", "axis axis--y")
+    .attr("transform", "translate(10,0)")
+    .call(yAxis);
+
+svg.selectAll(".domain")
+    .style("display", "none");
+
+svg.call(zoom.transform, d3.zoomIdentity);
+
+d3.interval(function() {
+  var pointset = pointsets[index = (index + 1) % (pointsets.length + 1)] || points,
+      x0 = x(d3.min(pointset, function(d) { return d[0]; })),
+      x1 = x(d3.max(pointset, function(d) { return d[0]; })),
+      y0 = y(d3.max(pointset, function(d) { return d[1]; })),
+      y1 = y(d3.min(pointset, function(d) { return d[1]; })),
+      k = 0.9 / Math.max((x1 - x0) / width, (y1 - y0) / height),
+      tx = (width - k * (x0 + x1)) / 2,
+      ty = (height - k * (y0 + y1)) / 2;
+
+  svg.transition()
+      .duration(1500)
+      .call(zoom.transform, d3.zoomIdentity
+          .translate(tx, ty)
+          .scale(k));
+}, 2500);
+
+function zoomed() {
+  var transform = d3.event.transform,
+      zx = transform.rescaleX(x),
+      zy = transform.rescaleY(y);
+
+  gx.call(xAxis.scale(zx));
+  gy.call(yAxis.scale(zy));
+
+  context.clearRect(0, 0, width, height);
+  for (var j = 0, m = pointsets.length; j < m; ++j) {
+    context.beginPath();
+    context.fillStyle = d3.schemeCategory10[j];
+    for (var points = pointsets[j], i = 0, n = points.length, p, px, py; i < n; ++i) {
+      p = points[i], px = zx(p[0]), py = zy(p[1]);
+      context.moveTo(px + 2.5, py);
+      context.arc(px, py, 2.5, 0, 2 * Math.PI);
+    }
+    context.fill();
+  }
+}
+
+</script>

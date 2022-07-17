@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<svg width="960" height="600"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script>
+
+var svg = d3.select("svg");
+
+svg.append("rect")
+    .attr("fill", "blue")
+    .attr("x", 100)
+    .attr("y", 100)
+    .attr("width", 760)
+    .attr("height", 400);
+
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+  if (error) throw error;
+
+  var nation = topojson.feature(us, us.objects.nation);
+
+  svg.append("path")
+      .attr("fill", "red")
+      .attr("d", d3.geoPath()(nation));
+
+  svg.append("path")
+      .attr("fill", "black")
+      .attr("stroke", "white")
+      .attr("d", d3.geoPath(d3.geoIdentity().clipExtent([[100, 100], [860, 500]]))(nation));
+});
+
+</script>

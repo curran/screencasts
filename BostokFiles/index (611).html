@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: #fff;
+  stroke: #000;
+}
+
+</style>
+<svg width="960" height="500">
+  <defs>
+    <clipPath id="clip-upper">
+      <rect width="960" height="305" x="-480" y="-305"></rect>
+    </clipPath>
+    <clipPath id="clip-lower">
+      <rect width="960" height="195" x="-480" y="0"></rect>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clip-upper)" transform="translate(480,305)"></g>
+  <g clip-path="url(#clip-lower)" transform="translate(480,305)"></g>
+</svg>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="cubehelix.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    triangleSize = 400,
+    symbolCount = 71,
+    angularSpeed = .08,
+    colorSpeed = angularSpeed / 240;
+
+var color = d3.scale.cubehelix()
+    .domain([0, .5, 1])
+    .range([
+      d3.hsl(-100, 0.75, 0.35),
+      d3.hsl(  80, 1.50, 0.80),
+      d3.hsl( 260, 0.75, 0.35)
+    ]);
+
+var symbol = d3.selectAll("g")
+  .selectAll("g")
+    .data(function(d, i) { return i ? [0, 1, 2] : [2, 0, 1]; })
+  .enter().append("g")
+    .attr("transform", function(i) { return "rotate(" + (i * 120 + 60) + ")translate(0," + -triangleSize / Math.sqrt(12) + ")"; })
+  .selectAll("path")
+    .data(d3.range(symbolCount))
+  .enter().append("path")
+    .datum(function(i) { return i / symbolCount; })
+    .attr("d", d3.svg.symbol().type("cross").size(4000));
+
+d3.timer(function(elapsed) {
+  symbol
+      .style("fill", function(t) { return color((t * 2 + elapsed * colorSpeed) % 1); })
+      .attr("transform", function(t) { return "translate(" + (t - .5) * triangleSize + ",0)rotate(" + (t * 120 + elapsed * angularSpeed) + ")"; });
+});
+
+</script>

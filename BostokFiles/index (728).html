@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis--y path {
+  display: none;
+}
+
+.line path {
+  fill: none;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+}
+
+.line text {
+  font: bold 12px sans-serif;
+  text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v4.0.0-alpha.29.min.js"></script>
+<script>
+
+var data = [
+  {name: "HSL Rainbow", labelOffset: 60, value: function(t) { return d3.hsl(t, 1, 0.5); }},
+  {name: "HCL Rainbow", labelOffset: 20, value: function(t) { return d3.hcl(t, 1, 0.5); }},
+  {name: "Cubehelix Rainbow", labelOffset: 40, value: d3.scaleRainbow().domain([0, 360])}
+].map(function(color) {
+  return color.deltas = d3.range(0, 360, 3).map(function(x) {
+    return {
+      input: x,
+      delta: delta(color.value(x - 10), color.value(x + 10))
+    };
+  }), color;
+});
+
+var margin = {top: 20, right: 20, bottom: 30, left: 30},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scaleLinear()
+    .domain([0, 360])
+    .range([0, width]);
+
+var y = d3.scaleLinear()
+    .domain([0, 80])
+    .range([height, 0]);
+
+var z = d3.scaleCategory10();
+
+var line = d3.line()
+    .curve(d3.curveBasis)
+    .x(function(d) { return x(d.input); })
+    .y(function(d) { return y(d.delta); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + y(0) + ")")
+    .call(d3.axisBottom(x));
+
+svg.append("g")
+    .attr("class", "axis axis--y")
+    .call(d3.axisLeft(y))
+  .selectAll(".tick:last-of-type")
+  .append("text")
+    .attr("class", "axis-title")
+    .attr("x", 3)
+    .attr("dy", ".32em")
+    .text("Color Difference at ±10° (CIE76)");
+
+var g = svg.selectAll(".line")
+    .data(data)
+  .enter().append("g")
+    .attr("class", "line");
+
+g.append("path")
+    .attr("d", function(d) { return line(d.deltas); })
+    .attr("id", function(d, i) { return "path-" + i; })
+    .style("stroke", function(d, i) { return z(i); });
+
+g.append("text")
+    .attr("x", function(d) { return d.labelOffset; })
+    .attr("dy", -5)
+    .style("fill", function(d, i) { return d3.lab(z(i)).darker(); })
+  .append("textPath")
+    .attr("class", "textpath")
+    .attr("xlink:href", function(d, i) { return "#path-" + i; })
+    .text(function(d) { return d.name; });
+
+// CIE76 per https://en.wikipedia.org/wiki/Color_difference#CIE76
+// Not as good as CIEDE2000 but a lot easier to implement.
+function delta(a, b) {
+  var dl = (a = d3.lab(a)).l - (b = d3.lab(b)).l, da = a.a - b.a, db = a.b - b.b;
+  return Math.sqrt(dl * dl + da * da + db * db);
+}
+
+</script>

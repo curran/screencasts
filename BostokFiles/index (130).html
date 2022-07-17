@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Bitter:700);
+
+svg {
+  width: 960px;
+  height: 460px;
+  margin-top: 40px;
+}
+
+.orange { fill: #f89c20 }
+.orange-red { fill: #d02e27; }
+.red { fill: #e54e26; }
+.red-purple { fill: #7f1333; }
+.purple { fill: #694d9f; }
+.purple-cyan { fill: #263c81; }
+.cyan { fill: #2eb3c4; }
+.gray { fill: #474747; }
+.lightgray { fill: #a3a3a3; }
+
+</style>
+<svg viewBox="0 0 190 172" width="190" height="172">
+  <defs>
+    <path id="line-long" d="m-15.5,0v85a15.5,15.5 0 0 0 31,0v-85a15.5,15.5 0 0 0 -31,0zm9,0a6.5,6.5 0 0,0 13,0a6.5,6.5 0 0,0 -13,0zm0,85a6.5,6.5 0 0,0 13,0a6.5,6.5 0 0,0 -13,0z" fill-rule="evenodd"></path>
+    <path id="line-short" d="m-15.5,0v60.81118318204309a15.5,15.5 0 0 0 31,0v-60.81118318204309a15.5,15.5 0 0 0 -31,0zm9,0a6.5,6.5 0 0,0 13,0a6.5,6.5 0 0,0 -13,0zm0,60.81118318204309a6.5,6.5 0 0,0 13,0a6.5,6.5 0 0,0 -13,0z" fill-rule="evenodd"></path>
+    <clipPath id="clip-orange-red"><use transform="translate(52,19)" xlink:href="#line-long"></use></clipPath>
+    <clipPath id="clip-red-purple"><use transform="translate(52,104)rotate(-135)" xlink:href="#line-short"></use></clipPath>
+    <clipPath id="clip-purple-cyan"><use transform="translate(138,19)" xlink:href="#line-long"></use></clipPath>
+  </defs>
+  <g transform="translate(-.5,-.5)">
+    <use transform="translate(52,19)" xlink:href="#line-long" class="orange"></use>
+    <use transform="translate(52,104)rotate(-135)" xlink:href="#line-short" class="red"></use>
+    <use transform="translate(138,19)" xlink:href="#line-long" class="cyan"></use>
+    <use transform="translate(138,104)rotate(135)" xlink:href="#line-short" class="purple"></use>
+    <g clip-path="url(#clip-orange-red)"><use transform="translate(52,104)rotate(-135)" xlink:href="#line-short" class="orange-red"></use></g>
+    <g clip-path="url(#clip-red-purple)"><use transform="translate(138,104)rotate(135)" xlink:href="#line-short" class="red-purple"></use></g>
+    <g clip-path="url(#clip-purple-cyan)"><use transform="translate(138,104)rotate(135)" xlink:href="#line-short" class="purple-cyan"></use></g>
+    <text x="95" y="150" text-anchor="middle" font-family="Bitter" font-size="20" font-weight="bold" class="gray">WebPlatform<tspan class="lightgray">.org</tspan></text>
+  </g>
+</svg>

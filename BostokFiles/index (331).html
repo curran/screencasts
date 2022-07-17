@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #222;
+}
+
+.system {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.orbit {
+  fill: none;
+  stroke: #ccc;
+  stroke-dasharray: 2,3;
+}
+
+.planet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -moz-animation-name: rotate;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -webkit-animation-name: rotate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.planet circle {
+  fill: url(#planet-gradient);
+}
+
+@-moz-keyframes rotate {
+  from { -moz-transform: rotateZ(0deg); }
+  to { -moz-transform: rotateZ(-360deg); }
+}
+
+@-webkit-keyframes rotate {
+  from { -webkit-transform: rotateZ(0deg); }
+  to { -webkit-transform: rotateZ(-360deg); }
+}
+
+@keyframes rotate {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(-360deg); }
+}
+
+</style>
+<div class="system">
+  <svg style="position:absolute;width:0;height:0;">
+    <defs>
+      <radialGradient id="planet-gradient" gradientUnits="objectBoundingBox" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#aaa" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#777" stop-opacity="1"/>
+      </radialGradient>
+    </defs>
+  </svg>
+</div>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+// Scales for semimajor axis, planet radius, and planet period.
+var x = d3.scale.linear().range([0, 400]),
+    r = d3.scale.linear().domain([4, 40]).range([4 * .5, 40 * .5]).clamp(true),
+    t = d3.scale.linear().range([0, 1]);
+
+var padding = 16,
+    width = 960,
+    height = 500;
+
+// Detect the appropriate vendor prefix.
+var prefix = "-webkit-transform" in document.body.style ? "-webkit-"
+    : "-moz-transform" in document.body.style ? "-moz-"
+    : "";
+
+d3.csv("planets.csv", type, function(error, planets) {
+  d3.select(".system")
+      .style("width", width + "px")
+      .style("height", height + "px")
+    .selectAll(".planet")
+      .data(planets.sort(function(a, b) { return b.planet_radius - a.planet_radius; }))
+    .enter().append("svg")
+      .attr("class", "planet")
+      .attr("width", width)
+      .attr("height", height)
+      .style(prefix + "animation-duration", function(d) { return t(d.period) + "s"; })
+      .style(prefix + "transform-origin", width / 2 + "px " + height / 2 + "px")
+    .append("circle")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+      .attr("cx", function(d) { return x(d.semimajor_axis); })
+      .attr("r", function(d) { return r(d.planet_radius); });
+});
+
+function type(d) {
+  d.period = +d.period;
+  d.planet_radius = +d.planet_radius;
+  d.semimajor_axis = +d.semimajor_axis;
+  d.stellar_radius = +d.stellar_radius;
+  return d;
+}
+
+</script>

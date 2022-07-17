@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var sample = uniformRandomSampler(width, height, 3000);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.timer(function() {
+  for (var i = 0; i < 10; ++i) {
+    var s = sample();
+    if (!s) return true;
+    svg.append("circle")
+        .attr("cx", s[0])
+        .attr("cy", s[1])
+        .attr("r", 0)
+      .transition()
+        .attr("r", 2);
+  }
+});
+
+function uniformRandomSampler(width, height, numSamplesMax) {
+  var numSamples = 0;
+  return function() {
+    if (++numSamples > numSamplesMax) return;
+    return [Math.random() * width, Math.random() * height];
+  };
+}
+
+</script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>PivotGraph (Rollup) Layout</title>
+<style>
+
+body {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .25;
+}
+
+.node {
+  fill: #fff;
+  stroke: steelblue;
+}
+
+.axis path,
+.axis line {
+  display: none;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="d3.rollup.min.js"></script>
+<script>
+
+var margin = {top: 90, right: 240, bottom: 90, left: 240},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+function fx(d) { return d.gender; }
+function fy(d) { return d.group; }
+
+var x = d3.scale.ordinal()
+    .rangePoints([6, width - 6]);
+
+var y = d3.scale.ordinal()
+    .rangePoints([6, height - 6]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("top");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+var rollup = d3.rollup()
+    .x(function(d) { return x(fx(d)); })
+    .y(function(d) { return y(fy(d)); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("social.json", function(error, social) {
+  if (error) throw error;
+
+  x.domain(social.nodes.map(fx));
+  y.domain(social.nodes.map(fy));
+  var graph = rollup(social);
+
+  svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("path")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var sx = d.source.x, sy = d.source.y,
+            tx = d.target.x, ty = d.target.y,
+            dx = tx - sx, dy = ty - sy,
+            dr = 2 * Math.sqrt(dx * dx + dy * dy);
+        return "M" + sx + "," + sy + "A" + dr + "," + dr + " 0 0,1 " + tx + "," + ty;
+      })
+      .style("stroke-width", function(d) { return d.value * 4; });
+
+  svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", function(d) { return Math.sqrt(d.nodes.length * 40); })
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+});
+
+</script>

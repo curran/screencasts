@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<svg width="960" height="600" fill="none" stroke="#333">
+  <path id="municipalities" stroke-width="0.2"></path>
+  <path id="states"></path>
+</svg>
+<script src="https://unpkg.com/d3-array@1"></script>
+<script src="https://unpkg.com/d3-collection@1"></script>
+<script src="https://unpkg.com/d3-dispatch@1"></script>
+<script src="https://unpkg.com/d3-request@1"></script>
+<script src="https://unpkg.com/d3-selection@1"></script>
+<script src="https://unpkg.com/d3-geo@1"></script>
+<script src="https://unpkg.com/topojson-client@3"></script>
+<script>
+
+var projection = d3.geoMercator(),
+    path = d3.geoPath(projection);
+
+d3.json("mx.json", function(error, mx) {
+  if (error) throw error;
+
+  var states = topojson.feature(mx, mx.objects.states),
+      municipalities = topojson.feature(mx, mx.objects.municipalities);
+
+  projection.fitSize([960, 600], states);
+
+  d3.select("#municipalities")
+      .datum(municipalities)
+      .attr("d", path);
+
+  d3.select("#states")
+      .datum(states)
+      .attr("d", path);
+});
+
+</script>

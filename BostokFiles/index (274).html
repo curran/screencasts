@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #192887;
+}
+
+.graticule {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.land {
+  fill: #007421;
+}
+
+.dot {
+  fill: #c7141a;
+}
+
+.ring {
+  fill: none;
+  stroke: #c7141a;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.mercator()
+    .center([113, -3])
+    .scale(1275)
+    .translate([width / 2, height / 2])
+    .clipExtent([[0, 0], [width, height]])
+    .precision(.1);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var graticule = d3.geo.graticule()
+    .step([5, 5]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("path")
+    .datum(graticule)
+    .attr("class", "graticule")
+    .attr("d", path);
+
+svg.append("circle")
+    .attr("class", "dot")
+    .attr("transform", "translate(" + projection([100, -8]) + ")")
+    .attr("r", 8);
+
+setInterval(function() {
+  svg.append("circle")
+      .attr("class", "ring")
+      .attr("transform", "translate(" + projection([100, -8]) + ")")
+      .attr("r", 6)
+      .style("stroke-width", 3)
+      .style("stroke", "red")
+    .transition()
+      .ease("linear")
+      .duration(6000)
+      .style("stroke-opacity", 1e-6)
+      .style("stroke-width", 1)
+      .style("stroke", "brown")
+      .attr("r", 160)
+      .remove();
+}, 750);
+
+d3.json("/mbostock/raw/4090846/world-50m.json", function(error, world) {
+  if (error) throw error;
+
+  svg.insert("path", ".graticule")
+      .datum(topojson.feature(world, world.objects.land))
+      .attr("class", "land")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

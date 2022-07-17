@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.state {
+  fill: #ccc;
+}
+
+.state-boundary {
+  fill: none;
+  stroke: #fff;
+}
+
+.state.selected {
+  fill: orange;
+  stroke: #000;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.albersUsa()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var selected = d3.set([
+   9, 10, 12, 13, 17, 18, 19, 21, 23, 24,
+  25, 26, 29, 31, 33, 34, 36, 37, 39, 42,
+  44, 45, 47, 50, 51, 54, 55
+]);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.feature(us, us.objects.states))
+      .attr("class", "state")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "state-boundary")
+      .attr("d", path);
+
+  svg.append("path")
+      .datum(topojson.merge(us, us.objects.states.geometries.filter(function(d) { return selected.has(d.id); })))
+      .attr("class", "state selected")
+      .attr("d", path);
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

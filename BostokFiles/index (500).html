@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.land {
+  fill: #bbb;
+}
+
+.border {
+  fill: none;
+}
+
+.border--static {
+  stroke: #fff;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.albersUsa()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  var delay = 0;
+
+  svg.append("path")
+      .datum(topojson.merge(us, us.objects.counties.geometries))
+      .attr("class", "land")
+      .attr("d", path);
+
+  var gStatic = svg.append("g")
+      .attr("class", "border border--static");
+
+  var gAnimate = svg.append("g")
+      .attr("class", "border border--animate");
+
+  gAnimate.selectAll("path")
+      .data(d3.nest()
+        .key(function(d) { return d.id / 1000 | 0; })
+        .sortKeys(function(a, b) { return a - b; })
+        .entries(us.objects.counties.geometries))
+    .enter().append("path")
+      .attr("d", function(d) { return path(topojson.merge(us, d.values)); })
+      .each(function(d) { d.duration = (d.length = this.getTotalLength()) * 3; })
+      .style("stroke-width", "1.5px")
+      .style("stroke-dasharray", function(d) { return "0," + d.length; })
+    .transition()
+      .delay(function(d, i) { var delay1 = delay; delay += d.duration; return delay1; })
+      .duration(function(d) { return d.duration; })
+      .ease("linear")
+      .each("start", function() { this.style.stroke = "#000"; })
+      .style("stroke-dasharray", function(d) { return d.length + "," + d.length; })
+      .each("end", function(d) {
+        var id = +d.key;
+        gStatic.append("path")
+            .datum(topojson.mesh(us, us.objects.counties, function(a, b) { return a.id / 1000 ^ b.id / 1000 && ((a.id / 1000 | 0) === id || (b.id / 1000 | 0) === id); }))
+            .attr("d", path);
+      })
+    .transition()
+      .duration(750)
+      .style("stroke-opacity", 0)
+      .remove();
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

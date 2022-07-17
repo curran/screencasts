@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  background: #fcfcfa;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/d3.geo.projection.v0.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 960,
+    speed = 1e-2;
+
+var sphere = {type: "Sphere"};
+
+var projection = d3.geo.orthographic()
+    .clipAngle(90)
+    .translate([width / 2, height / 2])
+    .precision(.5);
+
+var graticule = d3.geo.graticule();
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var path = d3.geo.path()
+    .projection(projection)
+    .pointRadius(1.5)
+    .context(context);
+
+d3.json("topo.json", function(error, topo) {
+  if (error) throw error;
+
+  var land = topojson.feature(topo, topo.objects.land),
+      borders = topojson.mesh(topo, topo.objects.countries, function(a, b) { return a !== b; }),
+      cables = topojson.feature(topo, topo.objects.cables),
+      landings = topojson.feature(topo, topo.objects.landings),
+      grid = graticule();
+
+  cables.features.forEach(function(cable) {
+    if (cable.geometry.type === "LineString") resample(cable.geometry.coordinates);
+    else cable.geometry.coordinates.forEach(resample);
+  });
+
+  d3.timer(function(elapsed) {
+    projection.rotate([speed * elapsed, -15]);
+
+    context.clearRect(0, 0, width, height);
+
+    projection.scale(width / 2.2).clipAngle(90);
+
+    context.beginPath();
+    path(sphere);
+    context.fillStyle = "#fff";
+    context.fill();
+
+    context.beginPath();
+    path(grid);
+    context.lineWidth = .5;
+    context.strokeStyle = "#ddd";
+    context.stroke();
+
+    context.beginPath();
+    path(land);
+    context.fillStyle = "#ddd";
+    context.fill();
+
+    context.beginPath();
+    path(borders);
+    context.lineWidth = 1;
+    context.strokeStyle = "#fff";
+    context.stroke();
+
+    projection.scale(width / 2.1).clipAngle(107);
+
+    context.beginPath();
+    path(cables);
+    context.lineWidth = .5;
+    context.strokeStyle = "#333";
+    context.stroke();
+
+    context.beginPath();
+    path(landings);
+    context.fillStyle = "#555";
+    context.fill();
+
+    projection.scale(width / 2.2).clipAngle(90);
+
+    context.beginPath();
+    path(sphere);
+    context.lineWidth = 1.5;
+    context.strokeStyle = "#000";
+    context.stroke();
+  });
+});
+
+// Takes a sparse line string that assumes Cartesian interpolation in spherical
+// coordinates and inserts interstitial points for greater accuracy when
+// rendering with D3, which assumes spherical interpolation.
+function resample(coordinates) {
+  var i = 0,
+      j = -1,
+      n = coordinates.length,
+      source = coordinates.slice(),
+      p0, x0, y0,
+      p1 = coordinates[0], x1 = p1[0], y1 = p1[1],
+      dx, dy, d2,
+      m2 = 10; // squared minimum angular distance
+  while (++i < n) {
+    p0 = p1, x0 = x1, y0 = y1;
+    p1 = source[i], x1 = p1[0], y1 = p1[1];
+    dx = x1 - x0, dy = y1 - y0, d2 = dx * dx + dy * dy;
+    coordinates[++j] = p0;
+    if (d2 > m2) for (var k = 1, m = Math.ceil(Math.sqrt(d2 / m2)); k < m; ++k) {
+      coordinates[++j] = [x0 + dx * k / m, y0 + dy * k / m];
+    }
+  }
+  coordinates[++j] = p1;
+  coordinates.length = j + 1;
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

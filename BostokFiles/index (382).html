@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500,
+    parameters = [0.4, 0.3, 0.2, 0.1];
+
+var x = d3.scale.ordinal()
+    .domain(parameters)
+    .rangeRoundBands([0, width], .5);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.selectAll("rect")
+    .data(parameters)
+  .enter().append("rect")
+    .attr("width", x.rangeBand())
+    .attr("height", x.rangeBand())
+    .attr("x", x)
+    .attr("y", -x.rangeBand())
+    .each(function(d, i) {
+      d3.select(this).transition()
+          .duration(1500)
+          .delay(1500 * i)
+          .ease(bounce(d))
+          .attr("y", height - x.rangeBand());
+    });
+
+function bounce(h) {
+  if (!arguments.length) h = 0.25;
+  var b0 = 1 - h,
+      b1 = b0 * (1 - b0) + b0,
+      b2 = b0 * (1 - b1) + b1,
+      x0 = 2 * Math.sqrt(h),
+      x1 = x0 * Math.sqrt(h),
+      x2 = x1 * Math.sqrt(h),
+      t0 = 1 / (1 + x0 + x1 + x2),
+      t1 = t0 + t0 * x0,
+      t2 = t1 + t0 * x1,
+      m0 = t0 + t0 * x0 / 2,
+      m1 = t1 + t0 * x1 / 2,
+      m2 = t2 + t0 * x2 / 2,
+      a = 1 / (t0 * t0);
+  return function(t) {
+    return t >= 1 ? 1
+        : t < t0 ? a * t * t
+        : t < t1 ? a * (t -= m0) * t + b0
+        : t < t2 ? a * (t -= m1) * t + b1
+        : a * (t -= m2) * t + b2;
+  };
+}
+
+</script>

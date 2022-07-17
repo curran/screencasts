@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.background {
+  fill: none;
+  stroke: #ddd;
+}
+
+.foreground {
+  fill: none;
+  pointer-events: all;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var projection = d3.geo.albersUsa()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var color = d3.scale.ordinal().domain(d3.range(9)).range(["#d53e4f","#f46d43","#fdae61","#fee08b","#ffffbf","#e6f598","#abdda4","#66c2a5","#3288bd"]),
+    selectedColor = 0,
+    dragColor;
+
+var components = color.domain().map(function() { return []; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var legend = svg.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(" + ((width - color.domain().length * 24) / 2) + ",10)")
+    .style("cursor", "pointer")
+  .selectAll("rect")
+    .data(color.domain())
+  .enter().append("rect")
+    .attr("x", function(d) { return d * 24; })
+    .attr("width", 24 - 3)
+    .attr("height", 24 - 3)
+    .style("stroke", function(d) { return d ? null : "#000"; })
+    .style("fill", color)
+    .on("click", clicklegend);
+
+d3.select(self)
+    .on("keydown", keydown)
+    .node().focus();
+
+d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+  if (error) throw error;
+
+  var bisectId = d3.bisector(function(d) { return d.id; }).left;
+
+  var features = topojson.feature(us, us.objects.counties).features;
+
+  svg.append("path")
+      .datum(topojson.mesh(us, us.objects.counties))
+      .attr("class", "background")
+      .attr("d", path);
+
+  var merge = svg.append("g")
+      .attr("class", "merge")
+    .selectAll("path")
+      .data(components)
+    .enter().append("path")
+      .style("fill", function(d, i) { return color(i); })
+      .style("stroke", function(d, i) { return d3.lab(color(i)).darker(); });
+
+  svg.append("g")
+      .attr("class", "foreground")
+      .style("cursor", "pointer")
+      .style("stroke-opacity", .5)
+    .selectAll("path")
+      .data(features)
+    .enter().append("path")
+      .attr("d", function(d) { d.color = null; return path(d); })
+      .on("mouseover", function() { this.style.stroke = "black"; })
+      .on("mouseout", function() { this.style.stroke = "none"; })
+      .call(d3.behavior.drag()
+        .on("dragstart", dragstart)
+        .on("drag", drag));
+
+  top.location.hash.split("").slice(1, features.length).forEach(function(c, i) {
+    if ((c = +c) >= 0 && c < 10) assign(features[i], c ? c - 1 : null);
+  });
+
+  redraw();
+
+  function dragstart() {
+    var feature = d3.event.sourceEvent.target.__data__;
+    if (assign(feature, dragColor = feature.color === selectedColor ? null : selectedColor)) redraw();
+  }
+
+  function drag() {
+    var feature = d3.event.sourceEvent.target.__data__;
+    if (feature && assign(feature, dragColor)) redraw();
+  }
+
+  function assign(feature, color) {
+    if (feature.color === color) return false;
+    if (feature.color !== null) {
+      var component = components[feature.color];
+      component.splice(bisectId(component, feature.id), 1);
+      feature.color = null;
+    }
+    if (color !== null) {
+      var component = components[color];
+      component.splice(bisectId(component, feature.id), 0, feature);
+      feature.color = color;
+    }
+    return true;
+  }
+
+  function redraw() {
+    merge.data(components).attr("d", function(d) { return path({type: "FeatureCollection", features: d}) || "M0,0"; });
+    top.history.replaceState(null, null, "#" + features.map(function(d) { return d.color === null ? "0" : d.color + 1; }).join(""));
+  }
+});
+
+function clicklegend(d) {
+  legend[0][selectedColor].style.stroke = null;
+  legend[0][selectedColor = d].style.stroke = "#000";
+}
+
+function keydown() {
+  if (d3.event.keyCode >= 48 && d3.event.keyCode < 58) {
+    var i = d3.event.keyCode - 49;
+    if (i < 0) i = 10;
+    clicklegend(i);
+  }
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>

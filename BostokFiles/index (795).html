@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 250, right: 40, bottom: 250, left: 40},
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom;
+
+var locale = d3.timeFormatLocale({
+  "dateTime": "%A, %e %B %Y г. %X",
+  "date": "%d.%m.%Y",
+  "time": "%H:%M:%S",
+  "periods": ["AM", "PM"],
+  "days": ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"],
+  "shortDays": ["вс", "пн", "вт", "ср", "чт", "пт", "сб"],
+  "months": ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+  "shortMonths": ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]
+});
+
+var formatMillisecond = locale.format(".%L"),
+    formatSecond = locale.format(":%S"),
+    formatMinute = locale.format("%I:%M"),
+    formatHour = locale.format("%I %p"),
+    formatDay = locale.format("%a %d"),
+    formatWeek = locale.format("%b %d"),
+    formatMonth = locale.format("%B"),
+    formatYear = locale.format("%Y");
+
+var x = d3.scaleTime()
+    .domain([new Date(2000, 0, 1), new Date(2001, 0, 1)])
+    .range([0, width]);
+
+svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .call(d3.axisBottom(x)
+        .tickFormat(multiFormat));
+
+function multiFormat(date) {
+  return (d3.timeSecond(date) < date ? formatMillisecond
+      : d3.timeMinute(date) < date ? formatSecond
+      : d3.timeHour(date) < date ? formatMinute
+      : d3.timeDay(date) < date ? formatHour
+      : d3.timeMonth(date) < date ? (d3.timeWeek(date) < date ? formatDay : formatWeek)
+      : d3.timeYear(date) < date ? formatMonth
+      : formatYear)(date);
+}
+
+</script>

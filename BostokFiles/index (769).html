@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<svg width="960" height="500"></svg>
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 210, right: 20, bottom: 220, left: 20},
+    width = svg.attr("width") - margin.left - margin.right,
+    height = svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var x = d3.scaleLinear()
+    .domain([0, 1])
+    .range([0, width])
+    .interpolate(easeInterpolate(d3.easeQuadInOut));
+
+g.append("g")
+    .attr("class", "axis axis--x")
+    .call(d3.axisBottom(x));
+
+function easeInterpolate(ease) {
+  return function(a, b) {
+    var i = d3.interpolate(a, b);
+    return function(t) {
+      return i(ease(t));
+    };
+  };
+}
+
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.fill {
+  fill: #bbb;
+}
+
+.point {
+  fill: #000;
+}
+
+.line,
+.circle,
+.point--intersection {
+  fill: none;
+  stroke: #000;
+  stroke-width: .15px;
+}
+
+.line {
+  stroke-opacity: .3;
+}
+
+.point--intersection {
+  display: none;
+}
+
+</style>
+<svg width="960" height="500" viewBox="-10 -10 116 111">
+  <path class="fill" d="
+    M0,0
+    h7.75
+    a45.5,45.5 0 1 1 0,91
+    h-7.75
+    v-20
+    h7.75
+    a25.5,25.5 0 1 0 0,-51
+    h-7.75
+    z
+    m36.2510,0
+    h32
+    a27.75,27.75 0 0 1 21.331,45.5
+    a27.75,27.75 0 0 1 -21.331,45.5
+    h-32
+    a53.6895,53.6895 0 0 0 18.7464,-20
+    h13.2526
+    a7.75,7.75 0 1 0 0,-15.5
+    h-7.75
+    a53.6895,53.6895 0 0 0 0,-20
+    h7.75
+    a7.75,7.75 0 1 0 0,-15.5
+    h-13.2526
+    a53.6895,53.6895 0 0 0 -18.7464,-20
+    z"/>
+
+  <line class="line line--horizontal" x1="-100" x2="200" y1="0" y2="0"/>
+  <line class="line line--horizontal" x1="-100" x2="200" y1="20" y2="20"/>
+  <line class="line line--horizontal" x1="-100" x2="200" y1="35.5" y2="35.5"/>
+  <line class="line line--horizontal" x1="-100" x2="200" y1="45.5" y2="45.5"/>
+  <line class="line line--horizontal" x1="-100" x2="200" y1="55.5" y2="55.5"/>
+  <line class="line line--horizontal" x1="-100" x2="200" y1="71" y2="71"/>
+  <line class="line line--horizontal" x1="-100" x2="200" y1="91" y2="91"/>
+
+  <line class="line line--vertical" x1="0" x2="0" y1="-100" y2="200"/>
+  <line class="line line--vertical" x1="7.75" x2="7.75" y1="-100" y2="200"/>
+  <line class="line line--vertical" x1="60.5" x2="60.5" y1="-100" y2="200"/> <!-- XXX  -->
+  <line class="line line--vertical" x1="68.25" x2="68.25" y1="-100" y2="200"/>
+  <line class="line line--vertical" x1="96" x2="96" y1="-100" y2="200"/>
+
+  <circle class="point" cx="7.75" cy="45.5" r=".5"/>
+  <circle class="circle" cx="7.75" cy="45.5" r="25.5"/>
+  <circle class="circle" cx="7.75" cy="45.5" r="45.5"/>
+
+  <!-- Radius is computed to intersect at the intended x=60.5. -->
+  <circle class="circle" cx="7.75" cy="45.5" r="53.6895"/>
+
+  <!-- Intersecting horizontal lines with the r=53.6895 circle. -->
+  <circle class="point point--intersection" cx="36.2510" cy="0" r=".5"/>
+  <circle class="point point--intersection" cx="54.9974" cy="20" r=".5"/>
+  <circle class="point point--intersection" cx="60.5" cy="35.5" r=".5"/>
+  <circle class="point point--intersection" cx="60.5" cy="55.5" r=".5"/>
+  <circle class="point point--intersection" cx="54.9974" cy="71" r=".5"/>
+  <circle class="point point--intersection" cx="36.2510" cy="91" r=".5"/>
+
+  <!-- Intersecting the two r=27.75 circles. -->
+  <circle class="point point--intersection" cx="89.5807" cy="45.5" r=".5"/>
+
+  <circle class="point" cx="68.25" cy="27.75" r=".5"/>
+  <circle class="circle" cx="68.25" cy="27.75" r="7.75"/>
+  <circle class="circle" cx="68.25" cy="27.75" r="27.75"/>
+
+  <circle class="point" cx="68.25" cy="63.25" r=".5"/>
+  <circle class="circle" cx="68.25" cy="63.25" r="7.75"/>
+  <circle class="circle" cx="68.25" cy="63.25" r="27.75"/>
+</svg>

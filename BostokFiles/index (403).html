@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var k = 20 // number of candidates to consider per point
+    m = 10, // initial number of points to add per frame
+    n = 2500, // remaining number of points to add
+    newPoint = bestPointGenerator(32),
+    points = [];
+
+var voronoi = d3.geom.voronoi()
+    .clipExtent([[-1, -1], [width + 1, height + 1]]);
+
+var canvas = d3.select("body").append("canvas")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+d3.timer(function() {
+  var n0 = points.length;
+
+  for (var i = 0; i < m && --n >= 0; ++i) {
+    points.push(newPoint(k));
+
+    // As we add more circles, gradually reduce circles per frame.
+    if (m > 1) m *= .998;
+  }
+
+  var links = voronoi.links(points);
+  context.clearRect(0, 0, width, height);
+  context.beginPath();
+  for (var i = 0, link, l = links.length; i < l; ++i) {
+    link = links[i];
+    context.moveTo(link.source[0], link.source[1]);
+    context.lineTo(link.target[0], link.target[1]);
+  }
+  context.closePath();
+  context.stroke();
+
+  return !n;
+});
+
+function bestPointGenerator(searchRadius) {
+  var quadtree = d3.geom.quadtree().extent([[0, 0], [width, height]])([]);
+
+  return function(k) {
+    var bestX, bestY, bestDistance = 0;
+
+    for (var i = 0; i < k; ++i) {
+      var x = Math.random() * width,
+          y = Math.random() * height,
+          rx1 = x - searchRadius,
+          rx2 = x + searchRadius,
+          ry1 = y - searchRadius,
+          ry2 = y + searchRadius,
+          minDistance = Infinity; // minimum distance for this candidate
+
+      quadtree.visit(function(quad, x1, y1, x2, y2) {
+        if (p = quad.point) {
+          var p,
+              dx = x - p[0],
+              dy = y - p[1],
+              d2 = dx * dx + dy * dy,
+              d = Math.sqrt(d2);
+          if (d < minDistance) {
+            minDistance = d;
+            rx1 = x - d;
+            rx2 = x + d;
+            ry1 = y - d;
+            ry2 = y + d;
+          }
+        }
+        return x1 > rx2 || x2 < rx1 || y1 > ry2 || y2 < ry1; // or outside search radius
+      });
+
+      if (minDistance > bestDistance) bestX = x, bestY = y, bestDistance = minDistance;
+    }
+
+    var best = [bestX, bestY];
+    quadtree.add(best);
+    return best;
+  };
+}
+
+</script>

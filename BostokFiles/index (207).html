@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.circle {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px;
+}
+
+.circle.intersects {
+  stroke: green;
+}
+
+.line {
+  stroke: #000;
+  stroke-dasharray: 3,3;
+}
+
+.segment {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+text {
+  text-anchor: middle;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .on("mousemove", function() { move(d3.mouse(this)); });
+
+var p0 = [width * .2, height * .8],
+    p1 = [width * .8, height * .2];
+
+svg.append("path")
+    .attr("class", "line")
+    .attr("d", "M" + [0, height] + "L" + [width, 0]);
+
+svg.append("path")
+    .attr("class", "segment")
+    .attr("d", "M" + p0 + "L" + p1);
+
+svg.selectAll(".endpoint")
+    .data([p0, p1])
+  .enter().append("circle")
+    .attr("class", "endpoint")
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
+    .attr("r", 4.5);
+
+svg.selectAll(".tick")
+    .data(d3.range(.1, 1, .1))
+  .enter().append("circle")
+    .attr("class", "tick")
+    .attr("transform", function(d) { return "translate(" + d3.interpolate(p0, p1)(d) + ")"; })
+    .attr("r", 2.5);
+
+var projection = svg.append("path")
+    .attr("class", "line");
+
+var closest = svg.append("circle")
+    .attr("class", "circle intersects")
+    .attr("r", 4.5);
+
+var label = svg.append("text")
+    .attr("y", -6);
+
+move([Math.random() * width, Math.random() * height]);
+
+function move(p2) {
+  var t = pointLineSegmentParameter(p2, p0, p1),
+      x10 = p1[0] - p0[0],
+      y10 = p1[1] - p0[1],
+      p3 = [p0[0] + t * x10, p0[1] + t * y10];
+
+  label.attr("transform", "translate(" + p3 + ")rotate(" + Math.atan2(y10, x10) / Math.PI * 180 + ")").text(t.toFixed(3));
+  closest.attr("transform", "translate(" + p3 + ")").classed("intersects", Math.abs(t - .5) < .5);
+  projection.attr("d", "M" + p2 + "L" + p3);
+}
+
+function pointLineSegmentParameter(p2, p0, p1) {
+  var x10 = p1[0] - p0[0], y10 = p1[1] - p0[1],
+      x20 = p2[0] - p0[0], y20 = p2[1] - p0[1];
+  return (x20 * x10 + y20 * y10) / (x10 * x10 + y10 * y10);
+}
+
+</script>

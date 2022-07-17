@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+div {
+  margin: 0 122px;
+  width: 715px;
+  height: 471px;
+  overflow: hidden;
+  position: relative;
+}
+
+canvas,
+img {
+  position: absolute;
+}
+
+</style>
+<div>
+  <img src="example-uniform.png" style="left:-3px;top:-1px;">
+  <canvas data-alpha="0.0" width="715" height="471"></canvas>
+</div>
+<div>
+  <img src="example-chordal.png" style="left:-4px;top:-2px;">
+  <canvas data-alpha="1.0" width="715" height="471"></canvas>
+</div>
+<div>
+  <img src="example-centripetal.png" style="left:-4px;top:-1px;">
+  <canvas data-alpha="0.5" width="715" height="471"></canvas>
+</div>
+<script src="d3.js"></script>
+<script>
+
+var points = [
+  [133.5, 424.0],
+  [ 56.5, 352.0],
+  [344.0,  73.0],
+  [360.5,  88.0],
+  [593.0, 412.5],
+  [621.5, 386.0],
+  [662.5, 129.0]
+];
+
+[].forEach.call(document.querySelectorAll("canvas"), function(canvas) {
+  var context = canvas.getContext("2d");
+
+  var line = d3_shape.line()
+      .context(context)
+      .interpolate("catmull-rom", canvas.getAttribute("data-alpha"));
+
+  context.beginPath();
+  line(points);
+  context.lineWidth = 1.5;
+  context.strokeStyle = "white";
+  context.stroke();
+});
+
+if (self.frameElement) self.frameElement.style.height = 471 * 3 + "px";
+
+</script>

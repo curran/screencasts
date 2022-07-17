@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.mesh {
+  fill: none;
+  stroke: #333;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.play circle {
+  fill: white;
+  stroke: black;
+  stroke-width: 3px;
+}
+
+.play:hover path {
+  fill: red;
+}
+
+.play.mousedown circle {
+  fill: red;
+}
+
+.play.mousedown path {
+  fill: white;
+}
+
+.play rect {
+  fill: none;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.before,
+.after {
+  fill: none;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.before {
+  stroke: red;
+}
+
+.after {
+  stroke: blue;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var color = d3.scale.category10();
+
+var path = d3.geo.path()
+    .projection(null);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("us.json", function(error, us) {
+  if (error) throw error;
+
+  svg.append("path")
+      .datum(topojson.mesh(us))
+      .attr("class", "mesh")
+      .attr("d", path);
+
+  var play = svg.append("g")
+      .attr("class", "play");
+
+  play.append("circle")
+      .attr("r", 45)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+  play.append("path")
+      .attr("d", "M-22,-30l60,30l-60,30z")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(.7)");
+
+  play.append("rect")
+      .attr("width", width)
+      .attr("height", height)
+      .on("mousedown", function() {
+        play.classed("mousedown", true);
+        d3.select(window).on("mouseup", function() { play.classed("mousedown", false); });
+      })
+      .on("click", function() {
+        resetAll();
+        animation();
+      });
+
+  function resetAll() {
+    play.style("display", null);
+  }
+
+  function animation() {
+    play.style("display", "none");
+
+    var cuts = [];
+
+    us.objects.states.geometries.forEach(function(d) {
+      if (d.type === "Polygon") extractPolygon(d.arcs);
+      else d.arcs.forEach(extractPolygon);
+    });
+
+    cuts.reverse();
+
+    function extractPolygon(arcs) {
+      arcs.forEach(extractRing);
+    }
+
+    function extractRing(arcs) {
+      for (var i = 1, n = arcs.length; i < n; ++i) {
+        cuts.push([arc(arcs[i - 1]), d3.merge(arcs.slice(i, n).map(arc))]);
+      }
+    }
+
+    function arc(index) {
+      var x = 0, y = 0, arc = us.arcs[index < 0 ? ~index : index].map(function(point) {
+        return [
+          (x += point[0]) * us.transform.scale[0] + us.transform.translate[0],
+          (y += point[1]) * us.transform.scale[1] + us.transform.translate[1]
+        ];
+      });
+      return index < 0 ? arc.reverse() : arc;
+    }
+
+    var interval = setInterval(function() {
+      var cut = cuts.pop();
+      if (!cut) return clearInterval(interval), setTimeout(resetAll, 750);
+      var g = svg.append("g")
+          .attr("class", "cut");
+
+      g.selectAll("path")
+          .data(cut)
+        .enter().append("path")
+          .datum(function(d) { return {type: "LineString", coordinates: d}; })
+          .attr("d", path)
+          .attr("class", function(d, i) { return i ? "after" : "before"; });
+
+      g.transition()
+          .duration(500)
+          .style("stroke-opacity", 0)
+          .remove();
+    }, 100);
+  }
+});
+
+</script>

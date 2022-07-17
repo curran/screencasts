@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<style>
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+svg {
+  position: absolute;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
+
+var width = self.frameElement ? 960 : innerWidth,
+    height = self.frameElement ? 500 : innerHeight;
+
+var data = d3.range(20).map(function() { return [Math.random() * width, Math.random() * height]; });
+
+var color = d3.scale.category10();
+
+var drag = d3.behavior.drag()
+    .origin(function(d) { return {x: d[0], y: d[1]}; })
+    .on("dragstart", dragstarted)
+    .on("drag", dragged)
+    .on("dragend", dragended);
+
+d3.select("body")
+    .on("touchstart", nozoom)
+    .on("touchmove", nozoom)
+  .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .selectAll("circle")
+    .data(data)
+  .enter().append("circle")
+    .attr("transform", function(d) { return "translate(" + d + ")"; })
+    .attr("r", 32)
+    .style("fill", function(d, i) { return color(i); })
+    .call(drag);
+
+function dragstarted() {
+  this.parentNode.appendChild(this);
+
+  d3.select(this).transition()
+      .ease("elastic")
+      .duration(500)
+      .attr("r", 48);
+}
+
+function dragged(d) {
+  d[0] = d3.event.x;
+  d[1] = d3.event.y;
+
+  d3.select(this)
+      .attr("transform", "translate(" + d + ")");
+}
+
+function dragended() {
+  d3.select(this).transition()
+      .ease("elastic")
+      .duration(500)
+      .attr("r", 32);
+}
+
+function nozoom() {
+  d3.event.preventDefault();
+}
+
+</script>
